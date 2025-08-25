@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MovPersonaje : MonoBehaviour
 {
-    [SerializeField] float velocidad;
+    [SerializeField] float aceleracion;
+    [SerializeField] float velMax;
     [SerializeField] float fuerzaSalto;
     [SerializeField] Rigidbody2D miRigid;
     bool enSuelo;
@@ -21,9 +22,9 @@ public class MovPersonaje : MonoBehaviour
     void Update()
     {
         float entradaX = Input.GetAxis("Horizontal");
-        if (entradaX != 0)
+        if (entradaX != 0 && Mathf.Abs(miRigid.velocity.x)<=velMax)
         {
-            miRigid.velocity = miRigid.velocity + Vector2.right * entradaX * velocidad * Time.deltaTime;
+            miRigid.velocity = miRigid.velocity + Vector2.right * entradaX * aceleracion * Time.deltaTime;
         }
         DetectarSuelo();
         if (Input.GetButtonDown("Jump") && enSuelo)
