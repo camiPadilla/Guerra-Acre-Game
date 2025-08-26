@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf61ee888628a9b45989684988b2f4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 8
+  aceleracion: 0
+  velMax: 0
   fuerzaSalto: 250
   miRigid: {fileID: 8840385750259939788}
   capaSuelo:
@@ -55,6 +56,7 @@ MonoBehaviour:
     m_Bits: 8
   distanciaRayCast: 0.1
   puntoRayCast: {fileID: 2615481058069094499}
+  misprite: {fileID: 0}
 --- !u!70 &6902159977549479372
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -87,8 +89,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.83519614}
-  m_Size: {x: 0.8419505, y: 1.6542904}
+  m_Offset: {x: 0, y: -0.09213674}
+  m_Size: {x: 0.6980739, y: 1.6198078}
   m_Direction: 0
 --- !u!50 &8840385750259939788
 Rigidbody2D:
@@ -143,8 +145,8 @@ Transform:
   m_GameObject: {fileID: 8492036287779547688}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.884, z: 0}
-  m_LocalScale: {x: 2.7608, y: 2.7608, z: 2.7608}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2615481058069094499}
@@ -190,7 +192,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48a0978d3ef0d5942b7049c6a6444b6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

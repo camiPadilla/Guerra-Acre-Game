@@ -12,6 +12,7 @@ public class MovPersonaje : MonoBehaviour
     [SerializeField]LayerMask capaSuelo;
     [SerializeField] float distanciaRayCast = 0.1f;
     [SerializeField] Transform puntoRayCast;
+    [SerializeField] SpriteRenderer misprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class MovPersonaje : MonoBehaviour
         if (entradaX != 0 && Mathf.Abs(miRigid.velocity.x)<=velMax)
         {
             miRigid.velocity = miRigid.velocity + Vector2.right * entradaX * aceleracion * Time.deltaTime;
+            if (miRigid.velocity.x > 0) misprite.flipX = true; else misprite.flipX = false;
         }
         DetectarSuelo();
         if (Input.GetButtonDown("Jump") && enSuelo)
