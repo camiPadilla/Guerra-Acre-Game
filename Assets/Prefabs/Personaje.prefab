@@ -9,9 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2615481058069094499}
+  - component: {fileID: 6223432830826059422}
+  - component: {fileID: 5989754113772612217}
   - component: {fileID: 1646096487101240812}
   - component: {fileID: 6902159977549479372}
   - component: {fileID: 8840385750259939788}
+  - component: {fileID: 4651849745667609872}
   m_Layer: 0
   m_Name: Personaje
   m_TagString: Untagged
@@ -35,6 +38,32 @@ Transform:
   - {fileID: 5808697316147824104}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6223432830826059422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203869859951900225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241a46df164271b4bb2eea127d36663e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptMovimiento: {fileID: 1646096487101240812}
+  scriptAtaque: {fileID: 5989754113772612217}
+--- !u!114 &5989754113772612217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203869859951900225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cd61b9c79568094c8cfc443bcef3361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1646096487101240812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,16 +76,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf61ee888628a9b45989684988b2f4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aceleracion: 0
-  velMax: 0
-  fuerzaSalto: 250
+  aceleracion: 7
+  velMax: 4
+  fuerzaSalto: 270
   miRigid: {fileID: 8840385750259939788}
   capaSuelo:
     serializedVersion: 2
     m_Bits: 8
   distanciaRayCast: 0.1
   puntoRayCast: {fileID: 2615481058069094499}
-  misprite: {fileID: 0}
+  miSprite: {fileID: 5986312105431455108}
+  miAnimator: {fileID: 4651849745667609872}
 --- !u!70 &6902159977549479372
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -119,6 +149,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &4651849745667609872
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203869859951900225}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32d9a2c7805248840b718e8f11e8a8b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8492036287779547688
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MovPersonaje : MonoBehaviour
@@ -12,7 +13,10 @@ public class MovPersonaje : MonoBehaviour
     [SerializeField]LayerMask capaSuelo;
     [SerializeField] float distanciaRayCast = 0.1f;
     [SerializeField] Transform puntoRayCast;
-    [SerializeField] SpriteRenderer misprite;
+    [SerializeField] SpriteRenderer miSprite;
+    [SerializeField] Animator miAnimator;
+    float realentizador;
+    int direccion;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,16 +26,35 @@ public class MovPersonaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            miAnimator.SetBool("agachado", true);
+            realentizador = 0.8f;
+        }
+        else
+        {
+            miAnimator.SetBool("agachado", false);
+            realentizador = 1;
+        }
         float entradaX = Input.GetAxis("Horizontal");
         if (entradaX != 0 && Mathf.Abs(miRigid.velocity.x)<=velMax)
         {
-            miRigid.velocity = miRigid.velocity + Vector2.right * entradaX * aceleracion * Time.deltaTime;
-            if (miRigid.velocity.x > 0) misprite.flipX = true; else misprite.flipX = false;
+            miRigid.velocity = miRigid.velocity + Vector2.right * entradaX * aceleracion * realentizador * Time.deltaTime;
+            if (miRigid.velocity.x > 0)
+            {
+                miSprite.flipX = true; 
+                SetDireccion(1);
+            }
+            else
+            {
+                miSprite.flipX = false; 
+                SetDireccion(-1);
+            }
         }
         DetectarSuelo();
         if (Input.GetButtonDown("Jump") && enSuelo)
         {
-            miRigid.AddForce(Vector2.up * fuerzaSalto);
+            miRigid.AddForce(Vector2.up * fuerzaSalto* realentizador);
             enSuelo = false;
         }
 
@@ -55,4 +78,46 @@ public class MovPersonaje : MonoBehaviour
             enSuelo = false;
         }
     }
+    public int GetDireccion()
+    {
+        return direccion;
+    }
+    private void SetDireccion(int Ndir)
+    {
+        direccion = Ndir;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        {
+            if (collision.transform.CompareTag("Escenario"))
+            {
+                Color colorEscenario = collision.gameObject.GetComponent<SpriteRenderer>().color;
+                StartCoroutine(Desvanecer(collision, colorEscenario, colorEscenario.a, 0.5f));
+                //collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(colorEscenario.r,colorEscenario.g,colorEscenario.b, 0.5f);
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Escenario"))
+        {
+            Color colorEscenario = collision.gameObject.GetComponent<SpriteRenderer>().color;
+            StartCoroutine(Desvanecer(collision, colorEscenario, colorEscenario.a, 1));
+            //collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(colorEscenario.r, colorEscenario.g, colorEscenario.b, 1);
+        }
+    }
+    private IEnumerator Desvanecer(Collider2D collision, Color color, float inicial, float objetivo)
+    {
+        Debug.Log(inicial != objetivo);
+        while (inicial!=objetivo)
+        {
+            color = new Color(color.r, color.g, color.b, inicial);
+            float diferencia = objetivo- inicial;
+            inicial = inicial + diferencia / 16;
+            collision.gameObject.GetComponent<SpriteRenderer>().color = color;
+            yield return new WaitForSeconds(2 / 16);
+        }
+
+    }
+
 }
