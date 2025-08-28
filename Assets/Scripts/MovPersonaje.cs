@@ -13,6 +13,9 @@ public class MovPersonaje : MonoBehaviour
     [SerializeField] float distanciaRayCast = 0.1f;
     [SerializeField] Transform puntoRayCast;
     [SerializeField] CapsuleCollider2D miCollider;
+
+
+    bool jalando = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,7 @@ public class MovPersonaje : MonoBehaviour
     void Update()
     {
         float entradaX = Input.GetAxis("Horizontal");
-        if (entradaX != 0 && Mathf.Abs(miRigid.velocity.x)<=velMax)
+        if (entradaX != 0 && Mathf.Abs(miRigid.velocity.x)<=velMax && jalando ==false)
         {
             miRigid.velocity = miRigid.velocity + Vector2.right * entradaX * aceleracion * Time.deltaTime;
         }
@@ -32,13 +35,6 @@ public class MovPersonaje : MonoBehaviour
         {
             miRigid.AddForce(Vector2.up * fuerzaSalto);
             enSuelo = false;
-        }
-        if (Input.GetKey(KeyCode.LeftControl)) {
-            Debug.Log("hola");
-            Vector2 colliderSize = miCollider.size;
-            colliderSize.y *= 0.5f;
-            Vector2 colliderOffset = miCollider.offset;
-            colliderOffset.y += 0.5f;
         }
 
 
@@ -59,6 +55,24 @@ public class MovPersonaje : MonoBehaviour
         else
         {
             enSuelo = false;
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("movible"))
+        {
+            if (Input.GetAxis("Horizontal") != 0) {
+            jalando = true;
+            collision.gameObject.GetComponent<ObjetoMovible>().jalar(Input.GetAxis("Horizontal"));            }
+            else
+            {
+              
+              jalando = false;
+            }
+        }
+        else
+        {
+            jalando  = false;  
         }
     }
 }
