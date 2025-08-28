@@ -18,6 +18,7 @@ public class MovPersonaje : MonoBehaviour
     float realentizador;
     int direccion;
     // Start is called before the first frame update
+    bool jalando = false;
     void Start()
     {
         
@@ -37,7 +38,7 @@ public class MovPersonaje : MonoBehaviour
             realentizador = 1;
         }
         float entradaX = Input.GetAxis("Horizontal");
-        if (entradaX != 0 && Mathf.Abs(miRigid.velocity.x)<=velMax)
+        if (entradaX != 0 && Mathf.Abs(miRigid.velocity.x)<=velMax && !jalando)
         {
             miRigid.velocity = miRigid.velocity + Vector2.right * entradaX * aceleracion * realentizador * Time.deltaTime;
             if (miRigid.velocity.x > 0)
@@ -95,6 +96,15 @@ public class MovPersonaje : MonoBehaviour
                 StartCoroutine(Desvanecer(collision, colorEscenario, colorEscenario.a, 0.5f));
                 //collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(colorEscenario.r,colorEscenario.g,colorEscenario.b, 0.5f);
             }
+
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("movible") && Input.GetAxis("Horizontal") !=0)
+        {
+            collision.gameObject.GetComponent<ObjetoMovible>().jalar(Input.GetAxis("Horizontal"));
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

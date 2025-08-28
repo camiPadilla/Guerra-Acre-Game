@@ -24,6 +24,7 @@ public class ObjetoDestruible : MonoBehaviour
         vidas--;
         if (vidas == 0)
         {
+            Debug.Log("se destruyo");
             gameObject.SetActive(false);
  
             //Destroy(this.gameObject);
@@ -39,8 +40,5 @@ public class ObjetoDestruible : MonoBehaviour
             Destuirme();
         }
     }
-    public int getVidas()
-    {
-        return vidas;
-    }
+    
 }

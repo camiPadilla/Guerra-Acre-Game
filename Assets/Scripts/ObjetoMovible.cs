@@ -44,14 +44,14 @@ public class ObjetoMovible : MonoBehaviour
     }
     public void jalar(float direccion)
     {
-        Debug.Log("esta sienod jalado");
+        Debug.Log("esta siendo jalado");
         if (direccion < 0)
         {
-            miCuerpo.AddForce(Vector2.left * 8f, ForceMode2D.Force);
+            miCuerpo.AddForce(Vector2.left * 4f, ForceMode2D.Force);
         }
         else
         {
-            miCuerpo.AddForce(Vector2.right * 8f, ForceMode2D.Force);
+            miCuerpo.AddForce(Vector2.right * 4f, ForceMode2D.Force);
         }
         
     }
