@@ -44,7 +44,7 @@ public class Piedra : MonoBehaviour
             personaje.GuardarEnCola(this);
             if (collision.transform.CompareTag("Destruible"))
             {
-                Destroy(collision.gameObject);
+                collision.gameObject.SetActive(false);
             }
         }
     }

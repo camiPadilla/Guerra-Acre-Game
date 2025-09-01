@@ -42,8 +42,16 @@ public class ObjetoRecogible : MonoBehaviour
     {
         if (interactuable && jugadorInteractuando)
         {
-            Debug.Log("conseguiste " + nombreObjeto);
-            gameObject.SetActive(false);
+
+            if (!transform.CompareTag("NPC"))
+            {
+                Debug.Log("conseguiste " + nombreObjeto);
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.GetComponent<ControladorNPC>().Interactuar();
+            }
         }
         
     }
