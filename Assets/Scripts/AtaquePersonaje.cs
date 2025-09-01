@@ -14,6 +14,8 @@ public class AtaquePersonaje : MonoBehaviour
     public int direccion; 
     [SerializeField] GameObject miAtaque;
     [SerializeField] int seleccionArma;
+    [SerializeField] Animator miAnimator;
+    bool enAccion;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class AtaquePersonaje : MonoBehaviour
                 EntradaPedra();
                 break; 
             case 2:
+                
                 break;
         }
 
@@ -49,6 +52,7 @@ public class AtaquePersonaje : MonoBehaviour
         piedraActual.Reposicionar(puntoIncial);
         piedraActual.Activar();
         piedraActual.Impulso(fuerzatiro, direccion);
+        enAccion = false;
     }
     void InstanciarPiedras()
     {
@@ -75,7 +79,11 @@ public class AtaquePersonaje : MonoBehaviour
     }
     private void EntradaPedra()
     {
-        if (Input.GetButtonDown("Fire1")) fuerzatiro = 0;
+        if (Input.GetButtonDown("Fire1"))
+        {
+            fuerzatiro = 0;
+            enAccion = true;
+        }
         if (Input.GetButton("Fire1"))
         {
             if (fuerzatiro <= fuerzaMaxima)
@@ -85,8 +93,30 @@ public class AtaquePersonaje : MonoBehaviour
         }
         if (Input.GetButtonUp("Fire1")) TirarPiedra();
     }
+    private void EntradaDisparo()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            //Disparo
+        }
+    }
     private void AtaqueMachete()
     {
-
+        miAtaque.transform.position = new Vector3(transform.position.x+0.5f*direccion,transform.position.y,transform.position.z);
+        miAnimator.SetTrigger("atacar");
+    }
+    public void ActivarMachete()
+    {
+        miAtaque.SetActive(true);
+        enAccion = true;
+    }
+    public void DesactivarMachete()
+    {
+        miAtaque.SetActive(false);
+        enAccion = false;
+    }
+    public bool GetAccion()
+    {
+        return enAccion;
     }
 }

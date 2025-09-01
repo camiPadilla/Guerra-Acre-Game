@@ -16,6 +16,6 @@ public class cajasDestruibles : ObjetoDestruible
     }
     private void OnDisable()
     {
-        loot();
+        //loot();
     }
 }

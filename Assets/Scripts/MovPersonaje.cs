@@ -17,6 +17,7 @@ public class MovPersonaje : MonoBehaviour
     [SerializeField] Animator miAnimator;
     float realentizador;
     int direccion;
+    bool enAccion;
     // Start is called before the first frame update
     bool jalando = false;
     void Start()
@@ -38,7 +39,7 @@ public class MovPersonaje : MonoBehaviour
             realentizador = 1;
         }
         float entradaX = Input.GetAxis("Horizontal");
-        if (entradaX != 0 && Mathf.Abs(miRigid.velocity.x)<=velMax && !jalando)
+        if (!enAccion && entradaX != 0 && Mathf.Abs(miRigid.velocity.x)<=velMax && !jalando)
         {
             miRigid.velocity = miRigid.velocity + Vector2.right * entradaX * aceleracion * realentizador * Time.deltaTime;
             if (miRigid.velocity.x > 0)
@@ -86,6 +87,10 @@ public class MovPersonaje : MonoBehaviour
     private void SetDireccion(int Ndir)
     {
         direccion = Ndir;
+    }
+    public void SetAccion(bool Nac)
+    {
+        enAccion = Nac;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
