@@ -11,6 +11,8 @@ public class Enemigo_IA : MonoBehaviour
     private bool isFacingRight = false;
     //puntos de patrullaje
     [SerializeField] private Transform[] wayPoints;
+    //lista de armas del enemigo
+    [SerializeField] private GameObject[] armas;
     private int currentWayPoint = 0;
     private bool isWaiting;
 
@@ -108,5 +110,26 @@ public class Enemigo_IA : MonoBehaviour
             localScale.x = -Mathf.Abs(localScale.x);
             transform.localScale = localScale;
         }
+    }
+    private void AtacarMachete()
+    {
+
+        //Animacion de ataque con machete
+    }
+    private void AtacarArma()
+    {
+        //Animacion de ataque con arma
+    }
+    private void Morir()
+    {
+        //Animacion de muerte
+    }
+    private void RecibirDano()
+    {
+        //Animacion de recibir daño
+    }
+    private void LanzarPiedra()
+    {
+        //Animacion lanzar piedra
     }
 }
