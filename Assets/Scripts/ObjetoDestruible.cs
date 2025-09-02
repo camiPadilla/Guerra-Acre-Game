@@ -18,27 +18,14 @@ public class ObjetoDestruible : MonoBehaviour
 
     }
 
-    public void Destuirme()
+    public void Daño(int cantidad)
     {
-        Debug.Log("perdio una vida");
-        vidas--;
-        if (vidas == 0)
+        //Debug.Log("perdio una vida");
+        vidas = vidas - cantidad;
+        if (vidas <= 0)
         {
-            Debug.Log("se destruyo");
+            //Debug.Log("se destruyo");
             gameObject.SetActive(false);
- 
-            //Destroy(this.gameObject);
-        }
-        
-            
+        }    
     }
-    
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.CompareTag("hitbox"))
-        {
-            Destuirme();
-        }
-    }
-    
 }

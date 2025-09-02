@@ -25,6 +25,9 @@ public class AtaquePersonaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) seleccionArma = 0;
+        if (Input.GetKeyDown(KeyCode.Alpha2)) seleccionArma = 1;
+
         //Debug.Log(direccion);
         switch (seleccionArma)
         {
@@ -72,7 +75,7 @@ public class AtaquePersonaje : MonoBehaviour
     }
     private void EntradaMelee()
     {
-        if (Input.GetButtonDown("   "))
+        if (Input.GetButtonDown("Fire1"))
         {
             AtaqueMachete();
         }

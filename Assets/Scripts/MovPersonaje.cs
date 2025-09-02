@@ -92,6 +92,14 @@ public class MovPersonaje : MonoBehaviour
     {
         enAccion = Nac;
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("movible") && Input.GetAxis("Horizontal") !=0)
+        {
+            collision.gameObject.GetComponent<ObjetoMovible>().jalar(Input.GetAxis("Horizontal"));
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         {
@@ -104,35 +112,38 @@ public class MovPersonaje : MonoBehaviour
 
         }
     }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("movible") && Input.GetAxis("Horizontal") !=0)
-        {
-            collision.gameObject.GetComponent<ObjetoMovible>().jalar(Input.GetAxis("Horizontal"));
-        }
-    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Escenario"))
         {
             Color colorEscenario = collision.gameObject.GetComponent<SpriteRenderer>().color;
-            StartCoroutine(Desvanecer(collision, colorEscenario, colorEscenario.a, 1));
+            StartCoroutine(Desvanecer(collision, colorEscenario, colorEscenario.a, 1f)); ;
             //collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(colorEscenario.r, colorEscenario.g, colorEscenario.b, 1);
         }
     }
     private IEnumerator Desvanecer(Collider2D collision, Color color, float inicial, float objetivo)
     {
-        Debug.Log(inicial != objetivo);
-        while (inicial!=objetivo)
+        float diferencia = objetivo - inicial;
+        while (inicial != objetivo)
         {
             color = new Color(color.r, color.g, color.b, inicial);
-            float diferencia = objetivo- inicial;
             inicial = inicial + diferencia / 16;
             collision.gameObject.GetComponent<SpriteRenderer>().color = color;
             yield return new WaitForSeconds(2 / 16);
         }
-
     }
+    //private IEnumerator Reaaparecer(Collider2D collision, Color color, float inicial, float objetivo)
+    //{
+    //    float diferencia = objetivo - inicial;
+    //    while (inicial <= objetivo)
+    //    {
+    //        Debug.Log(inicial);
+    //        color = new Color(color.r, color.g, color.b, inicial);           
+    //        inicial = inicial + diferencia / 16;
+    //        collision.gameObject.GetComponent<SpriteRenderer>().color = color;
+    //        yield return new WaitForSeconds(2 / 16);
+    //    }
+    //    Debug.Log("salida");
+    //}
 
 }

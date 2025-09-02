@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bala : MonoBehaviour
+public class Bala : Arma
 {
     int direccion; 
     [SerializeField] float velocidadBala;
