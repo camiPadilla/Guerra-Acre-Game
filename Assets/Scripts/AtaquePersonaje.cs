@@ -72,7 +72,7 @@ public class AtaquePersonaje : MonoBehaviour
     }
     private void EntradaMelee()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("   "))
         {
             AtaqueMachete();
         }
