@@ -8,7 +8,7 @@ public class ObjetoMovible : MonoBehaviour
 {
     Rigidbody2D miCuerpo;
     bool movible = false;
-    
+    [SerializeField] LayerMask personaje;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,41 +18,65 @@ public class ObjetoMovible : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(movible == false)
-        {
-            miCuerpo.mass = 10;
-        }
+
+        
+    }
+    public bool getMovible()
+    {
+        return movible;
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Player") && collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
+        if (collision.transform.CompareTag("Player"))
         {
-            Debug.Log("se puede iniciar el enlace");
-            mover();
+            if(Physics2D.Raycast(transform.position, Vector2.left, 2f, personaje) || Physics2D.Raycast(transform.position, Vector2.right, 2f, personaje))
+            HUDManager.instancia.MostrarInteraccion(transform.position, GetComponent<SpriteRenderer>().bounds.extents.y);
+            if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
+            {
+                tag = "movible";
+                HUDManager.instancia.Ocultar();
+                miCuerpo.mass = 0.5f;
+                Movimiento();
+            }
+            else
+            {
+                tag = "Untagged";
+                miCuerpo.mass = 10f;
+            }
         }
-        else
+       
+    }
+    private void Movimiento()
+    {
+        float direccionX = Input.GetAxis("Horizontal");
+        Debug.Log(direccionX);
+        if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.left, 2f, personaje))
         {
+            miCuerpo.velocity = new Vector2(-2, miCuerpo.velocity.y);
             movible = false;
-            this.tag = "Untagged";
         }
-    }
-    void mover()
-    {
-        this.tag = "movible";
-        movible = true;
-        miCuerpo.mass = 0.5f;
-    }
-    public void jalar(float direccion)
-    {
-        Debug.Log("esta sienod jalado");
-        if (direccion < 0)
+        if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.right, 2f, personaje))
         {
-            miCuerpo.AddForce(Vector2.left * 8f, ForceMode2D.Force);
+            miCuerpo.velocity = new Vector2(2, miCuerpo.velocity.y);
+            movible = false;
         }
-        else
+        if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.left, 2f, personaje))
         {
-            miCuerpo.AddForce(Vector2.right * 8f, ForceMode2D.Force);
+            movible = true;
         }
-        
+        if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.right, 2f, personaje))
+        {
+            movible = true;
+        }
     }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            HUDManager.instancia.Ocultar();
+            movible = false;
+        }
+    }
+
+    
 }
