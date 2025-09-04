@@ -13,7 +13,7 @@ public class cajasDestruibles : ObjetoDestruible
     public void loot()
     {
         ObjetoRecogible recogibleDatos = Instantiate(recogible, transform.position, transform.rotation).GetComponent<ObjetoRecogible>();
-        recogibleDatos.setCantidad(3);
+        //recogibleDatos.setCantidad(3);
         recogibleDatos.setNombre("hola");
 
     }
@@ -22,9 +22,5 @@ public class cajasDestruibles : ObjetoDestruible
         Debug.Log("hola");
         //loot();
     }
-    private void OnDestroy()
-    {
-        Debug.Log("jdkfjakldlfjal");
-        return;
-    }
+
 }
