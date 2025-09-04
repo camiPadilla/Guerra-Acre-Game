@@ -7,14 +7,14 @@ public class ObjetoRecogible : MonoBehaviour
     [SerializeField] string nombreObjeto;
     float imagenSize;
     // Start is called before the first frame update
-    public void ObtenerTamaño(){
+    public void ObtenerTamaÃ±o(){
                 imagenSize = this.GetComponent<SpriteRenderer>().bounds.extents.y;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
-            ObtenerTamaño();
+            ObtenerTamaÃ±o();
             HUDManager.instancia.MostrarInteraccion(transform.position, 1f);
             if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
             {
