@@ -10,6 +10,7 @@ public class ObjetoRecogible : MonoBehaviour
     public bool jugadorInteractuando=false;
     // Start is called before the first frame update
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     void Start()
     {
         
@@ -20,6 +21,8 @@ public class ObjetoRecogible : MonoBehaviour
     {
         
 =======
+=======
+>>>>>>> Stashed changes
     public void ObtenerTamaño(){
                 imagenSize = this.GetComponent<SpriteRenderer>().bounds.extents.y;
 >>>>>>> Stashed changes
@@ -29,11 +32,14 @@ public class ObjetoRecogible : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             interactuable = true;
             Debug.Log("presione E para interactuar");
            
             jugadorInteractuando = collision.gameObject.GetComponent<InputPlayer>().getInteractuable();
 =======
+=======
+>>>>>>> Stashed changes
             ObtenerTamaño();
             HUDManager.instancia.MostrarInteraccion(transform.position, 1f);
             if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
