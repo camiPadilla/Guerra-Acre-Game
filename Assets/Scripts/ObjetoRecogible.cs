@@ -9,6 +9,7 @@ public class ObjetoRecogible : MonoBehaviour
     public bool interactuable= false;
     public bool jugadorInteractuando=false;
     // Start is called before the first frame update
+<<<<<<< Updated upstream
     void Start()
     {
         
@@ -18,15 +19,29 @@ public class ObjetoRecogible : MonoBehaviour
     void Update()
     {
         
+=======
+    public void ObtenerTamaño(){
+                imagenSize = this.GetComponent<SpriteRenderer>().bounds.extents.y;
+>>>>>>> Stashed changes
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
+<<<<<<< Updated upstream
             interactuable = true;
             Debug.Log("presione E para interactuar");
            
             jugadorInteractuando = collision.gameObject.GetComponent<InputPlayer>().getInteractuable();
+=======
+            ObtenerTamaño();
+            HUDManager.instancia.MostrarInteraccion(transform.position, 1f);
+            if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
+            {
+                collision.gameObject.SendMessage("RecibirInfo", nombreObjeto);
+                gameObject.SetActive(false);
+            }
+>>>>>>> Stashed changes
         }
         
         PasarInformacion();
