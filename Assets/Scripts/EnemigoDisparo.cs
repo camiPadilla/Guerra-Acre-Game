@@ -2,53 +2,74 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.Jobs;
-using UnityEngine.Rendering;
 
+//Ya que para disparar y lanzar piedras es lo mismo, solo cambia el objeto que lanza, entonces prefiero usar el mismo codigo
+//y solo cambiar el objeto que lanza en el inspector (Sugeto a camabios, ya que creo que se aplicara una fuerza para lanzar piedras)
+//en ese caso se verificara que tipo de objeto es y se le aplicara la fuerza
 public class EnemigoDisparo : Enemigo_IA
 {
-    private int nroBalas = 15;
     [SerializeField] private GameObject balaPrefab;
     [SerializeField] private Transform puntoDisparo;
+    [SerializeField] private int nroBalas;
+    [SerializeField] private float tiempoEntreDisparos = 1.5f; // segundos
+    [SerializeField] private float distanciaOptima = 3f;
 
-    private int tiempoDisparo;
-    //Este mira al enemigo y se pone en una posicion en la que se pondra a dispararle
+    private float cooldownDisparo = 0f;
+
     public override void Atacar()
     {
-        Posicionarse();
-        Shoot();
+        float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
+
+        // Si el jugador se sale del rango → patrullaje
+        if (distanciaJugador > rangoVision)
+        {
+            PatrullajeIA();
+            return;
+        }
+
+        // Posicionarse (mantener cierta distancia)
+        Posicionarse(distanciaJugador);
+
     }
+
     private void Shoot()
     {
-        //Dispara si el tiempo de disparo es 0 y tiene balas
-        if (tiempoDisparo <= 0 && nroBalas > 0)
+        if (cooldownDisparo <= 0 && nroBalas > 0)
         {
             Instantiate(balaPrefab, puntoDisparo.position, puntoDisparo.rotation);
-            tiempoDisparo = 20;
             nroBalas--;
+            cooldownDisparo = tiempoEntreDisparos;
         }
         else
         {
-            tiempoDisparo--;
-        }
-    }
-    private void Posicionarse()
-    {
-        //Enemigo se posiciona
-        float distancia = Vector2.Distance(transform.position, jugador.position);
-        if (distancia < 10)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, jugador.position, speed * Time.deltaTime);
-            bool isPlayerOnRight = jugador.position.x > transform.position.x;
-            Flip(isPlayerOnRight);
-        }
-        //enemigo toma distancia para atacar
-        else if (distancia <= 4)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, -jugador.position, speed * Time.deltaTime);
-            bool isPlayerOnRight = jugador.position.x > transform.position.x;
-            Flip(isPlayerOnRight);
+            cooldownDisparo -= Time.deltaTime;
         }
     }
 
+    private void Posicionarse(float distanciaJugador)
+    {
+        // Girar hacia el jugador
+        Flip(jugador.position.x > transform.position.x);
+
+        // Mantenerse a una distancia optima
+        if (distanciaJugador > distanciaOptima)
+        {
+            // Acercarse
+            Debug.Log("Acercarse");
+            transform.position = Vector2.MoveTowards(transform.position, jugador.position, speed * Time.deltaTime);
+        }
+        else
+        {
+            //Shoot();
+            print("Ya me posicione :D");
+        }
+        if (distanciaJugador < distanciaOptima - 1f) // margen para no estar encima
+        {
+            print(distanciaJugador);
+            // Alejarse
+            print("Alejarse");
+            Vector2 direccion = (transform.position - jugador.position).normalized;
+            transform.position = Vector2.MoveTowards(transform.position, transform.position + (Vector3)direccion, speed * Time.deltaTime);
+        }
+    }
 }

@@ -6,34 +6,52 @@ public abstract class Enemigo_IA : MonoBehaviour
 {
     //conducta de la ia
     public float speed;
-
     public Transform jugador;
+    public List <GameObject> Armas;
     private bool isFacingRight = false;
     //puntos de patrullaje
     [SerializeField] private Transform[] wayPoints;
     //lista de armas del enemigo
     private int currentWayPoint = 0;
-    private bool isWaiting;
+    private bool enEspera;
     //funcion atacar que sera sobreecrita por sus hijos
     public abstract void Atacar();
+    [SerializeField] bool patrullaje;
+    [SerializeField] public float rangoVision = 6f;
+
+
     void Update()
     {
-        //verifica la distancia entre el enemigo y el jugador
-        if (Vector2.Distance(transform.position, jugador.position) < 4)
+        //Verificamos si el enemigo es del tipo patrullaje o si su estado es de patrullaje
+        if (patrullaje == false)
         {
-            Atacar();
-            //sigue al jugador si este se aleja mas de 4 unidades vuelve a patrullar
-            if (Vector2.Distance(transform.position, wayPoints[currentWayPoint].position) > 4)
+            //Animacion idle
+            //Verifica la posicion del jugador para atacar al enemigo al enemigo
+            if (Vector2.Distance(transform.position, jugador.position) < 4)
+            {
+                Atacar();
+            }
+        }
+
+        else if (patrullaje == true)
+        {
+            //verifica la distancia entre el enemigo y el jugador
+            if (Vector2.Distance(transform.position, jugador.position) < 4)
+            {
+                Atacar();
+                if (Vector2.Distance(transform.position, wayPoints[currentWayPoint].position) > 9f)
+                {
+                    PatrullajeIA();
+                }
+            }
+            else
             {
                 PatrullajeIA();
             }
         }
-        else
-        {
-            //inicia el patrullaje
-            PatrullajeIA();
-        }
+         
     }
+
     //funcion para voltear al enemigo en base a la posicion del jugador
     public void Flip(bool isPlayerOnRight)
     {
@@ -48,24 +66,25 @@ public abstract class Enemigo_IA : MonoBehaviour
         }
     }
     //funcion para el patrullaje del enemigo en base a los waypoints
-    private void PatrullajeIA()
+    public void PatrullajeIA()
     {
         //mueve al enemigo entre los waypoints
         if (transform.position != wayPoints[currentWayPoint].position)
         {
             transform.position = Vector2.MoveTowards(transform.position, wayPoints[currentWayPoint].position, speed * Time.deltaTime);
         }
-        else if (!isWaiting)
+        else if (!enEspera)
         {
             //inicia corutina para esperar en el waypoint
             StartCoroutine(WaitAtWayPoint());
         }
     }
+
     //corutina para esperar en el waypoint
     IEnumerator WaitAtWayPoint()
     {
         //si esta esperando no puede moverse
-        isWaiting = true;
+        enEspera = true;
         yield return new WaitForSeconds(2f);
         //cambia al siguiente waypoint
         currentWayPoint++;
@@ -75,9 +94,10 @@ public abstract class Enemigo_IA : MonoBehaviour
             currentWayPoint = 0;
         }
         //al llegar a un waypoint espera 2 segundos y voltea
-        isWaiting = false;
+        enEspera = false;
         FlipPoint();
     }
+    
     //funcion para voltear al enemigo en base a la posicion del waypoint
     private void FlipPoint()
     {
