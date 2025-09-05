@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class HUDManager : MonoBehaviour
 {
     [SerializeField] GameObject interactuable;
     public static HUDManager instancia;
+    [SerializeField] TMP_Text text;
     GameObject mensajeE;
     // Start is called before the first frame update
     private void Awake()
@@ -38,5 +39,9 @@ public class HUDManager : MonoBehaviour
     {
         Debug.Log("ocultado");
         mensajeE.SetActive(false);
+    }
+
+    public void Actualizar()
+    {
     }
 }
