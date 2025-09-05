@@ -12003,7 +12003,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777319574}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -16115,8 +16115,8 @@ Transform:
   m_GameObject: {fileID: 1114397955}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 121.16, y: 3.9299996, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 121.4171, y: 3.9299996, z: 0}
+  m_LocalScale: {x: 0.7695, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 758903}
@@ -19120,15 +19120,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -2.4799995, y: 0.08889735}
-      - {x: -2.48, y: 0.5}
-      - {x: -2.23, y: 0.75}
-      - {x: 0.6956935, y: 0.75}
+    - - {x: -2.4799905, y: 0.09104207}
+      - {x: -2.4248333, y: 0.41703033}
+      - {x: -2.3216524, y: 0.5827918}
+      - {x: -2.178597, y: 0.67152715}
+      - {x: -1.823099, y: 0.73596895}
+      - {x: -1.3793743, y: 0.76708716}
+      - {x: -0.61829925, y: 0.78000355}
+      - {x: 0.7064028, y: 0.7497705}
       - {x: 0.94399345, y: 0.46524388}
       - {x: 0.9204904, y: 0.09408791}
       - {x: 0.67279875, y: -0.14010763}
       - {x: -2.228191, y: -0.1610961}
-      - {x: -2.4799995, y: 0.08889735}
+      - {x: -2.4799905, y: 0.09104207}
   m_UseDelaunayMesh: 0
 --- !u!114 &1343339745
 MonoBehaviour:
@@ -19153,10 +19157,10 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -2.23, y: 0.5, z: 0}
-      leftTangent: {x: 0, y: 0, z: 0}
-      rightTangent: {x: 0, y: 0, z: 0}
-      mode: 0
+    - position: {x: -2.0990448, y: 0.4345219, z: 0}
+      leftTangent: {x: -0.13136292, y: -0.03898096, z: 0}
+      rightTangent: {x: 0.55862427, y: 0.1657672, z: 0}
+      mode: 1
       height: 1
       spriteIndex: 0
       corner: 1
@@ -19194,15 +19198,19 @@ MonoBehaviour:
   m_Creator: {fileID: 0}
   m_Modifiers: []
   m_ColliderSegment:
-  - {x: -2.4799995, y: 0.08889735}
-  - {x: -2.48, y: 0.5}
-  - {x: -2.23, y: 0.75}
-  - {x: 0.6956935, y: 0.75}
+  - {x: -2.4799905, y: 0.09104207}
+  - {x: -2.4248333, y: 0.41703033}
+  - {x: -2.3216524, y: 0.5827918}
+  - {x: -2.178597, y: 0.67152715}
+  - {x: -1.823099, y: 0.73596895}
+  - {x: -1.3793743, y: 0.76708716}
+  - {x: -0.61829925, y: 0.78000355}
+  - {x: 0.7064028, y: 0.7497705}
   - {x: 0.94399345, y: 0.46524388}
   - {x: 0.9204904, y: 0.09408791}
   - {x: 0.67279875, y: -0.14010763}
   - {x: -2.228191, y: -0.1610961}
-  - {x: -2.4799995, y: 0.08889735}
+  - {x: -2.4799905, y: 0.09104207}
 --- !u!1971053207 &1343339746
 SpriteShapeRenderer:
   m_ObjectHideFlags: 0
@@ -19259,8 +19267,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -0.7604048, y: 0.30119678, z: 0}
-    m_Extent: {x: 1.7213967, y: 0.46410155, z: 0}
+    m_Center: {x: -0.7605717, y: 0.30838266, z: 0}
+    m_Extent: {x: 1.7215636, y: 0.47162095, z: 0}
   m_SpriteSortPoint: 0
 --- !u!4 &1343339747
 Transform:
@@ -21830,7 +21838,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 741997258597849513, guid: ac3c190c99fe615438668f052adefab9, type: 3}
       propertyPath: m_Mass
-      value: 10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 741997258597849513, guid: ac3c190c99fe615438668f052adefab9, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5579593476630494990, guid: ac3c190c99fe615438668f052adefab9, type: 3}
       propertyPath: m_LocalScale.x
