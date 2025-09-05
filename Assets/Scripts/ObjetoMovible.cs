@@ -9,18 +9,14 @@ public class ObjetoMovible : MonoBehaviour
     Rigidbody2D miCuerpo;
     bool movible = false;
     [SerializeField] LayerMask personaje;
+    [SerializeField] float distanciaRaycast;
     // Start is called before the first frame update
     void Start()
     {
         miCuerpo = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-        
-    }
+    // Update is called once per fra
     public bool getMovible()
     {
         return movible;
@@ -29,7 +25,7 @@ public class ObjetoMovible : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            if(Physics2D.Raycast(transform.position, Vector2.left, 2f, personaje) || Physics2D.Raycast(transform.position, Vector2.right, 2f, personaje))
+            if(Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje) || Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
             HUDManager.instancia.MostrarInteraccion(transform.position, GetComponent<SpriteRenderer>().bounds.extents.y);
             if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
             {
@@ -50,21 +46,21 @@ public class ObjetoMovible : MonoBehaviour
     {
         float direccionX = Input.GetAxis("Horizontal");
         Debug.Log(direccionX);
-        if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.left, 2f, personaje))
+        if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje))
         {
             miCuerpo.velocity = new Vector2(-2, miCuerpo.velocity.y);
             movible = false;
         }
-        if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.right, 2f, personaje))
+        if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
             miCuerpo.velocity = new Vector2(2, miCuerpo.velocity.y);
             movible = false;
         }
-        if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.left, 2f, personaje))
+        if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje))
         {
             movible = true;
         }
-        if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.right, 2f, personaje))
+        if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
             movible = true;
         }
