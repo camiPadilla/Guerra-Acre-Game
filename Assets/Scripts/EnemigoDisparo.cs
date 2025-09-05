@@ -56,7 +56,6 @@ public class EnemigoDisparo : Enemigo_IA
         {
             // Acercarse
             Debug.Log("Acercarse");
-            transform.position = Vector2.MoveTowards(transform.position, jugador.position, speed * Time.deltaTime);
         }
         else
         {

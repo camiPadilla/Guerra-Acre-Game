@@ -68,24 +68,31 @@ public abstract class Enemigo_IA : MonoBehaviour
     //funcion para el patrullaje del enemigo en base a los waypoints
     public void PatrullajeIA()
     {
-        //mueve al enemigo entre los waypoints
-        if (transform.position != wayPoints[currentWayPoint].position)
+        if (wayPoints.Length == 0) return;
+
+        Vector3 destino = new Vector3(
+            wayPoints[currentWayPoint].position.x,
+            transform.position.y,   // mantiene la altura
+            transform.position.z
+        );
+
+        if (transform.position.x != destino.x)
         {
-            transform.position = Vector2.MoveTowards(transform.position, wayPoints[currentWayPoint].position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, destino, speed * Time.deltaTime);
         }
         else if (!enEspera)
         {
-            //inicia corutina para esperar en el waypoint
             StartCoroutine(WaitAtWayPoint());
         }
     }
+
 
     //corutina para esperar en el waypoint
     IEnumerator WaitAtWayPoint()
     {
         //si esta esperando no puede moverse
         enEspera = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         //cambia al siguiente waypoint
         currentWayPoint++;
         if (currentWayPoint >= wayPoints.Length)
