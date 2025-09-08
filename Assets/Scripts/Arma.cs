@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Arma : MonoBehaviour
 {
-    [SerializeField] int daño;
+    [SerializeField] int daÃ±o;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,7 @@ public class Arma : MonoBehaviour
     {
         if (collision.transform.CompareTag("Destruible"))
         {
-            collision.gameObject.GetComponent<ObjetoDestruible>().Daño(daño);
+            collision.gameObject.GetComponent<ObjetoDestruible>().DaÃ±o(daÃ±o);
         }
     }
 }

@@ -18,7 +18,7 @@ public class ObjetoDestruible : MonoBehaviour
 
     }
 
-    public void Daño(int cantidad)
+    public void DaÃ±o(int cantidad)
     {
         //Debug.Log("perdio una vida");
         vidas = vidas - cantidad;
