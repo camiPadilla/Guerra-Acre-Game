@@ -137,6 +137,8 @@ public abstract class Enemigo_IA : MonoBehaviour
     {
         //Animacion de recibir daño
     }
+    //por definir
+    /*
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("BalaJugador"))
@@ -159,5 +161,5 @@ public abstract class Enemigo_IA : MonoBehaviour
             RecibirDano();
             Morir();
         }
-    }
+    }*/
 }
