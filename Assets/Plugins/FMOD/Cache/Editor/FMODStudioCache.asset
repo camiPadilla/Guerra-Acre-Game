@@ -35,7 +35,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638928898318214282
+  lastModified: 638929257558312213
   FileSizes: []
   Exists: 1
 --- !u!114 &-5637856368652590022
@@ -178,10 +178,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638928898318304693
+  lastModified: 638929257558352908
   FileSizes:
   - Name: 
-    Value: 1218
+    Value: 1264
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -214,7 +214,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -2413958944833478971}
   cacheVersion: 131849
-  cacheTime: 638928908140428393
+  cacheTime: 638929267245773954
   SerializableEventsDict:
   - key: event:/SFX/Gameplay/Player/TirarPiedra/Cargar
     index: 0
@@ -292,10 +292,11 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 7463765641185627485}
   MinDistance: 1
   MaxDistance: 20
-  Length: 4400
+  Length: 2800
 --- !u!114 &2500930939459559151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,8 +413,32 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-  lastModified: 638928908140428393
+  lastModified: 638929267245773954
   FileSizes: []
+  Exists: 1
+--- !u!114 &7463765641185627485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Cargar/Paner
+  m_EditorClassIdentifier: 
+  Name: Paner
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3594376881
+    data2: 1458202573
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &7854603018757174884
 MonoBehaviour:

@@ -5776,6 +5776,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1360637784}
     - target: {fileID: 5989754113772612217, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
+      propertyPath: emitter
+      value: 
+      objectReference: {fileID: 1360637795}
+    - target: {fileID: 5989754113772612217, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
       propertyPath: fuerzaMaxima
       value: 250
       objectReference: {fileID: 0}
@@ -7459,7 +7463,7 @@ MonoBehaviour:
       Data2: 1254599512
       Data3: -1394550387
       Data4: 1453257471
-    Path: event:/SFX/Gameplay/Player/ArrojarPiedra/Cargar
+    Path: event:/SFX/Gameplay/Player/TirarPiedra/Cargar
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -7467,7 +7471,9 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   NonRigidbodyVelocity: 0
-  Params: []
+  Params:
+  - Name: Paner
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
