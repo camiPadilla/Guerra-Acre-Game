@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ControladorNota : ObjetoRecogible
 {
-
+    [SerializeField] string mensajeNota;
     // Start is called before the first frame update
     
     private void OnDisable()
@@ -14,6 +14,7 @@ public class ControladorNota : ObjetoRecogible
     void leer()
     {
         Debug.Log("leyendo nota");
+        HUDManager.instancia.LeerNota(mensajeNota);
         //Time.timeScale = 0;
     }
 }

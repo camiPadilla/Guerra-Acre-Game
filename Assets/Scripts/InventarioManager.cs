@@ -28,7 +28,7 @@ public class InventarioManager : MonoBehaviour
                 balas += aumento;
                 Debug.Log("ahora el jugador tiene en balas " + balas);
                 break;
-            case "botequin":
+            case "botiquin":
                 SendMessage("Curarse");
                 break;
             case "armadura":
