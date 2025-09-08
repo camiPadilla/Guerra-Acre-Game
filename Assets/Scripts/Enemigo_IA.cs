@@ -63,7 +63,7 @@ public abstract class Enemigo_IA : MonoBehaviour
         //verifica si el enemigo esta mirando a la derecha y si el jugador esta a la derecha
         if (isFacingRight && !isPlayerOnRight || !isFacingRight && isPlayerOnRight)
         {
-            //cambia la direccion del enemigo
+            //cambia la dirX del enemigo
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
             localScale.x *= -1;

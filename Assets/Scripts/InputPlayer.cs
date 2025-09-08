@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputPlayer : MonoBehaviour
 {
-    //[SerializeField] BoxCollider2D miAtaque;
+    //[SerializeField] BoxCollider2D machete;
     bool interactaundo = false;
 
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class InputPlayer : MonoBehaviour
         
         //if (Input.GetButtonDown("Fire1"))
         //{
-        //    miAtaque.enabled = true;
+        //    machete.enabled = true;
         //    StartCoroutine(nameof(Espera));
         //}
         if (Input.GetKey(KeyCode.E))
@@ -35,7 +35,7 @@ public class InputPlayer : MonoBehaviour
     //IEnumerator Espera()
     //{
     //    yield return new WaitForSeconds(0.5f);
-    //    miAtaque.enabled = false;
+    //    machete.enabled = false;
     //}
 
     public bool getInteractuable()

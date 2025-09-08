@@ -6,20 +6,26 @@ using UnityEngine;
 public class AtaquePersonaje : MonoBehaviour
 {
     [SerializeField] GameObject prefabPiedra;
-    [SerializeField] Queue<Piedra> piedraCola = new Queue<Piedra>();
+    [SerializeField] GameObject prefabBala;
+    [SerializeField] Queue<Proyectil> piedraCola = new Queue<Proyectil>();
+    [SerializeField] Queue<Proyectil> balaCola = new Queue<Proyectil>();
     [SerializeField] int cantidadPiedras;
+    [SerializeField] int cantidadBalas;
+    [SerializeField] float fuerzaDisparo;
     [SerializeField] float fuerzatiro;
     [SerializeField] float fuerzaMaxima;
     [SerializeField] public Transform origen;
-    public int direccion; 
-    [SerializeField] GameObject miAtaque;
+    public int dirX; 
+    public float dirY;
+    [SerializeField] Arma machete;
     [SerializeField] int seleccionArma;
     [SerializeField] Animator miAnimator;
     bool enAccion;
+
     // Start is called before the first frame update
     void Start()
     {
-        InstanciarPiedras();
+        InstanciarProyectiles();
     }
 
     // Update is called once per frame
@@ -27,8 +33,10 @@ public class AtaquePersonaje : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) seleccionArma = 0;
         if (Input.GetKeyDown(KeyCode.Alpha2)) seleccionArma = 1;
+        if (Input.GetKeyDown(KeyCode.Alpha3)) seleccionArma = 2;
 
-        //Debug.Log(direccion);
+
+        //Debug.Log(dirX);
         switch (seleccionArma)
         {
             case 0:
@@ -38,40 +46,49 @@ public class AtaquePersonaje : MonoBehaviour
                 EntradaPedra();
                 break; 
             case 2:
-                
+                EntradaDisparo();
                 break;
         }
 
     }
-    public void SetDireccion(int Ndir)
+    public void SetDireccion(int NdirX, float NdirY)
     {
-        direccion = Ndir;
+        dirX = NdirX;
+        dirY = NdirY;
 
     }
     private void TirarPiedra()
     {
-        Piedra piedraActual = piedraCola.Dequeue();
+        Proyectil piedraActual = piedraCola.Dequeue();
         Vector3 puntoIncial = new Vector3(transform.position.x,transform.position.y + 1,transform.position.z);
         piedraActual.Reposicionar(puntoIncial);
         piedraActual.Activar();
-        piedraActual.Impulso(fuerzatiro, direccion);
+        piedraActual.Impulso(fuerzatiro, dirX, dirY);
         enAccion = false;
     }
-    void InstanciarPiedras()
+    void InstanciarProyectiles()
     {
         //piedraCola.Clear();
         while (piedraCola.Count < cantidadPiedras)
         {
             GameObject objeto = Instantiate(prefabPiedra, transform.position, Quaternion.identity);
-            Piedra piedraActual = objeto.GetComponent<Piedra>();
+            Proyectil piedraActual = objeto.GetComponent<Proyectil>();
             piedraActual.Instanciar(this);
             piedraCola.Enqueue(piedraActual);
-            Debug.Log(piedraCola);
+        }
+        //Balas
+        while (balaCola.Count < cantidadBalas)
+        {
+            GameObject objeto = Instantiate(prefabBala, transform.position, Quaternion.identity);
+            Proyectil balaActual = objeto.GetComponent<Proyectil>();
+            balaActual.Instanciar(this);
+            balaCola.Enqueue(balaActual);
         }
     }
-    public void GuardarEnCola(Piedra piedra)
+    public void GuardarEnCola(Proyectil proyectil, int tipo)
     {
-        piedraCola.Enqueue(piedra);
+        if (tipo == 0) piedraCola.Enqueue(proyectil);
+        if (tipo == 1) balaCola.Enqueue(proyectil);
     }
     private void EntradaMelee()
     {
@@ -100,22 +117,36 @@ public class AtaquePersonaje : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            //Disparo
+            Disparar();
         }
+    }
+    private void Disparar()
+    {
+        enAccion = true;
+        Proyectil balaActual = balaCola.Dequeue();
+        Vector3 puntoIncial = new Vector3(transform.position.x+dirX, transform.position.y + dirY, transform.position.z);
+        balaActual.Reposicionar(puntoIncial);
+        balaActual.Activar();
+        balaActual.Impulso(fuerzaDisparo, dirX, dirY);
+        enAccion = false;
+    }
+    public void EndDiapro()
+    {
+        enAccion = true;
     }
     private void AtaqueMachete()
     {
-        miAtaque.transform.position = new Vector3(transform.position.x+0.5f*direccion,transform.position.y,transform.position.z);
+        machete.Reposicionar(new Vector3(transform.position.x + 0.5f * dirX, transform.position.y, transform.position.z));
         miAnimator.SetTrigger("atacar");
     }
     public void ActivarMachete()
     {
-        miAtaque.SetActive(true);
+        machete.Activar();
         enAccion = true;
     }
     public void DesactivarMachete()
     {
-        miAtaque.SetActive(false);
+        machete.Desactivar();
         enAccion = false;
     }
     public bool GetAccion()
