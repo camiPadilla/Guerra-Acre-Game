@@ -17,6 +17,18 @@ public class Arma : MonoBehaviour
     {
         
     }
+    public void Reposicionar(Vector3 Npos)
+    {
+        transform.position = Npos;
+    }
+    public void Activar()
+    {
+        gameObject.SetActive(true);
+    }
+    public void Desactivar()
+    {
+        gameObject.SetActive(false);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Destruible"))

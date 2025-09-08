@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Piedra : Arma
+public class Proyectil : Arma
 {
+
     AtaquePersonaje personaje;
     [SerializeField] bool enUso;
     [SerializeField] Rigidbody2D piedraRigid;
+    [SerializeField] int tipo;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +25,7 @@ public class Piedra : Arma
     {
         personaje = nuevoPersonaje;
     }
-    public void Reposicionar(Vector3 Npos)
-    {
-        transform.position = Npos;
-    }
+
     public void Activar()
     {
         gameObject.SetActive(true);
@@ -41,7 +40,7 @@ public class Piedra : Arma
             enUso = false;
             gameObject.SetActive(false);
             Reposicionar(personaje.origen.position);
-            personaje.GuardarEnCola(this);
+            personaje.GuardarEnCola(this,tipo);
             //if (collision.transform.CompareTag("Destruible"))
             //{
             //    collision.gameObject.GetComponent<ObjetoDestruible>().Daño();
@@ -49,8 +48,8 @@ public class Piedra : Arma
             //}
         }
     }
-    public void Impulso(float fuerza, int dir)
+    public void Impulso(float fuerza, int dir, float dirY)
     {
-        piedraRigid.AddForce(Vector2.up * fuerza + Vector2.right * fuerza * dir);
+        piedraRigid.AddForce(Vector2.up * dirY * fuerza + Vector2.right * fuerza * dir);
     }
 }

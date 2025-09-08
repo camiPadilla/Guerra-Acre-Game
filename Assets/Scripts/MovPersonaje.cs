@@ -19,6 +19,7 @@ public class MovPersonaje : MonoBehaviour
     int direccion;
     bool enAccion;
     bool jalando = false;
+    float dirY;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class MovPersonaje : MonoBehaviour
             realentizador = 1;
         }
         float entradaX = Input.GetAxis("Horizontal");
+        dirY = Input.GetAxis("Vertical");
         if (!enAccion && entradaX != 0 && Mathf.Abs(miRigid.velocity.x)<=velMax && !jalando)
         {
             miRigid.velocity = miRigid.velocity + Vector2.right * entradaX * aceleracion * realentizador * Time.deltaTime;
@@ -81,9 +83,13 @@ public class MovPersonaje : MonoBehaviour
             enSuelo = false;
         }
     }
-    public int GetDireccion()
+    public int GetDireccionX()
     {
         return direccion;
+    }
+    public float GetDireccionY()
+    {
+        return dirY;
     }
     private void SetDireccion(int Ndir)
     {
