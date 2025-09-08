@@ -25,9 +25,8 @@ public class ObjetoMovible : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            detectarCaida(collision.gameObject);
-            if (Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje) || Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
-                HUDManager.instancia.MostrarInteraccion(transform.position, GetComponent<SpriteRenderer>().bounds.extents.y);
+            if(Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje) || Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
+            HUDManager.instancia.MostrarInteraccion(transform.position, GetComponent<SpriteRenderer>().bounds.extents.y);
             if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
             {
                 tag = "movible";
@@ -41,7 +40,7 @@ public class ObjetoMovible : MonoBehaviour
                 miCuerpo.mass = 10f;
             }
         }
-
+       
     }
     private void Movimiento()
     {
@@ -73,16 +72,6 @@ public class ObjetoMovible : MonoBehaviour
             HUDManager.instancia.Ocultar();
             movible = false;
         }
-    }
-    void detectarCaida(GameObject perosnaje)
-        {
-        
-        
-        if (Physics2D.Raycast(transform.position, Vector2.down, distanciaRaycast, personaje))
-        {
-            perosnaje.SendMessage("PerderVida");
-        }
-
     }
 
     
