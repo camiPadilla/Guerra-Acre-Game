@@ -4,38 +4,51 @@ using UnityEngine;
 
 public class ControladorNPC : ObjetoRecogible
 {
-    [SerializeField] string mensaje;
     [SerializeField] float tiempoEspera;
-    bool dialogando= false;
+    bool dialogando = false;
+    [SerializeField] Sprite MensajeNPC;
+    [SerializeField] GameObject dialogo;
     // Start is called before the first frame update
     void Start()
     {
-        
+        dialogo.SetActive(false);
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        if(dialogando == true)
+        {
+            HUDManager.instancia.Ocultar();
+        }
     }
-   
+
     public void Interactuar()
     {
-        
-        if(dialogando == false)
+        Debug.Log("el NPC anda interactuando");
+        if (dialogando == false)
         {
             dialogando = true;
-            Debug.Log(mensaje);
+            MostrarMensaje();
             StartCoroutine(nameof(tiempoMensaje));
         }
-        
-        
+
+
     }
     IEnumerator tiempoMensaje()
     {
-       
+        
         yield return new WaitForSeconds(tiempoEspera);
+        dialogo.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
         dialogando = false;
+        
 
+    }
+
+    public void MostrarMensaje()
+    {
+        dialogo.GetComponent<SpriteRenderer>().sprite = MensajeNPC;
+        dialogo.SetActive(true);
     }
 }

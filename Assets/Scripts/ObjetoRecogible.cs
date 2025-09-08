@@ -15,11 +15,18 @@ public class ObjetoRecogible : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             ObtenerTamaño();
-            HUDManager.instancia.MostrarInteraccion(transform.position, 1f);
+            HUDManager.instancia.MostrarInteraccion(transform.position, 0.7f);
             if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
             {
-                collision.gameObject.SendMessage("RecibirInfo", nombreObjeto);
-                gameObject.SetActive(false);
+                if (nombreObjeto != "NPC")
+                {
+                    collision.gameObject.SendMessage("RecibirInfo", nombreObjeto);
+                    gameObject.SetActive(false);
+                }
+                else
+                {
+                    SendMessage("Interactuar");
+                }
             }
         }
     }
