@@ -16,5 +16,6 @@ public class PersonajeManager : MonoBehaviour
     void Update()
     {
         scriptAtaque.SetDireccion(scriptMovimiento.GetDireccion());
+        scriptMovimiento.SetAccion(scriptAtaque.GetAccion());
     }
 }

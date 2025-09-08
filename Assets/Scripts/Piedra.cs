@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Piedra : MonoBehaviour
+public class Piedra : Arma
 {
     AtaquePersonaje personaje;
     [SerializeField] bool enUso;
@@ -32,7 +32,7 @@ public class Piedra : MonoBehaviour
         gameObject.SetActive(true);
         enUso = true;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         //Debug.Log(!collision.transform.CompareTag("Player"));
         //Debug.Log(enUso);
@@ -42,10 +42,11 @@ public class Piedra : MonoBehaviour
             gameObject.SetActive(false);
             Reposicionar(personaje.origen.position);
             personaje.GuardarEnCola(this);
-            if (collision.transform.CompareTag("Destruible"))
-            {
-                collision.gameObject.SetActive(false);
-            }
+            //if (collision.transform.CompareTag("Destruible"))
+            //{
+            //    collision.gameObject.GetComponent<ObjetoDestruible>().Daño();
+            //    //Destroy(collision.gameObject);
+            //}
         }
     }
     public void Impulso(float fuerza, int dir)
