@@ -51,5 +51,6 @@ public class Piedra : MonoBehaviour
     public void Impulso(float fuerza, int dir)
     {
         piedraRigid.AddForce(Vector2.up * fuerza + Vector2.right * fuerza * dir);
+        GetComponent<FMODUnity.StudioEventEmitter>().Play();
     }
 }

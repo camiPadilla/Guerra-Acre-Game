@@ -19,6 +19,7 @@ public class cajasDestruibles : ObjetoDestruible
     }
     private void OnDisable()
     {
+        GetComponent<FMODUnity.StudioEventEmitter>().Play();
         Debug.Log("hola");
         //loot();
     }

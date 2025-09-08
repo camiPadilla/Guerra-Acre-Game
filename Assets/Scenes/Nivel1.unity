@@ -4011,7 +4011,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &499689946
@@ -5784,6 +5784,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2164900311158193948, guid: 70451f7b4b036654198aa62b01befa36, type: 3}
     - target: {fileID: 5989754113772612217, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
+      propertyPath: sonidoPiedra
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5989754113772612217, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
       propertyPath: cantidadPiedras
       value: 3
       objectReference: {fileID: 0}
@@ -5798,6 +5802,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 203869859951900225, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1360637788}
+    - targetCorrespondingSourceObject: {fileID: 203869859951900225, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1360637795}
   m_SourcePrefab: {fileID: 100100000, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
 --- !u!1001 &910799979
 PrefabInstance:
@@ -7433,6 +7440,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1360637795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406454484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -100764217
+      Data2: 1254599512
+      Data3: -1394550387
+      Data4: 1453257471
+    Path: event:/SFX/Gameplay/Player/ArrojarPiedra/Cargar
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1372687957
 GameObject:
   m_ObjectHideFlags: 0
@@ -10704,7 +10742,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1921642060
@@ -10900,9 +10938,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1990159119}
   - component: {fileID: 1990159118}
-  - component: {fileID: 1990159117}
   - component: {fileID: 1990159120}
   - component: {fileID: 1990159121}
+  - component: {fileID: 1990159122}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10910,14 +10948,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1990159117
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990159116}
-  m_Enabled: 1
 --- !u!20 &1990159118
 Camera:
   m_ObjectHideFlags: 0
@@ -11062,6 +11092,20 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1990159122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990159116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &2089737790
 GameObject:
   m_ObjectHideFlags: 0

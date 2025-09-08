@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class AtaquePersonaje : MonoBehaviour
 {
+    //Linea para referenciar sonido
+  
     [SerializeField] GameObject prefabPiedra;
     [SerializeField] Queue<Piedra> piedraCola = new Queue<Piedra>();
     [SerializeField]int cantidadPiedras;
@@ -27,15 +29,26 @@ public class AtaquePersonaje : MonoBehaviour
     public void SetDireccion(int Ndir)
     {
         direccion = Ndir;
-        if (Input.GetKeyDown(KeyCode.Mouse0)) fuerzatiro = 0;
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0)) 
         {
+            fuerzatiro = 0;
+            GetComponent<FMODUnity.StudioEventEmitter>().Play();
+        }
+        
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {           
             if (fuerzatiro <= fuerzaMaxima)
             {
                 fuerzatiro = fuerzatiro + fuerzaMaxima * Time.deltaTime;
             }
         }        
-        if (Input.GetKeyUp(KeyCode.Mouse0)) TirarPiedra();
+        if (Input.GetKeyUp(KeyCode.Mouse0)) 
+        {
+            GetComponent<FMODUnity.StudioEventEmitter>().Stop();
+            TirarPiedra();
+        }
+        
     }
     void TirarPiedra()
     {
