@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public abstract class Enemigo_IA : MonoBehaviour
 {
@@ -19,7 +20,11 @@ public abstract class Enemigo_IA : MonoBehaviour
     //funcion atacar que sera sobreecrita por sus hijos
     public abstract void Atacar();
     
-
+    public void Awake()
+    {
+         rbEnemigo = GetComponent<Rigidbody2D>();
+         jugador = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     void Update()
     {
