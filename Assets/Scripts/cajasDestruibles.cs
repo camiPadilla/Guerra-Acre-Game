@@ -10,7 +10,7 @@ public class cajasDestruibles : ObjetoDestruible
     private void loot()
     {
         ObjetoRecogible recogibleDatos = Instantiate(recogible, transform.position, transform.rotation).GetComponent<ObjetoRecogible>();
-        recogibleDatos.setCantidad(3);
+        //recogibleDatos.setCantidad(3);
         recogibleDatos.setNombre("hola");
 
     }
