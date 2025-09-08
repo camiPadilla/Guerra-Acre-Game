@@ -11,15 +11,16 @@ public class MovPersonaje : MonoBehaviour
     [SerializeField] Rigidbody2D miRigid;
     bool enSuelo;
     [SerializeField]LayerMask capaSuelo;
-    [SerializeField] float distanciaRayCast = 0.1f;
+    [SerializeField] float distanciaRayCast;
     [SerializeField] Transform puntoRayCast;
     [SerializeField] SpriteRenderer miSprite;
     [SerializeField] Animator miAnimator;
     float realentizador;
     int direccion;
     bool enAccion;
-    // Start is called before the first frame update
     bool jalando = false;
+
+    // Start is called before the first frame update
     void Start()
     {
         
@@ -95,10 +96,15 @@ public class MovPersonaje : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("movible") && Input.GetAxis("Horizontal") !=0)
+        if (collision.transform.CompareTag("movible") && !collision.gameObject.GetComponent<ObjetoMovible>().getMovible())
         {
-            collision.gameObject.GetComponent<ObjetoMovible>().jalar(Input.GetAxis("Horizontal"));
+            jalando = true;
         }
+        else
+        {
+            jalando = false;
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
