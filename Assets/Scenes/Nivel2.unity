@@ -8358,7 +8358,7 @@ Transform:
   m_GameObject: {fileID: 539648960}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 194.23999, y: 3.1957498, z: -10}
+  m_LocalPosition: {x: -13.800021, y: 3.1957498, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12331,6 +12331,7 @@ MonoBehaviour:
   - {fileID: 427032946}
   patrullaje: 1
   rangoVision: 6
+  vida: 3
   speed: 4
   jugador: {fileID: 1530108762}
   Armas: []
@@ -12339,6 +12340,7 @@ MonoBehaviour:
   nroBalas: 0
   tiempoEntreDisparos: 1.5
   distanciaOptima: 3
+  tolerancia: 1
 --- !u!212 &777319578
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22553,7 +22555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2615481058069094499, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 194.24
+      value: -13.8
       objectReference: {fileID: 0}
     - target: {fileID: 2615481058069094499, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29905,7 +29907,7 @@ Transform:
   m_GameObject: {fileID: 2035076386}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 194.24, y: 1.08, z: -10}
+  m_LocalPosition: {x: -13.8, y: 1.08, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

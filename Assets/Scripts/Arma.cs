@@ -33,7 +33,7 @@ public class Arma : MonoBehaviour
     {
         if (collision.transform.CompareTag("Destruible"))
         {
-            collision.gameObject.GetComponent<ObjetoDestruible>().Daño(damage);
+            collision.gameObject.GetComponent<ObjetoDestruible>().Damage(damage);
         }
     }
 }
