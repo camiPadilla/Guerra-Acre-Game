@@ -5,25 +5,26 @@ using UnityEngine;
 public abstract class Enemigo_IA : MonoBehaviour
 {
     //conducta de la ia
-    public float speed;
+   
+    [SerializeField] public Rigidbody2D rbEnemigo;
+    [SerializeField] private Transform[] wayPoints;
+    [SerializeField] bool patrullaje;
+    [SerializeField] public float rangoVision = 6f;
+     public float speed;
     public Transform jugador;
     public List <GameObject> Armas;
     private bool isFacingRight = false;
-    //puntos de patrullaje
-    [SerializeField] private Transform[] wayPoints;
-    //lista de armas del enemigo
     private int currentWayPoint = 0;
     private bool enEspera;
     //funcion atacar que sera sobreecrita por sus hijos
     public abstract void Atacar();
-    [SerializeField] bool patrullaje;
-    [SerializeField] public float rangoVision = 6f;
+    
 
 
     void Update()
     {
         //Verificamos si el enemigo es del tipo patrullaje o si su estado es de patrullaje
-        if (patrullaje == false)
+        if (!patrullaje)
         {
             //Animacion idle
             //Verifica la posicion del jugador para atacar al enemigo al enemigo
@@ -33,7 +34,7 @@ public abstract class Enemigo_IA : MonoBehaviour
             }
         }
 
-        else if (patrullaje == true)
+        else if (patrullaje)
         {
             //verifica la distancia entre el enemigo y el jugador
             if (Vector2.Distance(transform.position, jugador.position) < 4)
@@ -70,11 +71,7 @@ public abstract class Enemigo_IA : MonoBehaviour
     {
         if (wayPoints.Length == 0) return;
 
-        Vector3 destino = new Vector3(
-            wayPoints[currentWayPoint].position.x,
-            transform.position.y,   // mantiene la altura
-            transform.position.z
-        );
+        Vector3 destino = new Vector3(wayPoints[currentWayPoint].position.x,transform.position.y,transform.position.z);
 
         if (transform.position.x != destino.x)
         {
