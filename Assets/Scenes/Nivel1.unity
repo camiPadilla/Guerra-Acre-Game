@@ -3645,6 +3645,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactuable: {fileID: 7710909887009950346, guid: 2ebb90790b727f1438278d0f724d21bd, type: 3}
   text: {fileID: 0}
+  pantallaNota: {fileID: 0}
+  pantallaPausa: {fileID: 0}
 --- !u!4 &487321303
 Transform:
   m_ObjectHideFlags: 0
@@ -5135,6 +5137,10 @@ PrefabInstance:
     - target: {fileID: 2615481058069094499, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2941534513542743513, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4448580322838878098, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
       propertyPath: m_Enabled
