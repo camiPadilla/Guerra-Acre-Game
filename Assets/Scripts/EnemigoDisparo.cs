@@ -8,11 +8,13 @@ using UnityEngine;
 //en ese caso se verificara que tipo de objeto es y se le aplicara la fuerza
 public class EnemigoDisparo : Enemigo_IA
 {
+    [Header("Disparo")]
     [SerializeField] private GameObject balaPrefab;
     [SerializeField] private Transform puntoDisparo;
-    [SerializeField] private int nroBalas;
-    [SerializeField] private float tiempoEntreDisparos = 1.5f; // segundos
-    [SerializeField] private float distanciaOptima = 3f;
+    [SerializeField] private int nroBalas = 10;
+    [SerializeField] private float tiempoEntreDisparos = 1.5f; 
+    [SerializeField] private float distanciaOptima = 5f; // distancia ideal para disparar
+    [SerializeField] private float tolerancia = 1f;      // margen para no moverse tanto
 
     private float cooldownDisparo = 0f;
 
@@ -20,21 +22,29 @@ public class EnemigoDisparo : Enemigo_IA
     {
         float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
 
-        // Si el jugador se sale del rango → patrullaje
+        // Si el jugador se sale del rango → volver a patrullaje
         if (distanciaJugador > rangoVision)
         {
+            print ("Volviendo a patrullar");
             PatrullajeIA();
             return;
         }
 
-        // Posicionarse (mantener cierta distancia)
+        // Posicionarse a la distancia adecuada
         Posicionarse(distanciaJugador);
 
+        // Si ya está en rango de disparo → disparar
+        if (Mathf.Abs(distanciaJugador - distanciaOptima) <= tolerancia)
+        {
+            print ("Disparando");
+            //Shoot();
+        }
     }
 
+//Funcion para disparar
     private void Shoot()
     {
-        if (cooldownDisparo <= 0 && nroBalas > 0)
+        if (cooldownDisparo <= 0f && nroBalas > 0)
         {
             Instantiate(balaPrefab, puntoDisparo.position, puntoDisparo.rotation);
             nroBalas--;
@@ -51,24 +61,22 @@ public class EnemigoDisparo : Enemigo_IA
         // Girar hacia el jugador
         Flip(jugador.position.x > transform.position.x);
 
-        // Mantenerse a una distancia optima
-        if (distanciaJugador > distanciaOptima)
+        // Si el jugador esta cerca, el enemigo se aleja
+        if (distanciaJugador < distanciaOptima - tolerancia)
         {
-            // Acercarse
-            Debug.Log("Acercarse");
+            float direccion = Mathf.Sign(transform.position.x - jugador.position.x); 
+            rbEnemigo.velocity = new Vector2(direccion * speed, rbEnemigo.velocity.y);
         }
+        // Si el jugador esta lejos, el enemigo se acerca
+        else if (distanciaJugador > distanciaOptima + tolerancia)
+        {
+            float direccion = Mathf.Sign(jugador.position.x - transform.position.x);
+            rbEnemigo.velocity = new Vector2(direccion * speed, rbEnemigo.velocity.y);
+        }
+        // Si ya está en rango óptimo → detenerse
         else
         {
-            //Shoot();
-            print("Ya me posicione :D");
-        }
-        if (distanciaJugador < distanciaOptima - 1f) // margen para no estar encima
-        {
-            print(distanciaJugador);
-            // Alejarse
-            print("Alejarse");
-            Vector2 direccion = (transform.position - jugador.position).normalized;
-            transform.position = Vector2.MoveTowards(transform.position, transform.position + (Vector3)direccion, speed * Time.deltaTime);
+            rbEnemigo.velocity = Vector2.zero;
         }
     }
 }
