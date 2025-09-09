@@ -11,14 +11,17 @@ public class MovPersonaje : MonoBehaviour
     [SerializeField] Rigidbody2D miRigid;
     bool enSuelo;
     [SerializeField]LayerMask capaSuelo;
-    [SerializeField] float distanciaRayCast = 0.1f;
+    [SerializeField] float distanciaRayCast;
     [SerializeField] Transform puntoRayCast;
     [SerializeField] SpriteRenderer miSprite;
     [SerializeField] Animator miAnimator;
     float realentizador;
     int direccion;
-    // Start is called before the first frame update
+    bool enAccion;
     bool jalando = false;
+    float dirY;
+
+    // Start is called before the first frame update
     void Start()
     {
         
@@ -38,7 +41,8 @@ public class MovPersonaje : MonoBehaviour
             realentizador = 1;
         }
         float entradaX = Input.GetAxis("Horizontal");
-        if (entradaX != 0 && Mathf.Abs(miRigid.velocity.x)<=velMax && !jalando)
+        dirY = Input.GetAxis("Vertical");
+        if (!enAccion && entradaX != 0 && Mathf.Abs(miRigid.velocity.x)<=velMax && !jalando)
         {
             miRigid.velocity = miRigid.velocity + Vector2.right * entradaX * aceleracion * realentizador * Time.deltaTime;
             if (miRigid.velocity.x > 0)
@@ -79,13 +83,34 @@ public class MovPersonaje : MonoBehaviour
             enSuelo = false;
         }
     }
-    public int GetDireccion()
+    public int GetDireccionX()
     {
         return direccion;
+    }
+    public float GetDireccionY()
+    {
+        return dirY;
     }
     private void SetDireccion(int Ndir)
     {
         direccion = Ndir;
+    }
+    public void SetAccion(bool Nac)
+    {
+        enAccion = Nac;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("movible") && !collision.gameObject.GetComponent<ObjetoMovible>().getMovible())
+        {
+            jalando = true;
+        }
+        else
+        {
+            jalando = false;
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -99,40 +124,38 @@ public class MovPersonaje : MonoBehaviour
 
         }
     }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("movible") && !collision.gameObject.GetComponent<ObjetoMovible>().getMovible())
-        {
-            jalando = true;
-        }
-        else
-        {
-            jalando = false;
-        }
-    }
-    
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Escenario"))
         {
             Color colorEscenario = collision.gameObject.GetComponent<SpriteRenderer>().color;
-            StartCoroutine(Desvanecer(collision, colorEscenario, colorEscenario.a, 1));
+            StartCoroutine(Desvanecer(collision, colorEscenario, colorEscenario.a, 1f)); ;
             //collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(colorEscenario.r, colorEscenario.g, colorEscenario.b, 1);
         }
     }
     private IEnumerator Desvanecer(Collider2D collision, Color color, float inicial, float objetivo)
     {
-        Debug.Log(inicial != objetivo);
-        while (inicial!=objetivo)
+        float diferencia = objetivo - inicial;
+        while (inicial != objetivo)
         {
             color = new Color(color.r, color.g, color.b, inicial);
-            float diferencia = objetivo- inicial;
             inicial = inicial + diferencia / 16;
             collision.gameObject.GetComponent<SpriteRenderer>().color = color;
             yield return new WaitForSeconds(2 / 16);
         }
-
     }
+    //private IEnumerator Reaaparecer(Collider2D collision, Color color, float inicial, float objetivo)
+    //{
+    //    float diferencia = objetivo - inicial;
+    //    while (inicial <= objetivo)
+    //    {
+    //        Debug.Log(inicial);
+    //        color = new Color(color.r, color.g, color.b, inicial);           
+    //        inicial = inicial + diferencia / 16;
+    //        collision.gameObject.GetComponent<SpriteRenderer>().color = color;
+    //        yield return new WaitForSeconds(2 / 16);
+    //    }
+    //    Debug.Log("salida");
+    //}
 
 }

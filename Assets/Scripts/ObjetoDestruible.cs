@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -8,29 +7,25 @@ public class ObjetoDestruible : MonoBehaviour
 {
     [SerializeField] int vidas;
     // Start is called before the first frame update
-    
+    void Start()
+    {
 
-    public void Destuirme()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-        Debug.Log("perdio una vida");
-        vidas--;
-        if (vidas == 0)
+
+    }
+
+    public void Damage(int cantidad)
+    {
+        //Debug.Log("perdio una vida");
+        vidas = vidas - cantidad;
+        if (vidas <= 0)
         {
-            Debug.Log("se destruyo");
-            
+            //Debug.Log("se destruyo");
             gameObject.SetActive(false);
- 
-        }
-        
-            
+        }    
     }
-    
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.CompareTag("hitbox"))
-        {
-            Destuirme();
-        }
-    }
-    
 }

@@ -1,55 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public abstract class Enemigo_IA : MonoBehaviour
 {
     //conducta de la ia
-    public float speed;
+   
+    [SerializeField] public Rigidbody2D rbEnemigo;
+    [SerializeField] private Transform[] wayPoints;
+    [SerializeField] bool patrullaje;
+    [SerializeField] public float rangoVision = 6f;
+    [SerializeField] public int vida = 3;
+     public float speed;
     public Transform jugador;
     public List <GameObject> Armas;
     private bool isFacingRight = false;
-    //puntos de patrullaje
-    [SerializeField] private Transform[] wayPoints;
-    //lista de armas del enemigo
     private int currentWayPoint = 0;
     private bool enEspera;
     //funcion atacar que sera sobreecrita por sus hijos
     public abstract void Atacar();
-    [SerializeField] bool patrullaje;
-    [SerializeField] public float rangoVision = 6f;
-
-
-    void Update()
+    
+    public void Awake()
     {
-        //Verificamos si el enemigo es del tipo patrullaje o si su estado es de patrullaje
-        if (patrullaje == false)
-        {
-            //Animacion idle
-            //Verifica la posicion del jugador para atacar al enemigo al enemigo
-            if (Vector2.Distance(transform.position, jugador.position) < 4)
-            {
-                Atacar();
-            }
-        }
+         rbEnemigo = GetComponent<Rigidbody2D>();
+         jugador = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
-        else if (patrullaje == true)
+   void Update()
+    {
+        float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
+
+        if (patrullaje)
         {
-            //verifica la distancia entre el enemigo y el jugador
-            if (Vector2.Distance(transform.position, jugador.position) < 4)
+            // si jugador en rango Y no se salió demasiado del área de patrullaje
+            if (distanciaJugador < rangoVision &&
+                Vector2.Distance(transform.position, wayPoints[currentWayPoint].position) < 9f)
             {
                 Atacar();
-                if (Vector2.Distance(transform.position, wayPoints[currentWayPoint].position) > 9f)
-                {
-                    PatrullajeIA();
-                }
             }
             else
             {
                 PatrullajeIA();
             }
         }
-         
+        else
+        {
+            if (distanciaJugador < rangoVision)
+            {
+                Atacar();
+            }
+            else
+            {
+                rbEnemigo.velocity = Vector2.zero; // idle
+            }
+        }
     }
 
     //funcion para voltear al enemigo en base a la posicion del jugador
@@ -58,7 +63,7 @@ public abstract class Enemigo_IA : MonoBehaviour
         //verifica si el enemigo esta mirando a la derecha y si el jugador esta a la derecha
         if (isFacingRight && !isPlayerOnRight || !isFacingRight && isPlayerOnRight)
         {
-            //cambia la direccion del enemigo
+            //cambia la dirX del enemigo
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
             localScale.x *= -1;
@@ -70,15 +75,13 @@ public abstract class Enemigo_IA : MonoBehaviour
     {
         if (wayPoints.Length == 0) return;
 
-        Vector3 destino = new Vector3(
-            wayPoints[currentWayPoint].position.x,
-            transform.position.y,   // mantiene la altura
-            transform.position.z
-        );
+        Vector2 destino = new Vector2(wayPoints[currentWayPoint].position.x, transform.position.y);
 
-        if (transform.position.x != destino.x)
+        if (Mathf.Abs(transform.position.x - destino.x) > 0.1f && !enEspera)
         {
-            transform.position = Vector2.MoveTowards(transform.position, destino, speed * Time.deltaTime);
+            //mueve al enemigo hacia el waypoint utlizando velocity y el Mathf.Sign para determinar la direccion
+            float direccion = Mathf.Sign(destino.x - transform.position.x);
+            rbEnemigo.velocity = new Vector2(direccion * speed, rbEnemigo.velocity.y);
         }
         else if (!enEspera)
         {
@@ -124,11 +127,39 @@ public abstract class Enemigo_IA : MonoBehaviour
     
     private void Morir()
     {
-        //Animacion de muerte
+        if (vida <= 0)
+        {
+            //Animacion de muerte
+            Destroy(gameObject);
+        }
     }
     private void RecibirDano()
     {
         //Animacion de recibir daño
     }
-    
+    //por definir
+    /*
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("BalaJugador"))
+        {
+            vida -= 2;
+            RecibirDano();
+            Morir();
+            Destroy(other.gameObject);
+        }
+        if (other.CompareTag("PiedraJugador"))
+        {
+            vida--;
+            RecibirDano();
+            Morir();
+            Destroy(other.gameObject);
+        }
+        if (other.CompareTag("Melee"))
+        {
+            vida-=2;
+            RecibirDano();
+            Morir();
+        }
+    }*/
 }
