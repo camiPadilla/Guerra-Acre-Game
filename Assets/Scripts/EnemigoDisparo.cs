@@ -10,13 +10,16 @@ public class EnemigoDisparo : Enemigo_IA
 {
     [Header("Disparo")]
     [SerializeField] private GameObject balaPrefab;
+    [SerializeField] private GameObject piedraPrefab;
     [SerializeField] private Transform puntoDisparo;
     [SerializeField] private int nroBalas = 10;
     [SerializeField] private float tiempoEntreDisparos = 1.5f; 
     [SerializeField] private float distanciaOptima = 5f; // distancia ideal para disparar
     [SerializeField] private float tolerancia = 1f;      // margen para no moverse tanto
-
-    private float cooldownDisparo = 0f;
+    
+    [Header("fusil o piedra")]
+    [SerializeField] private bool fusil; //para ver si es piedra o fusil para atacar de manera diferente
+    private float cooldownDisparo = 3f;
 
     public override void Atacar()
     {
@@ -36,17 +39,38 @@ public class EnemigoDisparo : Enemigo_IA
         // Si ya está en rango de disparo → disparar
         if (Mathf.Abs(distanciaJugador - distanciaOptima) <= tolerancia)
         {
-            print ("Disparando");
-            //Shoot();
+            if (fusil)
+            {
+                Fusil();
+            }
+            else
+            {
+                Piedra();
+            }
         }
     }
-
-//Funcion para disparar
-    private void Shoot()
+    private void Fusil()
     {
+        //corregir, la bala no se esta impulsando
+        tiempoEntreDisparos = 2;
         if (cooldownDisparo <= 0f && nroBalas > 0)
         {
             Instantiate(balaPrefab, puntoDisparo.position, puntoDisparo.rotation);
+            nroBalas--;
+            cooldownDisparo = tiempoEntreDisparos;
+            balaPrefab.GetComponent<BalaEnemigo>().DireccionBala(transform.localScale.x);
+        }
+        else
+        {
+            cooldownDisparo -= Time.deltaTime;
+        }
+    }
+    private void Piedra()
+    {
+        tiempoEntreDisparos = 4;
+        if (cooldownDisparo <= 0f && nroBalas > 0)
+        {
+            Instantiate(piedraPrefab, puntoDisparo.position, puntoDisparo.rotation);
             nroBalas--;
             cooldownDisparo = tiempoEntreDisparos;
         }
@@ -64,7 +88,7 @@ public class EnemigoDisparo : Enemigo_IA
         // Si el jugador esta cerca, el enemigo se aleja
         if (distanciaJugador < distanciaOptima - tolerancia)
         {
-            float direccion = Mathf.Sign(transform.position.x - jugador.position.x); 
+            float direccion = Mathf.Sign(transform.position.x - jugador.position.x);
             rbEnemigo.velocity = new Vector2(direccion * speed, rbEnemigo.velocity.y);
         }
         // Si el jugador esta lejos, el enemigo se acerca

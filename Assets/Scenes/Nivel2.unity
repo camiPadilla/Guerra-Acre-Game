@@ -12325,7 +12325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4269cd696934ec7b536869b6c90f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbEnemigo: {fileID: 0}
+  rbEnemigo: {fileID: 777319575}
   wayPoints:
   - {fileID: 821252348}
   - {fileID: 427032946}
@@ -12335,12 +12335,14 @@ MonoBehaviour:
   speed: 4
   jugador: {fileID: 1530108762}
   Armas: []
-  balaPrefab: {fileID: 0}
-  puntoDisparo: {fileID: 0}
-  nroBalas: 0
+  balaPrefab: {fileID: 1807390585556225001, guid: ad3ecdb45ceda4e70825a713242d191a, type: 3}
+  piedraPrefab: {fileID: 8067349252345217547, guid: 77cf184bdd42d4075bcbf46d4e434be3, type: 3}
+  puntoDisparo: {fileID: 1538146150}
+  nroBalas: 50
   tiempoEntreDisparos: 1.5
   distanciaOptima: 3
   tolerancia: 1
+  fusil: 1
 --- !u!212 &777319578
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12405,7 +12407,8 @@ Transform:
   m_LocalPosition: {x: 143.93, y: 0.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 2.59412}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1538146150}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &793208463
@@ -22828,6 +22831,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 758903}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1538146149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538146150}
+  m_Layer: 0
+  m_Name: PuntoDisparo
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1538146150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538146149}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.35198975, y: 0.13053185, z: 0.011145435}
+  m_LocalScale: {x: 1, y: 1, z: 0.38548717}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 777319579}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1543355677
 PrefabInstance:
