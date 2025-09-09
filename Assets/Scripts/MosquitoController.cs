@@ -76,7 +76,8 @@ public class MosquitoController : MonoBehaviour
         }
         if (collision.transform.CompareTag("hitbox"))
         {
-            gameObject.SendMessageUpwards("perderVida");
+            Debug.Log("me toco algo que miedo");
+            gameObject.SendMessage("perderVida");
         }
     }
     void cambiarPosicion()

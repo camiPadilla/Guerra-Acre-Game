@@ -43,7 +43,7 @@ public class SaludPersonaje : MonoBehaviour
     {
         invulnerabilidad = true;
         GetComponentInChildren<SpriteRenderer>().color = Color.red;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3f);
         GetComponentInChildren<SpriteRenderer>().color = Color.white;
         invulnerabilidad = false;
     }

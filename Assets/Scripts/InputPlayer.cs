@@ -31,6 +31,10 @@ public class InputPlayer : MonoBehaviour
         {
             interactaundo = false;
         }
+        if (Input.GetButton("Fire2"))
+        {
+            Debug.Log("jugador listo para empujar");
+        }
     }
     //IEnumerator Espera()
     //{
