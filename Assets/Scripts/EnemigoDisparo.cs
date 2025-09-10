@@ -12,14 +12,14 @@ public class EnemigoDisparo : Enemigo_IA
     [SerializeField] private GameObject balaPrefab;
     [SerializeField] private GameObject piedraPrefab;
     [SerializeField] private Transform puntoDisparo;
-    [SerializeField] private int nroBalas = 10;
-    [SerializeField] private float tiempoEntreDisparos = 1.5f; 
+    [SerializeField] private int nroBalas = 15;
+    [SerializeField] private int nroPiedras = 5;
     [SerializeField] private float distanciaOptima = 5f; // distancia ideal para disparar
     [SerializeField] private float tolerancia = 1f;      // margen para no moverse tanto
     
     [Header("fusil o piedra")]
     [SerializeField] private bool fusil; //para ver si es piedra o fusil para atacar de manera diferente
-    private float cooldownDisparo = 3f;
+    private float cooldownDisparo = 5f;
 
     public override void Atacar()
     {
@@ -51,32 +51,27 @@ public class EnemigoDisparo : Enemigo_IA
     }
     private void Fusil()
     {
-        //corregir, la bala no se esta impulsando
-        tiempoEntreDisparos = 2;
-        if (cooldownDisparo <= 0f && nroBalas > 0)
+        if (nroBalas > 0)
         {
-            Instantiate(balaPrefab, puntoDisparo.position, puntoDisparo.rotation);
-            nroBalas--;
-            cooldownDisparo = tiempoEntreDisparos;
-            balaPrefab.GetComponent<BalaEnemigo>().DireccionBala(transform.localScale.x);
+            StartCoroutine(Cooldown());
         }
-        else
-        {
-            cooldownDisparo -= Time.deltaTime;
-        }
+    }
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(cooldownDisparo);
+        GameObject bala = Instantiate(balaPrefab, puntoDisparo.position, Quaternion.identity);
+        bala.GetComponent<BalaEnemigo>().DireccionBala(transform.localScale.x);
+        nroBalas--; 
+        StartCoroutine(Cooldown());
     }
     private void Piedra()
     {
-        tiempoEntreDisparos = 4;
-        if (cooldownDisparo <= 0f && nroBalas > 0)
+        if (nroPiedras > 0)
         {
-            Instantiate(piedraPrefab, puntoDisparo.position, puntoDisparo.rotation);
-            nroBalas--;
-            cooldownDisparo = tiempoEntreDisparos;
-        }
-        else
-        {
-            cooldownDisparo -= Time.deltaTime;
+            GameObject piedra = Instantiate(piedraPrefab, puntoDisparo.position, Quaternion.identity);
+            piedra.GetComponent<Rigidbody2D>().AddForce(new Vector2(transform.localScale.x * 200f, 300f));
+            nroPiedras--;
+            //(StartCoroutine(Cooldown());
         }
     }
 
