@@ -11,9 +11,9 @@ public class AtaquePersonaje : MonoBehaviour
     [SerializeField] Queue<Proyectil> balaCola = new Queue<Proyectil>();
     [SerializeField] int cantidadPiedras;
     [SerializeField] int cantidadBalas;
-    [SerializeField] float fuerzaDisparo;
-    [SerializeField] float fuerzatiro;
-    [SerializeField] float fuerzaMaxima;
+    [SerializeField] public float fuerzaDisparo;
+    [SerializeField] public float fuerzatiro;
+    [SerializeField] public float fuerzaMaxima;
     [SerializeField] public Transform origen;
     public int dirX; 
     public float dirY;

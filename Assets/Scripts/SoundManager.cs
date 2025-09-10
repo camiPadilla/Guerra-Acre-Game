@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] AtaquePersonaje ataquePersonaje;
-    [SerializeField] Piedra piedra;
+    [SerializeField] Proyectil piedra;
 
     [SerializeField] StudioEventEmitter cargarpiedraEmitter;
     [SerializeField] StudioEventEmitter lanzarpiedraEmitter;
@@ -38,7 +38,7 @@ public class SoundManager : MonoBehaviour
         if (cargarpiedraEmitter != null)
         {
             cargarpiedraEmitter.Play();
-            cargarpiedraEmitter.EventInstance.setParameterByName("Paner", -(ataquePersonaje.direccion));
+            cargarpiedraEmitter.EventInstance.setParameterByName("Paner", -(ataquePersonaje.dirX));
             StartCoroutine(IniciarPanearCarga());
         }            
     }
@@ -50,7 +50,7 @@ public class SoundManager : MonoBehaviour
                 && Input.GetMouseButton(0))
             {
                 float normalizado = ((ataquePersonaje.fuerzaMaxima - ataquePersonaje.fuerzatiro) 
-                    / (ataquePersonaje.fuerzaMaxima)) * (ataquePersonaje.direccion * -1);
+                    / (ataquePersonaje.fuerzaMaxima)) * (ataquePersonaje.dirX * -1);
                 cargarpiedraEmitter.EventInstance.setParameterByName("Paner", normalizado);
                 cargarpiedraEmitter.EventInstance.getParameterByName("Paner", out float test);
                 /*Debug.Log("Valor actual del emiter: " + test);
@@ -76,7 +76,7 @@ public class SoundManager : MonoBehaviour
         if (lanzarpiedraEmitter != null)
         {
             lanzarpiedraEmitter.Play();
-            lanzarpiedraEmitter.EventInstance.setParameterByName("Paner", -(ataquePersonaje.direccion));
+            lanzarpiedraEmitter.EventInstance.setParameterByName("Paner", -(ataquePersonaje.dirX));
         }
     }
 
