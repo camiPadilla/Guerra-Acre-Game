@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6327223837726946138}
   - component: {fileID: 4854590648042908820}
   - component: {fileID: 9159621692620587813}
-  - component: {fileID: 3721983143666257129}
   m_Layer: 0
   m_Name: Piedra
   m_TagString: hitbox
@@ -101,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726dc2b7988c42b418e75ee23e2e527f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundManager: {fileID: 3721983143666257129}
   enUso: 0
   piedraRigid: {fileID: 4854590648042908820}
 --- !u!58 &6327223837726946138
@@ -197,17 +195,3 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &3721983143666257129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2164900311158193948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00eff7583c9cf054d943e50086ea6771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AtaquePersonaje: {fileID: 0}
-  emitter: {fileID: 9159621692620587813}

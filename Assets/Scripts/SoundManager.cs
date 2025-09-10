@@ -88,17 +88,18 @@ public class SoundManager : MonoBehaviour
         
         if (destruirCajaEmitter != null)
         {
-            
+            destruirCajaEmitter.Play();
+
             float distancia = ataquePersonaje.transform.position.x - posicionCaja;
             Debug.Log("Distancia: " + distancia);
 
             float distNormalizado = distancia / 8;
             Debug.Log("Distancia Normalizada: " + distNormalizado);
-            destruirCajaEmitter.EventInstance.setParameterByName("CajaPanner", distNormalizado);
+            destruirCajaEmitter.EventInstance.setParameterByName("CajaPanner", -(distNormalizado));
             destruirCajaEmitter.EventInstance.getParameterByName("CajaPanner", out float test);
             Debug.Log("Valor actual del emiter: " + test);
 
-            destruirCajaEmitter.Play();
+            
         }
     }
 

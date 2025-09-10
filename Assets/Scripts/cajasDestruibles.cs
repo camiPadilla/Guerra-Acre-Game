@@ -18,7 +18,7 @@ public class cajasDestruibles : ObjetoDestruible
 
     }
     private void OnDisable()
-    {
+    {        
         //Debug.Log("hola");
         //loot();
     }

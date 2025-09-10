@@ -3270,7 +3270,7 @@ MonoBehaviour:
   piedra: {fileID: 4578564418056406226, guid: 70451f7b4b036654198aa62b01befa36, type: 3}
   cargarpiedraEmitter: {fileID: 1360637795}
   lanzarpiedraEmitter: {fileID: 9159621692620587813, guid: 70451f7b4b036654198aa62b01befa36, type: 3}
-  destruirCajaEmitter: {fileID: 8617977638034294571, guid: 8a89918618155ce4499763482f7264a9, type: 3}
+  destruirCajaEmitter: {fileID: 7564116295238717982, guid: 8a89918618155ce4499763482f7264a9, type: 3}
 --- !u!4 &318525297
 Transform:
   m_ObjectHideFlags: 0
@@ -11544,10 +11544,6 @@ PrefabInstance:
     - target: {fileID: 8168092256002931324, guid: 8a89918618155ce4499763482f7264a9, type: 3}
       propertyPath: m_TagString
       value: Destruible
-      objectReference: {fileID: 0}
-    - target: {fileID: 8617977638034294571, guid: 8a89918618155ce4499763482f7264a9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
