@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1742466980670529114}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.475, z: 0}
+  m_LocalPosition: {x: 0, y: 1.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6064c8a4f214dd94d931c384564eecf8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b893d939b2980744bdb1c227c9bda56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -184,9 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreObjeto: NPC1
-  mensaje: hola me muero ayuda
   tiempoEspera: 3
-  MensajeNPC: {fileID: 21300000, guid: 120cd4ff5796e224c98e8192a244382d, type: 3}
+  MensajeNPC: {fileID: 21300000, guid: 2b893d939b2980744bdb1c227c9bda56, type: 3}
   dialogo: {fileID: 1742466980670529114}
 --- !u!70 &9125319325033845983
 CapsuleCollider2D:

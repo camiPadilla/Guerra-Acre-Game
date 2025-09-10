@@ -19,7 +19,7 @@ public class ControladorNPC : ObjetoRecogible
     {
         if(dialogando == true)
         {
-            HUDManager.instancia.Ocultar();
+            //HUDManager.instancia.Ocultar();
         }
     }
 

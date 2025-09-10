@@ -20,6 +20,15 @@ public class InventarioManager : MonoBehaviour
     {
         
     }
+    public int GetBalas()
+    {
+        return balas;
+       
+    }
+    public void SetBalas()
+    {
+        balas--;
+    }
     public void RecibirInfo(string nombre)
     {
         switch (nombre)

@@ -15,7 +15,7 @@ public class ObjetoRecogible : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             ObtenerTamaño();
-            HUDManager.instancia.MostrarInteraccion(transform.position, 0.7f);
+            HUDManager.instancia.MostrarInteraccion(transform.position, 0.7f, "recogible");
             if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
             {
                 if (nombreObjeto != "NPC")

@@ -26,8 +26,8 @@ public class ObjetoMovible : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             if(Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje) || Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
-            HUDManager.instancia.MostrarInteraccion(transform.position, GetComponent<SpriteRenderer>().bounds.extents.y);
-            if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
+            HUDManager.instancia.MostrarInteraccion(transform.position, GetComponent<SpriteRenderer>().bounds.extents.y, "movible");
+            if (collision.gameObject.GetComponent<InputPlayer>().GetMoviendo())
             {
                 tag = "movible";
                 HUDManager.instancia.Ocultar();

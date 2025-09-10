@@ -6,6 +6,7 @@ public class InputPlayer : MonoBehaviour
 {
     //[SerializeField] BoxCollider2D machete;
     bool interactaundo = false;
+    bool moviendo = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,11 @@ public class InputPlayer : MonoBehaviour
         if (Input.GetButton("Fire2"))
         {
             Debug.Log("jugador listo para empujar");
+            moviendo = true;
+        }
+        else
+        {
+            moviendo= false;
         }
     }
     //IEnumerator Espera()
@@ -46,6 +52,9 @@ public class InputPlayer : MonoBehaviour
     {
         return interactaundo;
     }
-    
+    public bool GetMoviendo()
+    {
+        return moviendo;
+    }
 
 }

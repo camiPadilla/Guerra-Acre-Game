@@ -117,7 +117,18 @@ public class AtaquePersonaje : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Disparar();
+            int cantidadBalas = GetComponent<InventarioManager>().GetBalas();
+            if (cantidadBalas > 0)
+            {
+                Debug.Log("tienes " + cantidadBalas + " balas");
+                Disparar();
+                SendMessage("SetBalas");
+            }
+            else
+            {
+                Debug.Log("no tienes balas");
+            }
+
         }
     }
     private void Disparar()

@@ -29,8 +29,9 @@ public class SaludPersonaje : MonoBehaviour
         Debug.Log("el jugador tiene vidas extas " + vidasEXtras);
         if (vidasJugador == 0)
         {
-            Destroy(gameObject);
-            Time.timeScale = 0f;
+           gameObject.SetActive(false);
+           HUDManager.instancia.MostrarPantallaMuerte();
+            
         } 
         else
         {
