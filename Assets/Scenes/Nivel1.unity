@@ -4859,6 +4859,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 203869859951900225, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 203869859951900225, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -4892,11 +4896,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2615481058069094499, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.74
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2615481058069094499, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2615481058069094499, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7694,6 +7698,639 @@ Transform:
   m_Children: []
   m_Father: {fileID: 81189088}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1590842649
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 519420031, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: field of view
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420031, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: far clip plane
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420031, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: near clip plane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420031, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: orthographic size
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420032, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.703375
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420032, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.02361
+      objectReference: {fileID: 0}
+    - target: {fileID: 519420032, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.168123
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701869, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701869, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.maxSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walk.maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.maxHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.maxXSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.maxXSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Crouch.maxSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.nextJumpInt
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashCooldown
+      value: 10000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.isGrounded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.coyoteTimeTimer
+      value: 0.13000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.currentStamina
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashCooldownTimer
+      value: 10000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.jumpBufferMaxTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.facingDirection
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.contactPosition.x
+      value: 38.200363
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.contactPosition.y
+      value: -5.203534
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.headCheckPosition.x
+      value: 38.202946
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.headCheckPosition.y
+      value: -3.7010412
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.walkSpeedDirection.x
+      value: -0.9999857
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.walkSpeedDirection.y
+      value: 0.0053529125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.wallLayerMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.groundCheckPosition.x
+      value: 38.202946
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.groundCheckPosition.y
+      value: -4.701041
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.groundLayerMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.Slope.currentSlopeAngle
+      value: 0.30646706
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Physics.headBumpLayerMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpTime
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].maxHeight
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].timeScaleOnCut
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallSlide.facingDirectionWhenSliding
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[1].time
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[2].time
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[1].time
+      value: 0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[2].time
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[3].time
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[4].time
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[5].time
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[6].time
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[1].value
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[2].value
+      value: -2.3823528
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[0].value
+      value: 5.2331414
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[1].value
+      value: -1.7352941
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[2].value
+      value: -2.1764705
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[3].value
+      value: -2.2058823
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[4].value
+      value: -2.0882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[5].value
+      value: -2.1470587
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[6].value
+      value: -0.14705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[0].inSlope
+      value: -1.7857143
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[1].inSlope
+      value: -2.5002441
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[2].inSlope
+      value: -3.214774
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[0].inSlope
+      value: -12.90451
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[1].inSlope
+      value: -8.457603
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[2].inSlope
+      value: -2.2994661
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[3].inSlope
+      value: 1.1764679
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[4].inSlope
+      value: -1.4705844
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[5].inSlope
+      value: 1.2254958
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[6].inSlope
+      value: 8.333332
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[0].outSlope
+      value: -1.7857143
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[1].outSlope
+      value: -2.5002441
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[2].outSlope
+      value: -3.214774
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[0].outSlope
+      value: -12.90451
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[1].outSlope
+      value: -8.457603
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[2].outSlope
+      value: -2.2994661
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[3].outSlope
+      value: 1.1764679
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[4].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[4].outSlope
+      value: -1.4705844
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[5].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[5].outSlope
+      value: 1.2254958
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[6].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[6].outSlope
+      value: 8.333332
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Land.landVelocityCurve.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[4].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Dash.dashYVelovityCurve.m_Curve.Array.data[5].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_PreInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_PostInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_RotationOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[1].time
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[2].time
+      value: 0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[3].time
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[0].value
+      value: 1.999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[1].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[2].value
+      value: 0.14705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[3].value
+      value: 0.0882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[0].inSlope
+      value: -1.9230758
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[1].inSlope
+      value: -2.5658157
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[2].inSlope
+      value: -1.8983953
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[3].inSlope
+      value: -0.5882352
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[0].outSlope
+      value: -1.9230758
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[1].outSlope
+      value: -2.5658157
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[2].outSlope
+      value: -1.8983953
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[3].outSlope
+      value: -0.5882352
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Walls.WallJump.jumpVelocityCurve.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[1].time
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[2].time
+      value: 0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[3].time
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[0].value
+      value: 1.999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[1].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[2].value
+      value: 0.14705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[3].value
+      value: 0.0882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[0].inSlope
+      value: -1.9230758
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[1].inSlope
+      value: -2.5658157
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[2].inSlope
+      value: -1.8983953
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[3].inSlope
+      value: -0.5882352
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[0].outSlope
+      value: -1.9230758
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[1].outSlope
+      value: -2.5658157
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[2].outSlope
+      value: -1.8983953
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[3].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[3].outSlope
+      value: -0.5882352
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701870, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: PlayerData.Jump.Jumps.Array.data[0].jumpVelocityCurve.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.8521147
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410020105280573791, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
 --- !u!1001 &1597372269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7986,6 +8623,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 206466102427302471, guid: 8a89918618155ce4499763482f7264a9, type: 3}
   m_PrefabInstance: {fileID: 1597372269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1625644339 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+  m_PrefabInstance: {fileID: 1590842649}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1670014713 stripped
 Transform:
@@ -8694,7 +9336,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1360637784}
+  m_Follow: {fileID: 1625644339}
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 3.5
@@ -8723,7 +9365,7 @@ Transform:
   m_GameObject: {fileID: 1887834879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.74, y: -0.09000003, z: -10}
+  m_LocalPosition: {x: 0.83, y: 1.16, z: -17.852116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9344,7 +9986,7 @@ Transform:
   m_GameObject: {fileID: 1990159116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.74, y: -0.09000003, z: -10}
+  m_LocalPosition: {x: 0.83, y: 1.16, z: -17.852116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10055,3 +10697,4 @@ SceneRoots:
   - {fileID: 81837134}
   - {fileID: 1803861578}
   - {fileID: 503313445}
+  - {fileID: 1590842649}
