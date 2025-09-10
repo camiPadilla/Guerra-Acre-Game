@@ -3237,6 +3237,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &318525295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 318525297}
+  - component: {fileID: 318525296}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &318525296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318525295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00eff7583c9cf054d943e50086ea6771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ataquePersonaje: {fileID: 1360637799}
+  piedra: {fileID: 4578564418056406226, guid: 70451f7b4b036654198aa62b01befa36, type: 3}
+  cargarpiedraEmitter: {fileID: 1360637795}
+  lanzarpiedraEmitter: {fileID: 9159621692620587813, guid: 70451f7b4b036654198aa62b01befa36, type: 3}
+  destruirCajaEmitter: {fileID: 8617977638034294571, guid: 8a89918618155ce4499763482f7264a9, type: 3}
+--- !u!4 &318525297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318525295}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 97.19, y: -3.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &322760670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5792,6 +5841,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5989754113772612217, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5989754113772612217, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
       propertyPath: cantidadPiedras
       value: 3
       objectReference: {fileID: 0}
@@ -7477,6 +7530,17 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &1360637799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5989754113772612217, guid: cb123a376200b4b42b2c80e7c86167b8, type: 3}
+  m_PrefabInstance: {fileID: 892265188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406454484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cd61b9c79568094c8cfc443bcef3361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1372687957
 GameObject:
   m_ObjectHideFlags: 0
@@ -11481,6 +11545,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Destruible
       objectReference: {fileID: 0}
+    - target: {fileID: 8617977638034294571, guid: 8a89918618155ce4499763482f7264a9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11548,6 +11616,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1990159119}
+  - {fileID: 318525297}
   - {fileID: 892265188}
   - {fileID: 275152436}
   - {fileID: 1942105932}

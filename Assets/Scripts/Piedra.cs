@@ -45,12 +45,16 @@ public class Piedra : MonoBehaviour
             if (collision.transform.CompareTag("Destruible"))
             {
                 collision.gameObject.SetActive(false);
+
+                float posicionCaja = collision.transform.position.x;
+                Debug.Log("Pos caja Origin: " + posicionCaja);
+                SoundEvents.DestruirCaja?.Invoke(posicionCaja);
             }
         }
     }
     public void Impulso(float fuerza, int dir)
     {
         piedraRigid.AddForce(Vector2.up * fuerza + Vector2.right * fuerza * dir);
-        GetComponent<FMODUnity.StudioEventEmitter>().Play();
+        SoundEvents.LanzarPiedra?.Invoke();
     }
 }

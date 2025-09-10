@@ -35,7 +35,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638929257558312213
+  lastModified: 638930623922805787
   FileSizes: []
   Exists: 1
 --- !u!114 &-5637856368652590022
@@ -137,9 +137,10 @@ MonoBehaviour:
   Banks:
   - {fileID: 6870173524858207877}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: 6034475787167437664}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -178,10 +179,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638929257558352908
+  lastModified: 638930623922851459
   FileSizes:
   - Name: 
-    Value: 1264
+    Value: 1318
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -214,7 +215,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -2413958944833478971}
   cacheVersion: 131849
-  cacheTime: 638929267245773954
+  cacheTime: 638930628161478342
   SerializableEventsDict:
   - key: event:/SFX/Gameplay/Player/TirarPiedra/Cargar
     index: 0
@@ -380,6 +381,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &6034475787167437664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/CajaRota/CajaPanner
+  m_EditorClassIdentifier: 
+  Name: CajaPanner
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 91419344
+    data2: 1619930384
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &6343056157557620187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +438,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-  lastModified: 638929267245773954
+  lastModified: 638930628161478342
   FileSizes: []
   Exists: 1
 --- !u!114 &7463765641185627485
