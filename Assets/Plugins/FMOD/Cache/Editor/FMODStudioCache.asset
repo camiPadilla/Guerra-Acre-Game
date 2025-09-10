@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9098366749750792372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gameplay/Player/TirarPiedra/ArrojarPiedra
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gameplay/Player/TirarPiedra/ArrojarPiedra
+  Guid:
+    Data1: -536892189
+    Data2: 1227390531
+    Data3: 1035134852
+    Data4: -1247038853
+  Banks:
+  - {fileID: 853070893967042635}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-8952942836957044545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +87,24 @@ MonoBehaviour:
   lastModified: 638930978044482483
   FileSizes: []
   Exists: 1
+--- !u!114 &-7872767439306875964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Voice-Dialogue_Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/Voice-Dialogue_Bank.bank
+  Name: Voice-Dialogue_Bank
+  StudioPath: bank:/Voice-Dialogue_Bank
+  lastModified: 638931130332604086
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-7738647950171302827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +143,24 @@ MonoBehaviour:
   lastModified: 638930936461361172
   FileSizes: []
   Exists: 1
+--- !u!114 &-5964566908644527519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX_Enemies_Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/SFX_Enemies_Bank.bank
+  Name: SFX_Enemies_Bank
+  StudioPath: bank:/SFX_Enemies_Bank
+  lastModified: 638931130332589042
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-5637856368652590022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +179,26 @@ MonoBehaviour:
   lastModified: 638928731242790564
   FileSizes: []
   Exists: 1
+--- !u!114 &-5383205859538682388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638931130332569024
+  FileSizes:
+  - Name: 
+    Value: 1320
+  Exists: 1
 --- !u!114 &-5229783908213870990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +215,24 @@ MonoBehaviour:
   Name: SFX_UI_Bank
   StudioPath: bank:/SFX_UI_Bank
   lastModified: 638930978046664113
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-4886616212276608160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music_Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/Music_Bank.bank
+  Name: Music_Bank
+  StudioPath: bank:/Music_Bank
+  lastModified: 638931130332579039
   FileSizes: []
   Exists: 1
 --- !u!114 &-4694360883462464393
@@ -153,6 +254,30 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 506
+  Exists: 1
+--- !u!114 &-4394015094765921111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Cargar/Paner
+  m_EditorClassIdentifier: 
+  Name: Paner
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3594376881
+    data2: 1458202573
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-4248965264390678729
 MonoBehaviour:
@@ -285,6 +410,48 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-1534594379972079588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/RomperCaja/CajaPanner
+  m_EditorClassIdentifier: 
+  Name: CajaPanner
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2046405119
+    data2: 26682935
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-1403203281722678300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX_UI_Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/SFX_UI_Bank.bank
+  Name: SFX_UI_Bank
+  StudioPath: bank:/SFX_UI_Bank
+  lastModified: 638931130332589042
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-314800300813749777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,25 +483,25 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 2535033979416476131}
-  - {fileID: -314800300813749777}
-  - {fileID: 3338881894188398056}
-  - {fileID: -8209496844379858575}
-  - {fileID: 1447764473763225571}
-  - {fileID: -8435176423741815523}
-  - {fileID: -5229783908213870990}
-  - {fileID: 1923721091920363921}
+  - {fileID: -5383205859538682388}
+  - {fileID: 2488940826080341238}
+  - {fileID: 4441733155440119973}
+  - {fileID: -4886616212276608160}
+  - {fileID: -5964566908644527519}
+  - {fileID: 853070893967042635}
+  - {fileID: -1403203281722678300}
+  - {fileID: -7872767439306875964}
   EditorEvents:
-  - {fileID: 4761585512442438846}
-  - {fileID: 2509145649263096792}
-  - {fileID: -1810374850668131531}
+  - {fileID: 4809054775616407802}
+  - {fileID: 9133444777779258817}
+  - {fileID: -9098366749750792372}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 3338881894188398056}
+  - {fileID: 4441733155440119973}
   StringsBanks:
-  - {fileID: 2535033979416476131}
+  - {fileID: -5383205859538682388}
   cacheVersion: 131849
-  cacheTime: 638930978047283836
+  cacheTime: 638931130332604086
   SerializableEventsDict:
   - key: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
     index: 0
@@ -369,6 +536,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &853070893967042635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX_Gameplay.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
+  Name: SFX_Gameplay
+  StudioPath: bank:/SFX_Gameplay
+  lastModified: 638931130332589042
+  FileSizes: []
+  Exists: 1
 --- !u!114 &1369328348666112695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,6 +638,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2800
+--- !u!114 &2488940826080341238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience-Atmos_Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/Ambience-Atmos_Bank.bank
+  Name: Ambience-Atmos_Bank
+  StudioPath: bank:/Ambience-Atmos_Bank
+  lastModified: 638931130332555038
+  FileSizes: []
+  Exists: 1
 --- !u!114 &2500930939459559151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,6 +778,24 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1094
   Exists: 1
+--- !u!114 &4441733155440119973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638931130332555038
+  FileSizes: []
+  Exists: 1
 --- !u!114 &4761585512442438846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,6 +821,34 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters:
   - {fileID: -8952942836957044545}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 911
+--- !u!114 &4809054775616407802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
+  Guid:
+    Data1: -563701215
+    Data2: 1321681869
+    Data3: -803159361
+    Data4: 1745064157
+  Banks:
+  - {fileID: 853070893967042635}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -1534594379972079588}
   MinDistance: 1
   MaxDistance: 20
   Length: 911
@@ -780,3 +1029,31 @@ MonoBehaviour:
   - Name: Desktop
     Value: 35360
   Exists: 1
+--- !u!114 &9133444777779258817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gameplay/Player/TirarPiedra/Cargar
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gameplay/Player/TirarPiedra/Cargar
+  Guid:
+    Data1: -100764217
+    Data2: 1254599512
+    Data3: -1394550387
+    Data4: 1453257471
+  Banks:
+  - {fileID: 853070893967042635}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -4394015094765921111}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2800
