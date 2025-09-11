@@ -11,7 +11,7 @@ public class ObjetoRecogible : MonoBehaviour
     {
         imagenSize = this.GetComponent<SpriteRenderer>().bounds.extents.y;
     }
-    private void OnTriggerEnter2D(Collider2D collision) { SoundEvents.RecogerNota?.Invoke(); }
+    private void OnTriggerEnter2D(Collider2D collision) {SoundEvents.RecogerNota?.Invoke();}
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
@@ -19,7 +19,7 @@ public class ObjetoRecogible : MonoBehaviour
             ObtenerTamaño();
 
             HUDManager.instancia.MostrarInteraccion(transform.position, 0.7f, "recogible");
-            /*collision.gameObject.GetComponent<InputPlayer>().getInteractuable();
+            collision.gameObject.GetComponent<InputPlayer>().getInteractuable();
 
             {
                 if (nombreObjeto != "NPC")
@@ -31,7 +31,7 @@ public class ObjetoRecogible : MonoBehaviour
                 {
                     SendMessage("Interactuar");
                 }
-            }*/
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
