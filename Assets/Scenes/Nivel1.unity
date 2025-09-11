@@ -5732,7 +5732,7 @@ MonoBehaviour:
   piedra: {fileID: 4578564418056406226, guid: 70451f7b4b036654198aa62b01befa36, type: 3}
   cargarpiedraEmitter: {fileID: 0}
   lanzarpiedraEmitter: {fileID: 9159621692620587813, guid: 70451f7b4b036654198aa62b01befa36, type: 3}
-  destruirCajaEmitter: {fileID: 4651629027958106749, guid: 8a89918618155ce4499763482f7264a9, type: 3}
+  destruirCajaEmitter: {fileID: 0}
   pasosPastoEmitter: {fileID: 1625644346}
 --- !u!1 &1067717017
 GameObject:
@@ -7677,19 +7677,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 519420031, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
       propertyPath: field of view
-      value: 34
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 519420031, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
       propertyPath: far clip plane
-      value: 1000
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 519420031, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
       propertyPath: near clip plane
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 519420031, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
       propertyPath: orthographic size
-      value: 7.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 519420032, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7697,7 +7697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 519420032, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.11361
+      value: 17.02361
       objectReference: {fileID: 0}
     - target: {fileID: 519420032, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8643,11 +8643,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -3528639
-      Data2: 1306778607
-      Data3: 752962186
-      Data4: 43525401
-    Path: event:/SFX/Gameplay/Player/Pasos/Pasto/Correr_Pasto
+      Data1: -1726375094
+      Data2: 1264335529
+      Data3: -1936772698
+      Data4: -1837821932
+    Path: event:/SFX/Gameplay/Player/Pasos/Pasto/Caminar_Pasto
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -9979,11 +9979,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 34
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 1
-  orthographic size: 7.5
+  orthographic size: 3.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10008,7 +10008,7 @@ Transform:
   m_GameObject: {fileID: 1990159116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.83, y: 2.25, z: -17.852116}
+  m_LocalPosition: {x: 0.83, y: 1.16, z: -17.852116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

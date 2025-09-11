@@ -283,7 +283,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638931775802901015
+  lastModified: 638931854083219074
   FileSizes: []
   Exists: 1
 --- !u!114 &-4248965264390678729
@@ -329,6 +329,30 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 1074
+  Exists: 1
+--- !u!114 &-3589130727862581509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Pasos_Pasto/Gait
+  m_EditorClassIdentifier: 
+  Name: Gait
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2527882342
+    data2: 2363063229
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-3421475498333818555
 MonoBehaviour:
@@ -475,7 +499,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-  lastModified: 638931815128187367
+  lastModified: 638931854084478798
   FileSizes: []
   Exists: 1
 --- !u!114 &-1810374850668131531
@@ -548,15 +572,15 @@ MonoBehaviour:
   - {fileID: -2924380401492653971}
   - {fileID: 4106138201046819778}
   - {fileID: -5144897673773544002}
-  - {fileID: 5080543031314950636}
   - {fileID: -7792367889403892653}
+  - {fileID: 1521558657938249095}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4677753198897516361}
   StringsBanks:
   - {fileID: 2001856938931767835}
   cacheVersion: 131849
-  cacheTime: 638931815128187367
+  cacheTime: 638931854084478798
   SerializableEventsDict:
   - key: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
     index: 0
@@ -564,9 +588,9 @@ MonoBehaviour:
     index: 1
   - key: event:/SFX/Gameplay/Player/TirarPiedra/ArrojarPiedra
     index: 2
-  - key: event:/SFX/Gameplay/Player/Pasos/Pasto/Correr_Pasto
-    index: 3
   - key: event:/SFX/Gameplay/Player/Pasos/Pasto/Caminar_Pasto
+    index: 3
+  - key: event:/SFX/Gameplay/Player/Pasos/Pasto/Pasos_Pasto
     index: 4
 --- !u!114 &233152248849906892
 MonoBehaviour:
@@ -633,6 +657,34 @@ MonoBehaviour:
   lastModified: 638930978044583138
   FileSizes: []
   Exists: 1
+--- !u!114 &1521558657938249095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gameplay/Player/Pasos/Pasto/Pasos_Pasto
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gameplay/Player/Pasos/Pasto/Pasos_Pasto
+  Guid:
+    Data1: -3528639
+    Data2: 1306778607
+    Data3: 752962186
+    Data4: 43525401
+  Banks:
+  - {fileID: -1887853925730169243}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3589130727862581509}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1370
 --- !u!114 &1923721091920363921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,10 +746,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638931775802946181
+  lastModified: 638931854083279560
   FileSizes:
   - Name: 
-    Value: 1430
+    Value: 1464
   Exists: 1
 --- !u!114 &2113637867832888666
 MonoBehaviour:
@@ -940,33 +992,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &5080543031314950636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Gameplay/Player/Pasos/Pasto/Correr_Pasto
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Gameplay/Player/Pasos/Pasto/Correr_Pasto
-  Guid:
-    Data1: -3528639
-    Data2: 1306778607
-    Data3: 752962186
-    Data4: 43525401
-  Banks:
-  - {fileID: -1887853925730169243}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1370
 --- !u!114 &5583082518766274810
 MonoBehaviour:
   m_ObjectHideFlags: 0
