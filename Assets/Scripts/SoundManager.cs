@@ -16,6 +16,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] StudioEventEmitter destruirCajaEmitter;
     [SerializeField] StudioEventEmitter pasosPastoEmitter;
 
+    [SerializeField] StudioEventEmitter notaSoundEmitter;
+
 
     private void OnEnable()
     {
@@ -28,12 +30,14 @@ public class SoundManager : MonoBehaviour
 
         SoundEvents.PasosPasto += ReproducirPasos;
         SoundEvents.DetenerPasosPasto += DetenerPasos;
+
+        SoundEvents.RecogerNota += RecogerNota;
     }
 
     private void OnDisable()
     {
-        SoundEvents.CargarFuerzaPiedra -= ReproducirCargarPiedra;
-        SoundEvents.DetenerCarga -= DetenerCarga;
+        //SoundEvents.CargarFuerzaPiedra -= ReproducirCargarPiedra;
+        //SoundEvents.DetenerCarga -= DetenerCarga;
     }
 
     //SONIDO DE CARGA
@@ -55,6 +59,7 @@ public class SoundManager : MonoBehaviour
             {
                 float normalizado = ((ataquePersonaje.fuerzaMaxima - ataquePersonaje.fuerzatiro) 
                     / (ataquePersonaje.fuerzaMaxima)) * (ataquePersonaje.dirX * -1);
+
                 cargarpiedraEmitter.EventInstance.setParameterByName("Paner", normalizado);
                 cargarpiedraEmitter.EventInstance.getParameterByName("Paner", out float test);
                 /*Debug.Log("Valor actual del emiter: " + test);
@@ -125,4 +130,13 @@ public class SoundManager : MonoBehaviour
             pasosPastoEmitter.Stop();
         }
     }
+
+    public void RecogerNota()
+    { 
+        if (notaSoundEmitter != null)
+        {
+            notaSoundEmitter.Play();
+        }
+    }
+           
 }

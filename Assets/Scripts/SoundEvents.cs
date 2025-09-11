@@ -17,5 +17,6 @@ public static class SoundEvents
     //Caminar Pasos
     public static Action PasosPasto;
     public static Action DetenerPasosPasto;
+    public static Action RecogerNota;
 }
 

@@ -57,7 +57,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638931854083219074
+  lastModified: 638932020788703723
   FileSizes: []
   Exists: 1
 --- !u!114 &-2598781895333536714
@@ -185,13 +185,14 @@ MonoBehaviour:
   - {fileID: 7066177971060508667}
   - {fileID: 2401210514766382824}
   - {fileID: 8786117208795413375}
+  - {fileID: 4483362217055582164}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3465976776397467531}
   StringsBanks:
   - {fileID: 883576379495393654}
   cacheVersion: 131849
-  cacheTime: 638931866720350265
+  cacheTime: 638932020799129967
   SerializableEventsDict:
   - key: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
     index: 0
@@ -203,6 +204,8 @@ MonoBehaviour:
     index: 3
   - key: event:/SFX/Gameplay/Player/TirarPiedra/ArrojarPiedra
     index: 4
+  - key: event:/SFX/Gameplay/Recolectables/RecogerNota
+    index: 5
 --- !u!114 &657825991629357194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,10 +245,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638931866720295102
+  lastModified: 638932020788824540
   FileSizes:
   - Name: 
-    Value: 1464
+    Value: 1532
   Exists: 1
 --- !u!114 &1492993146607850828
 MonoBehaviour:
@@ -326,9 +329,36 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-  lastModified: 638931866720350265
+  lastModified: 638932020799129967
   FileSizes: []
   Exists: 1
+--- !u!114 &4483362217055582164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gameplay/Recolectables/RecogerNota
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gameplay/Recolectables/RecogerNota
+  Guid:
+    Data1: -1378521387
+    Data2: 1115541145
+    Data3: -1797739114
+    Data4: 160617473
+  Banks:
+  - {fileID: 2804349124176615228}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6116494432412551833
 MonoBehaviour:
   m_ObjectHideFlags: 0
