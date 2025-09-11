@@ -11,12 +11,14 @@ public static class SoundEvents
     //Lanzar piedra
     public static Action LanzarPiedra;
 
-    //DestruirCaja
+    //Destruir Caja
     public static Action<float> DestruirCaja;
 
     //Caminar Pasos
     public static Action PasosPasto;
     public static Action DetenerPasosPasto;
+
+    //Recoger notas
     public static Action RecogerNota;
 }
 
