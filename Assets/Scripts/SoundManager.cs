@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] StudioEventEmitter cargarpiedraEmitter;
     [SerializeField] StudioEventEmitter lanzarpiedraEmitter;
     [SerializeField] StudioEventEmitter destruirCajaEmitter;
+    [SerializeField] StudioEventEmitter pasosPastoEmitter;
 
 
     private void OnEnable()
@@ -24,6 +25,9 @@ public class SoundManager : MonoBehaviour
         SoundEvents.LanzarPiedra += ReproducirLanzarPiedra;
 
         SoundEvents.DestruirCaja += ReproducirDestruirCaja;
+
+        SoundEvents.PasosPasto += ReproducirPasos;
+        SoundEvents.DetenerPasosPasto += DetenerPasos;
     }
 
     private void OnDisable()
@@ -103,4 +107,22 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+
+    //SONIDOS DE PASOS
+    public void ReproducirPasos()
+    {
+        if (pasosPastoEmitter != null)
+        {
+            Debug.Log("Reproduciendo pasos");
+            pasosPastoEmitter.Play();
+        }
+    }
+    public void DetenerPasos()
+    {
+        if (pasosPastoEmitter != null)
+        {
+            Debug.Log("Pasos Detenidos");
+            pasosPastoEmitter.Stop();
+        }
+    }
 }
