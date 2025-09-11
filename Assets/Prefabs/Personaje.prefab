@@ -79,12 +79,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabPiedra: {fileID: 2164900311158193948, guid: 70451f7b4b036654198aa62b01befa36, type: 3}
+  prefabBala: {fileID: 5851173175808208357, guid: c4c720e8212fe76459384672bdbefe94, type: 3}
   cantidadPiedras: 3
+  cantidadBalas: 10
+  fuerzaDisparo: 500
   fuerzatiro: 0
   fuerzaMaxima: 250
   origen: {fileID: 2615481058069094499}
-  direccion: 0
-  miAtaque: {fileID: 9050038177651575540}
+  dirX: 0
+  dirY: 0
+  machete: {fileID: 2941534513542743513}
   seleccionArma: 0
   miAnimator: {fileID: 4651849745667609872}
 --- !u!114 &1646096487101240812
@@ -322,7 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857c5edf982a6b54da19c08c75b4eab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "da\xF1o": 1
+  damage: 0
 --- !u!61 &4448580322838878098
 BoxCollider2D:
   m_ObjectHideFlags: 0
