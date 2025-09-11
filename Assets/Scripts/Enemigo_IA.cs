@@ -95,7 +95,7 @@ public abstract class Enemigo_IA : MonoBehaviour
     {
         //si esta esperando no puede moverse
         enEspera = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         //cambia al siguiente waypoint
         currentWayPoint++;
         if (currentWayPoint >= wayPoints.Length)
