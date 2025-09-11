@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7181f404f1447c0a7a17b3070b952b, type: 3}
+  m_Name: Terreno_1
+  m_EditorClassIdentifier: 
+  m_Angles:
+  - m_Start: -57
+    m_End: 52
+    m_Order: 0
+    m_Sprites:
+    - {fileID: 21300000, guid: 01ef0d69e505f4f4f97f1d452b4eac0b, type: 3}
+  - m_Start: 52
+    m_End: 303
+    m_Order: 0
+    m_Sprites:
+    - {fileID: 21300000, guid: 8b3e6de4bc79e614ca4426a4860ee2ff, type: 3}
+    - {fileID: 21300000, guid: 3357d7d55598bb442af8db831d9cfcc3, type: 3}
+  m_FillTexture: {fileID: 2800000, guid: 3d5ab3bd29869bf4abcea114b7e9fa36, type: 3}
+  m_CornerSprites:
+  - m_CornerType: 0
+    m_Sprites:
+    - {fileID: 21300000, guid: 5f40bd8e80a2635479c8a54c04cdc9f2, type: 3}
+  - m_CornerType: 1
+    m_Sprites:
+    - {fileID: 21300000, guid: 8cc6bcebb198f3e4d9e11c070dc9eb3b, type: 3}
+  - m_CornerType: 2
+    m_Sprites:
+    - {fileID: 21300000, guid: 5675c4144ad62a04d940a113cf034d04, type: 3}
+  - m_CornerType: 3
+    m_Sprites:
+    - {fileID: 21300000, guid: 9bfe884ec73f4ce48bdcc2a34c6fbd5c, type: 3}
+  - m_CornerType: 4
+    m_Sprites:
+    - {fileID: 0}
+  - m_CornerType: 5
+    m_Sprites:
+    - {fileID: 0}
+  - m_CornerType: 6
+    m_Sprites:
+    - {fileID: 21300000, guid: ed744f0bf0e783944ac3cb4ddff73bfa, type: 3}
+  - m_CornerType: 7
+    m_Sprites:
+    - {fileID: 21300000, guid: a467b9130825d3e4f83ec1319a063dc0, type: 3}
+  m_FillOffset: 0
+  m_UseSpriteBorders: 1
