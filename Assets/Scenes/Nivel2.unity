@@ -3479,7 +3479,7 @@ Canvas:
   m_GameObject: {fileID: 217858853}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 539648964}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
@@ -3535,7 +3535,7 @@ MonoBehaviour:
   HUDGameplay: {fileID: 643007619}
   pantallaMuerte: {fileID: 1570513426}
   imagenClick: {fileID: 21300000, guid: a0722eb9107d2ab408435eebb1255c9e, type: 3}
-  imagenE: {fileID: 0}
+  imagenE: {fileID: 21300000, guid: fcb481e4b10b2ea499b2f4d47c22afbd, type: 3}
 --- !u!1 &222805245
 GameObject:
   m_ObjectHideFlags: 0
@@ -34677,8 +34677,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -1.0056071, y: -0.2895763}
-      - {x: -1.006, y: 0.50600004}
-      - {x: 5.0764294, y: 0.50600004}
+      - {x: -1.00638, y: 0.5056125}
+      - {x: 5.076237, y: 0.5062115}
       - {x: 5.015562, y: -0.29828265}
       - {x: -1.0056071, y: -0.2895763}
   m_UseDelaunayMesh: 0
@@ -34747,8 +34747,8 @@ MonoBehaviour:
   m_Modifiers: []
   m_ColliderSegment:
   - {x: -1.0056071, y: -0.2895763}
-  - {x: -1.006, y: 0.50600004}
-  - {x: 5.0764294, y: 0.50600004}
+  - {x: -1.00638, y: 0.5056125}
+  - {x: 5.076237, y: 0.5062115}
   - {x: 5.015562, y: -0.29828265}
   - {x: -1.0056071, y: -0.2895763}
 --- !u!1971053207 &2117443297
