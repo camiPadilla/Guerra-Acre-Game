@@ -12,7 +12,7 @@ public abstract class Enemigo_IA : MonoBehaviour
     [SerializeField] bool patrullaje;
     [SerializeField] public float rangoVision = 6f;
     [SerializeField] public int vida = 3;
-     public float speed;
+    public float speed;
     public Transform jugador;
     public List <GameObject> Armas;
     private bool isFacingRight = false;
@@ -24,7 +24,7 @@ public abstract class Enemigo_IA : MonoBehaviour
     public void Awake()
     {
          rbEnemigo = GetComponent<Rigidbody2D>();
-         jugador = GameObject.FindGameObjectWithTag("Player").transform;
+         
     }
 
    void Update()
@@ -37,6 +37,8 @@ public abstract class Enemigo_IA : MonoBehaviour
             if (distanciaJugador < rangoVision &&
                 Vector2.Distance(transform.position, wayPoints[currentWayPoint].position) < 9f)
             {
+                //Corregir el giro hacia el enmigo, momento que sale de su vision girar al enemigo, 
+                //Al momento que lo vea al enemigo que gire hacia donde esta
                 Atacar();
             }
             else
@@ -69,6 +71,7 @@ public abstract class Enemigo_IA : MonoBehaviour
             localScale.x *= -1;
             transform.localScale = localScale;
         }
+
     }
     //funcion para el patrullaje del enemigo en base a los waypoints
     public void PatrullajeIA()
@@ -95,6 +98,7 @@ public abstract class Enemigo_IA : MonoBehaviour
     {
         //si esta esperando no puede moverse
         enEspera = true;
+        rbEnemigo.velocity = Vector2.zero;
         yield return new WaitForSeconds(5f);
         //cambia al siguiente waypoint
         currentWayPoint++;

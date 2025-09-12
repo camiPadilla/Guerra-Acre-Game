@@ -30,6 +30,7 @@ public class EnemigoDisparo : Enemigo_IA
         if (distanciaJugador > rangoVision)
         {
             print("Volviendo a patrullar");
+            Flip(distanciaJugador > rangoVision);
             PatrullajeIA();
             return;
         }
@@ -40,9 +41,11 @@ public class EnemigoDisparo : Enemigo_IA
         // Si ya está en rango de disparo → disparar
         if (Mathf.Abs(distanciaJugador - distanciaOptima) <= tolerancia)
         {
+            Flip(distanciaJugador < rangoVision);
             if (fusil)
             {
                 Fusil();
+                print("Disparando");
             }
             else
             {

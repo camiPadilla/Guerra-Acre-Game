@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 849347772070682290}
   - component: {fileID: 4976064544155576989}
   - component: {fileID: 7902693051614670140}
+  - component: {fileID: -2945495419445619805}
   m_Layer: 0
   m_Name: BalaEnemigo
   m_TagString: BalaEnemigo
@@ -97,4 +98,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ee9e77b38d8492eabcbf09982241ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadBala: 3
+  rb: {fileID: -2945495419445619805}
+  velocidadBala: 4
+--- !u!50 &-2945495419445619805
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807390585556225001}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6

@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class BalaEnemigo : MonoBehaviour
 {
-    [SerializeField]private float velocidadBala;
-    private float direccion;
-    public void Update()
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private int velocidadBala;
+
+    private void Awake()
     {
-        transform.position = new Vector3(transform.position.x + velocidadBala * Time.deltaTime * direccion, 
-            transform.position.y,
-            transform.position.z);
+        rb = GetComponent<Rigidbody2D>();
     }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Si la bala colisiona con el jugador, destruir la bala
+        if (collision.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    // Asigna la dirección (1 = derecha, -1 = izquierda)
     public void DireccionBala(float drecEn)
     {
-        direccion = Mathf.Sign(drecEn);
+        float direccion = Mathf.Sign(drecEn);
+        rb.velocity = new Vector2(direccion * velocidadBala, 0f);
     }
 }
