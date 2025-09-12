@@ -2,12 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PiedraEnemigo : ArmaEnemigo
+public class PiedraEnemigo : MonoBehaviour
 {
-    public override void DisparoIA()
+    private Rigidbody2D rbPiedra;
+    [SerializeField] private float fuerza;
+    // Start is called before the first frame update
+    void Start()
     {
-        Vector2 direccion = new Vector2(transform.right.x, transform.right.y);
-        //Lanzar piedra
-        rbArma.AddForce(direccion * fuerza, ForceMode2D.Impulse);
+        rbPiedra = GetComponent<Rigidbody2D>();
     }
+
+    // Update is called once per frame
+    void Update()
+    {
+        rbPiedra.AddForce(Vector2.left * fuerza, ForceMode2D.Impulse);
+    }
+    
 }

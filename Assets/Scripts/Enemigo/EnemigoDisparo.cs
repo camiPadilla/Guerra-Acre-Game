@@ -10,13 +10,17 @@ public class EnemigoDisparo : Enemigo_IA
 {
     [Header("Disparo")]
     [SerializeField] private GameObject balaPrefab;
+    [SerializeField] private GameObject piedraPrefab;
     [SerializeField] private Transform puntoDisparo;
-    [SerializeField] private int nroBalas = 10;
-    [SerializeField] private float tiempoEntreDisparos = 1.5f; 
+    [SerializeField] private int nroBalas = 15;
+    [SerializeField] private int nroPiedras = 5;
     [SerializeField] private float distanciaOptima = 5f; // distancia ideal para disparar
     [SerializeField] private float tolerancia = 1f;      // margen para no moverse tanto
 
-    private float cooldownDisparo = 0f;
+    [Header("fusil o piedra")]
+    [SerializeField] private bool fusil; //para ver si es piedra o fusil para atacar de manera diferente
+    private float cooldownDisparo = 5f;
+    private bool puedeDisparar = true;
 
     public override void Atacar()
     {
@@ -25,7 +29,8 @@ public class EnemigoDisparo : Enemigo_IA
         // Si el jugador se sale del rango → volver a patrullaje
         if (distanciaJugador > rangoVision)
         {
-            print ("Volviendo a patrullar");
+            print("Volviendo a patrullar");
+            Flip(distanciaJugador > rangoVision);
             PatrullajeIA();
             return;
         }
@@ -36,24 +41,58 @@ public class EnemigoDisparo : Enemigo_IA
         // Si ya está en rango de disparo → disparar
         if (Mathf.Abs(distanciaJugador - distanciaOptima) <= tolerancia)
         {
-            print ("Disparando");
-            //Shoot();
+            Flip(distanciaJugador < rangoVision);
+            if (fusil)
+            {
+                Fusil();
+                print("Disparando");
+            }
+            else
+            {
+                Piedra();
+            }
+        }
+    }
+    private void Fusil()
+    {
+        if (nroBalas > 0 && puedeDisparar)
+        {
+            StartCoroutine(DispararFusil());
         }
     }
 
-//Funcion para disparar
-    private void Shoot()
+    private IEnumerator DispararFusil()
     {
-        if (cooldownDisparo <= 0f && nroBalas > 0)
+        puedeDisparar = false;
+
+        GameObject bala = Instantiate(balaPrefab, puntoDisparo.position, Quaternion.identity);
+        bala.GetComponent<BalaEnemigo>().DireccionBala(transform.localScale.x);
+        nroBalas--;
+
+        yield return new WaitForSeconds(cooldownDisparo);
+        puedeDisparar = true;
+    }
+
+    private void Piedra()
+    {
+        if (nroPiedras > 0 && puedeDisparar)
         {
-            Instantiate(balaPrefab, puntoDisparo.position, puntoDisparo.rotation);
-            nroBalas--;
-            cooldownDisparo = tiempoEntreDisparos;
+            StartCoroutine(LanzarPiedra());
         }
-        else
-        {
-            cooldownDisparo -= Time.deltaTime;
-        }
+    }
+
+    private IEnumerator LanzarPiedra()
+    {
+        puedeDisparar = false;
+
+        GameObject piedra = Instantiate(piedraPrefab, puntoDisparo.position, Quaternion.identity);
+        Rigidbody2D rbPiedra = piedra.GetComponent<Rigidbody2D>();
+        rbPiedra.AddForce(new Vector2(transform.localScale.x * 200f, 300f));
+
+        nroPiedras--;
+
+        yield return new WaitForSeconds(cooldownDisparo);
+        puedeDisparar = true;
     }
 
     private void Posicionarse(float distanciaJugador)
@@ -61,13 +100,13 @@ public class EnemigoDisparo : Enemigo_IA
         // Girar hacia el jugador
         Flip(jugador.position.x > transform.position.x);
 
-        // Si el jugador esta cerca, el enemigo se aleja
+        // Si el jugador está cerca, el enemigo se aleja
         if (distanciaJugador < distanciaOptima - tolerancia)
         {
-            float direccion = Mathf.Sign(transform.position.x - jugador.position.x); 
+            float direccion = Mathf.Sign(transform.position.x - jugador.position.x);
             rbEnemigo.velocity = new Vector2(direccion * speed, rbEnemigo.velocity.y);
         }
-        // Si el jugador esta lejos, el enemigo se acerca
+        // Si el jugador está lejos, el enemigo se acerca
         else if (distanciaJugador > distanciaOptima + tolerancia)
         {
             float direccion = Mathf.Sign(jugador.position.x - transform.position.x);
