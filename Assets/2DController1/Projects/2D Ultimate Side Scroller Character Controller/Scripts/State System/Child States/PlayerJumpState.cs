@@ -51,6 +51,8 @@ namespace UltimateCC
                 phase = Phase.Null;
             }
             localXVelovity = 0;
+
+            SoundEvents.Salto?.Invoke(1);
         }
 
         public override void Update()

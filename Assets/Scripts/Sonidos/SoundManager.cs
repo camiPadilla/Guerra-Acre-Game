@@ -11,10 +11,12 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AtaquePersonaje ataquePersonaje;
     [SerializeField] Proyectil piedra;
 
+    [SerializeField] StudioEventEmitter pasosPastoEmitter;
+    [SerializeField] StudioEventEmitter saltarEmitter;
     [SerializeField] StudioEventEmitter cargarpiedraEmitter;
     [SerializeField] StudioEventEmitter lanzarpiedraEmitter;
     [SerializeField] StudioEventEmitter destruirCajaEmitter;
-
+    [SerializeField] StudioEventEmitter notaSoundEmitter;
 
     private void OnEnable()
     {
@@ -24,12 +26,18 @@ public class SoundManager : MonoBehaviour
         SoundEvents.LanzarPiedra += ReproducirLanzarPiedra;
 
         SoundEvents.DestruirCaja += ReproducirDestruirCaja;
+
+        SoundEvents.Salto += ReproducirSalto;
+        SoundEvents.PasosPasto += ReproducirPasos;
+        SoundEvents.DetenerPasosPasto += DetenerPasos;
+
+        SoundEvents.RecogerNota += RecogerNota;
     }
 
     private void OnDisable()
     {
-        SoundEvents.CargarFuerzaPiedra -= ReproducirCargarPiedra;
-        SoundEvents.DetenerCarga -= DetenerCarga;
+        //SoundEvents.CargarFuerzaPiedra -= ReproducirCargarPiedra;
+        //SoundEvents.DetenerCarga -= DetenerCarga;
     }
 
     //SONIDO DE CARGA
@@ -51,6 +59,7 @@ public class SoundManager : MonoBehaviour
             {
                 float normalizado = ((ataquePersonaje.fuerzaMaxima - ataquePersonaje.fuerzatiro) 
                     / (ataquePersonaje.fuerzaMaxima)) * (ataquePersonaje.dirX * -1);
+
                 cargarpiedraEmitter.EventInstance.setParameterByName("Paner", normalizado);
                 cargarpiedraEmitter.EventInstance.getParameterByName("Paner", out float test);
                 /*Debug.Log("Valor actual del emiter: " + test);
@@ -103,4 +112,49 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    //SONIDO DE SALTO
+public void ReproducirSalto(float parametro)
+    {
+        if (saltarEmitter != null)
+        {            
+            Debug.Log("Reproduciendo salto");   
+            
+            /*EventInstance salto = RuntimeManager.CreateInstance("event:/SFX/Gameplay/Player/Salto/Saltar");
+            salto.start();            
+            salto.release();*/
+            saltarEmitter.Play();
+
+            saltarEmitter.EventInstance.setParameterByName("Salto-Caida", parametro);
+            saltarEmitter.EventInstance.getParameterByName("Salto-Caida", out float test);
+            
+            //Debug.Log("Salto Emitter Par: "+ test);
+        }
+    }
+
+//SONIDOS DE PASOS
+public void ReproducirPasos()
+    {
+        if (pasosPastoEmitter != null)
+        {
+            Debug.Log("Reproduciendo pasos");
+            pasosPastoEmitter.Play();
+        }
+    }
+    public void DetenerPasos()
+    {
+        if (pasosPastoEmitter != null)
+        {
+            Debug.Log("Pasos Detenidos");
+            pasosPastoEmitter.Stop();
+        }
+    }
+
+    public void RecogerNota()
+    { 
+        if (notaSoundEmitter != null)
+        {
+            notaSoundEmitter.Play();
+        }
+    }
+           
 }

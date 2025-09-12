@@ -46,7 +46,8 @@ namespace UltimateCC
         }
 
         public override void Exit()
-        {
+        {            
+            SoundEvents.Salto?.Invoke(0);
             base.Exit();
         }
 
