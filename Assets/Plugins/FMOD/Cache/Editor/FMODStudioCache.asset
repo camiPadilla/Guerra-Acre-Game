@@ -24,6 +24,34 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-5273346012982073249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gameplay/Player/Salto/Saltar
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gameplay/Player/Salto/Saltar
+  Guid:
+    Data1: 771507817
+    Data2: 1184800331
+    Data3: -1755829840
+    Data4: -1209329405
+  Banks:
+  - {fileID: 2804349124176615228}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 9060994387572225314}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3787209985705669593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,7 +85,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638932020788703723
+  lastModified: 638932222112704473
   FileSizes: []
   Exists: 1
 --- !u!114 &-2598781895333536714
@@ -186,13 +214,14 @@ MonoBehaviour:
   - {fileID: 2401210514766382824}
   - {fileID: 8786117208795413375}
   - {fileID: 4483362217055582164}
+  - {fileID: -5273346012982073249}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3465976776397467531}
   StringsBanks:
   - {fileID: 883576379495393654}
   cacheVersion: 131849
-  cacheTime: 638932085937162379
+  cacheTime: 638932249442148795
   SerializableEventsDict:
   - key: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
     index: 0
@@ -206,6 +235,8 @@ MonoBehaviour:
     index: 4
   - key: event:/SFX/Gameplay/Recolectables/RecogerNota
     index: 5
+  - key: event:/SFX/Gameplay/Player/Salto/Saltar
+    index: 6
 --- !u!114 &657825991629357194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,10 +276,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638932085935599654
+  lastModified: 638932222112795553
   FileSizes:
   - Name: 
-    Value: 1532
+    Value: 1618
   Exists: 1
 --- !u!114 &1492993146607850828
 MonoBehaviour:
@@ -329,7 +360,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-  lastModified: 638932085937162379
+  lastModified: 638932249442148795
   FileSizes: []
   Exists: 1
 --- !u!114 &4483362217055582164
@@ -431,3 +462,27 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &9060994387572225314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Saltar/Salto-Caida
+  m_EditorClassIdentifier: 
+  Name: Salto-Caida
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 312080183
+    data2: 3282331617
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1

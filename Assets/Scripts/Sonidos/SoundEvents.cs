@@ -11,6 +11,9 @@ public static class SoundEvents
     //Lanzar piedra
     public static Action LanzarPiedra;
 
+    //SaltoCaída
+    public static Action<float> Salto;
+
     //Destruir Caja
     public static Action<float> DestruirCaja;
 

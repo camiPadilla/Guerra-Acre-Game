@@ -11,13 +11,12 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AtaquePersonaje ataquePersonaje;
     [SerializeField] Proyectil piedra;
 
+    [SerializeField] StudioEventEmitter pasosPastoEmitter;
+    [SerializeField] StudioEventEmitter saltarEmitter;
     [SerializeField] StudioEventEmitter cargarpiedraEmitter;
     [SerializeField] StudioEventEmitter lanzarpiedraEmitter;
     [SerializeField] StudioEventEmitter destruirCajaEmitter;
-    [SerializeField] StudioEventEmitter pasosPastoEmitter;
-
     [SerializeField] StudioEventEmitter notaSoundEmitter;
-
 
     private void OnEnable()
     {
@@ -28,6 +27,7 @@ public class SoundManager : MonoBehaviour
 
         SoundEvents.DestruirCaja += ReproducirDestruirCaja;
 
+        SoundEvents.Salto += ReproducirSalto;
         SoundEvents.PasosPasto += ReproducirPasos;
         SoundEvents.DetenerPasosPasto += DetenerPasos;
 
@@ -112,9 +112,27 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    //SONIDO DE SALTO
+public void ReproducirSalto(float parametro)
+    {
+        if (saltarEmitter != null)
+        {            
+            Debug.Log("Reproduciendo salto");   
+            
+            /*EventInstance salto = RuntimeManager.CreateInstance("event:/SFX/Gameplay/Player/Salto/Saltar");
+            salto.start();            
+            salto.release();*/
+            saltarEmitter.Play();
 
-    //SONIDOS DE PASOS
-    public void ReproducirPasos()
+            saltarEmitter.EventInstance.setParameterByName("Salto-Caida", parametro);
+            saltarEmitter.EventInstance.getParameterByName("Salto-Caida", out float test);
+            
+            //Debug.Log("Salto Emitter Par: "+ test);
+        }
+    }
+
+//SONIDOS DE PASOS
+public void ReproducirPasos()
     {
         if (pasosPastoEmitter != null)
         {
