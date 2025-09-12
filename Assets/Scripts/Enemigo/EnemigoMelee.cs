@@ -11,8 +11,7 @@ public class EnemigoMelee : Enemigo_IA
         FollowPlayer();
         //Animacion de ataque con machete
 
-    }  
-    //cambiar a fisicas 
+    }   
     private void FollowPlayer()
     {
         //mueve al enemigo hacia el jugador calculando la distancia
