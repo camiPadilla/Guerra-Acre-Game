@@ -95,7 +95,11 @@ public abstract class Enemigo_IA : MonoBehaviour
     {
         //si esta esperando no puede moverse
         enEspera = true;
+<<<<<<< HEAD
         yield return new WaitForSeconds(5f);
+=======
+        yield return new WaitForSeconds(3f);
+>>>>>>> parent of 266b611 (AHHHH)
         //cambia al siguiente waypoint
         currentWayPoint++;
         if (currentWayPoint >= wayPoints.Length)
