@@ -11,8 +11,7 @@ public class ObjetoRecogible : MonoBehaviour
     {
         imagenSize = this.GetComponent<SpriteRenderer>().bounds.extents.y;
     }
-    private void OnTriggerEnter2D(Collider2D collision) {SoundEvents.RecogerNota?.Invoke();}
-    private void OnTriggerStay2D(Collider2D collision)
+        private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {

@@ -23,6 +23,9 @@ public class ControladorNPC : ObjetoRecogible
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    { SoundEvents.HablarAliadoNPC?.Invoke(); }
+
     public void Interactuar()
     {
         Debug.Log("el NPC anda interactuando");

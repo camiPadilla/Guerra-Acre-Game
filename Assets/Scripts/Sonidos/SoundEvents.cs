@@ -23,5 +23,8 @@ public static class SoundEvents
 
     //Recoger notas
     public static Action RecogerNota;
+
+    //Hablar NPC Aliado
+    public static Action HablarAliadoNPC;
 }
 

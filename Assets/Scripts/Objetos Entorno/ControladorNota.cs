@@ -17,4 +17,6 @@ public class ControladorNota : ObjetoRecogible
         HUDManager.instancia.LeerNota(mensajeNota);
         //Time.timeScale = 0;
     }
+    private void OnTriggerEnter2D(Collider2D collision) 
+    { SoundEvents.RecogerNota?.Invoke();}
 }

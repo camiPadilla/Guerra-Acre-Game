@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] StudioEventEmitter lanzarpiedraEmitter;
     [SerializeField] StudioEventEmitter destruirCajaEmitter;
     [SerializeField] StudioEventEmitter notaSoundEmitter;
+    [SerializeField] StudioEventEmitter aliadoEmitter;
 
     private void OnEnable()
     {
@@ -32,6 +33,7 @@ public class SoundManager : MonoBehaviour
         SoundEvents.DetenerPasosPasto += DetenerPasos;
 
         SoundEvents.RecogerNota += RecogerNota;
+        SoundEvents.HablarAliadoNPC += ReproducirAliadoNPC;
     }
 
     private void OnDisable()
@@ -156,5 +158,34 @@ public void ReproducirPasos()
             notaSoundEmitter.Play();
         }
     }
-           
+
+    public void ReproducirAliadoNPC()
+    {
+        if (aliadoEmitter != null)
+        {
+
+            aliadoEmitter.Play();
+
+            int ultimoValor = -1; 
+
+            //int valor = UnityEngine.Random.Range(0, 3);
+            int NuevoRandom()
+            {
+                int nuevo;
+                do
+                {
+                    nuevo = UnityEngine.Random.Range(0, 3);
+                } while (nuevo == ultimoValor);
+
+                ultimoValor = nuevo;
+                return nuevo;
+            }
+            aliadoEmitter.EventInstance.setParameterByName("RandomAllyNPC", NuevoRandom());
+            saltarEmitter.EventInstance.getParameterByName("RandomAllyNPC", out float test);
+            Debug.Log("Valor Random: " + NuevoRandom());
+            Debug.Log("Valor actual del emiter: " + test);
+        }
+    }
+
+
 }

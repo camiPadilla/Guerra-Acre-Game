@@ -24,6 +24,30 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-6980948626674342551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Aliado/RandomAllyNPC
+  m_EditorClassIdentifier: 
+  Name: RandomAllyNPC
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 2228391792
+    data2: 3973726400
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-5273346012982073249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +109,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638932222112704473
+  lastModified: 638933665448070497
   FileSizes: []
   Exists: 1
 --- !u!114 &-2598781895333536714
@@ -186,6 +210,24 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-1154086746160817531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Environment.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/Environment.bank
+  Name: Environment
+  StudioPath: bank:/Environment
+  lastModified: 638933668219334496
+  FileSizes: []
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,21 +249,23 @@ MonoBehaviour:
   - {fileID: 2804349124176615228}
   - {fileID: -2598781895333536714}
   - {fileID: 6116494432412551833}
+  - {fileID: -1154086746160817531}
   EditorEvents:
   - {fileID: -2448163781416003613}
   - {fileID: -2057899997140181290}
   - {fileID: 7066177971060508667}
   - {fileID: 2401210514766382824}
   - {fileID: 8786117208795413375}
-  - {fileID: 4483362217055582164}
   - {fileID: -5273346012982073249}
+  - {fileID: 3975879371791727847}
+  - {fileID: 7210694712122935480}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3465976776397467531}
   StringsBanks:
   - {fileID: 883576379495393654}
   cacheVersion: 131849
-  cacheTime: 638932249442148795
+  cacheTime: 638933668219334496
   SerializableEventsDict:
   - key: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
     index: 0
@@ -233,10 +277,12 @@ MonoBehaviour:
     index: 3
   - key: event:/SFX/Gameplay/Player/TirarPiedra/ArrojarPiedra
     index: 4
-  - key: event:/SFX/Gameplay/Recolectables/RecogerNota
-    index: 5
   - key: event:/SFX/Gameplay/Player/Salto/Saltar
+    index: 5
+  - key: event:/ENVIRONMENT/Recolectables/RecogerNota
     index: 6
+  - key: event:/ENVIRONMENT/NPCs/Aliado
+    index: 7
 --- !u!114 &657825991629357194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,10 +322,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638932222112795553
+  lastModified: 638933665448146320
   FileSizes:
   - Name: 
-    Value: 1618
+    Value: 1770
   Exists: 1
 --- !u!114 &1492993146607850828
 MonoBehaviour:
@@ -360,10 +406,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-  lastModified: 638932249442148795
+  lastModified: 638933665449704575
   FileSizes: []
   Exists: 1
---- !u!114 &4483362217055582164
+--- !u!114 &3975879371791727847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -373,16 +419,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Gameplay/Recolectables/RecogerNota
+  m_Name: event:/ENVIRONMENT/Recolectables/RecogerNota
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Gameplay/Recolectables/RecogerNota
+  Path: event:/ENVIRONMENT/Recolectables/RecogerNota
   Guid:
     Data1: -1378521387
     Data2: 1115541145
     Data3: -1797739114
     Data4: 160617473
   Banks:
-  - {fileID: 2804349124176615228}
+  - {fileID: -1154086746160817531}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -435,6 +481,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 6187
+--- !u!114 &7210694712122935480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENVIRONMENT/NPCs/Aliado
+  m_EditorClassIdentifier: 
+  Path: event:/ENVIRONMENT/NPCs/Aliado
+  Guid:
+    Data1: -1953498947
+    Data2: 1286031859
+    Data3: -1183073874
+    Data4: 689690209
+  Banks:
+  - {fileID: -1154086746160817531}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -6980948626674342551}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1640
 --- !u!114 &8786117208795413375
 MonoBehaviour:
   m_ObjectHideFlags: 0
