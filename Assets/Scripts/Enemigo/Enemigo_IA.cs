@@ -141,29 +141,5 @@ public abstract class Enemigo_IA : MonoBehaviour
     {
         //Animacion de recibir daño
     }
-    //por definir
-    /*
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("BalaJugador"))
-        {
-            vida -= 2;
-            RecibirDano();
-            Morir();
-            Destroy(other.gameObject);
-        }
-        if (other.CompareTag("PiedraJugador"))
-        {
-            vida--;
-            RecibirDano();
-            Morir();
-            Destroy(other.gameObject);
-        }
-        if (other.CompareTag("Melee"))
-        {
-            vida-=2;
-            RecibirDano();
-            Morir();
-        }
-    }*/
+    //por definir y llamar 
 }

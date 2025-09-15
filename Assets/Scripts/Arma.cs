@@ -35,5 +35,9 @@ public class Arma : MonoBehaviour
         {
             collision.gameObject.GetComponent<ObjetoDestruible>().Damage(damage);
         }
+        if (collision.transform.CompareTag("Enemigo"))
+        {
+            collision.gameObject.GetComponent<Enemigo_IA>().vida -= damage;
+        }
     }
 }
