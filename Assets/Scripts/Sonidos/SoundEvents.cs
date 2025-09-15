@@ -26,5 +26,8 @@ public static class SoundEvents
 
     //Hablar NPC Aliado
     public static Action HablarAliadoNPC;
+
+    //Ambientes
+    public static Action Ambience;
 }
 

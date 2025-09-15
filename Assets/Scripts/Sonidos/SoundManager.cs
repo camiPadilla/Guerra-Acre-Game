@@ -36,12 +36,6 @@ public class SoundManager : MonoBehaviour
         SoundEvents.HablarAliadoNPC += ReproducirAliadoNPC;
     }
 
-    private void OnDisable()
-    {
-        //SoundEvents.CargarFuerzaPiedra -= ReproducirCargarPiedra;
-        //SoundEvents.DetenerCarga -= DetenerCarga;
-    }
-
     //SONIDO DE CARGA
     public void ReproducirCargarPiedra()
     {
@@ -102,13 +96,13 @@ public class SoundManager : MonoBehaviour
             destruirCajaEmitter.Play();
 
             float distancia = ataquePersonaje.transform.position.x - posicionCaja;
-            Debug.Log("Distancia: " + distancia);
+            //Debug.Log("Distancia: " + distancia);
 
             float distNormalizado = distancia / 8;
-            Debug.Log("Distancia Normalizada: " + distNormalizado);
+            //Debug.Log("Distancia Normalizada: " + distNormalizado);
             destruirCajaEmitter.EventInstance.setParameterByName("CajaPanner", -(distNormalizado));
             destruirCajaEmitter.EventInstance.getParameterByName("CajaPanner", out float test);
-            Debug.Log("Valor actual del emiter: " + test);
+            //Debug.Log("Valor actual del emiter: " + test);
 
             
         }
@@ -138,7 +132,7 @@ public void ReproducirPasos()
     {
         if (pasosPastoEmitter != null)
         {
-            Debug.Log("Reproduciendo pasos");
+            //Debug.Log("Reproduciendo pasos");
             pasosPastoEmitter.Play();
         }
     }
@@ -146,7 +140,7 @@ public void ReproducirPasos()
     {
         if (pasosPastoEmitter != null)
         {
-            Debug.Log("Pasos Detenidos");
+            //Debug.Log("Pasos Detenidos");
             pasosPastoEmitter.Stop();
         }
     }
@@ -167,8 +161,6 @@ public void ReproducirPasos()
             aliadoEmitter.Play();
 
             int ultimoValor = -1; 
-
-            //int valor = UnityEngine.Random.Range(0, 3);
             int NuevoRandom()
             {
                 int nuevo;
@@ -182,10 +174,8 @@ public void ReproducirPasos()
             }
             aliadoEmitter.EventInstance.setParameterByName("RandomAllyNPC", NuevoRandom());
             saltarEmitter.EventInstance.getParameterByName("RandomAllyNPC", out float test);
-            Debug.Log("Valor Random: " + NuevoRandom());
-            Debug.Log("Valor actual del emiter: " + test);
+            //Debug.Log("Valor Random: " + NuevoRandom());
+            //Debug.Log("Valor actual del emiter: " + test);
         }
     }
-
-
 }

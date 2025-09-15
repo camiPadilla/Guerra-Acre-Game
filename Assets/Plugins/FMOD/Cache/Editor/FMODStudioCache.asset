@@ -109,7 +109,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638933665448070497
+  lastModified: 638934755876221753
   FileSizes: []
   Exists: 1
 --- !u!114 &-2598781895333536714
@@ -225,7 +225,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Environment.bank
   Name: Environment
   StudioPath: bank:/Environment
-  lastModified: 638933668219334496
+  lastModified: 638934594682171689
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -259,13 +259,16 @@ MonoBehaviour:
   - {fileID: -5273346012982073249}
   - {fileID: 3975879371791727847}
   - {fileID: 7210694712122935480}
+  - {fileID: 4778383394945834238}
+  - {fileID: 7785249142843757646}
+  - {fileID: 3341489242889250344}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3465976776397467531}
   StringsBanks:
   - {fileID: 883576379495393654}
   cacheVersion: 131849
-  cacheTime: 638933668219334496
+  cacheTime: 638934771757270372
   SerializableEventsDict:
   - key: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
     index: 0
@@ -283,6 +286,12 @@ MonoBehaviour:
     index: 6
   - key: event:/ENVIRONMENT/NPCs/Aliado
     index: 7
+  - key: event:/AMBIENCE/Animales/Jungle-Sound
+    index: 8
+  - key: event:/AMBIENCE/Animales/Croac-Sapo
+    index: 9
+  - key: event:/AMBIENCE/Animales/Grillos
+    index: 10
 --- !u!114 &657825991629357194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,10 +331,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638933665448146320
+  lastModified: 638934755876261862
   FileSizes:
   - Name: 
-    Value: 1770
+    Value: 1982
   Exists: 1
 --- !u!114 &1492993146607850828
 MonoBehaviour:
@@ -360,7 +369,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Ambience-Atmos_Bank.bank
   Name: Ambience-Atmos_Bank
   StudioPath: bank:/Ambience-Atmos_Bank
-  lastModified: 638930997830599459
+  lastModified: 638934771757270372
   FileSizes: []
   Exists: 1
 --- !u!114 &2401210514766382824
@@ -406,9 +415,36 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-  lastModified: 638933665449704575
+  lastModified: 638934594694897007
   FileSizes: []
   Exists: 1
+--- !u!114 &3341489242889250344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AMBIENCE/Animales/Grillos
+  m_EditorClassIdentifier: 
+  Path: event:/AMBIENCE/Animales/Grillos
+  Guid:
+    Data1: 326006263
+    Data2: 1169613535
+    Data3: -2066853725
+    Data4: -1042152879
+  Banks:
+  - {fileID: 1911985573968197743}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12500
 --- !u!114 &3975879371791727847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +472,58 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4778383394945834238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AMBIENCE/Animales/Jungle-Sound
+  m_EditorClassIdentifier: 
+  Path: event:/AMBIENCE/Animales/Jungle-Sound
+  Guid:
+    Data1: 1251537650
+    Data2: 1210683685
+    Data3: -452869212
+    Data4: -906536679
+  Banks:
+  - {fileID: 1911985573968197743}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 5805321651797014718}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5267
+--- !u!114 &5805321651797014718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jungle-Sound/control-loops-selva
+  m_EditorClassIdentifier: 
+  Name: control-loops-selva
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2294766115
+    data2: 2707750184
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &6116494432412551833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +597,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1640
+--- !u!114 &7785249142843757646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AMBIENCE/Animales/Croac-Sapo
+  m_EditorClassIdentifier: 
+  Path: event:/AMBIENCE/Animales/Croac-Sapo
+  Guid:
+    Data1: -818603026
+    Data2: 1215082515
+    Data3: -1077061978
+    Data4: -1791259552
+  Banks:
+  - {fileID: 1911985573968197743}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4973
 --- !u!114 &8786117208795413375
 MonoBehaviour:
   m_ObjectHideFlags: 0
