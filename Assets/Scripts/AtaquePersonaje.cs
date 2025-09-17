@@ -62,7 +62,7 @@ public class AtaquePersonaje : MonoBehaviour
         Proyectil piedraActual = piedraCola.Dequeue();
         Vector3 puntoIncial = new Vector3(transform.position.x,transform.position.y + 1,transform.position.z);
         piedraActual.Reposicionar(puntoIncial);
-        piedraActual.Activar();
+        piedraActual.ActivarProyectil();
         piedraActual.Impulso(fuerzatiro, dirX, dirY);
         enAccion = false;
     }
@@ -94,7 +94,7 @@ public class AtaquePersonaje : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            AtaqueMachete();
+            StartCoroutine(AtaqueMachete());
         }
     }
     private void EntradaPedra()
@@ -126,7 +126,7 @@ public class AtaquePersonaje : MonoBehaviour
         Proyectil balaActual = balaCola.Dequeue();
         Vector3 puntoIncial = new Vector3(transform.position.x+dirX, transform.position.y + dirY, transform.position.z);
         balaActual.Reposicionar(puntoIncial);
-        balaActual.Activar();
+        balaActual.ActivarProyectil();
         balaActual.Impulso(fuerzaDisparo, dirX, dirY);
         enAccion = false;
     }
@@ -134,10 +134,13 @@ public class AtaquePersonaje : MonoBehaviour
     {
         enAccion = true;
     }
-    private void AtaqueMachete()
+    private IEnumerator AtaqueMachete()
     {
-        machete.Reposicionar(new Vector3(transform.position.x + 0.5f * dirX, transform.position.y, transform.position.z));
-        miAnimator.SetTrigger("atacar");
+        //machete.Reposicionar(new Vector3(transform.position.x + 0.5f * dirX, transform.position.y, transform.position.z));
+        ActivarMachete();
+        yield return new WaitForSeconds(.5f);
+        DesactivarMachete();
+        //miAnimator.SetTrigger("atacar");
     }
     public void ActivarMachete()
     {
