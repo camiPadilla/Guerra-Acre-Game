@@ -4,18 +4,34 @@ using UnityEngine;
 
 public class PiedraEnemigo : MonoBehaviour
 {
-    private Rigidbody2D rbPiedra;
-    [SerializeField] private float fuerza;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float fuerzaX = 5f;  // fuerza horizontal
+    [SerializeField] private float fuerzaY = 5f;  // fuerza vertical extra
+    [SerializeField] private Transform jugador;
+
+    private void Awake()
     {
-        rbPiedra = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        jugador = FindAnyObjectByType<MovPersonaje>().transform;
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator DestruirPiedra()
     {
-        rbPiedra.AddForce(Vector2.left * fuerza, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
     }
-    
+
+    public void Lanzar()
+    {
+        if (jugador == null) return;
+
+        // Direccion hacia el jugador
+        Vector2 direccion = (jugador.position - transform.position).normalized;
+
+        // Aplicamos un impulso (horizontal hacia jugador + vertical extra)
+        Vector2 fuerza = new Vector2(direccion.x * fuerzaX, fuerzaY);
+        rb.AddForce(fuerza, ForceMode2D.Impulse);
+
+        StartCoroutine(DestruirPiedra());
+    }
 }

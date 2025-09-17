@@ -86,8 +86,7 @@ public class EnemigoDisparo : Enemigo_IA
         puedeDisparar = false;
 
         GameObject piedra = Instantiate(piedraPrefab, puntoDisparo.position, Quaternion.identity);
-        Rigidbody2D rbPiedra = piedra.GetComponent<Rigidbody2D>();
-        rbPiedra.AddForce(new Vector2(transform.localScale.x * 200f, 300f));
+        piedra.GetComponent<PiedraEnemigo>().Lanzar();
 
         nroPiedras--;
 

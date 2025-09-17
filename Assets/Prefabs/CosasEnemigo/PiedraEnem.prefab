@@ -99,7 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a95e240969a6741dcae1c19b733b7ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuerza: 3
+  rb: {fileID: 3113173952477369827}
+  fuerzaX: 5
+  fuerzaY: 4
+  jugador: {fileID: 0}
 --- !u!50 &3113173952477369827
 Rigidbody2D:
   serializedVersion: 4
