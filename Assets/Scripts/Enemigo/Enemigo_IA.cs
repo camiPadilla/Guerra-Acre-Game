@@ -10,11 +10,11 @@ public abstract class Enemigo_IA : MonoBehaviour
     [SerializeField] public Rigidbody2D rbEnemigo;
     [SerializeField] private Transform[] wayPoints;
     [SerializeField] bool patrullaje;
-    [SerializeField] public float rangoVision = 6f;
+    [SerializeField] public float rangoVision;
     [SerializeField] public int vida = 3;
+    [SerializeField] private int disWy;
     public float speed;
     public Transform jugador;
-    public List <GameObject> Armas;
     private bool isFacingRight = false;
     private int currentWayPoint = 0;
     private bool enEspera;
@@ -35,13 +35,13 @@ public abstract class Enemigo_IA : MonoBehaviour
         {
             // si jugador en rango Y no se salió demasiado del área de patrullaje
             if (distanciaJugador < rangoVision &&
-                Vector2.Distance(transform.position, wayPoints[currentWayPoint].position) < 9f)
+                Vector2.Distance(transform.position, wayPoints[currentWayPoint].position) < disWy)
             {
                 //Corregir el giro hacia el enmigo, momento que sale de su vision girar al enemigo, 
                 //Al momento que lo vea al enemigo que gire hacia donde esta
                 Atacar();
             }
-            else
+            else 
             {
                 PatrullajeIA();
             }

@@ -11,7 +11,8 @@ public class EnemigoDisparo : Enemigo_IA
     [Header("Disparo")]
     [SerializeField] private GameObject balaPrefab;
     [SerializeField] private GameObject piedraPrefab;
-    [SerializeField] private Transform puntoDisparo;
+    [SerializeField] private Transform puntoDisparoBala;
+    [SerializeField] private Transform puntoDisparoPiedra;
     [SerializeField] private int nroBalas = 15;
     [SerializeField] private int nroPiedras = 5;
     [SerializeField] private float distanciaOptima = 5f; // distancia ideal para disparar
@@ -65,7 +66,7 @@ public class EnemigoDisparo : Enemigo_IA
     {
         puedeDisparar = false;
 
-        GameObject bala = Instantiate(balaPrefab, puntoDisparo.position, Quaternion.identity);
+        GameObject bala = Instantiate(balaPrefab, puntoDisparoBala.position, Quaternion.identity);
         bala.GetComponent<BalaEnemigo>().Disparar();
         nroBalas--;
 
@@ -85,7 +86,7 @@ public class EnemigoDisparo : Enemigo_IA
     {
         puedeDisparar = false;
 
-        GameObject piedra = Instantiate(piedraPrefab, puntoDisparo.position, Quaternion.identity);
+        GameObject piedra = Instantiate(piedraPrefab, puntoDisparoPiedra.position, Quaternion.identity);
         piedra.GetComponent<PiedraEnemigo>().Lanzar();
 
         nroPiedras--;

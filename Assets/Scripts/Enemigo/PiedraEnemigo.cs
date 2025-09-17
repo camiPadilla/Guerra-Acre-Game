@@ -34,4 +34,13 @@ public class PiedraEnemigo : MonoBehaviour
 
         StartCoroutine(DestruirPiedra());
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+        
+        
+    }
 }
