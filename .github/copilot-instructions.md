@@ -2,13 +2,13 @@
 - Project name: Guerra-del-Acre-Game
 - Unity version: Unity 2022.3.62f1
 - Active scene:
-  - Name: Nivel2
+  - Name: LoadingScene1
   - Tags:
-    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, hitbox, Destruible, Escenario, movible, NPC, Enemigo
+    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, hitbox, Destruible, Escenario, movible, NPC, Enemigo, LoaderScene
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Piso, Water, UI, Player
 - Active game object:
-  - Name: Enemigo
-  - Tag: Enemigo
+  - Name: LoaderScene
+  - Tag: LoaderScene
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
