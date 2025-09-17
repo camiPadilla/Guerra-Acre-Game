@@ -57,6 +57,7 @@ public abstract class Enemigo_IA : MonoBehaviour
                 rbEnemigo.velocity = Vector2.zero; // idle
             }
         }
+        Morir();
     }
 
     //funcion para voltear al enemigo en base a la posicion del jugador

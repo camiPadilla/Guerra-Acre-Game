@@ -1,43 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class BalaEnemigo : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float velocidadBala = 10f;
-    [SerializeField] private float tiempoVida = 3f;
-
-    private void Awake()
-    {
-        if (rb == null)
-            rb = GetComponent<Rigidbody2D>();
-    }
-
+    [SerializeField] private Transform jugador;
     private void Start()
     {
-        // La bala se destruye sola después de un tiempo
-        Destroy(gameObject, tiempoVida);
+        rb = GetComponent<Rigidbody2D>();
+        jugador = FindAnyObjectByType<MovPersonaje>().transform;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Disparar()
     {
-        // Si la bala colisiona con el jugador o con cualquier cosa que no sea el enemigo
-        if (collision.CompareTag("Player") || collision.CompareTag("Ground"))
-        {
-            Destroy(gameObject);
-        }
+        Vector2 direccionP = (jugador.position - transform.position).normalized;
+        rb.velocity = direccionP * velocidadBala;
+        StartCoroutine(DestruirBala());
     }
-
-    // Se llama al instanciar la bala para darle dirección
-    public void DireccionBala(float drecEn)
+    IEnumerator DestruirBala()
     {
-        float direccion = Mathf.Sign(drecEn);
-
-        // Importante: desactivar la gravedad
-        rb.gravityScale = 0;
-
-        // Asignar velocidad una vez
-        rb.velocity = new Vector2(direccion * velocidadBala, 0f);
+        float tiempoDes = 5f;
+        yield return new WaitForSeconds(tiempoDes);
+        Destroy(gameObject);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
+
 }

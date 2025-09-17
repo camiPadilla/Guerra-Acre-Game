@@ -66,7 +66,7 @@ public class EnemigoDisparo : Enemigo_IA
         puedeDisparar = false;
 
         GameObject bala = Instantiate(balaPrefab, puntoDisparo.position, Quaternion.identity);
-        bala.GetComponent<BalaEnemigo>().DireccionBala(transform.localScale.x);
+        bala.GetComponent<BalaEnemigo>().Disparar();
         nroBalas--;
 
         yield return new WaitForSeconds(cooldownDisparo);
