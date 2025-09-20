@@ -1085,20 +1085,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
   m_PrefabInstance: {fileID: 1590842649}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &158882927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158882919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241a46df164271b4bb2eea127d36663e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scriptMovimiento: {fileID: 0}
-  scriptAtaque: {fileID: 158882934}
 --- !u!114 &158882934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1111,14 +1097,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd61b9c79568094c8cfc443bcef3361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPiedra: {fileID: 0}
-  prefabBala: {fileID: 0}
-  cantidadPiedras: 0
-  cantidadBalas: 0
+  prefabPiedra: {fileID: 2164900311158193948, guid: 70451f7b4b036654198aa62b01befa36, type: 3}
+  prefabBala: {fileID: 5851173175808208357, guid: c4c720e8212fe76459384672bdbefe94, type: 3}
+  cantidadPiedras: 3
+  cantidadBalas: 5
   fuerzaDisparo: 0
   fuerzatiro: 0
   fuerzaMaxima: 0
-  origen: {fileID: 0}
+  origen: {fileID: 158882926}
   dirX: 0
   dirY: 0
   machete: {fileID: 188466234}
@@ -8470,9 +8456,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3213259104454701869, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
       insertIndex: 1
-      addedObject: {fileID: 158882927}
-    - targetCorrespondingSourceObject: {fileID: 3213259104454701869, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
-      insertIndex: 2
       addedObject: {fileID: 158882934}
     - targetCorrespondingSourceObject: {fileID: 3410020105280573791, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
       insertIndex: -1
