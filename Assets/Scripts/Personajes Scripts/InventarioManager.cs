@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventarioManager : MonoBehaviour
 {
     int balas=0;
-    int piedras;
+
     int dinamitas;
     [SerializeField] int aumento;
 
@@ -23,18 +23,20 @@ public class InventarioManager : MonoBehaviour
     public int GetBalas()
     {
         return balas;
-       
     }
-    public void SetBalas()
+    public void SetBalas(int nuevaCantidad)
     {
-        balas--;
+        balas = nuevaCantidad;
+        HUDManager.instancia.ActualizarTotalBalas(balas);
+        
+
     }
     public void RecibirInfo(string nombre)
     {
         switch (nombre)
         {
             case "balas":
-                balas += aumento;
+                SetBalas(balas+=aumento);
                 Debug.Log("ahora el jugador tiene en balas " + balas);
                 break;
             case "botiquin":
@@ -46,6 +48,10 @@ public class InventarioManager : MonoBehaviour
             case "dinamita":
                 dinamitas++;
                 Debug.Log("el jugador tiene en dinamita " + dinamitas);
+                break;
+            case "arma":
+                SendMessage("ObtenerArma");
+
                 break;
         }
        

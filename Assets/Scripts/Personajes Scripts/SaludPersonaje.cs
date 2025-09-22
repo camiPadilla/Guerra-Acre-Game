@@ -12,6 +12,9 @@ public class SaludPersonaje : MonoBehaviour
     void Start()
     {
         Debug.Log("el jugador tiene en vidas " + vidasJugador);
+        HUDManager.instancia.ActualizarVida(vidasJugador);
+        HUDManager.instancia.ActualizarArmadura(vidasEXtras);
+
         Debug.Log("el jugador tiene vidas extas "+ vidasEXtras);
     }
 
@@ -20,10 +23,12 @@ public class SaludPersonaje : MonoBehaviour
         if(vidasEXtras > 0 && !invulnerabilidad)
         {
             vidasEXtras--;
+            HUDManager.instancia.ActualizarArmadura(vidasEXtras);
         }
         else
         {
             vidasJugador--;
+            HUDManager.instancia.ActualizarVida(vidasJugador);
         }
         Debug.Log("el jugador tiene en vidas " + vidasJugador);
         Debug.Log("el jugador tiene vidas extas " + vidasEXtras);
@@ -58,19 +63,21 @@ public class SaludPersonaje : MonoBehaviour
         {
             vidasJugador++;
         }
+        HUDManager.instancia.ActualizarVida(vidasJugador);
 
         Debug.Log("jugador gano una vida, tiene "+ vidasJugador);
     }
     public void ObtenerArmadura()
     {
-        if(vidasEXtras > 2) 
+        if(vidasEXtras == 1) 
         {
-            vidasEXtras = 4;
+            vidasEXtras = 2;
         }
         else
         {
-            vidasEXtras+=2;
+            vidasEXtras=1;
         }
+        HUDManager.instancia.ActualizarArmadura(vidasEXtras);
         Debug.Log("el jugador tiene vidas extas " + vidasEXtras);
     }
 }
