@@ -16,8 +16,9 @@ public class MosquitoController : MonoBehaviour
     {
         posicionInicial = transform.position;
         cambiarPosicion();
+        
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -67,7 +68,7 @@ public class MosquitoController : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.transform.CompareTag("Player"))
         {

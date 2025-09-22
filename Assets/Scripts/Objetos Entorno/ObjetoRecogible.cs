@@ -6,6 +6,7 @@ public class ObjetoRecogible : MonoBehaviour
 {
     [SerializeField] string nombreObjeto;
     float imagenSize;
+    bool desactivado;
     // Start is called before the first frame update
     public void ObtenerTamaño()
     {
@@ -17,21 +18,20 @@ public class ObjetoRecogible : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             ObtenerTamaño();
-
             HUDManager.instancia.MostrarInteraccion(transform.position, 0.7f, "recogible");
-            /*collision.gameObject.GetComponent<InputPlayer>().getInteractuable();
-
+            if(collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
             {
                 if (nombreObjeto != "NPC")
                 {
                     collision.gameObject.SendMessage("RecibirInfo", nombreObjeto);
                     gameObject.SetActive(false);
+                    desactivado = true;
                 }
                 else
                 {
                     SendMessage("Interactuar");
                 }
-            }*/
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -39,8 +39,15 @@ public class ObjetoRecogible : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             HUDManager.instancia.Ocultar();
+            if (desactivado == true && nombreObjeto == "balas")
+            {
+                HUDManager.instancia.AumentarBalas(transform.position);
+            }
+        
+            
         }
     }
+    
 
 
     public void setNombre(string nombreNuevo)

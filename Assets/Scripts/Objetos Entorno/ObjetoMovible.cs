@@ -45,7 +45,7 @@ public class ObjetoMovible : MonoBehaviour
     private void Movimiento()
     {
         float direccionX = Input.GetAxis("Horizontal");
-        Debug.Log(direccionX);
+        //Debug.Log(direccionX);
         if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje))
         {
             miCuerpo.velocity = new Vector2(-2, miCuerpo.velocity.y);
