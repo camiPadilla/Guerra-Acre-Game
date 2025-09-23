@@ -15,11 +15,12 @@ public class AtaquePersonaje : MonoBehaviour
     [SerializeField] public float fuerzatiro;
     [SerializeField] public float fuerzaMaxima;
     [SerializeField] public Transform origen;
+    [SerializeField] Rigidbody2D miRigid;
     public int dirX; 
     public float dirY;
     [SerializeField] Arma machete;
     [SerializeField] int seleccionArma;
-    [SerializeField] Animator miAnimator;
+    //[SerializeField] Animator miAnimator;
     bool enAccion;
 
     // Start is called before the first frame update
@@ -35,6 +36,22 @@ public class AtaquePersonaje : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2)) seleccionArma = 1;
         if (Input.GetKeyDown(KeyCode.Alpha3)) seleccionArma = 2;
 
+        if (Input.GetAxis("Horizontal") >= 0.1f)
+        {
+            dirX = 1;
+        }
+        else if(Input.GetAxis("Horizontal") <= -0.1f)
+        {
+            dirX = -1;
+        }
+        if (Input.GetAxis("Vertical") != 0)
+        {
+            dirY = Input.GetAxis("Vertical");
+        } else dirY = 0;
+        if (enAccion)
+        {
+            miRigid.velocity = Vector2.zero;
+        }
 
         //Debug.Log(dirX);
         switch (seleccionArma)

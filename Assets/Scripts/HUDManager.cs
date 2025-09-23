@@ -60,7 +60,7 @@ public class HUDManager : MonoBehaviour
     {
         Time.timeScale = 0;
         text.text = mensajeNuevo;
-         pantallaNota.SetActive(true);  
+        pantallaNota.SetActive(true);  
 
     }
     public void Reanudar()

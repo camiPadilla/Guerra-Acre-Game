@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -8,10 +9,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject coleccionables;
     [SerializeField] GameObject partida;
     [SerializeField] GameObject salir;
+    [SerializeField] GameObject opciones;
+    [SerializeField] GameObject audio;
+    [SerializeField] GameObject controles;
+    [SerializeField] GameObject video;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        IrMenu();
     }
 
     // Update is called once per frame
@@ -25,6 +31,10 @@ public class UIManager : MonoBehaviour
         coleccionables.SetActive(false);
         partida.SetActive(false);
         salir.SetActive(false);
+        opciones.SetActive(false);
+        audio.SetActive(false);
+        controles.SetActive(false);
+        video.SetActive(false);
     }
     public void IrColeccionables()
     {
@@ -32,6 +42,10 @@ public class UIManager : MonoBehaviour
         coleccionables.SetActive(true);
         partida.SetActive(false);
         salir.SetActive(false);
+        opciones.SetActive(false);
+        audio.SetActive(false);
+        controles.SetActive(false);
+        video.SetActive(false);
     }
     public void IrMenuPartida()
     {
@@ -39,6 +53,10 @@ public class UIManager : MonoBehaviour
         coleccionables.SetActive(false);
         partida.SetActive(true);
         salir.SetActive(false);
+        opciones.SetActive(false);
+        audio.SetActive(false);
+        controles.SetActive(false);
+        video.SetActive(false);
     }
     public void IrSalir()
     {
@@ -46,6 +64,54 @@ public class UIManager : MonoBehaviour
         coleccionables.SetActive(false);
         partida.SetActive(false);
         salir.SetActive(true);
+        opciones.SetActive(false);
+        audio.SetActive(false);
+        controles.SetActive(false);
+        video.SetActive(false);
+    }
+    public void IrOpciones()
+    {
+        menu.SetActive(false);
+        coleccionables.SetActive(false);
+        partida.SetActive(false);
+        salir.SetActive(false);
+        opciones.SetActive(true);
+        audio.SetActive(false);
+        controles.SetActive(false);
+        video.SetActive(false);
+    }
+    public void IrAudio()
+    {
+        menu.SetActive(false);
+        coleccionables.SetActive(false);
+        partida.SetActive(false);
+        salir.SetActive(false);
+        opciones.SetActive(false);
+        audio.SetActive(true);
+        controles.SetActive(false);
+        video.SetActive(false);
+    }
+    public void IrControles()
+    {
+        menu.SetActive(false);
+        coleccionables.SetActive(false);
+        partida.SetActive(false);
+        salir.SetActive(false);
+        opciones.SetActive(false);
+        audio.SetActive(false);
+        controles.SetActive(true);
+        video.SetActive(false);
+    }
+    public void IrVideo()
+    {
+        menu.SetActive(false);
+        coleccionables.SetActive(false);
+        partida.SetActive(false);
+        salir.SetActive(false);
+        opciones.SetActive(false);
+        audio.SetActive(false);
+        controles.SetActive(false);
+        video.SetActive(true);
     }
     public void Salir()
     {
@@ -53,6 +119,6 @@ public class UIManager : MonoBehaviour
     }
     public void Comezar()
     {
-         
+        SceneManager.LoadScene("Nivel1");
     }
 }
