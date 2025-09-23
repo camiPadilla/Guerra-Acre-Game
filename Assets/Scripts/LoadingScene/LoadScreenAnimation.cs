@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadScreenAnimation : MonoBehaviour
+
+namespace PantallaCarga
+{
+    public class LoadScreenAnimation : MonoBehaviour
 {
     [Header("Sprites de las interacciones")]
     [SerializeField] private List<Sprite> sprites;
-    [SerializeField] private Image cosa1; 
-    [SerializeField] private Image cosa2; 
-    [SerializeField] private RectTransform areaCanvas; 
+    [SerializeField] private Image cosa1;
+    [SerializeField] private Image cosa2;
+    [SerializeField] private RectTransform areaCanvas;
     [SerializeField] private GameObject avesCazadasOb;
     [SerializeField] private TMPro.TextMeshProUGUI avesCazadasText;
     private int avesCazadas = 0;
 
-    private int tipoInteraccion; 
+    private int tipoInteraccion;
     private bool aveCazada = false;
 
     private void OnEnable()
@@ -65,20 +68,20 @@ public class LoadScreenAnimation : MonoBehaviour
             {
                 avesCazadas++;
                 avesCazadasText.text = avesCazadas.ToString();
-                cosa1.sprite = sprites[6]; 
+                cosa1.sprite = sprites[6];
             }
             else
             {
-                cosa1.sprite = sprites[0]; 
+                cosa1.sprite = sprites[0];
 
-            StartCoroutine(RespawnAve());
+                StartCoroutine(RespawnAve());
             }
         }
     }
 
     private IEnumerator RespawnAve()
     {
-        yield return new WaitForSeconds(0.5f); 
+        yield return new WaitForSeconds(0.5f);
         float ancho = areaCanvas.rect.width / 2f;
         float alto = areaCanvas.rect.height / 2f;
 
@@ -114,7 +117,8 @@ public class LoadScreenAnimation : MonoBehaviour
         {
             //solo aumento la velodidad de la animación ya que debe bailar rapido jsjsjss
             Debug.Log("El soldado se pone a bailar");
-           
+
         }
     }
+}
 }

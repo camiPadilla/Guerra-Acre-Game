@@ -11,7 +11,7 @@ namespace PantallaCarga
         // Start is called before the first frame update
         void Awake()
         {
-            GameObject[] objs = GameObject.FindGameObjectsWithTag("LoadingScene");
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("LoaderScene");
             if (objs.Length > 1)
             {
                 Destroy(gameObject);
@@ -25,12 +25,12 @@ namespace PantallaCarga
         }
         public void LoadScene(string sceneName)
         {
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(ConstantsGame.SCENELOADINGSCREEN);
             StartCoroutine(LoadSceneAsync(sceneName));
         }
         IEnumerator LoadSceneAsync(string sceneName)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(6f);
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
             yield return new WaitUntil(() => asyncLoad.progress >= 0.9f);
         }

@@ -8,7 +8,7 @@ namespace PantallaCarga
         public const string GAME_NAME = "MASACRE";
         public const string DEVELOPER_NAME = "Yo que se";
         //-----------------------
-        public const string SCENELOAGINGSCREEN = "LoadingScene";
+        public const string SCENELOADINGSCREEN = "SceneLoadingScreen";
         public const string SCENAUNO = "EscenaUno";
         public const string SCENADOS = "EscenaDos";
         //-----------------------
