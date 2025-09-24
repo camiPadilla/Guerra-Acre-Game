@@ -25,14 +25,15 @@ namespace PantallaCarga
         }
         public void LoadScene(string sceneName)
         {
+            print("Cargando escena: " + sceneName);
             SceneManager.LoadScene(ConstantsGame.SCENELOADINGSCREEN);
             StartCoroutine(LoadSceneAsync(sceneName));
         }
-        IEnumerator LoadSceneAsync(string sceneName)
+        private IEnumerator LoadSceneAsync(string sceneName)
         {
-            yield return new WaitForSeconds(6f);
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-            yield return new WaitUntil(() => asyncLoad.progress >= 0.9f);
+            yield return new WaitForSeconds(2f);
+            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+            yield return new WaitUntil(() => operation.isDone);
         }
     }
 

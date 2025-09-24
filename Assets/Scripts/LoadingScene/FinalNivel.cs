@@ -16,7 +16,7 @@ public class FinalNivel : MonoBehaviour
         print("Colision");
         if (other.CompareTag("Player"))
         {
-            StartCoroutine(CargarEscena(ConstantsGame.SCENADOS));
+            StartCoroutine(CargarEscena(ConstantsGame.ESCENADOS));
         }
     }
     IEnumerator CargarEscena(string sceneName)

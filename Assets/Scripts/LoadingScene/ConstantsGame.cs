@@ -9,8 +9,8 @@ namespace PantallaCarga
         public const string DEVELOPER_NAME = "Yo que se";
         //-----------------------
         public const string SCENELOADINGSCREEN = "SceneLoadingScreen";
-        public const string SCENAUNO = "EscenaUno";
-        public const string SCENADOS = "EscenaDos";
+        public const string ESCENAUNO = "EscenaUno";
+        public const string ESCENADOS = "EscenaDos";
         //-----------------------
         public const string SCENEMAINMENU = "MainMenu";
         public const string SCENEGAMEPLAY = "GamePlay";
