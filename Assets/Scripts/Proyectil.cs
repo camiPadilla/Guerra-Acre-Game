@@ -46,7 +46,7 @@ public class Proyectil : Arma
         DesactivarProyectil();
         Debug.Log("Vuelvo");
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         //Debug.Log(!collision.transform.CompareTag("Player"));
         //Debug.Log(enUso);
