@@ -15,7 +15,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] GameObject pantallaMuerte;
     [SerializeField] Sprite imagenClick;
     [SerializeField] Sprite imagenE;
-    [SerializeField] Sprite imagenAumentoBala;    
+    [SerializeField] Sprite imagenAumentoBala;
     [SerializeField] RectTransform barraVida;
     [SerializeField] RectTransform barraArmadura;
     [SerializeField] TextMeshProUGUI textoBalas;
@@ -39,7 +39,7 @@ public class HUDManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pausar();
         }
@@ -48,26 +48,26 @@ public class HUDManager : MonoBehaviour
     public void ActivarRifle()
     {
         Debug.Log("hola activando arma");
-        armas[2].GetComponent< UnityEngine.UI.Image>().sprite = imagenArmas[1];
+        armas[2].GetComponent<UnityEngine.UI.Image>().sprite = imagenArmas[1];
 
     }
     public void AumentarBalas(Vector2 posicion)
     {
         mensajeE.GetComponent<SpriteRenderer>().sprite = imagenAumentoBala;
-        Vector2 posicionMensaje = new Vector2(posicion.x, posicion.y+2f);
+        Vector2 posicionMensaje = new Vector2(posicion.x, posicion.y + 2f);
         mensajeE.transform.position = posicionMensaje;
         mensajeE.SetActive(true);
         Debug.Log("ganaste 5 ");
         StartCoroutine("FadeOut", 0.25f);
 
-        
+
     }
     IEnumerator FadeOut(float tiempoTotal)
     {
         SpriteRenderer miSpriteRenderer = mensajeE.GetComponent<SpriteRenderer>();
         Vector2 movement = Vector2.up * 0.5f * Time.deltaTime;
         float startTime = Time.time;
-        
+
         while (Time.time - startTime < tiempoTotal)
         {
             mensajeE.transform.Translate(movement);
@@ -75,7 +75,7 @@ public class HUDManager : MonoBehaviour
             Color color = miSpriteRenderer.color;
             color.a = Mathf.Lerp(1f, 0f, porcentaje);
             miSpriteRenderer.color = color;
-            yield return null; 
+            yield return null;
         }
 
         Color final = miSpriteRenderer.color;
@@ -89,7 +89,7 @@ public class HUDManager : MonoBehaviour
     public void ActualizarArma(int armaActiva)
     {
 
-        foreach (GameObject arma in armas) 
+        foreach (GameObject arma in armas)
         {
             UnityEngine.UI.Image imagenArma = arma.GetComponent<UnityEngine.UI.Image>();
             RectTransform tranformArma = arma.GetComponent<RectTransform>();
@@ -115,32 +115,32 @@ public class HUDManager : MonoBehaviour
             }
         }
     }
-    
+
     public void ActualizarVida(int cantidadVidas)
     {
         Debug.Log("se acutalizará la vida");
-        barraVida.sizeDelta = new Vector2(26.5f * cantidadVidas , barraVida.sizeDelta.y);
+        barraVida.sizeDelta = new Vector2(26.5f * cantidadVidas, barraVida.sizeDelta.y);
     }
     public void ActualizarArmadura(int cantidadArmadura)
     {
         Debug.Log("se acutalizará la armadura");
-        barraArmadura.sizeDelta  = new  Vector2(cantidadArmadura * 53 ,barraArmadura.sizeDelta.y);
+        barraArmadura.sizeDelta = new Vector2(cantidadArmadura * 53, barraArmadura.sizeDelta.y);
     }
     public void ActualizarTotalBalas(int cantidadTotal)
     {
-        textoTotalBalas.text = ""+cantidadTotal;
-        
+        textoTotalBalas.text = "" + cantidadTotal;
+
     }
     public void ActualizarBalasActual(int cantidadBalas)
     {
-        
-        textoBalas.text = ""+cantidadBalas;
+
+        textoBalas.text = "" + cantidadBalas;
     }
     // Update is called once per frame
     void Start()
     {
 
-        mensajeE = Instantiate(interactuable, transform); 
+        mensajeE = Instantiate(interactuable, transform);
         mensajeE.SetActive(false);
         imagenE = mensajeE.GetComponent<SpriteRenderer>().sprite;
         ActualizarBalasActual(0);
@@ -152,12 +152,13 @@ public class HUDManager : MonoBehaviour
         if (nombre == "movible")
         {
             mensajeE.GetComponent<SpriteRenderer>().sprite = imagenClick;
-        } else if (nombre == "recogible")
+        }
+        else if (nombre == "recogible")
         {
             mensajeE.GetComponent<SpriteRenderer>().sprite = imagenE;
         }
         Debug.Log("mostrado");
-        Vector2 posicionE= new Vector2(posicion.x, posicion.y + imagen*2f);
+        Vector2 posicionE = new Vector2(posicion.x, posicion.y + imagen * 2f);
         mensajeE.transform.position = posicionE;
         mensajeE.SetActive(true);
 
@@ -176,8 +177,8 @@ public class HUDManager : MonoBehaviour
         DetenerTiempo();
         text.text = mensajeNuevo;
         HUDGameplay.SetActive(false);
-        pantallaNota.SetActive(true);  
-        
+        pantallaNota.SetActive(true);
+
     }
     public void Pausar()
     {
@@ -198,6 +199,6 @@ public class HUDManager : MonoBehaviour
     {
         pantallaMuerte.SetActive(true);
         DetenerTiempo();
-        HUDGameplay.SetActive(false) ;
+        HUDGameplay.SetActive(false);
     }
 }
