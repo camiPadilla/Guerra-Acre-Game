@@ -98,8 +98,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d103902e3aa111b44ba325b6dbb81054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  caras: []
-  cara: 0
+  caras:
+  - {fileID: 21300000, guid: c80c67fc1f342d444846e02d07e7f003, type: 3}
+  - {fileID: 21300000, guid: 0b5cbef590edb684ebdfc72695afdb4c, type: 3}
+  - {fileID: 21300000, guid: 9731490e58b2cb34c9bee9a88c2761b1, type: 3}
+  - {fileID: 21300000, guid: 4c24f93be9533fc4cb84fc5b4c2a8800, type: 3}
+  - {fileID: 21300000, guid: ea4b79284efe45245bfd9129ca45ae0c, type: 3}
+  - {fileID: 21300000, guid: b1445db2631013b46a5301a5dad9ef6f, type: 3}
+  miSprite: {fileID: 6550400791845167699}
+  cara: 1
 --- !u!61 &2888507630603971017
 BoxCollider2D:
   m_ObjectHideFlags: 0
