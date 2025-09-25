@@ -69,12 +69,11 @@ namespace PantallaCarga
                 avesCazadas++;
                 avesCazadasText.text = avesCazadas.ToString();
                 cosa1.sprite = sprites[6];
+                StartCoroutine(RespawnAve());
             }
             else
             {
                 cosa1.sprite = sprites[0];
-
-                StartCoroutine(RespawnAve());
             }
         }
     }

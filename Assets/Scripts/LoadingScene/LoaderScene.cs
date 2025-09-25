@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,34 +7,43 @@ namespace PantallaCarga
     public class LoaderScene : MonoBehaviour
     {
         public static LoaderScene instance;
-        // Start is called before the first frame update
-        void Awake()
+        private static string sceneDestino;
+
+        private void Awake()
         {
-            GameObject[] objs = GameObject.FindGameObjectsWithTag("LoaderScene");
-            if (objs.Length > 1)
+            if (instance != null && instance != this)
             {
                 Destroy(gameObject);
+                return;
             }
-            else
-            {
-                instance = this;
 
-            }
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        // Llamas a este método desde cualquier parte
         public void LoadScene(string sceneName)
         {
-            print("Cargando escena: " + sceneName);
+            sceneDestino = sceneName;
             SceneManager.LoadScene(ConstantsGame.SCENELOADINGSCREEN);
-            StartCoroutine(LoadSceneAsync(sceneName));
         }
-        private IEnumerator LoadSceneAsync(string sceneName)
+
+        // Este lo ejecutas desde la pantalla de carga
+        public void CargarDestino()
         {
-            yield return new WaitForSeconds(2f);
-            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
-            yield return new WaitUntil(() => operation.isDone);
+            StartCoroutine(CargarAsync());
+        }
+
+        private IEnumerator CargarAsync()
+        {
+            yield return new WaitForSeconds(3f); // tiempo fijo de carga
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneDestino);
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
         }
     }
-
 }
+
 
