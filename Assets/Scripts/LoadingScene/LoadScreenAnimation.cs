@@ -28,7 +28,7 @@ namespace PantallaCarga
 
         IEnumerator EsperarYContinuar()
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3f);
             LoaderScene.instance.CargarDestino();
         }
 
@@ -93,7 +93,7 @@ namespace PantallaCarga
     private IEnumerator RespawnAve()
     {
         aveCazada = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         float ancho = areaCanvas.rect.width / 2f;
         float alto = areaCanvas.rect.height / 2f;
         float posX = Random.Range(-ancho, ancho);
