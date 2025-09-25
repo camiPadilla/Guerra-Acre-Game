@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject controles;
     [SerializeField] GameObject video;
 
+    [SerializeField] string escenaPartida;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -119,6 +121,6 @@ public class UIManager : MonoBehaviour
     }
     public void Comezar()
     {
-        SceneManager.LoadScene("Nivel1");
+        SceneManager.LoadScene(escenaPartida);
     }
 }
