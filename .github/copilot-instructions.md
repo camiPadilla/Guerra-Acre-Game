@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Piso, Water, UI, Player
 - Active game object:
-  - Name: HUD Gameplay
+  - Name: Virtual Camera
   - Tag: Untagged
-  - Layer: UI
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
