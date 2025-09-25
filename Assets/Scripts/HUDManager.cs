@@ -12,6 +12,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] GameObject pantallaNota;
     [SerializeField] GameObject pantallaPausa;
     [SerializeField] GameObject HUDGameplay;
+    [SerializeField] GameObject PantallaFin;
     [SerializeField] GameObject pantallaMuerte;
     [SerializeField] Sprite imagenClick;
     [SerializeField] Sprite imagenE;
@@ -118,12 +119,12 @@ public class HUDManager : MonoBehaviour
 
     public void ActualizarVida(int cantidadVidas)
     {
-        Debug.Log("se acutalizará la vida");
+        Debug.Log("se acutalizarï¿½ la vida");
         barraVida.sizeDelta = new Vector2(26.5f * cantidadVidas, barraVida.sizeDelta.y);
     }
     public void ActualizarArmadura(int cantidadArmadura)
     {
-        Debug.Log("se acutalizará la armadura");
+        Debug.Log("se acutalizarï¿½ la armadura");
         barraArmadura.sizeDelta = new Vector2(cantidadArmadura * 53, barraArmadura.sizeDelta.y);
     }
     public void ActualizarTotalBalas(int cantidadTotal)

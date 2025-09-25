@@ -10,11 +10,11 @@ namespace PantallaCarga
         //Agregar las demas escenas como el menu , etc
         public void SceneEscenaUno()
         {
-            LoaderScene.instance.LoadSceneString(ConstantsGame.ESCENAUNO);
+            LoaderScene.instance.LoadSceneString(ConstantsGame.SCENAUNO);
         }
         public void SceneEscenaDos()
         {
-            LoaderScene.instance.LoadSceneString(ConstantsGame.ESCENADOS);
+            LoaderScene.instance.LoadSceneString(ConstantsGame.SCENADOS);
         }
         public void QuitGame()
         {
