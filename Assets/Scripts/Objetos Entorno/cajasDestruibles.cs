@@ -4,18 +4,10 @@ using UnityEngine;
 
 public class cajasDestruibles : ObjetoDestruible
 {
-    [SerializeField] GameObject recogible;
     // Start is called before the first frame update
     
-    private void loot()
+    public void ActivarLoot()
     {
-        ObjetoRecogible recogibleDatos = Instantiate(recogible, transform.position, transform.rotation).GetComponent<ObjetoRecogible>();
-        //recogibleDatos.setCantidad(3);
-        recogibleDatos.setNombre("hola");
-
-    }
-    private void OnDisable()
-    {
-        //loot();
+        GameManager.instancia.InstanciarObjeto(transform.position);
     }
 }
