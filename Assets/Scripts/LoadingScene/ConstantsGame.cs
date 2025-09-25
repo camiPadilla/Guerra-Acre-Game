@@ -1,5 +1,3 @@
-using System;
-
 namespace PantallaCarga
 {
     public static class ConstantsGame

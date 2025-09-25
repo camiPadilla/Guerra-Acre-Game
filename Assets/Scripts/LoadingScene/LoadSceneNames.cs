@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace PantallaCarga {
+namespace PantallaCarga 
+{
     public class LoadSceneNames : MonoBehaviour
     {
         //Agregar las demas escenas como el menu , etc
         public void SceneEscenaUno()
         {
-            LoaderScene.instance.LoadScene(ConstantsGame.ESCENAUNO);
+            LoaderScene.instance.LoadSceneString(ConstantsGame.ESCENAUNO);
         }
         public void SceneEscenaDos()
         {
-            print("Hola soy la escena 2");
-            LoaderScene.instance.LoadScene(ConstantsGame.ESCENADOS);
+            LoaderScene.instance.LoadSceneString(ConstantsGame.ESCENADOS);
         }
         public void QuitGame()
         {
