@@ -25,8 +25,8 @@ public class ObjetoMovible : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            if(Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje) || Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
-            HUDManager.instancia.MostrarInteraccion(transform.position, GetComponent<SpriteRenderer>().bounds.extents.y, "movible");
+            if (Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje) || Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
+                HUDManager.instancia.MostrarInteraccion(transform.position, GetComponent<SpriteRenderer>().bounds.extents.y, "movible");
             if (collision.gameObject.GetComponent<InputPlayer>().GetMoviendo())
             {
                 tag = "movible";
@@ -40,7 +40,7 @@ public class ObjetoMovible : MonoBehaviour
                 miCuerpo.mass = 10f;
             }
         }
-       
+
     }
     private void Movimiento()
     {
@@ -74,5 +74,5 @@ public class ObjetoMovible : MonoBehaviour
         }
     }
 
-    
+
 }

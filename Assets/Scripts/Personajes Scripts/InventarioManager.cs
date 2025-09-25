@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventarioManager : MonoBehaviour
 {
-    int balas=0;
+    int balas = 0;
 
     int dinamitas;
     [SerializeField] int aumento;
@@ -12,13 +12,13 @@ public class InventarioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public int GetBalas()
     {
@@ -28,7 +28,7 @@ public class InventarioManager : MonoBehaviour
     {
         balas = nuevaCantidad;
         HUDManager.instancia.ActualizarTotalBalas(balas);
-        
+
 
     }
     public void RecibirInfo(string nombre)
@@ -36,7 +36,7 @@ public class InventarioManager : MonoBehaviour
         switch (nombre)
         {
             case "balas":
-                SetBalas(balas+=aumento);
+                SetBalas(balas += aumento);
                 Debug.Log("ahora el jugador tiene en balas " + balas);
                 break;
             case "botiquin":
@@ -54,7 +54,7 @@ public class InventarioManager : MonoBehaviour
 
                 break;
         }
-       
-        
+
+
     }
 }

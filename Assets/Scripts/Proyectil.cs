@@ -26,21 +26,33 @@ public class Proyectil : Arma
         personaje = nuevoPersonaje;
     }
 
-    public void Activar()
+    public void ActivarProyectil()
     {
         gameObject.SetActive(true);
         enUso = true;
+        StartCoroutine(TiempoVuelta());
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    public void DesactivarProyectil()
+    {
+        enUso = false;
+        gameObject.SetActive(false);
+        Reposicionar(personaje.origen.position);
+        personaje.GuardarEnCola(this, tipo);
+    }
+    public IEnumerator TiempoVuelta()
+    {
+        Debug.Log("Salgo");
+        yield return new WaitForSeconds(3);
+        DesactivarProyectil();
+        Debug.Log("Vuelvo");
+    }
+    private void OnCollisionExit2D(Collision2D collision)
     {
         //Debug.Log(!collision.transform.CompareTag("Player"));
         //Debug.Log(enUso);
         if (enUso && !collision.transform.CompareTag("Player"))
         {
-            enUso = false;
-            gameObject.SetActive(false);
-            Reposicionar(personaje.origen.position);
-            personaje.GuardarEnCola(this,tipo);
+            DesactivarProyectil();
             //if (collision.transform.CompareTag("Destruible"))
             //{
             //    collision.gameObject.GetComponent<ObjetoDestruible>().Daño();

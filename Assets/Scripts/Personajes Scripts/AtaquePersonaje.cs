@@ -15,15 +15,14 @@ public class AtaquePersonaje : MonoBehaviour
     [SerializeField] public float fuerzatiro;
     [SerializeField] public float fuerzaMaxima;
     [SerializeField] public Transform origen;
+    [SerializeField] Rigidbody2D miRigid;
     public int dirX; 
     public float dirY;
     [SerializeField] Arma machete;
     [SerializeField] int seleccionArma;
-    [SerializeField] Animator miAnimator;
-    [SerializeField] int balasActual=0;
+    //[SerializeField] Animator miAnimator;
     bool enAccion;
-    bool recargando;
-    bool conArma;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +34,25 @@ public class AtaquePersonaje : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) seleccionArma = 0;
         if (Input.GetKeyDown(KeyCode.Alpha2)) seleccionArma = 1;
-        if (Input.GetKeyDown(KeyCode.Alpha3) && conArma) seleccionArma = 2;
+        if (Input.GetKeyDown(KeyCode.Alpha3)) seleccionArma = 2;
 
-        HUDManager.instancia.ActualizarArma(seleccionArma);
+        if (Input.GetAxis("Horizontal") >= 0.1f)
+        {
+            dirX = 1;
+        }
+        else if(Input.GetAxis("Horizontal") <= -0.1f)
+        {
+            dirX = -1;
+        }
+        if (Input.GetAxis("Vertical") != 0)
+        {
+            dirY = Input.GetAxis("Vertical");
+        } else dirY = 0;
+        if (enAccion)
+        {
+            miRigid.velocity = Vector2.zero;
+        }
+
         //Debug.Log(dirX);
         switch (seleccionArma)
         {
@@ -48,21 +63,10 @@ public class AtaquePersonaje : MonoBehaviour
                 EntradaPedra();
                 break; 
             case 2:
-                
                 EntradaDisparo();
                 break;
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && seleccionArma == 2)
-        {
-            Recargar();
-        }
-
-    }
-    public void ObtenerArma()
-    {
-        conArma = true;
-        HUDManager.instancia.ActivarRifle();
     }
     public void SetDireccion(int NdirX, float NdirY)
     {
@@ -70,16 +74,12 @@ public class AtaquePersonaje : MonoBehaviour
         dirY = NdirY;
 
     }
-    public int GetBalasActuales()
-    {
-        return balasActual;
-    }
     private void TirarPiedra()
     {
         Proyectil piedraActual = piedraCola.Dequeue();
         Vector3 puntoIncial = new Vector3(transform.position.x,transform.position.y + 1,transform.position.z);
         piedraActual.Reposicionar(puntoIncial);
-        piedraActual.Activar();
+        piedraActual.ActivarProyectil();
         piedraActual.Impulso(fuerzatiro, dirX, dirY);
         enAccion = false;
     }
@@ -111,7 +111,7 @@ public class AtaquePersonaje : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            AtaqueMachete();
+            StartCoroutine(AtaqueMachete());
         }
     }
     private void EntradaPedra()
@@ -132,71 +132,18 @@ public class AtaquePersonaje : MonoBehaviour
     }
     private void EntradaDisparo()
     {
-        if (Input.GetButtonDown("Fire1") && recargando == false)
+        if (Input.GetButtonDown("Fire1"))
         {
-            if(balasActual == 0)
-            {
-                Recargar();
-            }
-            if (balasActual > 0)
-            {
-                Disparar();
-                balasActual--;
-                HUDManager.instancia.ActualizarBalasActual(balasActual);
-                StartCoroutine(nameof(TiempoRecarga), 1f);
-            }
-            
-
+            Disparar();
         }
     }
-    private void Recargar() 
-    {
-        
-        Debug.Log("recargado");
-        int totalBalas = GetComponent<InventarioManager>().GetBalas();
-        if (totalBalas > 0)
-        {
-            StartCoroutine(nameof(TiempoRecarga), 2);
-            totalBalas -= (5 - balasActual);
-            if (totalBalas < 0)
-            {
-                balasActual = (5 + cantidadBalas);
-                totalBalas = 0;
-             
-            }
-            else
-            {
-                balasActual = 5;
-                
-            }
-            SendMessage("SetBalas", totalBalas);
-            Debug.Log("tines en tu cargador " +  balasActual);
-            
-        }
-        else
-        {
-            Debug.Log("no puedes recargar no tienes balas ");
-        }
-        HUDManager.instancia.ActualizarBalasActual(balasActual);
-
-    }
-    IEnumerator TiempoRecarga(float espera)
-    {
-        recargando = true;
-        Debug.Log("Esta recargando");
-        yield return new WaitForSeconds(espera);
-        recargando = false;
-        Debug.Log("Ya recargo");
-
-    }
-   
     private void Disparar()
     {
         enAccion = true;
         Proyectil balaActual = balaCola.Dequeue();
         Vector3 puntoIncial = new Vector3(transform.position.x+dirX, transform.position.y + dirY, transform.position.z);
         balaActual.Reposicionar(puntoIncial);
-        balaActual.Activar();
+        balaActual.ActivarProyectil();
         balaActual.Impulso(fuerzaDisparo, dirX, dirY);
         enAccion = false;
     }
@@ -204,10 +151,13 @@ public class AtaquePersonaje : MonoBehaviour
     {
         enAccion = true;
     }
-    private void AtaqueMachete()
+    private IEnumerator AtaqueMachete()
     {
-        machete.Reposicionar(new Vector3(transform.position.x + 0.5f * dirX, transform.position.y, transform.position.z));
-        miAnimator.SetTrigger("atacar");
+        //machete.Reposicionar(new Vector3(transform.position.x + 0.5f * dirX, transform.position.y, transform.position.z));
+        ActivarMachete();
+        yield return new WaitForSeconds(.5f);
+        DesactivarMachete();
+        //miAnimator.SetTrigger("atacar");
     }
     public void ActivarMachete()
     {
