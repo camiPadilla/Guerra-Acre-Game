@@ -16,13 +16,14 @@ public class AtaquePersonaje : MonoBehaviour
     [SerializeField] public float fuerzaMaxima;
     [SerializeField] public Transform origen;
     [SerializeField] Rigidbody2D miRigid;
-    public int dirX; 
+    public int dirX;
     public float dirY;
     [SerializeField] Arma machete;
     [SerializeField] int seleccionArma;
-    //[SerializeField] Animator miAnimator;
+    [SerializeField] int balasActual = 0;
     bool enAccion;
-
+    bool recargando;
+    bool conArma=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +35,8 @@ public class AtaquePersonaje : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) seleccionArma = 0;
         if (Input.GetKeyDown(KeyCode.Alpha2)) seleccionArma = 1;
-        if (Input.GetKeyDown(KeyCode.Alpha3)) seleccionArma = 2;
-
+        if (Input.GetKeyDown(KeyCode.Alpha3) && conArma) seleccionArma = 2;
+        HUDManager.instancia.ActualizarArma(seleccionArma);
         if (Input.GetAxis("Horizontal") >= 0.1f)
         {
             dirX = 1;
@@ -66,7 +67,20 @@ public class AtaquePersonaje : MonoBehaviour
                 EntradaDisparo();
                 break;
         }
+        if (Input.GetKeyDown(KeyCode.R) && seleccionArma == 2)
+        {
+            Recargar();
+        }
 
+    }
+    public void ObtenerArma()
+    {
+        conArma = true;
+        HUDManager.instancia.ActivarRifle();
+    }
+    public int GetBalasActuales()
+    {
+        return balasActual;
     }
     public void SetDireccion(int NdirX, float NdirY)
     {
@@ -132,10 +146,62 @@ public class AtaquePersonaje : MonoBehaviour
     }
     private void EntradaDisparo()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && recargando == false)
         {
-            Disparar();
+            if (balasActual == 0)
+            {
+                Recargar();
+            }
+            if (balasActual > 0)
+            {
+                Disparar();
+                balasActual--;
+                HUDManager.instancia.ActualizarBalasActual(balasActual);
+                StartCoroutine(nameof(TiempoRecarga), 1f);
+            }
+
+
         }
+    }
+    private void Recargar()
+    {
+
+        Debug.Log("recargado");
+        int totalBalas = GetComponent<InventarioManager>().GetBalas();
+        if (totalBalas > 0)
+        {
+            StartCoroutine(nameof(TiempoRecarga), 2);
+            totalBalas -= (5 - balasActual);
+            if (totalBalas < 0)
+            {
+                balasActual = (5 + cantidadBalas);
+                totalBalas = 0;
+
+            }
+            else
+            {
+                balasActual = 5;
+
+            }
+            SendMessage("SetBalas", totalBalas);
+            Debug.Log("tines en tu cargador " + balasActual);
+
+        }
+        else
+        {
+            Debug.Log("no puedes recargar no tienes balas ");
+        }
+        HUDManager.instancia.ActualizarBalasActual(balasActual);
+
+    }
+    IEnumerator TiempoRecarga(float espera)
+    {
+        recargando = true;
+        Debug.Log("Esta recargando");
+        yield return new WaitForSeconds(espera);
+        recargando = false;
+        Debug.Log("Ya recargo");
+
     }
     private void Disparar()
     {

@@ -28,7 +28,7 @@ public class ControladorNPC : ObjetoRecogible
 
     public void Interactuar()
     {
-        Debug.Log("el NPC anda interactuando");
+        //Debug.Log("el NPC anda interactuando");
         if (dialogando == false)
         {
             dialogando = true;

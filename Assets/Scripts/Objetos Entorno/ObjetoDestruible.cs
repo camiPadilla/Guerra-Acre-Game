@@ -6,18 +6,6 @@ using UnityEngine.Video;
 public class ObjetoDestruible : MonoBehaviour
 {
     [SerializeField] int vidas;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void Damage(int cantidad)
     {
         //Debug.Log("perdio una vida");

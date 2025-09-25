@@ -6,16 +6,11 @@ public class ControladorNota : ObjetoRecogible
 {
     [SerializeField] string mensajeNota;
     // Start is called before the first frame update
-
-    private void OnDisable()
-    {
-        leer();
-    }
-    void leer()
+    public void leer()
     {
         Debug.Log("leyendo nota");
         HUDManager.instancia.LeerNota(mensajeNota);
-        //Time.timeScale = 0;
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     { SoundEvents.RecogerNota?.Invoke(); }
