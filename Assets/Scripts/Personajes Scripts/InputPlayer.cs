@@ -25,7 +25,7 @@ public class InputPlayer : MonoBehaviour
         //}
         if (Input.GetKey(KeyCode.E))
         {
-            Debug.Log("Jugador listo para interactuar");
+           // Debug.Log("Jugador listo para interactuar");
             interactaundo = true;
         }
         else

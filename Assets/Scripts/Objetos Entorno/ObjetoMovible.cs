@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using UltimateCC;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -31,18 +32,25 @@ public class ObjetoMovible : MonoBehaviour
             {
                 tag = "movible";
                 HUDManager.instancia.Ocultar();
-                miCuerpo.mass = 0.5f;
-                Movimiento();
+                miCuerpo.mass = 10f;
+                //MoverRoca(collision.gameObject);
+                Movimiento(collision.gameObject);
             }
             else
             {
-                tag = "Untagged";
-                miCuerpo.mass = 10f;
+                collision.gameObject.GetComponent<PlayerMain>().enabled = true;
+                miCuerpo.mass = 100f;
             }
         }
 
     }
-    private void Movimiento()
+    private void MoverRoca(GameObject jugador)
+    {
+        Vector2 velocity = jugador.GetComponent<Rigidbody2D>().velocity;
+        miCuerpo.velocity = new Vector2(velocity.x, miCuerpo.velocity.y);
+    }
+
+    private void Movimiento(GameObject jugador)
     {
         float direccionX = Input.GetAxis("Horizontal");
         //Debug.Log(direccionX);
@@ -50,19 +58,24 @@ public class ObjetoMovible : MonoBehaviour
         {
             miCuerpo.velocity = new Vector2(-2, miCuerpo.velocity.y);
             movible = false;
+            jugador.GetComponent<PlayerMain>().enabled = false;
+
         }
         if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
             miCuerpo.velocity = new Vector2(2, miCuerpo.velocity.y);
             movible = false;
+            jugador.GetComponent<PlayerMain>().enabled = false;
         }
         if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje))
         {
             movible = true;
+            jugador.GetComponent<PlayerMain>().enabled = true;
         }
         if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
             movible = true;
+            jugador.GetComponent<PlayerMain>().enabled = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -71,6 +84,7 @@ public class ObjetoMovible : MonoBehaviour
         {
             HUDManager.instancia.Ocultar();
             movible = false;
+            collision.gameObject.GetComponent<PlayerMain>().enabled = true;
         }
     }
 

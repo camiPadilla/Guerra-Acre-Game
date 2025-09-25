@@ -11,11 +11,11 @@ public class SaludPersonaje : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("el jugador tiene en vidas " + vidasJugador);
+      
         HUDManager.instancia.ActualizarVida(vidasJugador);
         HUDManager.instancia.ActualizarArmadura(vidasEXtras);
 
-        Debug.Log("el jugador tiene vidas extas " + vidasEXtras);
+        
     }
 
     public void PerderVida()
@@ -25,20 +25,19 @@ public class SaludPersonaje : MonoBehaviour
             vidasEXtras--;
             HUDManager.instancia.ActualizarArmadura(vidasEXtras);
         }
-        else
+        else if(!invulnerabilidad)
         {
             vidasJugador--;
             HUDManager.instancia.ActualizarVida(vidasJugador);
         }
-        Debug.Log("el jugador tiene en vidas " + vidasJugador);
-        Debug.Log("el jugador tiene vidas extas " + vidasEXtras);
+        
         if (vidasJugador == 0)
         {
             gameObject.SetActive(false);
             HUDManager.instancia.MostrarPantallaMuerte();
 
         }
-        else
+        else if(!invulnerabilidad)
         {
             StartCoroutine("Invulnerable");
         }
@@ -47,11 +46,15 @@ public class SaludPersonaje : MonoBehaviour
 
     IEnumerator Invulnerable()
     {
+        Color colorInvulnerable = Color.black;
+        
+        Debug.Log("el jugador es invulnerable");
         invulnerabilidad = true;
-        GetComponentInChildren<SpriteRenderer>().color = Color.red;
-        yield return new WaitForSeconds(3f);
-        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        GetComponent<SpriteRenderer>().color = colorInvulnerable;
+        yield return new WaitForSeconds(10f);
+        GetComponent<SpriteRenderer>().color = Color.white;
         invulnerabilidad = false;
+        Debug.Log("el jugador ya no es invulnerable");
     }
     public void Curarse()
     {
@@ -65,7 +68,7 @@ public class SaludPersonaje : MonoBehaviour
         }
         HUDManager.instancia.ActualizarVida(vidasJugador);
 
-        Debug.Log("jugador gano una vida, tiene " + vidasJugador);
+        
     }
     public void ObtenerArmadura()
     {
@@ -78,6 +81,6 @@ public class SaludPersonaje : MonoBehaviour
             vidasEXtras = 1;
         }
         HUDManager.instancia.ActualizarArmadura(vidasEXtras);
-        Debug.Log("el jugador tiene vidas extas " + vidasEXtras);
+        
     }
 }

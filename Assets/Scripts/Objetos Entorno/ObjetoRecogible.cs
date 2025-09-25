@@ -23,6 +23,7 @@ public class ObjetoRecogible : MonoBehaviour
                 if (nombreObjeto != "NPC")
                 {
                     collision.gameObject.SendMessage("RecibirInfo", nombreObjeto);
+                    if (nombreObjeto == "nota") SendMessage("leer");
                     gameObject.SetActive(false);
                     desactivado = true;
                 }

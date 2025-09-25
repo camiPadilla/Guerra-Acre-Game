@@ -157,7 +157,7 @@ public class HUDManager : MonoBehaviour
         {
             mensajeE.GetComponent<SpriteRenderer>().sprite = imagenE;
         }
-        Debug.Log("mostrado");
+        //Debug.Log("mostrado");
         Vector2 posicionE = new Vector2(posicion.x, posicion.y + imagen * 2f);
         mensajeE.transform.position = posicionE;
         mensajeE.SetActive(true);
@@ -165,7 +165,7 @@ public class HUDManager : MonoBehaviour
     }
     public void Ocultar()
     {
-        Debug.Log("ocultado");
+        //Debug.Log("ocultado");
         mensajeE.SetActive(false);
     }
 
