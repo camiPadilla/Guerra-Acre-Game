@@ -12,6 +12,8 @@ public class FinalNivel : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //by the way funciona asi
+        //cambiar a una tacla inteactuable, para iniciar la cinematica y continuar a la pantalla de progeso y finalmente al siguiente nivel
         if (other.CompareTag("Player"))
         {
             print("holaa");

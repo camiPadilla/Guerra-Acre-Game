@@ -19,34 +19,46 @@ namespace PantallaCarga
 
     private int tipoInteraccion;
     private bool aveCazada = false;
+    
+    private void Start()
+        {
+            // Mantener la pantalla activa un tiempo fijo (ejemplo: 10 segundos)
+            StartCoroutine(EsperarYContinuar());
+        }
+
+        IEnumerator EsperarYContinuar()
+        {
+            yield return new WaitForSeconds(5f);
+            LoaderScene.instance.CargarDestino();
+        }
 
     private void OnEnable()
-    {
-        // Elegir interacción al azar
-        tipoInteraccion = Random.Range(0, 3);
+        {
+            // Elegir interacción al azar
+            tipoInteraccion = Random.Range(0, 3);
 
-        if (tipoInteraccion == 0)
-        {
-            avesCazadasOb.SetActive(true);
-            // tigrillo y ave
-            cosa1.sprite = sprites[0];
-            cosa2.sprite = sprites[1];
+            if (tipoInteraccion == 0)
+            {
+                avesCazadasOb.SetActive(true);
+                // tigrillo y ave
+                cosa1.sprite = sprites[0];
+                cosa2.sprite = sprites[1];
+            }
+            else if (tipoInteraccion == 1)
+            {
+                avesCazadasOb.SetActive(false);
+                // soldado comiendo coca
+                cosa1.sprite = sprites[2];
+                cosa2.sprite = sprites[3];
+            }
+            else
+            {
+                avesCazadasOb.SetActive(false);
+                // soldado bailando
+                cosa1.sprite = sprites[4];
+                cosa2.sprite = sprites[5];
+            }
         }
-        else if (tipoInteraccion == 1)
-        {
-            avesCazadasOb.SetActive(false);
-            // soldado comiendo coca
-            cosa1.sprite = sprites[2];
-            cosa2.sprite = sprites[3];
-        }
-        else
-        {
-            avesCazadasOb.SetActive(false);
-            // soldado bailando
-            cosa1.sprite = sprites[4];
-            cosa2.sprite = sprites[5];
-        }
-    }
 
     private void Update()
     {
@@ -80,15 +92,14 @@ namespace PantallaCarga
 
     private IEnumerator RespawnAve()
     {
+        aveCazada = false;
         yield return new WaitForSeconds(0.5f);
         float ancho = areaCanvas.rect.width / 2f;
         float alto = areaCanvas.rect.height / 2f;
-
         float posX = Random.Range(-ancho, ancho);
         float posY = Random.Range(-alto, alto);
-
         cosa2.rectTransform.localPosition = new Vector3(posX, posY, 0);
-        aveCazada = false;
+        
     }
 
     private void SoldadoComiendo()

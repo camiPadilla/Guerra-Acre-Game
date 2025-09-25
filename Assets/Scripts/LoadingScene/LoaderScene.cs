@@ -19,21 +19,34 @@ namespace PantallaCarga
 
             instance = this;
             DontDestroyOnLoad(gameObject);
+            
         }
-
-        // Llamas a este m�todo desde cualquier parte
         public void LoadSceneString(string sceneName)
         {
             sceneDestino = sceneName;
             SceneManager.LoadScene(ConstantsGame.SCENELOADINGSCREEN);
         }
 
-        private IEnumerator CargarAsync()
+        // Llamado desde la pantalla de carga
+        public void CargarDestino()
         {
-            yield return new WaitForSeconds(3f); 
+            StartCoroutine(Cargar(sceneDestino));
+        }
+
+        private IEnumerator Cargar(string sceneDestino)
+        {
+            yield return new WaitForSeconds(2f); // espera fija antes de cargar
+
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneDestino);
+            asyncLoad.allowSceneActivation = false;
+
+            // Espera hasta que esté lista la carga
             while (!asyncLoad.isDone)
             {
+                if (asyncLoad.progress >= 0.9f)
+                {
+                    asyncLoad.allowSceneActivation = true;
+                }
                 yield return null;
             }
         }

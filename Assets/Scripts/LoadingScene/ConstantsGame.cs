@@ -7,15 +7,12 @@ namespace PantallaCarga
         public const string DEVELOPER_NAME = "Yo que se";
         //-----------------------
         public const string SCENELOADINGSCREEN = "SceneLoadingScreen";
-        public const string ESCENAUNO = "EscenaUno";
-        public const string ESCENADOS = "EscenaDos";
+        public const string SCENAUNO = "EscenaUno";
+        public const string SCENADOS = "EscenaDos";
+
         //-----------------------
-        public const string SCENEMAINMENU = "MainMenu";
-        public const string SCENEGAMEPLAY = "GamePlay";
-        public const string SCENECREDITS = "Credits";
-        public const string SCENESETTINGS = "Settings";
-        public const string SCENEAUDIO = "AudioSettings";
-        public const string SCENEVIDEO = "VideoSettings";  
+        public const string SCENEMAINMENU = "Menu";
+        public const string SCENECREDITS = "Credits"; 
         public const string SCENESAVELOAD = "SaveLoadSettings";
         //----------------------- 
     }
