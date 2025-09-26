@@ -30,7 +30,7 @@ using UnityEngine.UI;
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    public void Onable()
+    public void Loadingg()
     {
         StartCoroutine(Cargando());
     }
@@ -116,11 +116,11 @@ else
         {
             //animacion de comer coca
             Debug.Log("El soldado mastica coca");
-            InstanciarComida();
+            InstanciarCoca();
             // cambiar animaciona aqui
         }
     }
-    private void InstanciarComida()
+    private void InstanciarCoca()
     {
         Image comida = Instantiate(cosa2, areaCanvas);
         RectTransform rt = comida.GetComponent<RectTransform>();
