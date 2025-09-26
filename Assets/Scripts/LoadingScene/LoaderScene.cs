@@ -24,7 +24,6 @@ namespace PantallaCarga
         public void LoadSceneString(string sceneName)
         {
             sceneDestino = sceneName;
-            SceneManager.LoadScene(ConstantsGame.SCENELOADINGSCREEN);
         }
 
         // Llamado desde la pantalla de carga

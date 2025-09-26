@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-namespace PantallaCarga
-{
     public class LoadScreenAnimation : MonoBehaviour
 {
+    public static LoadScreenAnimation instance;
     [Header("Sprites de las interacciones")]
     [SerializeField] private List<Sprite> sprites;
     [SerializeField] private Image cosa1;
@@ -19,46 +17,53 @@ namespace PantallaCarga
 
     private int tipoInteraccion;
     private bool aveCazada = false;
-    
+
     private void Start()
+    {
+        if (instance != null && instance != this)
         {
-            // Mantener la pantalla activa un tiempo fijo (ejemplo: 10 segundos)
-            StartCoroutine(EsperarYContinuar());
+            Destroy(gameObject);
+            return;
         }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    public void Onable()
+    {
+        StartCoroutine(Cargando());
+    }
+    IEnumerator Cargando()
+    {
+        yield return new WaitForSeconds(4f);
+        MiniJuegos();
+    }
+    private void MiniJuegos()
+    {
+        // Elegir interacción al azar
+        tipoInteraccion = Random.Range(0, 3);
 
-        IEnumerator EsperarYContinuar()
+        if (tipoInteraccion == 0)
         {
-            yield return new WaitForSeconds(3f);
-            LoaderScene.instance.CargarDestino();
+            avesCazadasOb.SetActive(true);
+            // tigrillo y ave
+            cosa1.sprite = sprites[0];
+            cosa2.sprite = sprites[1];
         }
-
-    private void OnEnable()
+        else if (tipoInteraccion == 1)
         {
-            // Elegir interacción al azar
-            tipoInteraccion = Random.Range(0, 3);
-
-            if (tipoInteraccion == 0)
-            {
-                avesCazadasOb.SetActive(true);
-                // tigrillo y ave
-                cosa1.sprite = sprites[0];
-                cosa2.sprite = sprites[1];
-            }
-            else if (tipoInteraccion == 1)
-            {
-                avesCazadasOb.SetActive(false);
-                // soldado comiendo coca
-                cosa1.sprite = sprites[2];
-                cosa2.sprite = sprites[3];
-            }
-            else
-            {
-                avesCazadasOb.SetActive(false);
-                // soldado bailando
-                cosa1.sprite = sprites[4];
-                cosa2.sprite = sprites[5];
-            }
+            avesCazadasOb.SetActive(false);
+            // soldado comiendo coca
+            cosa1.sprite = sprites[2];
+            cosa2.sprite = sprites[3];
         }
+        else
+        {
+            avesCazadasOb.SetActive(false);
+            // soldado bailando
+            cosa1.sprite = sprites[4];
+            cosa2.sprite = sprites[5];
+        }
+    }
 
     private void Update()
     {
@@ -131,4 +136,4 @@ namespace PantallaCarga
         }
     }
 }
-}
+
