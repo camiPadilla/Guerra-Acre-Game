@@ -42,32 +42,27 @@ using UnityEngine.UI;
         // Elegir interacción al azar
         tipoInteraccion = Random.Range(0, 3);
 
-        if (tipoInteraccion == 0)
-        {
-<<<<<<< HEAD
-            avesCazadasOb.SetActive(true);
-            // tigrillo y ave
-            cosa1.sprite = sprites[0];
-            cosa2.sprite = sprites[1];
-=======
-            yield return new WaitForSeconds(5f);
-            LoaderScene.instance.CargarDestino();
->>>>>>> parent of 584c6bd (Mas ajustes al los menues)
-        }
-        else if (tipoInteraccion == 1)
-        {
-            avesCazadasOb.SetActive(false);
-            // soldado comiendo coca
-            cosa1.sprite = sprites[2];
-            cosa2.sprite = sprites[3];
-        }
-        else
-        {
-            avesCazadasOb.SetActive(false);
-            // soldado bailando
-            cosa1.sprite = sprites[4];
-            cosa2.sprite = sprites[5];
-        }
+if (tipoInteraccion == 0)
+{
+    avesCazadasOb.SetActive(true);
+    // tigrillo y ave
+    cosa1.sprite = sprites[0];
+    cosa2.sprite = sprites[1];
+}
+else if (tipoInteraccion == 1)
+{
+    avesCazadasOb.SetActive(false);
+    // soldado comiendo coca
+    cosa1.sprite = sprites[2];
+    cosa2.sprite = sprites[3];
+}
+else
+{
+    avesCazadasOb.SetActive(false);
+    // soldado bailando
+    cosa1.sprite = sprites[4];
+    cosa2.sprite = sprites[5];
+}
     }
 
     private void Update()
