@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ControladorNota : ObjetoRecogible
 {
+    
     [SerializeField] string mensajeNota;
     // Start is called before the first frame update
     public void leer()
     {
+        
         Debug.Log("leyendo nota");
         HUDManager.instancia.LeerNota(mensajeNota);
         

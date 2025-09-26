@@ -157,6 +157,7 @@ public class HUDManager : MonoBehaviour
         mensajeE = Instantiate(interactuable, transform);
         mensajeE.SetActive(false);
         imagenE = mensajeE.GetComponent<SpriteRenderer>().sprite;
+        mensajeE.GetComponent<SpriteRenderer>().sortingOrder = 4;
         ActualizarBalasActual(0);
         ActualizarTotalBalas(0);
 

@@ -31,6 +31,8 @@ namespace UltimateCC
                 public float RotationMultiplierOnSlope { get { return rotationMultiplierOnSlope; } set { rotationMultiplierOnSlope = value; } }
                 public float RotationSpeed { get { return rotationSpeed; } set { rotationSpeed = value; } }
                 public bool StayStill { get { return stayStill; } set { stayStill = value; } }
+
+                public bool StayCrouched { get; set; }
             }
             [System.Serializable]
             public class PlatformVariables
