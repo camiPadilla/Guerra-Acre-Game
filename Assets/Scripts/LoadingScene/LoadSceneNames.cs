@@ -7,10 +7,6 @@ namespace PantallaCarga
 {
     public class LoadSceneNames : MonoBehaviour
     {
-        public void SceneMainMenu()
-        {
-            LoaderScene.instance.LoadSceneString(ConstantsGame.SCENEMAINMENU);
-        }
         //Agregar las demas escenas como el menu , etc
         public void SceneEscenaUno()
         {

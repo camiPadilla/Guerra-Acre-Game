@@ -12,11 +12,15 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Piso, Water, UI, Player
 - Active game object:
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   - Name: PantallaFinJuego
 =======
   - Name: CrearPartida
 >>>>>>> Stashed changes
+=======
+  - Name: Virtual Camera
+>>>>>>> parent of 584c6bd (Mas ajustes al los menues)
   - Tag: Untagged
-  - Layer: UI
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

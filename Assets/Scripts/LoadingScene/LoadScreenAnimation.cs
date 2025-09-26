@@ -44,10 +44,15 @@ using UnityEngine.UI;
 
         if (tipoInteraccion == 0)
         {
+<<<<<<< HEAD
             avesCazadasOb.SetActive(true);
             // tigrillo y ave
             cosa1.sprite = sprites[0];
             cosa2.sprite = sprites[1];
+=======
+            yield return new WaitForSeconds(5f);
+            LoaderScene.instance.CargarDestino();
+>>>>>>> parent of 584c6bd (Mas ajustes al los menues)
         }
         else if (tipoInteraccion == 1)
         {
@@ -98,7 +103,7 @@ using UnityEngine.UI;
     private IEnumerator RespawnAve()
     {
         aveCazada = false;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         float ancho = areaCanvas.rect.width / 2f;
         float alto = areaCanvas.rect.height / 2f;
         float posX = Random.Range(-ancho, ancho);
