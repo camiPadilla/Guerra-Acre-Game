@@ -6,10 +6,12 @@ using UnityEngine.UI;
     public class LoadScreenAnimation : MonoBehaviour
 {
     public static LoadScreenAnimation instance;
+
     [Header("Sprites de las interacciones")]
     [SerializeField] private List<Sprite> sprites;
     [SerializeField] private Image cosa1;
     [SerializeField] private Image cosa2;
+    [SerializeField] private Image fade;
     [SerializeField] private RectTransform areaCanvas;
     [SerializeField] private GameObject avesCazadasOb;
     [SerializeField] private TMPro.TextMeshProUGUI avesCazadasText;
@@ -34,6 +36,7 @@ using UnityEngine.UI;
     }
     IEnumerator Cargando()
     {
+        fade.gameObject.SetActive(true);
         yield return new WaitForSeconds(4f);
         MiniJuegos();
     }
