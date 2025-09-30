@@ -9,7 +9,7 @@ public class fade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("FadeOut", 20f);
+        Invoke("FadeOut", 9f);
     }
 
     // Update is called once per frame
