@@ -17,6 +17,7 @@ namespace TarodevController
         private Vector2 _frameVelocity; // Velocidad calculada para el frame
         private bool _cachedQueryStartInColliders; // Cache para configuración de Physics2D
         [SerializeField] private float reduccion;
+        private bool forzarAgachado;
 
         #region Interface
 
@@ -51,14 +52,14 @@ namespace TarodevController
         /// </summary>
         private void GatherInput()
         {
-            Debug.Log(reduccion);
+            //Debug.Log(reduccion);
             // Crear estructura con el input actual
             _frameInput = new FrameInput
             {
                 JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.C), // Salto presionado en este frame
                 JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.C), // Salto mantenido
                 Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")), // Input de movimiento
-                agachado = Input.GetKey(KeyCode.LeftControl)
+                agachado = Input.GetKey(KeyCode.LeftControl)|| forzarAgachado
             };
 
             // Aplicar deadzone y snapping si está habilitado
@@ -111,15 +112,25 @@ namespace TarodevController
             // Realizar raycasts para detectar suelo y techo
             bool groundHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.down, _stats.GrounderDistance, ~_stats.PlayerLayer);
             bool ceilingHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance, ~_stats.PlayerLayer);
+            bool angosto = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance+0.5f, ~_stats.PlayerLayer);
+
 
             // Si se golpea un techo, limitar velocidad vertical hacia arriba
             if (ceilingHit)
             {
                 _frameVelocity.y = Mathf.Min(0, _frameVelocity.y);
+
+            }
+            if (angosto)
+            {
                 if (_frameInput.agachado)
                 {
-                    _frameInput.agachado = true;
+                    forzarAgachado = true;
                 }
+            }
+            else
+            {
+                forzarAgachado = false;
             }
 
             // Detectar cuando se aterriza en el suelo
