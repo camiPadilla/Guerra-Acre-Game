@@ -91,7 +91,7 @@ public class AtaquePersonaje : MonoBehaviour
     private void TirarPiedra()
     {
         Proyectil piedraActual = piedraCola.Dequeue();
-        Vector3 puntoIncial = new Vector3(transform.position.x,transform.position.y + 1,transform.position.z);
+        Vector3 puntoIncial = new Vector3(transform.position.x,transform.position.y + 2,transform.position.z);
         piedraActual.Reposicionar(puntoIncial);
         piedraActual.ActivarProyectil();
         piedraActual.Impulso(fuerzatiro, dirX, dirY);
@@ -207,7 +207,7 @@ public class AtaquePersonaje : MonoBehaviour
     {
         enAccion = true;
         Proyectil balaActual = balaCola.Dequeue();
-        Vector3 puntoIncial = new Vector3(transform.position.x+dirX, transform.position.y + dirY, transform.position.z);
+        Vector3 puntoIncial = new Vector3(transform.position.x+dirX, transform.position.y + dirY+1, transform.position.z);
         balaActual.Reposicionar(puntoIncial);
         balaActual.ActivarProyectil();
         balaActual.Impulso(fuerzaDisparo, dirX, dirY);
@@ -219,7 +219,7 @@ public class AtaquePersonaje : MonoBehaviour
     }
     private IEnumerator AtaqueMachete()
     {
-        //machete.Reposicionar(new Vector3(transform.position.x + 0.5f * dirX, transform.position.y, transform.position.z));
+        machete.Reposicionar(new Vector3(transform.position.x + 0.592f * dirX, transform.position.y+ 0.967f, transform.position.z));
         ActivarMachete();
         yield return new WaitForSeconds(.5f);
         DesactivarMachete();
