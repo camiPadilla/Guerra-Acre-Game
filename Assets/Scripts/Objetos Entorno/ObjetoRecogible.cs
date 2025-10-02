@@ -20,12 +20,17 @@ public class ObjetoRecogible : MonoBehaviour
             HUDManager.instancia.MostrarInteraccion(transform.position, 0.7f, "recogible");
             if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
             {
-                if (nombreObjeto != "NPC")
+                if (nombreObjeto != "NPC" && nombreObjeto != "nota")
                 {
                     collision.gameObject.SendMessage("RecibirInfo", nombreObjeto);
-                    if (nombreObjeto == "nota") SendMessage("leer");
-                    gameObject.SetActive(false);
+                    DestruirObjeto();
                     desactivado = true;
+                }
+                else if (nombreObjeto == "nota")
+                {
+
+                    SendMessage("leer");
+                    
                 }
                 else
                 {
@@ -34,6 +39,10 @@ public class ObjetoRecogible : MonoBehaviour
             }
         }
     }
+    public void DestruirObjeto()
+        {
+        gameObject.SetActive(false);
+        }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player") && this.gameObject !=null)
@@ -50,10 +59,6 @@ public class ObjetoRecogible : MonoBehaviour
 
 
 
-    public void setNombre(string nombreNuevo)
-    {
-        nombreObjeto = nombreNuevo;
-    }
-
+    
 
 }

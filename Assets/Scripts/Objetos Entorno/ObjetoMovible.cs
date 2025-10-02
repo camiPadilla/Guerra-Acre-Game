@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using TarodevController;
 using UltimateCC;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -27,30 +28,28 @@ public class ObjetoMovible : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             if (Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje) || Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
+            {
                 HUDManager.instancia.MostrarInteraccion(transform.position, GetComponent<SpriteRenderer>().bounds.extents.y, "movible");
-            if (collision.gameObject.GetComponent<InputPlayer>().GetMoviendo())
-            {
-                tag = "movible";
-                HUDManager.instancia.Ocultar();
-                miCuerpo.mass = 10f;
-                //MoverRoca(collision.gameObject);
-                Movimiento(collision.gameObject);
-            }
-            else
-            {
-                collision.gameObject.GetComponent<PlayerMain>().enabled = true;
-                miCuerpo.mass = 100f;
+                PlayerController controladorMovimiento = collision.gameObject.GetComponent<PlayerController>();
+                if (collision.gameObject.GetComponent<InputPlayer>().GetMoviendo())
+                {
+                    tag = "movible";
+                    HUDManager.instancia.Ocultar();
+                    miCuerpo.mass = 10f;
+                    //MoverRoca(collision.gameObject);
+                    Movimiento(controladorMovimiento);
+                }
+                else
+                {
+                    DetenerObjeto(controladorMovimiento);
+
+
+                }
             }
         }
 
     }
-    private void MoverRoca(GameObject jugador)
-    {
-        Vector2 velocity = jugador.GetComponent<Rigidbody2D>().velocity;
-        miCuerpo.velocity = new Vector2(velocity.x, miCuerpo.velocity.y);
-    }
-
-    private void Movimiento(GameObject jugador)
+    private void Movimiento(PlayerController jugadorMovimiento)
     {
         float direccionX = Input.GetAxis("Horizontal");
         //Debug.Log(direccionX);
@@ -58,24 +57,24 @@ public class ObjetoMovible : MonoBehaviour
         {
             miCuerpo.velocity = new Vector2(-2, miCuerpo.velocity.y);
             movible = false;
-            jugador.GetComponent<PlayerMain>().enabled = false;
+            jugadorMovimiento.enabled = false;
 
         }
         if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
             miCuerpo.velocity = new Vector2(2, miCuerpo.velocity.y);
             movible = false;
-            jugador.GetComponent<PlayerMain>().enabled = false;
+            jugadorMovimiento.enabled = false;
         }
         if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje))
         {
             movible = true;
-            jugador.GetComponent<PlayerMain>().enabled = true;
+            jugadorMovimiento.enabled = true;
         }
         if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
             movible = true;
-            jugador.GetComponent<PlayerMain>().enabled = true;
+            jugadorMovimiento.enabled = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -84,9 +83,15 @@ public class ObjetoMovible : MonoBehaviour
         {
             HUDManager.instancia.Ocultar();
             movible = false;
-            collision.gameObject.GetComponent<PlayerMain>().enabled = true;
+            DetenerObjeto(collision.gameObject.GetComponent<PlayerController>());
+            
         }
     }
-
+    private void DetenerObjeto(PlayerController jugadorMovimiento)
+    {
+        jugadorMovimiento.enabled = true;
+        miCuerpo.mass = 100f;
+        miCuerpo.velocity = Vector2.zero;
+    }
 
 }

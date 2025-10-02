@@ -8,6 +8,7 @@ public class SaludPersonaje : MonoBehaviour
     [SerializeField] int vidasJugador = 6;
     [SerializeField] int vidasEXtras = 0;
     bool invulnerabilidad;
+    [SerializeField] float tiempoInvulnerable;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,13 +47,11 @@ public class SaludPersonaje : MonoBehaviour
 
     IEnumerator Invulnerable()
     {
-        Color colorInvulnerable = Color.black;
         
         Debug.Log("el jugador es invulnerable");
         invulnerabilidad = true;
-        GetComponent<SpriteRenderer>().color = colorInvulnerable;
-        yield return new WaitForSeconds(10f);
-        GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(tiempoInvulnerable);
+        
         invulnerabilidad = false;
         Debug.Log("el jugador ya no es invulnerable");
     }
