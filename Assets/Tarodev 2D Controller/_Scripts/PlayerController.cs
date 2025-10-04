@@ -1,27 +1,30 @@
-using System;
+Ôªøusing System;
 using UnityEngine;
 
 namespace TarodevController
 {
     /// <summary>
     /// Controlador de jugador 2D desarrollado por Tarodev.
-    /// VersiÛn gratuita con funcionalidades b·sicas de movimiento y salto.
+    /// Versi√≥n gratuita con funcionalidades b√°sicas de movimiento y salto.
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
     public class PlayerController : MonoBehaviour, IPlayerController
     {
-        [SerializeField] private ScriptableStats _stats; // ConfiguraciÛn de estadÌsticas del jugador
-        private Rigidbody2D _rb; // Componente Rigidbody2D para fÌsica
-        private CapsuleCollider2D _col; // Collider para detecciÛn de colisiones
+        [SerializeField] private ScriptableStats _stats; // Configuraci√≥n de estad√≠sticas del jugador
+        private Rigidbody2D _rb; // Componente Rigidbody2D para f√≠sica
+        private CapsuleCollider2D _col; // Collider para detecci√≥n de colisiones
         private FrameInput _frameInput; // Input capturado en el frame actual
         private Vector2 _frameVelocity; // Velocidad calculada para el frame
-        private bool _cachedQueryStartInColliders; // Cache para configuraciÛn de Physics2D
+        private bool _cachedQueryStartInColliders; // Cache para configuraci√≥n de Physics2D
         [SerializeField] private float reduccion;
         private bool forzarAgachado;
 
+        private bool caminando;
+        private bool _valorCaminandoAnterior;
+
         #region Interface
 
-        // ImplementaciÛn de la interfaz IPlayerController
+        // Implementaci√≥n de la interfaz IPlayerController
         public Vector2 FrameInput => _frameInput.Move;
         public bool agachado => _frameInput.agachado; // PropiedadAgachado
         public event Action<bool, float> GroundedChanged; // Evento cuando cambia el estado de grounded
@@ -37,7 +40,7 @@ namespace TarodevController
             _rb = GetComponent<Rigidbody2D>();
             _col = GetComponent<CapsuleCollider2D>();
 
-            // Cachear configuraciÛn de Physics2D para restaurarla despuÈs
+            // Cachear configuraci√≥n de Physics2D para restaurarla despu√©s
             _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
         }
 
@@ -62,7 +65,7 @@ namespace TarodevController
                 agachado = Input.GetKey(KeyCode.LeftControl)|| forzarAgachado
             };
 
-            // Aplicar deadzone y snapping si est· habilitado
+            // Aplicar deadzone y snapping si est√° habilitado
             if (_stats.SnapInput)
             {
                 _frameInput.Move.x = Mathf.Abs(_frameInput.Move.x) < _stats.HorizontalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.x);
@@ -74,6 +77,8 @@ namespace TarodevController
             {
                 _jumpToConsume = true; // Marcar que hay un salto pendiente de procesar
                 _timeJumpWasPressed = _time; // Registrar momento del input de salto
+
+                SoundEvents.Salto?.Invoke(1); // Sonido by Chelo :D
             }
             if (_frameInput.agachado)
             {
@@ -87,9 +92,9 @@ namespace TarodevController
 
         private void FixedUpdate()
         {
-            // FÌsica y movimiento se procesan en FixedUpdate
+            // F√≠sica y movimiento se procesan en FixedUpdate
             CheckCollisions(); // Verificar colisiones con suelo y techo
-            HandleJump(); // Manejar lÛgica de salto
+            HandleJump(); // Manejar l√≥gica de salto
             HandleDirection(); // Manejar movimiento horizontal
             HandleGravity(); // Aplicar gravedad
 
@@ -98,7 +103,7 @@ namespace TarodevController
 
         #region Collisions
 
-        private float _frameLeftGrounded = float.MinValue; // Tiempo cuando se dejÛ el suelo
+        private float _frameLeftGrounded = float.MinValue; // Tiempo cuando se dej√≥ el suelo
         private bool _grounded; // Estado actual de contacto con el suelo
 
         /// <summary>
@@ -141,16 +146,23 @@ namespace TarodevController
                 _bufferedJumpUsable = true; // Reactivar buffer de salto
                 _endedJumpEarly = false; // Resetear flag de salto temprano
                 GroundedChanged?.Invoke(true, Mathf.Abs(_frameVelocity.y)); // Invocar evento
+
+                // solo reproducir si la velocidad de ca√≠da era significativa
+                if (_frameVelocity.y < -10f)
+                {
+                    SoundEvents.Salto?.Invoke(0); // Sonido by Chelo :D
+                }
+                
             }
             // Detectar cuando se deja el suelo
             else if (_grounded && !groundHit)
             {
                 _grounded = false;
-                _frameLeftGrounded = _time; // Registrar tiempo cuando se dejÛ el suelo
+                _frameLeftGrounded = _time; // Registrar tiempo cuando se dej√≥ el suelo
                 GroundedChanged?.Invoke(false, 0); // Invocar evento
             }
 
-            // Restaurar configuraciÛn original de Physics2D
+            // Restaurar configuraci√≥n original de Physics2D
             Physics2D.queriesStartInColliders = _cachedQueryStartInColliders;
         }
 
@@ -159,29 +171,29 @@ namespace TarodevController
 
         #region Jumping
 
-        // Variables para manejar la mec·nica de salto
+        // Variables para manejar la mec√°nica de salto
         private bool _jumpToConsume; // Si hay un salto pendiente de procesar
-        private bool _bufferedJumpUsable; // Si el buffer de salto est· disponible
-        private bool _endedJumpEarly; // Si se soltÛ el salto temprano
-        private bool _coyoteUsable; // Si el coyote time est· disponible
-        private float _timeJumpWasPressed; // Tiempo cuando se presionÛ salto
+        private bool _bufferedJumpUsable; // Si el buffer de salto est√° disponible
+        private bool _endedJumpEarly; // Si se solt√≥ el salto temprano
+        private bool _coyoteUsable; // Si el coyote time est√° disponible
+        private float _timeJumpWasPressed; // Tiempo cuando se presion√≥ salto
 
         // Propiedades para verificar condiciones de salto
         private bool HasBufferedJump => _bufferedJumpUsable && _time < _timeJumpWasPressed + _stats.JumpBuffer;
         private bool CanUseCoyote => _coyoteUsable && !_grounded && _time < _frameLeftGrounded + _stats.CoyoteTime;
 
         /// <summary>
-        /// Maneja toda la lÛgica relacionada con el salto
+        /// Maneja toda la l√≥gica relacionada con el salto
         /// </summary>
         private void HandleJump()
         {
-            // Detectar si se soltÛ el salto temprano (para caÌda m·s r·pida)
+            // Detectar si se solt√≥ el salto temprano (para ca√≠da m√°s r√°pida)
             if (!_endedJumpEarly && !_grounded && !_frameInput.JumpHeld && _rb.velocity.y > 0) _endedJumpEarly = true;
 
             // Salir si no hay salto para procesar y no hay buffer de salto activo
             if (!_jumpToConsume && !HasBufferedJump) return;
 
-            // Ejecutar salto si est· en suelo o puede usar coyote time
+            // Ejecutar salto si est√° en suelo o puede usar coyote time
             if (_grounded || CanUseCoyote) ExecuteJump();
 
             _jumpToConsume = false; // Resetear flag de salto pendiente
@@ -198,6 +210,7 @@ namespace TarodevController
             _coyoteUsable = false;
             _frameVelocity.y = _stats.JumpPower* reduccion; // Aplicar fuerza de salto
             Jumped?.Invoke(); // Invocar evento de salto
+           
         }
 
         #endregion
@@ -206,20 +219,48 @@ namespace TarodevController
         #region Horizontal
 
         /// <summary>
-        /// Maneja el movimiento horizontal y la desaceleraciÛn
+        /// Maneja el movimiento horizontal y la desaceleraci√≥n
         /// </summary>
         private void HandleDirection()
         {
             if (_frameInput.Move.x == 0)
             {
-                // Aplicar desaceleraciÛn cuando no hay input
+                // Aplicar desaceleraci√≥n cuando no hay input
                 var deceleration = _grounded ? _stats.GroundDeceleration : _stats.AirDeceleration;
                 _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, 0, deceleration * Time.fixedDeltaTime);
+                
+                caminando = false;                
             }
             else
             {
-                // Acelerar hacia la velocidad m·xima
+                // Acelerar hacia la velocidad m√°xima
                 _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, _frameInput.Move.x * _stats.MaxSpeed * reduccion, _stats.Acceleration * Time.fixedDeltaTime);
+                
+                if (_grounded) caminando = true; else caminando = false;
+            }
+            UpdateEstado(caminando);
+        }
+
+        //A√±adido by Chelo :D
+        void UpdateEstado(bool caminando) 
+        {
+            
+            if (caminando != _valorCaminandoAnterior)
+            {
+                // Hubo un cambio de estado
+                if (caminando)
+                {
+                    Debug.Log("Caminando");
+                    SoundEvents.PasosPasto?.Invoke(); //Sonido by Chelo :D
+                }
+                else
+                {
+                    Debug.Log("No Caminando");
+                    SoundEvents.DetenerPasosPasto?.Invoke(); //Sonido by Chelo :D
+                }
+
+                // Actualizar el valor anterior
+                _valorCaminandoAnterior = caminando;
             }
         }
 
@@ -228,20 +269,20 @@ namespace TarodevController
         #region Gravity
 
         /// <summary>
-        /// Maneja la aplicaciÛn de gravedad y fuerzas verticales
+        /// Maneja la aplicaci√≥n de gravedad y fuerzas verticales
         /// </summary>
         private void HandleGravity()
         {
             if (_grounded && _frameVelocity.y <= 0f)
             {
-                // Aplicar fuerza de grounding cuando est· en suelo
+                // Aplicar fuerza de grounding cuando est√° en suelo
                 _frameVelocity.y = _stats.GroundingForce;
             }
             else
             {
                 // Aplicar gravedad en el aire
                 var inAirGravity = _stats.FallAcceleration;
-                // Aumentar gravedad si se soltÛ el salto temprano
+                // Aumentar gravedad si se solt√≥ el salto temprano
                 if (_endedJumpEarly && _frameVelocity.y > 0) inAirGravity *= _stats.JumpEndEarlyGravityModifier;
                 _frameVelocity.y = Mathf.MoveTowards(_frameVelocity.y, -_stats.MaxFallSpeed, inAirGravity * Time.fixedDeltaTime);
             }
