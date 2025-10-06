@@ -1448,11 +1448,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00eff7583c9cf054d943e50086ea6771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ataquePersonaje: {fileID: 0}
-  piedra: {fileID: 0}
-  destruirCajaEmitter: {fileID: 0}
-  notaSoundEmitter: {fileID: 0}
-  aliadoEmitter: {fileID: 0}
+  ataquePersonaje: {fileID: 1532604368}
+  piedra: {fileID: 4578564418056406226, guid: 70451f7b4b036654198aa62b01befa36, type: 3}
+  destruirCajaEmitter: {fileID: 4651629027958106749, guid: 8a89918618155ce4499763482f7264a9, type: 3}
+  notaSoundEmitter: {fileID: 6635562047886092443, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
+  aliadoEmitter: {fileID: 8591814281696499630, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
 --- !u!114 &64878344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1465,7 +1465,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ebe4836cda35549ae0c55d6a26eb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ataquePersonaje: {fileID: 0}
+  ataquePersonaje: {fileID: 1532604368}
+  playerController: {fileID: 1532604372}
   pasosPastoEmitter: {fileID: 1817677489}
   saltarEmitter: {fileID: 1817677488}
   cargarpiedraEmitter: {fileID: 0}
@@ -23406,6 +23407,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 758903}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1532604368 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4698883952993591493, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+  m_PrefabInstance: {fileID: 1817677487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cd61b9c79568094c8cfc443bcef3361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1532604372 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2962935540621873272, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+  m_PrefabInstance: {fileID: 1817677487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61c64124c8575748994f087b9dc1b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1547730052
 PrefabInstance:
   m_ObjectHideFlags: 0

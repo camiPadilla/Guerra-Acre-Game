@@ -15,7 +15,7 @@ public static class SoundEvents
     public static Action<float> Salto;
 
     //Destruir Caja
-    public static Action<float> DestruirCaja;
+    public static Action<float> DestruirObjeto;
 
     //Caminar Pasos
     public static Action PasosPasto;

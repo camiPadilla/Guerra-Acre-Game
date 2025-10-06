@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7533107549687900443
+--- !u!114 &-8115174646234040528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,21 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/RomperCaja/CajaPanner
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLAYER/Pasos/Pasto/Pasos_Pasto
   m_EditorClassIdentifier: 
-  Name: CajaPanner
-  StudioPath: 
-  Min: -1
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2046405119
-    data2: 26682935
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
+  Path: event:/PLAYER/Pasos/Pasto/Pasos_Pasto
+  Guid:
+    Data1: -3528639
+    Data2: 1306778607
+    Data3: 752962186
+    Data4: 43525401
+  Banks:
+  - {fileID: 2804349124176615228}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -5106635640988097711}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3020
 --- !u!114 &-6980948626674342551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,7 +52,7 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &-5273346012982073249
+--- !u!114 &-5106635640988097711
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,25 +61,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Gameplay/Player/Salto/Saltar
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Pasos_Pasto/Gait
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Gameplay/Player/Salto/Saltar
-  Guid:
-    Data1: 771507817
-    Data2: 1184800331
-    Data3: -1755829840
-    Data4: -1209329405
-  Banks:
-  - {fileID: 2804349124176615228}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: 9060994387572225314}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
+  Name: Gait
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2527882342
+    data2: 2363063229
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-4376708344714865601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/RomperCaja/CajaPanner
+  m_EditorClassIdentifier: 
+  Name: CajaPanner
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2046405119
+    data2: 26682935
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-3787209985705669593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +133,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638936099317447574
+  lastModified: 638953423278361373
   FileSizes: []
   Exists: 1
 --- !u!114 &-2598781895333536714
@@ -130,63 +154,7 @@ MonoBehaviour:
   lastModified: 638930997833375159
   FileSizes: []
   Exists: 1
---- !u!114 &-2448163781416003613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
-  Guid:
-    Data1: -563701215
-    Data2: 1321681869
-    Data3: -803159361
-    Data4: 1745064157
-  Banks:
-  - {fileID: 2804349124176615228}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -7533107549687900443}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 911
---- !u!114 &-2057899997140181290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Gameplay/Player/Pasos/Pasto/Pasos_Pasto
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Gameplay/Player/Pasos/Pasto/Pasos_Pasto
-  Guid:
-    Data1: -3528639
-    Data2: 1306778607
-    Data3: 752962186
-    Data4: 43525401
-  Banks:
-  - {fileID: 2804349124176615228}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -1773741894112511993}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1370
---- !u!114 &-1773741894112511993
+--- !u!114 &-2580770970863302688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,16 +164,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Pasos_Pasto/Gait
+  m_Name: parameter:/Saltar/Salto-Caida
   m_EditorClassIdentifier: 
-  Name: Gait
+  Name: Salto-Caida
   StudioPath: 
   Min: 0
   Max: 1
   Default: 0
   ID:
-    data1: 2527882342
-    data2: 2363063229
+    data1: 312080183
+    data2: 3282331617
   Type: 0
   IsGlobal: 0
   Labels: []
@@ -251,71 +219,47 @@ MonoBehaviour:
   - {fileID: 6116494432412551833}
   - {fileID: -1154086746160817531}
   EditorEvents:
-  - {fileID: -2448163781416003613}
-  - {fileID: -2057899997140181290}
-  - {fileID: 7066177971060508667}
-  - {fileID: 2401210514766382824}
-  - {fileID: 8786117208795413375}
-  - {fileID: -5273346012982073249}
   - {fileID: 3975879371791727847}
   - {fileID: 7210694712122935480}
   - {fileID: 4778383394945834238}
   - {fileID: 7785249142843757646}
   - {fileID: 3341489242889250344}
+  - {fileID: 7356005094004464586}
+  - {fileID: -8115174646234040528}
+  - {fileID: 2396712434507361627}
+  - {fileID: 8656309329108580147}
+  - {fileID: 6488882681444654221}
+  - {fileID: 4886069395185646351}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3465976776397467531}
   StringsBanks:
   - {fileID: 883576379495393654}
   cacheVersion: 131849
-  cacheTime: 638937937936100180
+  cacheTime: 638953423278427059
   SerializableEventsDict:
-  - key: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
-    index: 0
-  - key: event:/SFX/Gameplay/Player/Pasos/Pasto/Pasos_Pasto
-    index: 1
-  - key: event:/SFX/Gameplay/Player/Pasos/Pasto/Caminar_Pasto
-    index: 2
-  - key: event:/SFX/Gameplay/Player/TirarPiedra/Cargar
-    index: 3
-  - key: event:/SFX/Gameplay/Player/TirarPiedra/ArrojarPiedra
-    index: 4
-  - key: event:/SFX/Gameplay/Player/Salto/Saltar
-    index: 5
   - key: event:/ENVIRONMENT/Recolectables/RecogerNota
-    index: 6
+    index: 0
   - key: event:/ENVIRONMENT/NPCs/Aliado
-    index: 7
+    index: 1
   - key: event:/AMBIENCE/Animales/Jungle-Sound
-    index: 8
+    index: 2
   - key: event:/AMBIENCE/Animales/Croac-Sapo
-    index: 9
+    index: 3
   - key: event:/AMBIENCE/Animales/Grillos
+    index: 4
+  - key: event:/PLAYER/RomperCaja/RomperCaja
+    index: 5
+  - key: event:/PLAYER/Pasos/Pasto/Pasos_Pasto
+    index: 6
+  - key: event:/PLAYER/Pasos/Pasto/Caminar_Pasto
+    index: 7
+  - key: event:/PLAYER/Salto/Saltar
+    index: 8
+  - key: event:/PLAYER/TirarPiedra/Cargar
+    index: 9
+  - key: event:/PLAYER/TirarPiedra/ArrojarPiedra
     index: 10
---- !u!114 &657825991629357194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Cargar/Paner
-  m_EditorClassIdentifier: 
-  Name: Paner
-  StudioPath: 
-  Min: -1
-  Max: 1
-  Default: 0
-  ID:
-    data1: 3594376881
-    data2: 1458202573
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
 --- !u!114 &883576379495393654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,10 +275,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638936099317478269
+  lastModified: 638953423278427059
   FileSizes:
   - Name: 
-    Value: 1982
+    Value: 1980
   Exists: 1
 --- !u!114 &1492993146607850828
 MonoBehaviour:
@@ -369,10 +313,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Ambience-Atmos_Bank.bank
   Name: Ambience-Atmos_Bank
   StudioPath: bank:/Ambience-Atmos_Bank
-  lastModified: 638937937936100180
+  lastModified: 638952143897175637
   FileSizes: []
   Exists: 1
---- !u!114 &2401210514766382824
+--- !u!114 &2396712434507361627
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -382,24 +326,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Gameplay/Player/TirarPiedra/Cargar
+  m_Name: event:/PLAYER/Pasos/Pasto/Caminar_Pasto
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Gameplay/Player/TirarPiedra/Cargar
+  Path: event:/PLAYER/Pasos/Pasto/Caminar_Pasto
   Guid:
-    Data1: -100764217
-    Data2: 1254599512
-    Data3: -1394550387
-    Data4: 1453257471
+    Data1: -1726375094
+    Data2: 1264335529
+    Data3: -1936772698
+    Data4: -1837821932
   Banks:
   - {fileID: 2804349124176615228}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
-  Parameters:
-  - {fileID: 657825991629357194}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2800
+  Length: 6187
 --- !u!114 &2804349124176615228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +358,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-  lastModified: 638936099323367020
+  lastModified: 638952175156625045
   FileSizes: []
   Exists: 1
 --- !u!114 &3341489242889250344
@@ -500,6 +443,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5267
+--- !u!114 &4886069395185646351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLAYER/TirarPiedra/ArrojarPiedra
+  m_EditorClassIdentifier: 
+  Path: event:/PLAYER/TirarPiedra/ArrojarPiedra
+  Guid:
+    Data1: -536892189
+    Data2: 1227390531
+    Data3: 1035134852
+    Data4: -1247038853
+  Banks:
+  - {fileID: 2804349124176615228}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &5805321651797014718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,7 +512,7 @@ MonoBehaviour:
   lastModified: 638930997833471814
   FileSizes: []
   Exists: 1
---- !u!114 &7066177971060508667
+--- !u!114 &6488882681444654221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -552,23 +522,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Gameplay/Player/Pasos/Pasto/Caminar_Pasto
+  m_Name: event:/PLAYER/TirarPiedra/Cargar
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Gameplay/Player/Pasos/Pasto/Caminar_Pasto
+  Path: event:/PLAYER/TirarPiedra/Cargar
   Guid:
-    Data1: -1726375094
-    Data2: 1264335529
-    Data3: -1936772698
-    Data4: -1837821932
+    Data1: -100764217
+    Data2: 1254599512
+    Data3: -1394550387
+    Data4: 1453257471
   Banks:
   - {fileID: 2804349124176615228}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 8209953313738871845}
   MinDistance: 1
   MaxDistance: 20
-  Length: 6187
+  Length: 2800
 --- !u!114 &7210694712122935480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +568,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1640
+--- !u!114 &7356005094004464586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLAYER/RomperCaja/RomperCaja
+  m_EditorClassIdentifier: 
+  Path: event:/PLAYER/RomperCaja/RomperCaja
+  Guid:
+    Data1: -563701215
+    Data2: 1321681869
+    Data3: -803159361
+    Data4: 1745064157
+  Banks:
+  - {fileID: 2804349124176615228}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -4376708344714865601}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 911
 --- !u!114 &7785249142843757646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,34 +623,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4973
---- !u!114 &8786117208795413375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Gameplay/Player/TirarPiedra/ArrojarPiedra
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Gameplay/Player/TirarPiedra/ArrojarPiedra
-  Guid:
-    Data1: -536892189
-    Data2: 1227390531
-    Data3: 1035134852
-    Data4: -1247038853
-  Banks:
-  - {fileID: 2804349124176615228}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &9060994387572225314
+--- !u!114 &8209953313738871845
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -661,17 +633,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Saltar/Salto-Caida
+  m_Name: parameter:/Cargar/Paner
   m_EditorClassIdentifier: 
-  Name: Salto-Caida
+  Name: Paner
   StudioPath: 
-  Min: 0
+  Min: -1
   Max: 1
   Default: 0
   ID:
-    data1: 312080183
-    data2: 3282331617
+    data1: 3594376881
+    data2: 1458202573
   Type: 0
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &8656309329108580147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLAYER/Salto/Saltar
+  m_EditorClassIdentifier: 
+  Path: event:/PLAYER/Salto/Saltar
+  Guid:
+    Data1: 771507817
+    Data2: 1184800331
+    Data3: -1755829840
+    Data4: -1209329405
+  Banks:
+  - {fileID: 2804349124176615228}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -2580770970863302688}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0

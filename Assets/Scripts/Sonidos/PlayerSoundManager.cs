@@ -5,10 +5,12 @@ using FMODUnity;
 using FMOD.Studio;
 using System;
 using UnityEngine.UIElements;
+using TarodevController;
 
 public class PlayerSoundManager : MonoBehaviour
 {
     [SerializeField] AtaquePersonaje ataquePersonaje;
+    [SerializeField] PlayerController playerController;
 
     [SerializeField] StudioEventEmitter pasosPastoEmitter;
     [SerializeField] StudioEventEmitter saltarEmitter;
@@ -25,6 +27,14 @@ public class PlayerSoundManager : MonoBehaviour
         SoundEvents.Salto += ReproducirSalto;
         SoundEvents.PasosPasto += ReproducirPasos;
         SoundEvents.DetenerPasosPasto += DetenerPasos;
+    }
+
+    void Update()
+    {
+        if (pasosPastoEmitter != null && pasosPastoEmitter.IsPlaying())
+        {
+            pasosPastoEmitter.EventInstance.setParameterByName("Gait", playerController.gait);
+        }
     }
 
     //SONIDO DE CARGA
@@ -102,6 +112,8 @@ public class PlayerSoundManager : MonoBehaviour
         {
             //Debug.Log("Reproduciendo pasos");
             pasosPastoEmitter.Play();
+
+            //pasosPastoEmitter.EventInstance.setParameterByName("Gait", playerController.gait);
         }
     }
     public void DetenerPasos()

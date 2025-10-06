@@ -24,7 +24,7 @@ public class ControladorNPC : ObjetoRecogible
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    { SoundEvents.HablarAliadoNPC?.Invoke(); }
+    { SoundEvents.HablarAliadoNPC?.Invoke(); } //Sound by Chelo :D
 
     public void Interactuar()
     {

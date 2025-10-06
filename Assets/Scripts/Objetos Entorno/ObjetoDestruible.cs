@@ -14,7 +14,8 @@ public class ObjetoDestruible : MonoBehaviour
         //StartCoroutine("PerderVida");
         if (vidas <= 0)
         {
-            
+            SoundEvents.DestruirObjeto?.Invoke(transform.position.x);
+
             //Debug.Log("se destruyo");
             SendMessage("ActivarLoot", SendMessageOptions.DontRequireReceiver);
             gameObject.SetActive(false);

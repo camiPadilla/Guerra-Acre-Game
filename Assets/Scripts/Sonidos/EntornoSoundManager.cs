@@ -6,7 +6,7 @@ using FMOD.Studio;
 using System;
 using UnityEngine.UIElements;
 
-public class SoundManager : MonoBehaviour
+public class EntornoSoundManager : MonoBehaviour
 {
     [SerializeField] AtaquePersonaje ataquePersonaje;
 
@@ -18,7 +18,7 @@ public class SoundManager : MonoBehaviour
 
     private void OnEnable()
     {        
-        SoundEvents.DestruirCaja += ReproducirDestruirCaja;
+        SoundEvents.DestruirObjeto += ReproducirDestruirObjeto;
 
         SoundEvents.RecogerNota += RecogerNota;
         SoundEvents.HablarAliadoNPC += ReproducirAliadoNPC;
@@ -26,14 +26,14 @@ public class SoundManager : MonoBehaviour
 
 
     //SONIDO DE DESTRUIR CAJA
-    public void ReproducirDestruirCaja(float posicionCaja)
+    public void ReproducirDestruirObjeto(float posicionObjeto)
     {
         
         if (destruirCajaEmitter != null)
         {
             destruirCajaEmitter.Play();
 
-            float distancia = ataquePersonaje.transform.position.x - posicionCaja;
+            float distancia = ataquePersonaje.transform.position.x - posicionObjeto;
             //Debug.Log("Distancia: " + distancia);
 
             float distNormalizado = distancia / 8;

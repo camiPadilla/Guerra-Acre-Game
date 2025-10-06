@@ -22,7 +22,7 @@ namespace UltimateCC
             curveTime *= playerData.Walk.SpeedUpTime;
             localXVelovity = 0f;
             phase = Phase.SpeedUp;
-            SoundEvents.PasosPasto?.Invoke();
+            //SoundEvents.PasosPasto?.Invoke();
         }
 
         public override void Update()

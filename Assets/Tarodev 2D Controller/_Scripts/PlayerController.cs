@@ -19,8 +19,10 @@ namespace TarodevController
         [SerializeField] private float reduccion;
         private bool forzarAgachado;
 
+        //Added by Chelo .D
         private bool caminando;
         private bool _valorCaminandoAnterior;
+        public int gait;
 
         #region Interface
 
@@ -83,10 +85,12 @@ namespace TarodevController
             if (_frameInput.agachado)
             {
                 reduccion = 0.5f;
+                gait = 0;
             }
             else
             {
                 reduccion = 1;
+                gait = 1;
             }
         }
 
@@ -250,12 +254,12 @@ namespace TarodevController
                 // Hubo un cambio de estado
                 if (caminando)
                 {
-                    Debug.Log("Caminando");
+                    //Debug.Log("Caminando");
                     SoundEvents.PasosPasto?.Invoke(); //Sonido by Chelo :D
                 }
                 else
                 {
-                    Debug.Log("No Caminando");
+                    //Debug.Log("No Caminando");
                     SoundEvents.DetenerPasosPasto?.Invoke(); //Sonido by Chelo :D
                 }
 
