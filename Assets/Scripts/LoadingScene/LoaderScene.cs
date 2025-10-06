@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,8 +8,8 @@ namespace PantallaCarga
     public class LoaderScene : MonoBehaviour
     {
         public static LoaderScene instance;
-        private static string sceneDestino;
-
+        [SerializeField] private GameObject pantallaCarga;
+        [SerializeField] private LoadScreenAnimation loadScreenAnimation;
         private void Awake()
         {
             if (instance != null && instance != this)
@@ -16,39 +17,26 @@ namespace PantallaCarga
                 Destroy(gameObject);
                 return;
             }
-
             instance = this;
             DontDestroyOnLoad(gameObject);
-            
+            DontDestroyOnLoad(pantallaCarga);
+
+            if (pantallaCarga != null)
+                pantallaCarga.SetActive(false);
+
+
         }
         public void LoadSceneString(string sceneName)
         {
-            sceneDestino = sceneName;
-            SceneManager.LoadScene(ConstantsGame.SCENELOADINGSCREEN);
+            loadScreenAnimation.GetComponent<LoadScreenAnimation>().tipoInteraccion = Random.Range(0, 3);
+            StartCoroutine(PantallaCarga(sceneName));
         }
-
-        // Llamado desde la pantalla de carga
-        public void CargarDestino()
+        private IEnumerator PantallaCarga(string sceneName)
         {
-            StartCoroutine(Cargar(sceneDestino));
-        }
-
-        private IEnumerator Cargar(string sceneDestino)
-        {
-            yield return new WaitForSeconds(2f); // espera fija antes de cargar
-
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneDestino);
-            asyncLoad.allowSceneActivation = false;
-
-            // Espera hasta que esté lista la carga
-            while (!asyncLoad.isDone)
-            {
-                if (asyncLoad.progress >= 0.9f)
-                {
-                    asyncLoad.allowSceneActivation = true;
-                }
-                yield return null;
-            }
+            pantallaCarga.SetActive(true);
+            yield return new WaitForSeconds(10f);
+            SceneManager.LoadSceneAsync(sceneName);
+            pantallaCarga.SetActive(false);
         }
     }
 }

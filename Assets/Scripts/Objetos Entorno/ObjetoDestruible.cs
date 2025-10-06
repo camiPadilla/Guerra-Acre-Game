@@ -9,7 +9,7 @@ public class ObjetoDestruible : MonoBehaviour
     [SerializeField] int vidas;
     public void Damage(int cantidad)
     {
-        //Debug.Log("perdio una vida");
+        
         vidas = vidas - cantidad;
         //StartCoroutine("PerderVida");
         if (vidas <= 0)
@@ -29,6 +29,6 @@ public class ObjetoDestruible : MonoBehaviour
         GetComponent<SpriteShapeRenderer>().color = Color.red;
         yield return new WaitForSeconds(0.3f);
         GetComponent<SpriteShapeRenderer>().color = inicial;
-    }*/
+    }
 
 }

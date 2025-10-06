@@ -8,6 +8,7 @@ public class BalaEnemigo : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float velocidadBala = 10f;
     [SerializeField] private Transform jugador;
+    [SerializeField] public int damage = 2;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,6 +29,10 @@ public class BalaEnemigo : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.transform.CompareTag("Player"))
+        {
+            collision.gameObject.SendMessage("PerderVida", damage);
+        }
         Destroy(gameObject);
     }
 
