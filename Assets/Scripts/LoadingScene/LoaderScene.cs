@@ -35,6 +35,7 @@ namespace PantallaCarga
         {
             pantallaCarga.SetActive(true);
             yield return new WaitForSeconds(10f);
+            loadScreenAnimation.DestroyAllClones();
             SceneManager.LoadSceneAsync(sceneName);
             pantallaCarga.SetActive(false);
         }
