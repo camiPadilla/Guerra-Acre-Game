@@ -6,7 +6,7 @@ using FMOD.Studio;
 using System;
 using UnityEngine.UIElements;
 
-public class EntornoSoundManager : MonoBehaviour
+public class EnvironmentSoundManager : MonoBehaviour
 {
     [SerializeField] AtaquePersonaje ataquePersonaje;
 
