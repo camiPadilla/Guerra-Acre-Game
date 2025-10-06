@@ -209,5 +209,19 @@ public class HUDManager : MonoBehaviour
         DetenerTiempo();
         HUDGameplay.SetActive(false);
     }
-   
+    public void MostrarPantallaFin()
+    {
+        PantallaFin.SetActive(true);
+        DetenerTiempo();
+        HUDGameplay.SetActive(false);
+    }
+    public void OcultarTodo()
+    {
+        pantallaMuerte.SetActive(false);
+        pantallaNota.SetActive(false);
+        pantallaPausa.SetActive(false);
+        PantallaFin.SetActive(false);
+        Time.timeScale = 1;
+        HUDGameplay.SetActive(false);
+    }
 }

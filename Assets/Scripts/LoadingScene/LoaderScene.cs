@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ namespace PantallaCarga
     {
         public static LoaderScene instance;
         [SerializeField] private GameObject pantallaCarga;
+        [SerializeField] private LoadScreenAnimation loadScreenAnimation;
         private void Awake()
         {
             if (instance != null && instance != this)
@@ -15,16 +17,18 @@ namespace PantallaCarga
                 Destroy(gameObject);
                 return;
             }
-
             instance = this;
             DontDestroyOnLoad(gameObject);
             DontDestroyOnLoad(pantallaCarga);
 
             if (pantallaCarga != null)
                 pantallaCarga.SetActive(false);
+
+
         }
         public void LoadSceneString(string sceneName)
         {
+            loadScreenAnimation.GetComponent<LoadScreenAnimation>().tipoInteraccion = Random.Range(0, 3);
             StartCoroutine(PantallaCarga(sceneName));
         }
         private IEnumerator PantallaCarga(string sceneName)

@@ -17,9 +17,10 @@ using UnityEngine.UI;
     [SerializeField] private TMPro.TextMeshProUGUI avesCazadasText;
     private int avesCazadas = 0;
 
-    private int tipoInteraccion;
+    public int tipoInteraccion;
     private bool aveCazada = false;
 
+    //para los clones de los bolos de coca
     private void Start()
     {
         if (instance != null && instance != this)
@@ -30,21 +31,9 @@ using UnityEngine.UI;
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    public void Loadingg()
-    {
-        StartCoroutine(Cargando());
-    }
-    IEnumerator Cargando()
-    {
-        yield return new WaitForSeconds(4f);
-        MiniJuegos();
-
-    }
     
-    private void MiniJuegos()
+    public void MiniJuegos()
     {
-        // Elegir interacción al azar
-        tipoInteraccion = Random.Range(0, 3);
 
         if (tipoInteraccion == 0)
         {
@@ -71,6 +60,7 @@ using UnityEngine.UI;
 
     private void Update()
     {
+        MiniJuegos();
         if (tipoInteraccion == 0) Tigrillo();
         else if (tipoInteraccion == 1) SoldadoComiendo();
         else SoldadoBailando();
