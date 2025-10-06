@@ -120,12 +120,12 @@ public class HUDManager : MonoBehaviour
 
     public void ActualizarVida(int cantidadVidas)
     {
-        Debug.Log("se acutalizar� la vida");
+        //Debug.Log("se acutalizar� la vida");
         barraVida.sizeDelta = new Vector2(26.5f * cantidadVidas, barraVida.sizeDelta.y);
     }
     public void ActualizarArmadura(int cantidadArmadura)
     {
-        Debug.Log("se acutalizar� la armadura");
+        //Debug.Log("se acutalizar� la armadura");
         barraArmadura.sizeDelta = new Vector2(cantidadArmadura * 53, barraArmadura.sizeDelta.y);
     }
     public void ActualizarTotalBalas(int cantidadTotal)
@@ -145,7 +145,7 @@ public class HUDManager : MonoBehaviour
         mensajeE = Instantiate(interactuable, padreInteractuar.transform);
         mensajeE.SetActive(false);
         imagenE = mensajeE.GetComponent<SpriteRenderer>().sprite;
-        mensajeE.GetComponent<SpriteRenderer>().sortingOrder = 4;
+        mensajeE.GetComponent<SpriteRenderer>().sortingLayerName = "UI";
         mensajeE.transform.parent = padreInteractuar.transform;
         ActualizarBalasActual(0);
         ActualizarTotalBalas(0);
