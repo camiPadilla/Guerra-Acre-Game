@@ -4,7 +4,7 @@ namespace TarodevController
 {
     /// <summary>
     /// Controlador de animaciones y efectos visuales para el personaje del jugador.
-    /// Maneja animaciones, partículas y sonidos en respuesta a los eventos del controlador.
+    /// Maneja animaciones, partï¿½culas y sonidos en respuesta a los eventos del controlador.
     /// </summary>
     public class PlayerAnimator : MonoBehaviour
     {
@@ -17,24 +17,24 @@ namespace TarodevController
 
         [Header("Settings")]
         [SerializeField, Range(1f, 3f)]
-        private float _maxIdleSpeed = 2; // Velocidad máxima de animación idle cuando se mueve
+        private float _maxIdleSpeed = 2; // Velocidad mï¿½xima de animaciï¿½n idle cuando se mueve
 
-        [SerializeField] private float _maxTilt = 5; // Inclinación máxima del personaje al correr
-        [SerializeField] private float _tiltSpeed = 20; // Velocidad de interpolación de la inclinación
+        [SerializeField] private float _maxTilt = 5; // Inclinaciï¿½n mï¿½xima del personaje al correr
+        [SerializeField] private float _tiltSpeed = 20; // Velocidad de interpolaciï¿½n de la inclinaciï¿½n
 
         [Header("Particles")]
-        [SerializeField] private ParticleSystem _jumpParticles; // Partículas al saltar
-        [SerializeField] private ParticleSystem _launchParticles; // Partículas al lanzarse
-        [SerializeField] private ParticleSystem _moveParticles; // Partículas durante el movimiento
-        [SerializeField] private ParticleSystem _landParticles; // Partículas al aterrizar
+        [SerializeField] private ParticleSystem _jumpParticles; // Partï¿½culas al saltar
+        [SerializeField] private ParticleSystem _launchParticles; // Partï¿½culas al lanzarse
+        [SerializeField] private ParticleSystem _moveParticles; // Partï¿½culas durante el movimiento
+        [SerializeField] private ParticleSystem _landParticles; // Partï¿½culas al aterrizar
 
         [Header("Audio Clips")]
         [SerializeField] private AudioClip[] _footsteps; // Array de sonidos de pasos
 
         private AudioSource _source; // Componente AudioSource para reproducir sonidos
         private IPlayerController _player; // Referencia al controlador del jugador
-        private bool _grounded; // Estado actual de si está en el suelo
-        private ParticleSystem.MinMaxGradient _currentGradient; // Gradiente de color actual para partículas
+        private bool _grounded; // Estado actual de si estï¿½ en el suelo
+        private ParticleSystem.MinMaxGradient _currentGradient; // Gradiente de color actual para partï¿½culas
 
         private void Awake()
         {
@@ -49,7 +49,7 @@ namespace TarodevController
             _player.Jumped += OnJumped;
             _player.GroundedChanged += OnGroundedChanged;
 
-            _moveParticles.Play(); // Iniciar partículas de movimiento
+            _moveParticles.Play(); // Iniciar partï¿½culas de movimiento
         }
 
         private void OnDisable()
@@ -58,23 +58,23 @@ namespace TarodevController
             _player.Jumped -= OnJumped;
             _player.GroundedChanged -= OnGroundedChanged;
 
-            _moveParticles.Stop(); // Detener partículas de movimiento
+            _moveParticles.Stop(); // Detener partï¿½culas de movimiento
         }
 
         private void Update()
         {
-            if (_player == null) return; // Verificación de seguridad
+            if (_player == null) return; // Verificaciï¿½n de seguridad
 
             // Actualizar efectos visuales cada frame
-            DetectGroundColor(); // Detectar color del suelo para partículas
+            DetectGroundColor(); // Detectar color del suelo para partï¿½culas
             HandleSpriteFlip(); // Manejar volteo del sprite
-            HandleIdleSpeed(); // Ajustar velocidad de animación idle
-            HandleCharacterTilt(); // Manejar inclinación del personaje
-            NuevosEventosAnimación();
+            HandleIdleSpeed(); // Ajustar velocidad de animaciï¿½n idle
+            HandleCharacterTilt(); // Manejar inclinaciï¿½n del personaje
+            NuevosEventosAnimacion();
         }
 
         /// <summary>
-        /// Voltea el sprite horizontalmente basado en la dirección del input
+        /// Voltea el sprite horizontalmente basado en la direcciï¿½n del input
         /// </summary>
         private void HandleSpriteFlip()
         {
@@ -92,10 +92,10 @@ namespace TarodevController
         }
 
         /// <summary>
-        /// Ajusta la velocidad de la animación idle basado en la fuerza del input
-        /// También escala las partículas de movimiento
+        /// Ajusta la velocidad de la animaciï¿½n idle basado en la fuerza del input
+        /// Tambiï¿½n escala las partï¿½culas de movimiento
         /// </summary>
-        private void NuevosEventosAnimación()
+        private void NuevosEventosAnimacion()
         {
             newAnim.SetFloat("dirX", Mathf.Abs(_player.FrameInput.x));
             newAnim.SetBool("agachado", _player.agachado);
@@ -108,10 +108,10 @@ namespace TarodevController
 
             var inputStrength = Mathf.Abs(_player.FrameInput.x); // Fuerza del input (0-1)
 
-            // Interpolar entre velocidad normal y máxima basado en el input
+            // Interpolar entre velocidad normal y mï¿½xima basado en el input
             _anim.SetFloat(IdleSpeedKey, Mathf.Lerp(1, _maxIdleSpeed, inputStrength));
 
-            // Escalar partículas de movimiento según la fuerza del input
+            // Escalar partï¿½culas de movimiento segï¿½n la fuerza del input
             _moveParticles.transform.localScale = Vector3.MoveTowards(
                 _moveParticles.transform.localScale,
                 Vector3.one * inputStrength,
@@ -120,15 +120,15 @@ namespace TarodevController
         }
 
         /// <summary>
-        /// Maneja la inclinación del personaje cuando corre
-        /// Solo se aplica cuando está en el suelo
+        /// Maneja la inclinaciï¿½n del personaje cuando corre
+        /// Solo se aplica cuando estï¿½ en el suelo
         /// </summary>
         private void HandleCharacterTilt()
         {
-            // Calcular rotación objetivo: inclinarse al correr o identidad en aire/sin movimiento
+            // Calcular rotaciï¿½n objetivo: inclinarse al correr o identidad en aire/sin movimiento
             var runningTilt = _grounded ? Quaternion.Euler(0, 0, _maxTilt * _player.FrameInput.x) : Quaternion.identity;
 
-            // Rotar suavemente hacia la rotación objetivo
+            // Rotar suavemente hacia la rotaciï¿½n objetivo
             _anim.transform.up = Vector3.RotateTowards(
                 _anim.transform.up,
                 runningTilt * Vector2.up,
@@ -142,11 +142,11 @@ namespace TarodevController
         /// </summary>
         private void OnJumped()
         {
-            // Disparar animación de salto y resetear trigger de grounded
+            // Disparar animaciï¿½n de salto y resetear trigger de grounded
             _anim.SetTrigger(JumpKey);
             _anim.ResetTrigger(GroundedKey);
 
-            // Reproducir partículas de salto si estaba en el suelo (evitar coyote time)
+            // Reproducir partï¿½culas de salto si estaba en el suelo (evitar coyote time)
             if (_grounded)
             {
                 SetColor(_jumpParticles);
@@ -158,7 +158,7 @@ namespace TarodevController
         /// <summary>
         /// Maneja el cambio de estado grounded/aire
         /// </summary>
-        /// <param name="grounded">Si el jugador está en el suelo</param>
+        /// <param name="grounded">Si el jugador estï¿½ en el suelo</param>
         /// <param name="impact">Fuerza del impacto al aterrizar</param>
         private void OnGroundedChanged(bool grounded, float impact)
         {
@@ -168,56 +168,56 @@ namespace TarodevController
             {
                 // Efectos al aterrizar
                 DetectGroundColor(); // Actualizar color basado en el suelo
-                SetColor(_landParticles); // Aplicar color a partículas de aterrizaje
+                SetColor(_landParticles); // Aplicar color a partï¿½culas de aterrizaje
 
-                _anim.SetTrigger(GroundedKey); // Disparar animación de aterrizaje
+                _anim.SetTrigger(GroundedKey); // Disparar animaciï¿½n de aterrizaje
 
                 // Reproducir sonido de paso aleatorio
                 _source.PlayOneShot(_footsteps[Random.Range(0, _footsteps.Length)]);
 
-                _moveParticles.Play(); // Reanudar partículas de movimiento
+                _moveParticles.Play(); // Reanudar partï¿½culas de movimiento
 
-                // Escalar partículas de aterrizaje basado en la fuerza del impacto
+                // Escalar partï¿½culas de aterrizaje basado en la fuerza del impacto
                 _landParticles.transform.localScale = Vector3.one * Mathf.InverseLerp(0, 40, impact);
                 _landParticles.Play();
             }
             else
             {
                 // Efectos al dejar el suelo
-                _moveParticles.Stop(); // Detener partículas de movimiento
+                _moveParticles.Stop(); // Detener partï¿½culas de movimiento
             }
         }
 
         /// <summary>
         /// Detecta el color del suelo mediante un raycast hacia abajo
-        /// y actualiza el gradiente de color para las partículas
+        /// y actualiza el gradiente de color para las partï¿½culas
         /// </summary>
         private void DetectGroundColor()
         {
             // Lanzar raycast hacia abajo para detectar el suelo
             var hit = Physics2D.Raycast(transform.position, Vector3.down, 2);
 
-            // Verificar si golpeó un collider válido con SpriteRenderer
+            // Verificar si golpeï¿½ un collider vï¿½lido con SpriteRenderer
             if (!hit || hit.collider.isTrigger || !hit.transform.TryGetComponent(out SpriteRenderer r))
                 return;
 
             // Crear gradiente de color basado en el color del sprite del suelo
             var color = r.color;
             _currentGradient = new ParticleSystem.MinMaxGradient(color * 0.9f, color * 1.2f);
-            SetColor(_moveParticles); // Aplicar a partículas de movimiento
+            SetColor(_moveParticles); // Aplicar a partï¿½culas de movimiento
         }
 
         /// <summary>
-        /// Aplica el color actual a un sistema de partículas
+        /// Aplica el color actual a un sistema de partï¿½culas
         /// </summary>
-        /// <param name="ps">Sistema de partículas a colorear</param>
+        /// <param name="ps">Sistema de partï¿½culas a colorear</param>
         private void SetColor(ParticleSystem ps)
         {
             var main = ps.main;
             main.startColor = _currentGradient;
         }
 
-        // Hashes estáticos para los parámetros del Animator (mejor performance)
+        // Hashes estï¿½ticos para los parï¿½metros del Animator (mejor performance)
         private static readonly int GroundedKey = Animator.StringToHash("Grounded");
         private static readonly int IdleSpeedKey = Animator.StringToHash("IdleSpeed");
         private static readonly int JumpKey = Animator.StringToHash("Jump");

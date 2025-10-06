@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+
     [SerializeField] GameObject menu;
     [SerializeField] GameObject coleccionables;
     [SerializeField] GameObject partida;
@@ -114,6 +115,17 @@ public class UIManager : MonoBehaviour
         audio.SetActive(false);
         controles.SetActive(false);
         video.SetActive(true);
+    }
+    public void Desactivado()
+    {
+        menu.SetActive(false);
+         coleccionables.SetActive(false);
+        partida.SetActive(false);
+        salir.SetActive(false);
+        opciones.SetActive(false);
+        audio.SetActive(false);
+        controles.SetActive(false);
+        video.SetActive(false);
     }
     public void Salir()
     {

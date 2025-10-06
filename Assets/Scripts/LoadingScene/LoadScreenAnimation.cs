@@ -3,65 +3,64 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-namespace PantallaCarga
-{
     public class LoadScreenAnimation : MonoBehaviour
 {
+    public static LoadScreenAnimation instance;
+
     [Header("Sprites de las interacciones")]
     [SerializeField] private List<Sprite> sprites;
     [SerializeField] private Image cosa1;
     [SerializeField] private Image cosa2;
+    [SerializeField] private Image fade;
     [SerializeField] private RectTransform areaCanvas;
     [SerializeField] private GameObject avesCazadasOb;
     [SerializeField] private TMPro.TextMeshProUGUI avesCazadasText;
     private int avesCazadas = 0;
 
-    private int tipoInteraccion;
+    public int tipoInteraccion;
     private bool aveCazada = false;
-    
+
+    //para los clones de los bolos de coca
     private void Start()
+    {
+        if (instance != null && instance != this)
         {
-            // Mantener la pantalla activa un tiempo fijo (ejemplo: 10 segundos)
-            StartCoroutine(EsperarYContinuar());
+            Destroy(gameObject);
+            return;
         }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    
+    public void MiniJuegos()
+    {
 
-        IEnumerator EsperarYContinuar()
+        if (tipoInteraccion == 0)
         {
-            yield return new WaitForSeconds(3f);
-            LoaderScene.instance.CargarDestino();
+            avesCazadasOb.SetActive(true);
+            // tigrillo y ave
+            cosa1.sprite = sprites[0];
+            cosa2.sprite = sprites[1];
         }
-
-    private void OnEnable()
+        else if (tipoInteraccion == 1)
         {
-            // Elegir interacción al azar
-            tipoInteraccion = Random.Range(0, 3);
-
-            if (tipoInteraccion == 0)
-            {
-                avesCazadasOb.SetActive(true);
-                // tigrillo y ave
-                cosa1.sprite = sprites[0];
-                cosa2.sprite = sprites[1];
-            }
-            else if (tipoInteraccion == 1)
-            {
-                avesCazadasOb.SetActive(false);
-                // soldado comiendo coca
-                cosa1.sprite = sprites[2];
-                cosa2.sprite = sprites[3];
-            }
-            else
-            {
-                avesCazadasOb.SetActive(false);
-                // soldado bailando
-                cosa1.sprite = sprites[4];
-                cosa2.sprite = sprites[5];
-            }
+            avesCazadasOb.SetActive(false);
+            // soldado comiendo coca
+            cosa1.sprite = sprites[2];
+            cosa2.sprite = sprites[3];
         }
+        else
+        {
+            avesCazadasOb.SetActive(false);
+            // soldado bailando
+            cosa1.sprite = sprites[4];
+            cosa2.sprite = sprites[5];
+        }
+    }
 
     private void Update()
     {
+        MiniJuegos();
         if (tipoInteraccion == 0) Tigrillo();
         else if (tipoInteraccion == 1) SoldadoComiendo();
         else SoldadoBailando();
@@ -93,7 +92,7 @@ namespace PantallaCarga
     private IEnumerator RespawnAve()
     {
         aveCazada = false;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         float ancho = areaCanvas.rect.width / 2f;
         float alto = areaCanvas.rect.height / 2f;
         float posX = Random.Range(-ancho, ancho);
@@ -108,11 +107,11 @@ namespace PantallaCarga
         {
             //animacion de comer coca
             Debug.Log("El soldado mastica coca");
-            InstanciarComida();
+            InstanciarCoca();
             // cambiar animaciona aqui
         }
     }
-    private void InstanciarComida()
+    private void InstanciarCoca()
     {
         Image comida = Instantiate(cosa2, areaCanvas);
         RectTransform rt = comida.GetComponent<RectTransform>();
@@ -131,4 +130,4 @@ namespace PantallaCarga
         }
     }
 }
-}
+

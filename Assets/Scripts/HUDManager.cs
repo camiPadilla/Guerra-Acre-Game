@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] GameObject HUDGameplay;
     [SerializeField] GameObject PantallaFin;
     [SerializeField] GameObject pantallaMuerte;
+    [SerializeField] GameObject pantallaCarga;
     [SerializeField] Sprite imagenClick;
     [SerializeField] Sprite imagenE;
     [SerializeField] Sprite imagenAumentoBala;
@@ -24,9 +26,6 @@ public class HUDManager : MonoBehaviour
     [SerializeField] List<GameObject> armas;
     [SerializeField] List<Sprite> imagenArmas;
     [SerializeField] GameObject hudBalas;
-    [SerializeField] GameObject padreInteractuar;
-
-
     // Start is called before the first frame update
     private void Awake()
     {
@@ -120,12 +119,12 @@ public class HUDManager : MonoBehaviour
 
     public void ActualizarVida(int cantidadVidas)
     {
-        //Debug.Log("se acutalizar� la vida");
+        Debug.Log("se acutalizar� la vida");
         barraVida.sizeDelta = new Vector2(26.5f * cantidadVidas, barraVida.sizeDelta.y);
     }
     public void ActualizarArmadura(int cantidadArmadura)
     {
-        //Debug.Log("se acutalizar� la armadura");
+        Debug.Log("se acutalizar� la armadura");
         barraArmadura.sizeDelta = new Vector2(cantidadArmadura * 53, barraArmadura.sizeDelta.y);
     }
     public void ActualizarTotalBalas(int cantidadTotal)
@@ -142,11 +141,10 @@ public class HUDManager : MonoBehaviour
     void Start()
     {
 
-        mensajeE = Instantiate(interactuable, padreInteractuar.transform);
+        mensajeE = Instantiate(interactuable, transform);
         mensajeE.SetActive(false);
         imagenE = mensajeE.GetComponent<SpriteRenderer>().sprite;
-        mensajeE.GetComponent<SpriteRenderer>().sortingLayerName = "UI";
-        mensajeE.transform.parent = padreInteractuar.transform;
+        mensajeE.GetComponent<SpriteRenderer>().sortingOrder = 4;
         ActualizarBalasActual(0);
         ActualizarTotalBalas(0);
 
@@ -203,6 +201,27 @@ public class HUDManager : MonoBehaviour
     {
         pantallaMuerte.SetActive(true);
         DetenerTiempo();
+        HUDGameplay.SetActive(false);
+    }
+    public void MostrarPantallaCarga()
+    {
+        PantallaFin.SetActive(false);
+        DetenerTiempo();
+        HUDGameplay.SetActive(false);
+    }
+    public void MostrarPantallaFin()
+    {
+        PantallaFin.SetActive(true);
+        DetenerTiempo();
+        HUDGameplay.SetActive(false);
+    }
+    public void OcultarTodo()
+    {
+        pantallaMuerte.SetActive(false);
+        pantallaNota.SetActive(false);
+        pantallaPausa.SetActive(false);
+        PantallaFin.SetActive(false);
+        Time.timeScale = 1;
         HUDGameplay.SetActive(false);
     }
 }
