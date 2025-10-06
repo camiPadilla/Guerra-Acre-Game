@@ -67,7 +67,8 @@ public class EnemigoDisparo : Enemigo_IA
         puedeDisparar = false;
 
         GameObject bala = Instantiate(balaPrefab, puntoDisparoBala.position, Quaternion.identity);
-        bala.GetComponent<BalaEnemigo>().Disparar();
+        bala.GetComponent<BalaEnemigo>().Inicializar(jugador);
+
         nroBalas--;
 
         yield return new WaitForSeconds(cooldownDisparo);
@@ -87,7 +88,8 @@ public class EnemigoDisparo : Enemigo_IA
         puedeDisparar = false;
 
         GameObject piedra = Instantiate(piedraPrefab, puntoDisparoPiedra.position, Quaternion.identity);
-        piedra.GetComponent<PiedraEnemigo>().Lanzar();
+        piedra.GetComponent<PiedraEnemigo>().Inicializar(jugador);
+
 
         nroPiedras--;
 

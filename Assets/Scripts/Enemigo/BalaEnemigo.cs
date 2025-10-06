@@ -1,39 +1,52 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
+using TarodevController;
 
 public class BalaEnemigo : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float velocidadBala = 10f;
-    [SerializeField] private Transform jugador;
     [SerializeField] public int damage = 2;
-    private void Start()
+
+    private Transform jugador;
+
+    public void Inicializar(Transform jugadorDestino)
     {
-        rb = GetComponent<Rigidbody2D>();
-        jugador = FindAnyObjectByType<MovPersonaje>().transform;
+        jugador = jugadorDestino;
+        Disparar();
     }
 
-    public void Disparar()
+    private void Awake()
     {
-        Vector2 direccionP = (jugador.position - transform.position).normalized;
-        rb.velocity = direccionP * velocidadBala;
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Disparar()
+    {
+        if (jugador == null)
+        {
+            Debug.LogWarning("⚠️ [BalaEnemigo] No se asignó jugador al inicializar.");
+            return;
+        }
+
+        Vector2 direccion = (jugador.position - transform.position).normalized;
+        rb.velocity = direccion * velocidadBala;
         StartCoroutine(DestruirBala());
     }
-    IEnumerator DestruirBala()
+
+    private IEnumerator DestruirBala()
     {
-        float tiempoDes = 5f;
-        yield return new WaitForSeconds(tiempoDes);
-        Destroy(gameObject);
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.transform.CompareTag("Player"))
-        {
-            collision.gameObject.SendMessage("PerderVida", damage);
-        }
+        yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            collision.gameObject.SendMessage("PerderVida", damage, SendMessageOptions.DontRequireReceiver);
+        }
+
+        Destroy(gameObject);
+    }
 }
