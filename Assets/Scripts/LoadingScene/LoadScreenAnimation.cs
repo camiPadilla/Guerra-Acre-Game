@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-    public class LoadScreenAnimation : MonoBehaviour
+public class LoadScreenAnimation : MonoBehaviour
 {
     public static LoadScreenAnimation instance;
 
@@ -21,6 +21,7 @@ using UnityEngine.UI;
     private bool aveCazada = false;
 
     //para los clones de los bolos de coca
+    private List<Image> clonesCoca = new List<Image>();
     private void Start()
     {
         if (instance != null && instance != this)
@@ -31,7 +32,7 @@ using UnityEngine.UI;
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    
+
     public void MiniJuegos()
     {
 
@@ -98,7 +99,7 @@ using UnityEngine.UI;
         float posX = Random.Range(-ancho, ancho);
         float posY = Random.Range(-alto, alto);
         cosa2.rectTransform.localPosition = new Vector3(posX, posY, 0);
-        
+
     }
 
     private void SoldadoComiendo()
@@ -128,6 +129,19 @@ using UnityEngine.UI;
             Debug.Log("El soldado se pone a bailar");
 
         }
+    }
+    public  void ResgisterClones(Image clone)
+    {
+        clonesCoca.Add(clone);
+    }
+    public void DestroyAllClones()
+    {
+        foreach (var c in clonesCoca)
+        {
+            if (c != null)
+                Destroy(c);
+        }
+        clonesCoca.Clear();
     }
 }
 
