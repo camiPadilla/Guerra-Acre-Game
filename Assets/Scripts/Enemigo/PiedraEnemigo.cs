@@ -8,6 +8,7 @@ public class PiedraEnemigo : MonoBehaviour
     [SerializeField] private float fuerzaX = 5f;  // fuerza horizontal
     [SerializeField] private float fuerzaY = 5f;  // fuerza vertical extra
     [SerializeField] private Transform jugador;
+    [SerializeField] private int damage = 1;
 
     private void Awake()
     {
@@ -38,6 +39,7 @@ public class PiedraEnemigo : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            collision.gameObject.SendMessage("PerderVida", damage);
             Destroy(gameObject);
         }
         

@@ -19,16 +19,16 @@ public class SaludPersonaje : MonoBehaviour
         
     }
 
-    public void PerderVida()
+    public void PerderVida(int damage)
     {
         if (vidasEXtras > 0 && !invulnerabilidad)
         {
-            vidasEXtras--;
+            vidasEXtras-=damage;
             HUDManager.instancia.ActualizarArmadura(vidasEXtras);
         }
         else if(!invulnerabilidad)
         {
-            vidasJugador--;
+            vidasJugador-=damage;
             HUDManager.instancia.ActualizarVida(vidasJugador);
         }
         

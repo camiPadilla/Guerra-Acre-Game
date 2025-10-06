@@ -9,6 +9,7 @@ public class MosquitoController : MonoBehaviour
     bool patrullando = true;
     [SerializeField] int probabilidad;
     [SerializeField] int velocidad;
+    [SerializeField] int damage = 1;
     Vector2 posicionAleatoria;
     Vector2 posicionInicial;
     // Start is called before the first frame update
@@ -73,7 +74,7 @@ public class MosquitoController : MonoBehaviour
         if(collision.transform.CompareTag("Player"))
         {
             patrullando = true;
-            collision.gameObject.SendMessageUpwards("PerderVida");
+            collision.gameObject.SendMessageUpwards("PerderVida", damage);
         }
         if (collision.transform.CompareTag("hitbox"))
         {
