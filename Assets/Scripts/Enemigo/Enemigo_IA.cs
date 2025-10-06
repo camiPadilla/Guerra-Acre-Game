@@ -13,6 +13,7 @@ public abstract class Enemigo_IA : MonoBehaviour
     [SerializeField] public float rangoVision;
     [SerializeField] public int vida = 3;
     [SerializeField] private int disWy;
+    
     public float speed;
     public Transform jugador;
     private bool isFacingRight = false;
@@ -57,7 +58,6 @@ public abstract class Enemigo_IA : MonoBehaviour
                 rbEnemigo.velocity = Vector2.zero; // idle
             }
         }
-        Morir();
     }
 
     //funcion para voltear al enemigo en base a la posicion del jugador
@@ -77,6 +77,7 @@ public abstract class Enemigo_IA : MonoBehaviour
     //funcion para el patrullaje del enemigo en base a los waypoints
     public void PatrullajeIA()
     {
+        SendMessage("DesactivarArma", SendMessageOptions.DontRequireReceiver);
         if (wayPoints.Length == 0) return;
 
         Vector2 destino = new Vector2(wayPoints[currentWayPoint].position.x, transform.position.y);
@@ -138,9 +139,11 @@ public abstract class Enemigo_IA : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void RecibirDano()
+    public void RecibirDano(int damage)
     {
-        //Animacion de recibir daño
+        Debug.Log("hola familia");
+        vida-=damage;
+        Morir();
     }
     //por definir y llamar 
 }
