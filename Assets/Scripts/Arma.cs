@@ -27,7 +27,7 @@ public class Arma : MonoBehaviour
         }
         if (collision.transform.CompareTag("Enemigo"))
         {
-            collision.gameObject.GetComponent<Enemigo_IA>().vida -= damage;
+            collision.gameObject.GetComponent<Enemigo_IA>().RecibirDano(damage);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,5 +36,10 @@ public class Arma : MonoBehaviour
         {
             collision.gameObject.GetComponent<ObjetoDestruible>().Damage(damage);
         }
+        if (collision.transform.CompareTag("Enemigo"))
+        {
+            collision.gameObject.GetComponent<Enemigo_IA>().RecibirDano(damage);
+        }
     }
+
 }

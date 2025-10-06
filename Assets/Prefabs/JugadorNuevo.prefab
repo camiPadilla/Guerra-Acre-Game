@@ -4994,6 +4994,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &995973579053857435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6787434013754726771}
+  m_Layer: 6
+  m_Name: TargetAtaque
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6787434013754726771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995973579053857435}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2010399998378761295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1794831807647434884
 GameObject:
   m_ObjectHideFlags: 0
@@ -5167,6 +5198,7 @@ GameObject:
   - component: {fileID: 2962935540621873272}
   - component: {fileID: 3416613572953154551}
   - component: {fileID: 1500572859588607906}
+  - component: {fileID: 6397999302006620584}
   - component: {fileID: 4698883952993591493}
   - component: {fileID: 3958935722665950595}
   - component: {fileID: 1265905107852185154}
@@ -5193,6 +5225,7 @@ Transform:
   m_Children:
   - {fileID: 6954246436884106803}
   - {fileID: 1205606994915262885}
+  - {fileID: 6787434013754726771}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2962935540621873272
@@ -5235,6 +5268,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidasJugador: 6
   vidasEXtras: 0
+  tiempoInvulnerable: 0
+--- !u!114 &6397999302006620584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861664797765006976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4db5d1012a62d5489ba192a1e962d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aumento: 5
 --- !u!114 &4698883952993591493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5459,7 +5506,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

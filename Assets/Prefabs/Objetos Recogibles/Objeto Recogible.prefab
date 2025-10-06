@@ -83,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4133677100475995940
@@ -99,10 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreObjeto: balas
-  cantidad: 0
-  interactuable: 0
-  jugadorInteractuando: 0
-  mensajeInteraccion: {fileID: 7710909887009950346, guid: 2ebb90790b727f1438278d0f724d21bd, type: 3}
 --- !u!61 &380160565860143606
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class cajasDestruibles : ObjetoDestruible
 {
+
+    [SerializeField] bool conLoot;
     // Start is called before the first frame update
     
     public void ActivarLoot()
     {
-        GameManager.instancia.InstanciarObjeto(transform.position);
+        if(conLoot)   GameManager.instancia.InstanciarObjeto(transform.position);
     }
 }
