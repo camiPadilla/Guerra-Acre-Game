@@ -223,7 +223,7 @@ namespace TarodevController
             else
             {
                 // Acelerar hacia la velocidad máxima
-                _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, _frameInput.Move.x * _stats.MaxSpeed * reduccion *0.75f, _stats.Acceleration * Time.fixedDeltaTime);
+                _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, _frameInput.Move.x * _stats.MaxSpeed * reduccion, _stats.Acceleration * Time.fixedDeltaTime);
             }
         }
 

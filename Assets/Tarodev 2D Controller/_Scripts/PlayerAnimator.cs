@@ -83,13 +83,12 @@ namespace TarodevController
                 if (_player.FrameInput.x > 0)
                 {
                     personajeObject.transform.localScale = new Vector2(1, 1);
-                }
-                else if (_player.FrameInput.x < 0)
+                }else if (_player.FrameInput.x < 0)
                 {
                     personajeObject.transform.localScale = new Vector2(-1, 1);
                 }
             }
-            //_sprite.flipX = _player.FrameInput.x < 0; // Voltear si se mueve a la izquierda
+                //_sprite.flipX = _player.FrameInput.x < 0; // Voltear si se mueve a la izquierda
         }
 
         /// <summary>
