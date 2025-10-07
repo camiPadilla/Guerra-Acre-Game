@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8490432482324342223
+--- !u!114 &-8261148844379234111
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ENVIRONMENT/RomperCaja/RomperCaja
+  m_Name: event:/ENVIRONMENT/Destruibles/DestruirObjeto
   m_EditorClassIdentifier: 
-  Path: event:/ENVIRONMENT/RomperCaja/RomperCaja
+  Path: event:/ENVIRONMENT/Destruibles/DestruirObjeto
   Guid:
     Data1: -563701215
     Data2: 1321681869
@@ -24,7 +24,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 72841499388651302}
+  - {fileID: 3336918320429340684}
+  - {fileID: -4951727589949081552}
   MinDistance: 1
   MaxDistance: 20
   Length: 911
@@ -70,10 +71,34 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638954269432630980
+  lastModified: 638954296179365896
   FileSizes:
   - Name: 
-    Value: 1980
+    Value: 2004
+  Exists: 1
+--- !u!114 &-4951727589949081552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/DestruirObjeto/Tipo
+  m_EditorClassIdentifier: 
+  Name: Tipo
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 4161716514
+    data2: 1695555659
+  Type: 1
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-3923798860060650747
 MonoBehaviour:
@@ -234,7 +259,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-  lastModified: 638954269432636664
+  lastModified: 638954296179371603
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -265,19 +290,19 @@ MonoBehaviour:
   - {fileID: 1099815979615971858}
   - {fileID: -2074068408914763903}
   - {fileID: 4519760290537793500}
-  - {fileID: -8490432482324342223}
   - {fileID: 1937958702690638004}
   - {fileID: 1986829583946110164}
   - {fileID: -2593483867591485283}
   - {fileID: 2459239402762058871}
   - {fileID: -7441726633520022960}
+  - {fileID: -8261148844379234111}
   EditorParameters: []
   MasterBanks:
   - {fileID: 477620042221622742}
   StringsBanks:
   - {fileID: -7220547512886691686}
   cacheVersion: 131849
-  cacheTime: 638954269432636664
+  cacheTime: 638954296179371603
   SerializableEventsDict:
   - key: event:/AMBIENCE/Animales/Croac-Sapo
     index: 0
@@ -289,42 +314,18 @@ MonoBehaviour:
     index: 3
   - key: event:/ENVIRONMENT/Recolectables/RecogerNota
     index: 4
-  - key: event:/ENVIRONMENT/RomperCaja/RomperCaja
-    index: 5
   - key: event:/PLAYER/Pasos/Pasto/Pasos_Pasto
-    index: 6
+    index: 5
   - key: event:/PLAYER/Pasos/Pasto/Caminar_Pasto
-    index: 7
+    index: 6
   - key: event:/PLAYER/Salto/Saltar
-    index: 8
+    index: 7
   - key: event:/PLAYER/TirarPiedra/Cargar
-    index: 9
+    index: 8
   - key: event:/PLAYER/TirarPiedra/ArrojarPiedra
+    index: 9
+  - key: event:/ENVIRONMENT/Destruibles/DestruirObjeto
     index: 10
---- !u!114 &72841499388651302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/RomperCaja/CajaPanner
-  m_EditorClassIdentifier: 
-  Name: CajaPanner
-  StudioPath: 
-  Min: -1
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2046405119
-    data2: 26682935
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
 --- !u!114 &477620042221622742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,6 +531,30 @@ MonoBehaviour:
   StudioPath: bank:/Voice-Dialogue_Bank
   lastModified: 638932747276115668
   FileSizes: []
+  Exists: 1
+--- !u!114 &3336918320429340684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/DestruirObjeto/Panner
+  m_EditorClassIdentifier: 
+  Name: Panner
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2046405119
+    data2: 26682935
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &4344576808031816684
 MonoBehaviour:
