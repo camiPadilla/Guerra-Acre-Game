@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace TarodevController
@@ -156,7 +156,6 @@ namespace TarodevController
                 {
                     SoundEvents.Salto?.Invoke(0); // Sonido by Chelo :D
                 }
-
             }
             // Detectar cuando se deja el suelo
             else if (_grounded && !groundHit)
@@ -213,10 +212,8 @@ namespace TarodevController
             _bufferedJumpUsable = false;
             _coyoteUsable = false;
             _frameVelocity.y = _stats.JumpPower * reduccion; // Aplicar fuerza de salto
-            Jumped?.Invoke(); // Invocar evento de salto
-
-        }
-
+            Jumped?.Invoke();
+        }// Invocar evento de salto
         #endregion
 
 
@@ -233,6 +230,7 @@ namespace TarodevController
                 var deceleration = _grounded ? _stats.GroundDeceleration : _stats.AirDeceleration;
                 _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, 0, deceleration * Time.fixedDeltaTime);
 
+                
                 caminando = false;
             }
             else
@@ -246,9 +244,9 @@ namespace TarodevController
         }
 
         //Añadido by Chelo :D
+
         void UpdateEstado(bool caminando)
         {
-
             if (caminando != _valorCaminandoAnterior)
             {
                 // Hubo un cambio de estado

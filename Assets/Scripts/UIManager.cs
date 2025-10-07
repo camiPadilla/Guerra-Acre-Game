@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Audio;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject partida;
     [SerializeField] GameObject salir;
     [SerializeField] GameObject opciones;
-    [SerializeField] GameObject audioo;
+    [SerializeField] GameObject audio;
     [SerializeField] GameObject controles;
     [SerializeField] GameObject video;
 
@@ -36,7 +35,7 @@ public class UIManager : MonoBehaviour
         partida.SetActive(false);
         salir.SetActive(false);
         opciones.SetActive(false);
-        audioo.SetActive(false);
+        audio.SetActive(false);
         controles.SetActive(false);
         video.SetActive(false);
     }
@@ -47,7 +46,7 @@ public class UIManager : MonoBehaviour
         partida.SetActive(false);
         salir.SetActive(false);
         opciones.SetActive(false);
-        audioo.SetActive(false);
+        audio.SetActive(false);
         controles.SetActive(false);
         video.SetActive(false);
     }
@@ -58,7 +57,7 @@ public class UIManager : MonoBehaviour
         partida.SetActive(true);
         salir.SetActive(false);
         opciones.SetActive(false);
-        audioo.SetActive(false);
+        audio.SetActive(false);
         controles.SetActive(false);
         video.SetActive(false);
     }
@@ -69,7 +68,7 @@ public class UIManager : MonoBehaviour
         partida.SetActive(false);
         salir.SetActive(true);
         opciones.SetActive(false);
-        audioo.SetActive(false);
+        audio.SetActive(false);
         controles.SetActive(false);
         video.SetActive(false);
     }
@@ -80,7 +79,7 @@ public class UIManager : MonoBehaviour
         partida.SetActive(false);
         salir.SetActive(false);
         opciones.SetActive(true);
-        audioo.SetActive(false);
+        audio.SetActive(false);
         controles.SetActive(false);
         video.SetActive(false);
     }
@@ -91,7 +90,7 @@ public class UIManager : MonoBehaviour
         partida.SetActive(false);
         salir.SetActive(false);
         opciones.SetActive(false);
-        audioo.SetActive(true);
+        audio.SetActive(true);
         controles.SetActive(false);
         video.SetActive(false);
     }
@@ -102,7 +101,7 @@ public class UIManager : MonoBehaviour
         partida.SetActive(false);
         salir.SetActive(false);
         opciones.SetActive(false);
-        audioo.SetActive(false);
+        audio.SetActive(false);
         controles.SetActive(true);
         video.SetActive(false);
     }
@@ -113,7 +112,7 @@ public class UIManager : MonoBehaviour
         partida.SetActive(false);
         salir.SetActive(false);
         opciones.SetActive(false);
-        audioo.SetActive(false);
+        audio.SetActive(false);
         controles.SetActive(false);
         video.SetActive(true);
     }
@@ -124,7 +123,7 @@ public class UIManager : MonoBehaviour
         partida.SetActive(false);
         salir.SetActive(false);
         opciones.SetActive(false);
-        audioo.SetActive(false);
+        audio.SetActive(false);
         controles.SetActive(false);
         video.SetActive(false);
     }
