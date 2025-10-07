@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Piso, Water, UI, Player
 - Active game object:
-  - Name: Personaje
-  - Tag: Player
+  - Name: EnemigoDistancia
+  - Tag: Enemigo
   - Layer: Player
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
