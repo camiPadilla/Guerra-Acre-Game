@@ -100,7 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c00dc248b2a214f8166844f8c1897b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
+  conLoot: 0
 --- !u!61 &5574616867964259311
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,7 +194,7 @@ MonoBehaviour:
       Data2: 1321681869
       Data3: -803159361
       Data4: 1745064157
-    Path: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
+    Path: event:/ENVIRONMENT/RomperCaja/RomperCaja
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -200,9 +202,7 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   NonRigidbodyVelocity: 0
-  Params:
-  - Name: CajaPanner
-    Value: 0
+  Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
