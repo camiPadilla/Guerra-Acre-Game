@@ -10,5 +10,5 @@
 - Active game object:
   - Name: EnemigoDistancia
   - Tag: Enemigo
-  - Layer: Player
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

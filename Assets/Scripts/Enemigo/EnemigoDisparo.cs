@@ -15,7 +15,7 @@ public class EnemigoDisparo : Enemigo_IA
     [SerializeField] private Transform puntoDisparoPiedra;
     [SerializeField] private int nroBalas = 15;
     [SerializeField] private int nroPiedras = 5;
-    [SerializeField] private float distanciaOptima = 5f; // distancia ideal para disparar
+    [SerializeField] private float distanciaOptima = 7f; // distancia ideal para disparar
     [SerializeField] private float tolerancia = 1f;      // margen para no moverse tanto
 
     [Header("fusil o piedra")]
@@ -27,22 +27,21 @@ public class EnemigoDisparo : Enemigo_IA
     {
         float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
 
-        // Si el jugador se sale del rango → volver a patrullaje
+    // Si el jugador se sale del rango → volver a patrullaje
         if (distanciaJugador > rangoVision)
         {
             print("Volviendo a patrullar");
-            Flip(distanciaJugador > rangoVision);
             PatrullajeIA();
             return;
         }
-
-        // Posicionarse a la distancia adecuada
+    // Girar siempre hacia el jugador
+        Flip(jugador.position.x < transform.position.x);
+    // Posicionarse a la distancia adecuada
         Posicionarse(distanciaJugador);
 
-        // Si ya está en rango de disparo → disparar
+    // Si ya está en rango de disparo → disparar
         if (Mathf.Abs(distanciaJugador - distanciaOptima) <= tolerancia)
         {
-            Flip(distanciaJugador < rangoVision);
             if (fusil)
             {
                 Fusil();
@@ -66,12 +65,10 @@ public class EnemigoDisparo : Enemigo_IA
     {
         puedeDisparar = false;
 
-        GameObject bala = Instantiate(balaPrefab, puntoDisparoBala.position, Quaternion.identity);
-        bala.GetComponent<BalaEnemigo>().Inicializar(jugador);
-
-        nroBalas--;
-
-        yield return new WaitForSeconds(cooldownDisparo);
+       yield return new WaitForSeconds(5f);
+        GameObject nuevaBala = Instantiate(balaPrefab, puntoDisparoBala.position, puntoDisparoBala.rotation);
+        nuevaBala.GetComponent<BalaEnemigo>().Inicializar(jugador);
+        StartCoroutine(DispararFusil());
         puedeDisparar = true;
     }
 
@@ -100,8 +97,7 @@ public class EnemigoDisparo : Enemigo_IA
     private void Posicionarse(float distanciaJugador)
     {
         // Girar hacia el jugador
-        Flip(jugador.position.x > transform.position.x);
-
+        Flip(jugador.position.x < transform.position.x);
         // Si el jugador está cerca, el enemigo se aleja
         if (distanciaJugador < distanciaOptima - tolerancia)
         {

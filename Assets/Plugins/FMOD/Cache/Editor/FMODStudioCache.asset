@@ -28,6 +28,35 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3020
+--- !u!114 &-7444432787434606146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENVIRONMENT/Destruibles/DestruirObjeto
+  m_EditorClassIdentifier: 
+  Path: event:/ENVIRONMENT/Destruibles/DestruirObjeto
+  Guid:
+    Data1: -563701215
+    Data2: 1321681869
+    Data3: -803159361
+    Data4: 1745064157
+  Banks:
+  - {fileID: 2804349124176615228}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 1717227086764759122}
+  - {fileID: 3050846633108628569}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 911
 --- !u!114 &-6980948626674342551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,30 +78,6 @@ MonoBehaviour:
     data1: 2228391792
     data2: 3973726400
   Type: 1
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &-5443644727878073649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/RomperCaja/CajaPanner
-  m_EditorClassIdentifier: 
-  Name: CajaPanner
-  StudioPath: 
-  Min: -1
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2046405119
-    data2: 26682935
-  Type: 0
   IsGlobal: 0
   Labels: []
   Exists: 1
@@ -115,7 +120,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Enemies_Bank.bank
   Name: SFX_Enemies_Bank
   StudioPath: bank:/SFX_Enemies_Bank
-  lastModified: 638931806601121960
+  lastModified: 638932747276110021
   FileSizes: []
   Exists: 1
 --- !u!114 &-3465976776397467531
@@ -133,7 +138,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638931806601092043
+  lastModified: 638932747276107304
   FileSizes: []
   Exists: 1
 --- !u!114 &-2598781895333536714
@@ -151,7 +156,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_UI_Bank.bank
   Name: SFX_UI_Bank
   StudioPath: bank:/SFX_UI_Bank
-  lastModified: 638931806601481701
+  lastModified: 638932747276114815
   FileSizes: []
   Exists: 1
 --- !u!114 &-2580770970863302688
@@ -193,7 +198,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Environment.bank
   Name: Environment
   StudioPath: bank:/Environment
-  lastModified: 638941294587439816
+  lastModified: 638935251114581437
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -229,14 +234,14 @@ MonoBehaviour:
   - {fileID: 8656309329108580147}
   - {fileID: 6488882681444654221}
   - {fileID: 4886069395185646351}
-  - {fileID: 1188250602032300550}
+  - {fileID: -7444432787434606146}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3465976776397467531}
   StringsBanks:
   - {fileID: 883576379495393654}
   cacheVersion: 131849
-  cacheTime: 638954312413661839
+  cacheTime: 638954309785276343
   SerializableEventsDict:
   - key: event:/ENVIRONMENT/Recolectables/RecogerNota
     index: 0
@@ -258,7 +263,7 @@ MonoBehaviour:
     index: 8
   - key: event:/PLAYER/TirarPiedra/ArrojarPiedra
     index: 9
-  - key: event:/ENVIRONMENT/RomperCaja/RomperCaja
+  - key: event:/ENVIRONMENT/Destruibles/DestruirObjeto
     index: 10
 --- !u!114 &883576379495393654
 MonoBehaviour:
@@ -275,39 +280,11 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638954312413631919
+  lastModified: 638954309785262884
   FileSizes:
   - Name: 
-    Value: 1980
+    Value: 2004
   Exists: 1
---- !u!114 &1188250602032300550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ENVIRONMENT/RomperCaja/RomperCaja
-  m_EditorClassIdentifier: 
-  Path: event:/ENVIRONMENT/RomperCaja/RomperCaja
-  Guid:
-    Data1: -563701215
-    Data2: 1321681869
-    Data3: -803159361
-    Data4: 1745064157
-  Banks:
-  - {fileID: 2804349124176615228}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -5443644727878073649}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 911
 --- !u!114 &1492993146607850828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,8 +300,32 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Music_Bank.bank
   Name: Music_Bank
   StudioPath: bank:/Music_Bank
-  lastModified: 638931806601111983
+  lastModified: 638932747276109163
   FileSizes: []
+  Exists: 1
+--- !u!114 &1717227086764759122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/DestruirObjeto/Panner
+  m_EditorClassIdentifier: 
+  Name: Panner
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2046405119
+    data2: 26682935
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &1911985573968197743
 MonoBehaviour:
@@ -341,7 +342,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Ambience-Atmos_Bank.bank
   Name: Ambience-Atmos_Bank
   StudioPath: bank:/Ambience-Atmos_Bank
-  lastModified: 638953487726625662
+  lastModified: 638954269432630058
   FileSizes: []
   Exists: 1
 --- !u!114 &2396712434507361627
@@ -386,8 +387,32 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-  lastModified: 638954312413661839
+  lastModified: 638954309785276343
   FileSizes: []
+  Exists: 1
+--- !u!114 &3050846633108628569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/DestruirObjeto/Tipo
+  m_EditorClassIdentifier: 
+  Name: Tipo
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 4161716514
+    data2: 1695555659
+  Type: 1
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &3341489242889250344
 MonoBehaviour:
@@ -537,7 +562,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Voice-Dialogue_Bank.bank
   Name: Voice-Dialogue_Bank
   StudioPath: bank:/Voice-Dialogue_Bank
-  lastModified: 638931806601481701
+  lastModified: 638932747276115668
   FileSizes: []
   Exists: 1
 --- !u!114 &6488882681444654221

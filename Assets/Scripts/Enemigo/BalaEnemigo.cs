@@ -1,13 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using TarodevController;
+using System;
 
 public class BalaEnemigo : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float velocidadBala = 10f;
+    [SerializeField] private float velocidadBala;
     [SerializeField] public int damage = 2;
-
     private Transform jugador;
 
     public void Inicializar(Transform jugadorDestino)
@@ -18,19 +18,13 @@ public class BalaEnemigo : MonoBehaviour
 
     private void Awake()
     {
-        if (rb == null) rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Disparar()
+    public void Disparar()
     {
-        if (jugador == null)
-        {
-            Debug.LogWarning("⚠️ [BalaEnemigo] No se asignó jugador al inicializar.");
-            return;
-        }
-
         Vector2 direccion = (jugador.position - transform.position).normalized;
-        rb.velocity = direccion * velocidadBala;
+        rb.velocity = new Vector2(direccion.x * velocidadBala, direccion.y * velocidadBala);
         StartCoroutine(DestruirBala());
     }
 

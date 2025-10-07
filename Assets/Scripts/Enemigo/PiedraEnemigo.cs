@@ -32,7 +32,7 @@ public class PiedraEnemigo : MonoBehaviour
     {
         if (jugador == null)
         {
-            Debug.LogWarning("⚠️ [PiedraEnemigo] No se asignó jugador al inicializar.");
+
             return;
         }
 
