@@ -22,20 +22,7 @@ public class ObjetoDestruible : MonoBehaviour
         //StartCoroutine("PerderVida");
         if (vidas <= 0)
         {
-            switch (tipo)
-            {
-                case TipoDestruible.Caja:
-                    SoundEvents.DestruirObjeto?.Invoke(transform.position.x, 0);
-                    break;
-
-                case TipoDestruible.Hierba:
-                    SoundEvents.DestruirObjeto?.Invoke(transform.position.x, 1);
-                    break;
-
-                case TipoDestruible.Tronco:
-                    SoundEvents.DestruirObjeto?.Invoke(transform.position.x, 2);
-                    break;
-            }
+            SoundEvents.DestruirObjeto?.Invoke(transform.position.x, (int)tipo);
 
             //Debug.Log("se destruyo");
             SendMessage("ActivarLoot", SendMessageOptions.DontRequireReceiver);

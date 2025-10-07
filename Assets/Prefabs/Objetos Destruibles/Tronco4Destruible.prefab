@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7260537763435474549}
   - component: {fileID: 7510875631802908642}
   - component: {fileID: 3596226458282499687}
-  - component: {fileID: 3334816091520580491}
   m_Layer: 0
   m_Name: Tronco4Destruible
   m_TagString: Destruible
@@ -223,38 +222,3 @@ CapsuleCollider2D:
   m_Offset: {x: -0.03, y: -0.55}
   m_Size: {x: 1.13, y: 3.69}
   m_Direction: 0
---- !u!114 &3334816091520580491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2678052276932570506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -563701215
-      Data2: 1321681869
-      Data3: -803159361
-      Data4: 1745064157
-    Path: event:/ENVIRONMENT/RomperCaja/RomperCaja
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params:
-  - Name: Panner
-    Value: 0
-  - Name: TipoDestruible
-    Value: 0
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20

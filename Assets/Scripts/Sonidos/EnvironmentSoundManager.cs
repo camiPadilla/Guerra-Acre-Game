@@ -41,7 +41,7 @@ public class EnvironmentSoundManager : MonoBehaviour
             //Debug.Log("Distancia Normalizada: " + distNormalizado);
             destruirObjetoEmitter.EventInstance.setParameterByName("Panner", -(distNormalizado));
             destruirObjetoEmitter.EventInstance.setParameterByName("Tipo", tipo);
-            //Debug.Log("Valor actual del emiter: " + test);
+            Debug.Log("Valor actual del emiter: " + tipo);
 
             
         }
