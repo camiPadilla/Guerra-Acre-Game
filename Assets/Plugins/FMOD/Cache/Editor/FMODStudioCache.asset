@@ -52,7 +52,149 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+<<<<<<< HEAD
 --- !u!114 &-5106635640988097711
+=======
+--- !u!114 &-5273346012982073249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gameplay/Player/Salto/Saltar
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gameplay/Player/Salto/Saltar
+  Guid:
+    Data1: 771507817
+    Data2: 1184800331
+    Data3: -1755829840
+    Data4: -1209329405
+  Banks:
+  - {fileID: 2804349124176615228}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 9060994387572225314}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3787209985705669593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX_Enemies_Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/SFX_Enemies_Bank.bank
+  Name: SFX_Enemies_Bank
+  StudioPath: bank:/SFX_Enemies_Bank
+  lastModified: 638931806601121960
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-3465976776397467531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638931806601092043
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-2598781895333536714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX_UI_Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/SFX_UI_Bank.bank
+  Name: SFX_UI_Bank
+  StudioPath: bank:/SFX_UI_Bank
+  lastModified: 638931806601481701
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-2448163781416003613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
+  Guid:
+    Data1: -563701215
+    Data2: 1321681869
+    Data3: -803159361
+    Data4: 1745064157
+  Banks:
+  - {fileID: 2804349124176615228}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -7533107549687900443}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 911
+--- !u!114 &-2057899997140181290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gameplay/Player/Pasos/Pasto/Pasos_Pasto
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gameplay/Player/Pasos/Pasto/Pasos_Pasto
+  Guid:
+    Data1: -3528639
+    Data2: 1306778607
+    Data3: 752962186
+    Data4: 43525401
+  Banks:
+  - {fileID: 2804349124176615228}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -1773741894112511993}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1370
+--- !u!114 &-1773741894112511993
+>>>>>>> parent of 7db8059 (Modificaión velocidad, sprites de fondo y foreground)
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,7 +335,11 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Environment.bank
   Name: Environment
   StudioPath: bank:/Environment
+<<<<<<< HEAD
   lastModified: 638936099316867837
+=======
+  lastModified: 638941294587439816
+>>>>>>> parent of 7db8059 (Modificaión velocidad, sprites de fondo y foreground)
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -236,7 +382,11 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 883576379495393654}
   cacheVersion: 131849
+<<<<<<< HEAD
   cacheTime: 638953423278427059
+=======
+  cacheTime: 638941294587479705
+>>>>>>> parent of 7db8059 (Modificaión velocidad, sprites de fondo y foreground)
   SerializableEventsDict:
   - key: event:/ENVIRONMENT/Recolectables/RecogerNota
     index: 0
@@ -275,7 +425,11 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< HEAD
   lastModified: 638953423278427059
+=======
+  lastModified: 638941294587449794
+>>>>>>> parent of 7db8059 (Modificaión velocidad, sprites de fondo y foreground)
   FileSizes:
   - Name: 
     Value: 1980
@@ -295,7 +449,11 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Music_Bank.bank
   Name: Music_Bank
   StudioPath: bank:/Music_Bank
+<<<<<<< HEAD
   lastModified: 638930997831199452
+=======
+  lastModified: 638931806601111983
+>>>>>>> parent of 7db8059 (Modificaión velocidad, sprites de fondo y foreground)
   FileSizes: []
   Exists: 1
 --- !u!114 &1911985573968197743
@@ -313,7 +471,11 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Ambience-Atmos_Bank.bank
   Name: Ambience-Atmos_Bank
   StudioPath: bank:/Ambience-Atmos_Bank
+<<<<<<< HEAD
   lastModified: 638952143897175637
+=======
+  lastModified: 638941294587429836
+>>>>>>> parent of 7db8059 (Modificaión velocidad, sprites de fondo y foreground)
   FileSizes: []
   Exists: 1
 --- !u!114 &2396712434507361627
@@ -358,7 +520,11 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
+<<<<<<< HEAD
   lastModified: 638952175156625045
+=======
+  lastModified: 638941294587479705
+>>>>>>> parent of 7db8059 (Modificaión velocidad, sprites de fondo y foreground)
   FileSizes: []
   Exists: 1
 --- !u!114 &3341489242889250344
@@ -509,7 +675,11 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Voice-Dialogue_Bank.bank
   Name: Voice-Dialogue_Bank
   StudioPath: bank:/Voice-Dialogue_Bank
+<<<<<<< HEAD
   lastModified: 638930997833471814
+=======
+  lastModified: 638931806601481701
+>>>>>>> parent of 7db8059 (Modificaión velocidad, sprites de fondo y foreground)
   FileSizes: []
   Exists: 1
 --- !u!114 &6488882681444654221

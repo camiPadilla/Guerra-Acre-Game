@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public abstract class Enemigo_IA : MonoBehaviour
 {
     //conducta de la ia
-
+   
     [SerializeField] public Rigidbody2D rbEnemigo;
     [SerializeField] private Transform[] wayPoints;
     [SerializeField] bool patrullaje;
@@ -21,14 +21,14 @@ public abstract class Enemigo_IA : MonoBehaviour
     private bool enEspera;
     //funcion atacar que sera sobreecrita por sus hijos
     public abstract void Atacar();
-
+    
     public void Awake()
     {
-        rbEnemigo = GetComponent<Rigidbody2D>();
-
+         rbEnemigo = GetComponent<Rigidbody2D>();
+         
     }
 
-    void Update()
+   void Update()
     {
         float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
 
@@ -42,7 +42,7 @@ public abstract class Enemigo_IA : MonoBehaviour
                 //Al momento que lo vea al enemigo que gire hacia donde esta
                 Atacar();
             }
-            else
+            else 
             {
                 PatrullajeIA();
             }
@@ -113,7 +113,7 @@ public abstract class Enemigo_IA : MonoBehaviour
         enEspera = false;
         FlipPoint();
     }
-
+    
     //funcion para voltear al enemigo en base a la posicion del waypoint
     private void FlipPoint()
     {
@@ -130,7 +130,7 @@ public abstract class Enemigo_IA : MonoBehaviour
             transform.localScale = localScale;
         }
     }
-
+    
     private void Morir()
     {
         if (vida <= 0)

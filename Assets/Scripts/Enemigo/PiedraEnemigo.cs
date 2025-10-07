@@ -42,7 +42,7 @@ public class PiedraEnemigo : MonoBehaviour
             collision.gameObject.SendMessage("PerderVida", damage);
             Destroy(gameObject);
         }
-
-
+        
+        
     }
 }
