@@ -40,7 +40,7 @@ public class PiedraEnemigo : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
-        
+
+
     }
 }
