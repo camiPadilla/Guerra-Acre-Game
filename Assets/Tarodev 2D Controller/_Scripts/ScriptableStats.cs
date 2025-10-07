@@ -21,11 +21,11 @@ namespace TarodevController
 
         [Header("MOVIMIENTO")]
         [Tooltip("La velocidad máxima de movimiento horizontal")]
-        public float MaxSpeed = 14f; 
+        public float MaxSpeed = 14;
 
         [Tooltip("La capacidad del jugador para ganar velocidad horizontal")]
-        public float Acceleration = 120; 
- 
+        public float Acceleration = 120;
+
         [Tooltip("El ritmo al cual el jugador se detiene")]
         public float GroundDeceleration = 60;
 

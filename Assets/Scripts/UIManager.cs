@@ -123,7 +123,7 @@ public class UIManager : MonoBehaviour
         partida.SetActive(false);
         salir.SetActive(false);
         opciones.SetActive(false);
-        audio.SetActive(false);
+        GetComponent<AudioSource>().SetActive(false);
         controles.SetActive(false);
         video.SetActive(false);
     }
