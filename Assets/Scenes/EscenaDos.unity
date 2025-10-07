@@ -684,7 +684,7 @@ SpriteRenderer:
   m_Size: {x: 8.62, y: 5.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &53195489
@@ -1031,6 +1031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 2
   vidas: 1
 --- !u!1 &117807552
 GameObject:
@@ -2484,6 +2485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 1
   vidas: 0
 --- !u!61 &251483851
 BoxCollider2D:
@@ -3377,6 +3379,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
+--- !u!114 &330007896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4921346731422639757, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+  m_PrefabInstance: {fileID: 8741705767408043525}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &334332376
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,6 +5009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 2
   vidas: 0
 --- !u!1001 &533261517
 PrefabInstance:
@@ -5480,6 +5494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 1
   vidas: 2
 --- !u!70 &576038173
 CapsuleCollider2D:
@@ -6480,6 +6495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 2
   vidas: 2
 --- !u!4 &665126031 stripped
 Transform:
@@ -7571,6 +7587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!1 &745212442
 GameObject:
@@ -9059,7 +9076,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 2.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &925026558
@@ -9089,6 +9106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 1
   vidas: 1
 --- !u!61 &925026560
 BoxCollider2D:
@@ -10229,6 +10247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!70 &1071359081
 CapsuleCollider2D:
@@ -10971,6 +10990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 1
   vidas: 2
 --- !u!70 &1100785752
 CapsuleCollider2D:
@@ -11985,6 +12005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 1
   vidas: 2
 --- !u!70 &1147747222
 CapsuleCollider2D:
@@ -12712,7 +12733,7 @@ SpriteRenderer:
   m_Size: {x: 5.16, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1222703454
@@ -12742,6 +12763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!61 &1222703456
 BoxCollider2D:
@@ -13728,6 +13750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 1
   vidas: 2
 --- !u!1 &1341898853
 GameObject:
@@ -14492,6 +14515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!70 &1400330404
 CapsuleCollider2D:
@@ -14631,6 +14655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 1
   vidas: 0
 --- !u!61 &1431915544
 BoxCollider2D:
@@ -16176,6 +16201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 2
   vidas: 2
 --- !u!1 &1610607632
 GameObject:
@@ -17571,6 +17597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 2
   vidas: 0
 --- !u!61 &1768010704
 BoxCollider2D:
@@ -18617,6 +18644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 2
   vidas: 1
 --- !u!1 &1899835689
 GameObject:
@@ -18716,6 +18744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 1
   vidas: 2
 --- !u!70 &1899835693
 CapsuleCollider2D:
@@ -19499,6 +19528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 1
 --- !u!61 &1967725989
 BoxCollider2D:
@@ -20371,6 +20401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 1
   vidas: 2
 --- !u!1 &2067800817
 GameObject:
@@ -20470,6 +20501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 1
   vidas: 2
 --- !u!70 &2067800821
 CapsuleCollider2D:
@@ -21947,6 +21979,10 @@ PrefabInstance:
       propertyPath: destruirCajaEmitter
       value: 
       objectReference: {fileID: 4651629027958106749, guid: 8a89918618155ce4499763482f7264a9, type: 3}
+    - target: {fileID: 2547597476191356893, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: destruirObjetoEmitter
+      value: 
+      objectReference: {fileID: 330007896}
     - target: {fileID: 3218586942073531259, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
