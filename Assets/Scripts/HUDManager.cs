@@ -26,6 +26,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] List<GameObject> armas;
     [SerializeField] List<Sprite> imagenArmas;
     [SerializeField] GameObject hudBalas;
+    [SerializeField] GameObject padreInteraccion;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -141,10 +142,11 @@ public class HUDManager : MonoBehaviour
     void Start()
     {
 
-        mensajeE = Instantiate(interactuable, transform);
+        mensajeE = Instantiate(interactuable, padreInteraccion.transform);
+        mensajeE.transform.parent = padreInteraccion.transform;
         mensajeE.SetActive(false);
         imagenE = mensajeE.GetComponent<SpriteRenderer>().sprite;
-        mensajeE.GetComponent<SpriteRenderer>().sortingOrder = 4;
+        mensajeE.GetComponent<SpriteRenderer>().sortingLayerName = "IU";
         ActualizarBalasActual(0);
         ActualizarTotalBalas(0);
 
