@@ -34,6 +34,8 @@ public class PlayerSoundManager : MonoBehaviour
         if (pasosPastoEmitter != null && pasosPastoEmitter.IsPlaying())
         {
             pasosPastoEmitter.EventInstance.setParameterByName("Gait", playerController.gait);
+
+
         }
     }
 

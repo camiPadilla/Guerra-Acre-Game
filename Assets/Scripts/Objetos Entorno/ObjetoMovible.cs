@@ -1,4 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using TarodevController;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjetoMovible : MonoBehaviour
