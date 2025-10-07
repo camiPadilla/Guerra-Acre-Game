@@ -19666,6 +19666,7 @@ GameObject:
   - component: {fileID: 1339204004}
   - component: {fileID: 1339204007}
   - component: {fileID: 1339204006}
+  - component: {fileID: 1339204008}
   m_Layer: 0
   m_Name: Niv2_Arbol2
   m_TagString: Destruible
@@ -19787,7 +19788,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 1
   vidas: 2
+--- !u!114 &1339204008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339204003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -563701215
+      Data2: 1321681869
+      Data3: -803159361
+      Data4: 1745064157
+    Path: event:/ENVIRONMENT/RomperCaja/RomperCaja
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: Panner
+    Value: 0
+  - Name: TipoDestruible
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1340950735
 GameObject:
   m_ObjectHideFlags: 0
@@ -24545,7 +24582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2562330072957638711, guid: 8a89918618155ce4499763482f7264a9, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2562330072957638711, guid: 8a89918618155ce4499763482f7264a9, type: 3}
       propertyPath: m_SortingLayerID
@@ -24558,6 +24595,22 @@ PrefabInstance:
     - target: {fileID: 2878222148909214306, guid: 8a89918618155ce4499763482f7264a9, type: 3}
       propertyPath: m_UseAutoMass
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Params.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EventReference.Path
+      value: event:/ENVIRONMENT/RomperCaja/RomperCaja
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Params.Array.data[0].Name
+      value: Panner
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Params.Array.data[1].Name
+      value: TipoDestruible
       objectReference: {fileID: 0}
     - target: {fileID: 5075337282982579190, guid: 8a89918618155ce4499763482f7264a9, type: 3}
       propertyPath: conLoot
@@ -32172,7 +32225,11 @@ PrefabInstance:
     - target: {fileID: 2547597476191356893, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
       propertyPath: destruirCajaEmitter
       value: 
-      objectReference: {fileID: 4651629027958106749, guid: 8a89918618155ce4499763482f7264a9, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547597476191356893, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: destruirObjetoEmitter
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3218586942073531259, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -32252,6 +32309,10 @@ PrefabInstance:
     - target: {fileID: 3218586942073531259, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921346731422639757, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/ENVIRONMENT/Destruibles/DestruirObjeto
       objectReference: {fileID: 0}
     - target: {fileID: 5629687840868250841, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
       propertyPath: saltarEmitter

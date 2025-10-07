@@ -6,6 +6,14 @@ using UnityEngine.U2D;
 
 public class ObjetoDestruible : MonoBehaviour
 {
+    public enum TipoDestruible
+    {
+        Caja,
+        Hierba,
+        Tronco
+    }
+
+    [SerializeField] private TipoDestruible tipo;
     [SerializeField] int vidas;
     public void Damage(int cantidad)
     {
@@ -14,7 +22,7 @@ public class ObjetoDestruible : MonoBehaviour
         //StartCoroutine("PerderVida");
         if (vidas <= 0)
         {
-            SoundEvents.DestruirObjeto?.Invoke(transform.position.x);
+            SoundEvents.DestruirObjeto?.Invoke(transform.position.x, (int)tipo);
 
             //Debug.Log("se destruyo");
             SendMessage("ActivarLoot", SendMessageOptions.DontRequireReceiver);
