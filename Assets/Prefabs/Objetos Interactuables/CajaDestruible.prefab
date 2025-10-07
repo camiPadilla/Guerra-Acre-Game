@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5075337282982579190}
   - component: {fileID: 5574616867964259311}
   - component: {fileID: 2878222148909214306}
-  - component: {fileID: 4651629027958106749}
   m_Layer: 3
   m_Name: CajaDestruible
   m_TagString: Destruible
@@ -100,7 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c00dc248b2a214f8166844f8c1897b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
+  conLoot: 0
 --- !u!61 &5574616867964259311
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,36 +174,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4651629027958106749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8168092256002931324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -563701215
-      Data2: 1321681869
-      Data3: -803159361
-      Data4: 1745064157
-    Path: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params:
-  - Name: CajaPanner
-    Value: 0
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20

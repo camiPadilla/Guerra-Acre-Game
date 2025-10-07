@@ -6,13 +6,14 @@ using FMOD.Studio;
 using System;
 using UnityEngine.UIElements;
 
-public class EntornoSoundManager : MonoBehaviour
+public class EnvironmentSoundManager : MonoBehaviour
 {
     [SerializeField] AtaquePersonaje ataquePersonaje;
 
     [SerializeField] Proyectil piedra;
 
-    [SerializeField] StudioEventEmitter destruirCajaEmitter;
+    [SerializeField] StudioEventEmitter destruirObjetoEmitter;
+
     [SerializeField] StudioEventEmitter notaSoundEmitter;
     [SerializeField] StudioEventEmitter aliadoEmitter;
 
@@ -26,21 +27,21 @@ public class EntornoSoundManager : MonoBehaviour
 
 
     //SONIDO DE DESTRUIR CAJA
-    public void ReproducirDestruirObjeto(float posicionObjeto)
+    public void ReproducirDestruirObjeto(float posicionObjeto, int tipo)
     {
         
-        if (destruirCajaEmitter != null)
+        if (destruirObjetoEmitter != null)
         {
-            destruirCajaEmitter.Play();
+        destruirObjetoEmitter.Play();
 
             float distancia = ataquePersonaje.transform.position.x - posicionObjeto;
             //Debug.Log("Distancia: " + distancia);
 
             float distNormalizado = distancia / 8;
             //Debug.Log("Distancia Normalizada: " + distNormalizado);
-            destruirCajaEmitter.EventInstance.setParameterByName("CajaPanner", -(distNormalizado));
-            destruirCajaEmitter.EventInstance.getParameterByName("CajaPanner", out float test);
-            //Debug.Log("Valor actual del emiter: " + test);
+            destruirObjetoEmitter.EventInstance.setParameterByName("Panner", -(distNormalizado));
+            destruirObjetoEmitter.EventInstance.setParameterByName("Tipo", tipo);
+            Debug.Log("Valor actual del emiter: " + tipo);
 
             
         }
