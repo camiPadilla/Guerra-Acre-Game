@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace TarodevController
@@ -156,7 +156,11 @@ namespace TarodevController
                 {
                     SoundEvents.Salto?.Invoke(0); // Sonido by Chelo :D
                 }
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> parent of 9054497 (Merge branch 'main' into Sonidos_Chelo_v2.0)
             }
             // Detectar cuando se deja el suelo
             else if (_grounded && !groundHit)
@@ -214,7 +218,11 @@ namespace TarodevController
             _coyoteUsable = false;
             _frameVelocity.y = _stats.JumpPower * reduccion; // Aplicar fuerza de salto
             Jumped?.Invoke(); // Invocar evento de salto
+<<<<<<< HEAD
 
+=======
+           
+>>>>>>> parent of 9054497 (Merge branch 'main' into Sonidos_Chelo_v2.0)
         }
 
         #endregion
@@ -232,23 +240,38 @@ namespace TarodevController
                 // Aplicar desaceleración cuando no hay input
                 var deceleration = _grounded ? _stats.GroundDeceleration : _stats.AirDeceleration;
                 _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, 0, deceleration * Time.fixedDeltaTime);
+<<<<<<< HEAD
 
                 caminando = false;
+=======
+                
+                caminando = false;                
+>>>>>>> parent of 9054497 (Merge branch 'main' into Sonidos_Chelo_v2.0)
             }
             else
             {
                 // Acelerar hacia la velocidad máxima
                 _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, _frameInput.Move.x * _stats.MaxSpeed * reduccion, _stats.Acceleration * Time.fixedDeltaTime);
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> parent of 9054497 (Merge branch 'main' into Sonidos_Chelo_v2.0)
                 if (_grounded) caminando = true; else caminando = false;
             }
             UpdateEstado(caminando);
         }
 
         //Añadido by Chelo :D
+<<<<<<< HEAD
         void UpdateEstado(bool caminando)
         {
 
+=======
+        void UpdateEstado(bool caminando) 
+        {
+            
+>>>>>>> parent of 9054497 (Merge branch 'main' into Sonidos_Chelo_v2.0)
             if (caminando != _valorCaminandoAnterior)
             {
                 // Hubo un cambio de estado
