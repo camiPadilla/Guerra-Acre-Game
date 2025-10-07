@@ -119,11 +119,11 @@ public class UIManager : MonoBehaviour
     public void Desactivado()
     {
         menu.SetActive(false);
-         coleccionables.SetActive(false);
+        coleccionables.SetActive(false);
         partida.SetActive(false);
         salir.SetActive(false);
         opciones.SetActive(false);
-        audio.SetActive(false);
+        menuAudio.SetActive(false);
         controles.SetActive(false);
         video.SetActive(false);
     }

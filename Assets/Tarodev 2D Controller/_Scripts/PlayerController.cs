@@ -19,6 +19,10 @@ namespace TarodevController
         [SerializeField] private float reduccion;
         private bool forzarAgachado;
 
+        // AGREGAR ESTA PROPIEDAD PARA EL SONIDO
+        public float gait => Mathf.Abs(_frameVelocity.x) / _stats.MaxSpeed;
+
+
         #region Interface
 
         // Implementación de la interfaz IPlayerController
