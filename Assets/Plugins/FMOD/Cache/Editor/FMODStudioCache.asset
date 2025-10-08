@@ -56,8 +56,13 @@ MonoBehaviour:
   - {fileID: 6661465802403445150}
   MinDistance: 1
   MaxDistance: 20
+<<<<<<< Updated upstream
   Length: 911
 --- !u!114 &-6980948626674342551
+=======
+  Length: 1100
+--- !u!114 &-7530526255365036180
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,20 +72,86 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+<<<<<<< Updated upstream
   m_Name: parameter:/Aliado/RandomAllyNPC
   m_EditorClassIdentifier: 
   Name: RandomAllyNPC
+=======
+  m_Name: parameter:/DestruirObjeto/Tipo
+  m_EditorClassIdentifier: 
+  Name: Tipo
+>>>>>>> Stashed changes
   StudioPath: 
   Min: 0
   Max: 2
   Default: 0
   ID:
+<<<<<<< Updated upstream
     data1: 2228391792
     data2: 3973726400
+=======
+    data1: 4161716514
+    data2: 1695555659
+>>>>>>> Stashed changes
   Type: 1
   IsGlobal: 0
   Labels: []
   Exists: 1
+<<<<<<< Updated upstream
+=======
+--- !u!114 &-5438354709893273227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLAYER/AtaqueMachete/AtaqueMachete
+  m_EditorClassIdentifier: 
+  Path: event:/PLAYER/AtaqueMachete/AtaqueMachete
+  Guid:
+    Data1: -333896609
+    Data2: 1172665692
+    Data3: -845404257
+    Data4: 673168148
+  Banks:
+  - {fileID: 2804349124176615228}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 54761281391744582}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 400
+--- !u!114 &-5303625692482301024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/DestruirObjeto/Panner
+  m_EditorClassIdentifier: 
+  Name: Panner
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2046405119
+    data2: 26682935
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+>>>>>>> Stashed changes
 --- !u!114 &-5106635640988097711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +209,11 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+<<<<<<< Updated upstream
   lastModified: 638954274858770223
+=======
+  lastModified: 638955435245761647
+>>>>>>> Stashed changes
   FileSizes: []
   Exists: 1
 --- !u!114 &-2598781895333536714
@@ -222,9 +297,41 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Environment.bank
   Name: Environment
   StudioPath: bank:/Environment
+<<<<<<< Updated upstream
   lastModified: 638936099316867837
+=======
+  lastModified: 638955435245109841
+>>>>>>> Stashed changes
   FileSizes: []
   Exists: 1
+--- !u!114 &-41963818591928153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/DIALOGUE/Aliados/NPCs/Aliado
+  m_EditorClassIdentifier: 
+  Path: event:/DIALOGUE/Aliados/NPCs/Aliado
+  Guid:
+    Data1: -1953498947
+    Data2: 1286031859
+    Data3: -1183073874
+    Data4: 689690209
+  Banks:
+  - {fileID: -1154086746160817531}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 7736127133086192674}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2084
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +356,6 @@ MonoBehaviour:
   - {fileID: -1154086746160817531}
   EditorEvents:
   - {fileID: 3975879371791727847}
-  - {fileID: 7210694712122935480}
   - {fileID: 4778383394945834238}
   - {fileID: 7785249142843757646}
   - {fileID: 3341489242889250344}
@@ -258,37 +364,85 @@ MonoBehaviour:
   - {fileID: 8656309329108580147}
   - {fileID: 6488882681444654221}
   - {fileID: 4886069395185646351}
+<<<<<<< Updated upstream
   - {fileID: -7073656267845426441}
+=======
+  - {fileID: 1804918840083207032}
+  - {fileID: -7667749782473594804}
+  - {fileID: -5438354709893273227}
+  - {fileID: 4086790035537806145}
+  - {fileID: -41963818591928153}
+>>>>>>> Stashed changes
   EditorParameters: []
   MasterBanks:
   - {fileID: -3465976776397467531}
   StringsBanks:
   - {fileID: 883576379495393654}
   cacheVersion: 131849
+<<<<<<< Updated upstream
   cacheTime: 638954341540539146
+=======
+  cacheTime: 638955440750762106
+>>>>>>> Stashed changes
   SerializableEventsDict:
   - key: event:/ENVIRONMENT/Recolectables/RecogerNota
     index: 0
-  - key: event:/ENVIRONMENT/NPCs/Aliado
-    index: 1
   - key: event:/AMBIENCE/Animales/Jungle-Sound
-    index: 2
+    index: 1
   - key: event:/AMBIENCE/Animales/Croac-Sapo
-    index: 3
+    index: 2
   - key: event:/AMBIENCE/Animales/Grillos
-    index: 4
+    index: 3
   - key: event:/PLAYER/Pasos/Pasto/Pasos_Pasto
-    index: 5
+    index: 4
   - key: event:/PLAYER/Pasos/Pasto/Caminar_Pasto
-    index: 6
+    index: 5
   - key: event:/PLAYER/Salto/Saltar
-    index: 7
+    index: 6
   - key: event:/PLAYER/TirarPiedra/Cargar
-    index: 8
+    index: 7
   - key: event:/PLAYER/TirarPiedra/ArrojarPiedra
+<<<<<<< Updated upstream
     index: 9
   - key: event:/ENVIRONMENT/Destruibles/DestruirObjeto
     index: 10
+=======
+    index: 8
+  - key: event:/SFX/Enemigos/Mosquito/MorirMosquito
+    index: 9
+  - key: event:/ENVIRONMENT/Destruibles/DestruirObjeto
+    index: 10
+  - key: event:/PLAYER/AtaqueMachete/AtaqueMachete
+    index: 11
+  - key: event:/MUSIC/MusicaMilitar
+    index: 12
+  - key: event:/DIALOGUE/Aliados/NPCs/Aliado
+    index: 13
+--- !u!114 &54761281391744582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AtaqueMachete/RandomMelee
+  m_EditorClassIdentifier: 
+  Name: RandomMelee
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1473830687
+    data2: 10793407
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+>>>>>>> Stashed changes
 --- !u!114 &883576379495393654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,10 +458,17 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< Updated upstream
   lastModified: 638954341540463859
   FileSizes:
   - Name: 
     Value: 2004
+=======
+  lastModified: 638955435245816928
+  FileSizes:
+  - Name: 
+    Value: 2242
+>>>>>>> Stashed changes
   Exists: 1
 --- !u!114 &1492993146607850828
 MonoBehaviour:
@@ -324,7 +485,11 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Music_Bank.bank
   Name: Music_Bank
   StudioPath: bank:/Music_Bank
+<<<<<<< Updated upstream
   lastModified: 638930997831199452
+=======
+  lastModified: 638955440750762106
+>>>>>>> Stashed changes
   FileSizes: []
   Exists: 1
 --- !u!114 &1911985573968197743
@@ -444,6 +609,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4086790035537806145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/MusicaMilitar
+  m_EditorClassIdentifier: 
+  Path: event:/MUSIC/MusicaMilitar
+  Guid:
+    Data1: -498716774
+    Data2: 1297591211
+    Data3: 64599946
+    Data4: 1224638656
+  Banks:
+  - {fileID: 1492993146607850828}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 132299
 --- !u!114 &4778383394945834238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,6 +761,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2800
+<<<<<<< Updated upstream
 --- !u!114 &6661465802403445150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,6 +787,9 @@ MonoBehaviour:
   Labels: []
   Exists: 1
 --- !u!114 &7210694712122935480
+=======
+--- !u!114 &7736127133086192674
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -602,25 +798,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ENVIRONMENT/NPCs/Aliado
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Aliado/RandomAllyNPC
   m_EditorClassIdentifier: 
-  Path: event:/ENVIRONMENT/NPCs/Aliado
-  Guid:
-    Data1: -1953498947
-    Data2: 1286031859
-    Data3: -1183073874
-    Data4: 689690209
-  Banks:
-  - {fileID: -1154086746160817531}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -6980948626674342551}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1640
+  Name: RandomAllyNPC
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 2228391792
+    data2: 3973726400
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &7785249142843757646
 MonoBehaviour:
   m_ObjectHideFlags: 0
