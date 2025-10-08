@@ -29,6 +29,9 @@ public static class SoundEvents
     //Hablar NPC Aliado
     public static Action HablarAliadoNPC;
 
+    //Mosquito
+    public static Action MorirMosquito;
+
     //Ambientes
     public static Action Ambience;
 }

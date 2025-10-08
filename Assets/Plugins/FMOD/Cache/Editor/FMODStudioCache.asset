@@ -120,7 +120,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Enemies_Bank.bank
   Name: SFX_Enemies_Bank
   StudioPath: bank:/SFX_Enemies_Bank
-  lastModified: 638930997831527909
+  lastModified: 638955122861032834
   FileSizes: []
   Exists: 1
 --- !u!114 &-3465976776397467531
@@ -138,7 +138,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638954767292004457
+  lastModified: 638955122858268933
   FileSizes: []
   Exists: 1
 --- !u!114 &-2631191085826664331
@@ -284,13 +284,14 @@ MonoBehaviour:
   - {fileID: 4886069395185646351}
   - {fileID: -7073656267845426441}
   - {fileID: 7469179525193479881}
+  - {fileID: 8822732440085358221}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3465976776397467531}
   StringsBanks:
   - {fileID: 883576379495393654}
   cacheVersion: 131849
-  cacheTime: 638954879878965967
+  cacheTime: 638955122866211767
   SerializableEventsDict:
   - key: event:/ENVIRONMENT/Recolectables/RecogerNota
     index: 0
@@ -316,6 +317,8 @@ MonoBehaviour:
     index: 10
   - key: event:/PLAYER/AtaqueMachete/AtaqueMachete
     index: 11
+  - key: event:/SFX/Enemigos/Mosquito/MorirMosquito
+    index: 12
 --- !u!114 &883576379495393654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,10 +334,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638954879878879169
+  lastModified: 638955122858314668
   FileSizes:
   - Name: 
-    Value: 2110
+    Value: 2176
   Exists: 1
 --- !u!114 &1492993146607850828
 MonoBehaviour:
@@ -369,7 +372,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Ambience-Atmos_Bank.bank
   Name: Ambience-Atmos_Bank
   StudioPath: bank:/Ambience-Atmos_Bank
-  lastModified: 638954847337496705
+  lastModified: 638955122857705244
   FileSizes: []
   Exists: 1
 --- !u!114 &2396712434507361627
@@ -414,7 +417,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-  lastModified: 638954879878965967
+  lastModified: 638955122866211767
   FileSizes: []
   Exists: 1
 --- !u!114 &3341489242889250344
@@ -437,7 +440,7 @@ MonoBehaviour:
     Data4: -1042152879
   Banks:
   - {fileID: 1911985573968197743}
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters: []
@@ -755,3 +758,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &8822732440085358221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemigos/Mosquito/MorirMosquito
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemigos/Mosquito/MorirMosquito
+  Guid:
+    Data1: 815772303
+    Data2: 1277336910
+    Data3: 1232007553
+    Data4: -1278741862
+  Banks:
+  - {fileID: -3787209985705669593}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
