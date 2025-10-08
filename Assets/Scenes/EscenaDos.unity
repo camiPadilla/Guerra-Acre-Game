@@ -684,7 +684,7 @@ SpriteRenderer:
   m_Size: {x: 8.62, y: 5.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &53195489
@@ -1031,6 +1031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 1
 --- !u!1 &117807552
 GameObject:
@@ -2381,6 +2382,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6708150211806795917, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+      propertyPath: PosicionJugador
+      value: 
+      objectReference: {fileID: 1128464691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2484,6 +2489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 0
 --- !u!61 &251483851
 BoxCollider2D:
@@ -2761,7 +2767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &260202312
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2950,6 +2956,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6708150211806795917, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+      propertyPath: PosicionJugador
+      value: 
+      objectReference: {fileID: 1128464691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3007,6 +3017,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6708150211806795917, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+      propertyPath: PosicionJugador
+      value: 
+      objectReference: {fileID: 1128464691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3237,6 +3251,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6708150211806795917, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+      propertyPath: PosicionJugador
+      value: 
+      objectReference: {fileID: 1128464691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3294,6 +3312,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6708150211806795917, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+      propertyPath: PosicionJugador
+      value: 
+      objectReference: {fileID: 1128464691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3847,6 +3869,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6708150211806795917, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+      propertyPath: PosicionJugador
+      value: 
+      objectReference: {fileID: 1128464691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4996,6 +5022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 0
 --- !u!1001 &533261517
 PrefabInstance:
@@ -5480,6 +5507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!70 &576038173
 CapsuleCollider2D:
@@ -6480,6 +6508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!4 &665126031 stripped
 Transform:
@@ -7349,6 +7378,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6708150211806795917, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+      propertyPath: PosicionJugador
+      value: 
+      objectReference: {fileID: 1128464691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7571,6 +7604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!1 &745212442
 GameObject:
@@ -9059,7 +9093,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 2.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &925026558
@@ -9089,6 +9123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 1
 --- !u!61 &925026560
 BoxCollider2D:
@@ -9430,7 +9465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &988276892
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9922,7 +9957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1037892997
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10126,6 +10161,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6708150211806795917, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+      propertyPath: PosicionJugador
+      value: 
+      objectReference: {fileID: 1128464691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10229,6 +10268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!70 &1071359081
 CapsuleCollider2D:
@@ -10342,7 +10382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1080146890
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10971,6 +11011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!70 &1100785752
 CapsuleCollider2D:
@@ -11985,6 +12026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!70 &1147747222
 CapsuleCollider2D:
@@ -12712,7 +12754,7 @@ SpriteRenderer:
   m_Size: {x: 5.16, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1222703454
@@ -12742,6 +12784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!61 &1222703456
 BoxCollider2D:
@@ -13728,6 +13771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!1 &1341898853
 GameObject:
@@ -14052,6 +14096,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6708150211806795917, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+      propertyPath: PosicionJugador
+      value: 
+      objectReference: {fileID: 1128464691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14492,6 +14540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!70 &1400330404
 CapsuleCollider2D:
@@ -14631,6 +14680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 0
 --- !u!61 &1431915544
 BoxCollider2D:
@@ -14729,6 +14779,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6708150211806795917, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+      propertyPath: PosicionJugador
+      value: 
+      objectReference: {fileID: 1128464691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16176,6 +16230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!1 &1610607632
 GameObject:
@@ -16825,6 +16880,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6708150211806795917, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+      propertyPath: PosicionJugador
+      value: 
+      objectReference: {fileID: 1128464691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17571,6 +17630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 0
 --- !u!61 &1768010704
 BoxCollider2D:
@@ -17674,6 +17734,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6708150211806795917, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+      propertyPath: PosicionJugador
+      value: 
+      objectReference: {fileID: 1128464691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18617,6 +18681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 1
 --- !u!1 &1899835689
 GameObject:
@@ -18716,6 +18781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!70 &1899835693
 CapsuleCollider2D:
@@ -19499,6 +19565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 1
 --- !u!61 &1967725989
 BoxCollider2D:
@@ -20371,6 +20438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!1 &2067800817
 GameObject:
@@ -20470,6 +20538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
 --- !u!70 &2067800821
 CapsuleCollider2D:
@@ -20766,6 +20835,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6708150211806795917, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+      propertyPath: PosicionJugador
+      value: 
+      objectReference: {fileID: 1128464691}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

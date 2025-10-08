@@ -19,7 +19,7 @@ public class EnemigoDisparo : Enemigo_IA
     [SerializeField] private float tolerancia = 1f;      // margen para no moverse tanto
 
     [Header("fusil o piedra")]
-    [SerializeField] private bool fusil; //para ver si es piedra o fusil para atacar de manera diferente
+    [SerializeField] private bool fusil; //para ver si es piedra o fusil , y atacar de manera diferente
     private float cooldownDisparo = 5f;
     private bool puedeDisparar = true;
 
@@ -27,7 +27,7 @@ public class EnemigoDisparo : Enemigo_IA
     {
         float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
 
-    // Si el jugador se sale del rango → volver a patrullaje
+    // Si el jugador se sale de su rango vuelve a patrullar
         if (distanciaJugador > rangoVision)
         {
             print("Volviendo a patrullar");
@@ -39,7 +39,7 @@ public class EnemigoDisparo : Enemigo_IA
     // Posicionarse a la distancia adecuada
         Posicionarse(distanciaJugador);
 
-    // Si ya está en rango de disparo → disparar
+    // Si ya está en su rango dispara
         if (Mathf.Abs(distanciaJugador - distanciaOptima) <= tolerancia)
         {
             if (fusil)
@@ -110,7 +110,7 @@ public class EnemigoDisparo : Enemigo_IA
             float direccion = Mathf.Sign(jugador.position.x - transform.position.x);
             rbEnemigo.velocity = new Vector2(direccion * speed, rbEnemigo.velocity.y);
         }
-        // Si ya está en rango óptimo → detenerse
+        // Si ya está en rango optimo de ataque, s
         else
         {
             rbEnemigo.velocity = Vector2.zero;
