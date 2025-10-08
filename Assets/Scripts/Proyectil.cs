@@ -10,11 +10,9 @@ public class Proyectil : Arma
     [SerializeField] bool enUso;
     [SerializeField] Rigidbody2D piedraRigid;
     [SerializeField] int tipo;
-    
     // Start is called before the first frame update
     void Start()
     {
-        
         piedraRigid = GetComponent<Rigidbody2D>();
     }
 
@@ -64,8 +62,6 @@ public class Proyectil : Arma
     }
     public void Impulso(float fuerza, int dir, float dirY)
     {
-        
         piedraRigid.AddForce(Vector2.up * dirY * fuerza + Vector2.right * fuerza * dir);
-       
     }
 }
