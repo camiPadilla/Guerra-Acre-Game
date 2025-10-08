@@ -10,6 +10,8 @@ public static class SoundEvents
 
     //Lanzar piedra
     public static Action LanzarPiedra;
+    //Ataque Melee
+    public static Action AtaqueMachete;
 
     //SaltoCaída
     public static Action<float> Salto;

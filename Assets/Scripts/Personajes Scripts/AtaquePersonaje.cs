@@ -128,6 +128,7 @@ public class AtaquePersonaje : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             StartCoroutine(AtaqueMachete());
+            SoundEvents.AtaqueMachete?.Invoke(); //Sound By Chelo :D
         }
     }
     private void EntradaPedra()

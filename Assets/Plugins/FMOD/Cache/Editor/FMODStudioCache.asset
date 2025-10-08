@@ -56,7 +56,7 @@ MonoBehaviour:
   - {fileID: 6661465802403445150}
   MinDistance: 1
   MaxDistance: 20
-  Length: 911
+  Length: 1100
 --- !u!114 &-6980948626674342551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,8 +138,32 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638954274858770223
+  lastModified: 638954767292004457
   FileSizes: []
+  Exists: 1
+--- !u!114 &-2631191085826664331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AtaqueMachete/RandomMelee
+  m_EditorClassIdentifier: 
+  Name: RandomMelee
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1473830687
+    data2: 10793407
+  Type: 1
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-2598781895333536714
 MonoBehaviour:
@@ -222,7 +246,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Environment.bank
   Name: Environment
   StudioPath: bank:/Environment
-  lastModified: 638954720379084726
+  lastModified: 638954765961708627
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -259,13 +283,14 @@ MonoBehaviour:
   - {fileID: 6488882681444654221}
   - {fileID: 4886069395185646351}
   - {fileID: -7073656267845426441}
+  - {fileID: 7469179525193479881}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3465976776397467531}
   StringsBanks:
   - {fileID: 883576379495393654}
   cacheVersion: 131849
-  cacheTime: 638954720380984238
+  cacheTime: 638954790537563789
   SerializableEventsDict:
   - key: event:/ENVIRONMENT/Recolectables/RecogerNota
     index: 0
@@ -289,6 +314,8 @@ MonoBehaviour:
     index: 9
   - key: event:/ENVIRONMENT/Destruibles/DestruirObjeto
     index: 10
+  - key: event:/PLAYER/AtaqueMachete/AtaqueMachete
+    index: 11
 --- !u!114 &883576379495393654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,10 +331,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638954720380386346
+  lastModified: 638954767292256660
   FileSizes:
   - Name: 
-    Value: 2004
+    Value: 2110
   Exists: 1
 --- !u!114 &1492993146607850828
 MonoBehaviour:
@@ -342,7 +369,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Ambience-Atmos_Bank.bank
   Name: Ambience-Atmos_Bank
   StudioPath: bank:/Ambience-Atmos_Bank
-  lastModified: 638954720378685941
+  lastModified: 638954765960268512
   FileSizes: []
   Exists: 1
 --- !u!114 &2396712434507361627
@@ -387,7 +414,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-  lastModified: 638954720380984238
+  lastModified: 638954790537563789
   FileSizes: []
   Exists: 1
 --- !u!114 &3341489242889250344
@@ -621,6 +648,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1640
+--- !u!114 &7469179525193479881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLAYER/AtaqueMachete/AtaqueMachete
+  m_EditorClassIdentifier: 
+  Path: event:/PLAYER/AtaqueMachete/AtaqueMachete
+  Guid:
+    Data1: -333896609
+    Data2: 1172665692
+    Data3: -845404257
+    Data4: 673168148
+  Banks:
+  - {fileID: 2804349124176615228}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -2631191085826664331}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 400
 --- !u!114 &7785249142843757646
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,11 +16,13 @@ public class PlayerSoundManager : MonoBehaviour
     [SerializeField] StudioEventEmitter saltarEmitter;
     [SerializeField] StudioEventEmitter cargarpiedraEmitter;
     [SerializeField] StudioEventEmitter lanzarpiedraEmitter;
+    [SerializeField] StudioEventEmitter macheteEmitter;
 
     private void OnEnable()
     {
         SoundEvents.CargarFuerzaPiedra += ReproducirCargarPiedra;
         SoundEvents.DetenerCarga += DetenerCarga;
+        SoundEvents.AtaqueMachete += ReproducirMachete;
 
         SoundEvents.LanzarPiedra += ReproducirLanzarPiedra;
 
@@ -124,6 +126,27 @@ public class PlayerSoundManager : MonoBehaviour
         {
             //Debug.Log("Pasos Detenidos");
             pasosPastoEmitter.Stop();
+        }
+    }
+
+    public void ReproducirMachete()
+    {
+        if (macheteEmitter != null)
+        {
+            macheteEmitter.Play();
+            int ultimoValor = -1;
+            int NuevoRandom()
+            {
+                int nuevo;
+                do
+                {
+                    nuevo = UnityEngine.Random.Range(0, 3);
+                } while (nuevo == ultimoValor);
+
+                ultimoValor = nuevo;
+                return nuevo;
+            }
+            macheteEmitter.EventInstance.setParameterByName("RandomMelee", NuevoRandom());
         }
     }
 }

@@ -5093,6 +5093,7 @@ GameObject:
   - component: {fileID: 539648963}
   - component: {fileID: 539648962}
   - component: {fileID: 539648961}
+  - component: {fileID: 539648966}
   m_Layer: 5
   m_Name: Camera
   m_TagString: Untagged
@@ -5252,6 +5253,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &539648966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539648960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1001 &554735347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6801,6 +6816,44 @@ PolygonCollider2D:
       - {x: -0.14021909, y: 0.1616571}
       - {x: -0.21374607, y: 0.72964233}
   m_UseDelaunayMesh: 0
+--- !u!1 &684019081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3294839437890773020, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+  m_PrefabInstance: {fileID: 1817677487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &684019083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684019081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -333896609
+      Data2: 1172665692
+      Data3: -845404257
+      Data4: 673168148
+    Path: event:/PLAYER/AtaqueMachete/AtaqueMachete
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: RandomMelee
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &691443841
 GameObject:
   m_ObjectHideFlags: 0
@@ -7598,7 +7651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097683978b633284bb350cb5128632dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipo: 0
+  tipo: 2
   vidas: 2
 --- !u!1 &745212442
 GameObject:
@@ -15465,6 +15518,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.0553894, y: 1.1965227}
   m_EdgeRadius: 0
+--- !u!114 &1516269061 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3940908647067000568, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+  m_PrefabInstance: {fileID: 8741705767408043525}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1554218068
 GameObject:
   m_ObjectHideFlags: 0
@@ -18058,7 +18122,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3294839437890773020, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 684019083}
   m_SourcePrefab: {fileID: 100100000, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
 --- !u!114 &1817677488 stripped
 MonoBehaviour:
@@ -22094,6 +22161,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1817677488}
     - target: {fileID: 5629687840868250841, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: macheteEmitter
+      value: 
+      objectReference: {fileID: 684019083}
+    - target: {fileID: 5629687840868250841, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
       propertyPath: ataquePersonaje
       value: 
       objectReference: {fileID: 1817677490}
@@ -22117,8 +22188,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8305260374632511208, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+    - target: {fileID: 8305260374632511208, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: Ambiente
+      value: 
+      objectReference: {fileID: 1516269061}
+    - target: {fileID: 8305260374632511208, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
