@@ -6,6 +6,7 @@ using UnityEngine.U2D;
 
 public class ObjetoDestruible : MonoBehaviour
 {
+<<<<<<< HEAD
     public enum TipoDestruible
     {
         Caja,
@@ -14,6 +15,8 @@ public class ObjetoDestruible : MonoBehaviour
     }
 
     [SerializeField] private TipoDestruible tipo;
+=======
+>>>>>>> parent of 716b938 (rebloqueo)
     [SerializeField] int vidas;
     public void Damage(int cantidad)
     {

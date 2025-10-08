@@ -1,111 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8115174646234040528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/PLAYER/Pasos/Pasto/Pasos_Pasto
-  m_EditorClassIdentifier: 
-  Path: event:/PLAYER/Pasos/Pasto/Pasos_Pasto
-  Guid:
-    Data1: -3528639
-    Data2: 1306778607
-    Data3: 752962186
-    Data4: 43525401
-  Banks:
-  - {fileID: 2804349124176615228}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -5106635640988097711}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 3020
---- !u!114 &-7073656267845426441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ENVIRONMENT/Destruibles/DestruirObjeto
-  m_EditorClassIdentifier: 
-  Path: event:/ENVIRONMENT/Destruibles/DestruirObjeto
-  Guid:
-    Data1: -563701215
-    Data2: 1321681869
-    Data3: -803159361
-    Data4: 1745064157
-  Banks:
-  - {fileID: 2804349124176615228}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -1843174579539607669}
-  - {fileID: 6661465802403445150}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1100
---- !u!114 &-6980948626674342551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Aliado/RandomAllyNPC
-  m_EditorClassIdentifier: 
-  Name: RandomAllyNPC
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 2228391792
-    data2: 3973726400
-  Type: 1
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &-5106635640988097711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Pasos_Pasto/Gait
-  m_EditorClassIdentifier: 
-  Name: Gait
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2527882342
-    data2: 2363063229
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &-3787209985705669593
+--- !u!114 &-8723906228904132604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,297 +15,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Enemies_Bank.bank
   Name: SFX_Enemies_Bank
   StudioPath: bank:/SFX_Enemies_Bank
-  lastModified: 638955122861032834
+  lastModified: 638955187195682827
   FileSizes: []
   Exists: 1
---- !u!114 &-3465976776397467531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/SoundsFMOD/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638955122858268933
-  FileSizes: []
-  Exists: 1
---- !u!114 &-2631191085826664331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/AtaqueMachete/RandomMelee
-  m_EditorClassIdentifier: 
-  Name: RandomMelee
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 1473830687
-    data2: 10793407
-  Type: 1
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &-2598781895333536714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX_UI_Bank.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/SoundsFMOD/Desktop/SFX_UI_Bank.bank
-  Name: SFX_UI_Bank
-  StudioPath: bank:/SFX_UI_Bank
-  lastModified: 638930997833375159
-  FileSizes: []
-  Exists: 1
---- !u!114 &-2580770970863302688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Saltar/Salto-Caida
-  m_EditorClassIdentifier: 
-  Name: Salto-Caida
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 312080183
-    data2: 3282331617
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &-1843174579539607669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/DestruirObjeto/Panner
-  m_EditorClassIdentifier: 
-  Name: Panner
-  StudioPath: 
-  Min: -1
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2046405119
-    data2: 26682935
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &-1154086746160817531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Environment.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/SoundsFMOD/Desktop/Environment.bank
-  Name: Environment
-  StudioPath: bank:/Environment
-  lastModified: 638954765961708627
-  FileSizes: []
-  Exists: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: 883576379495393654}
-  - {fileID: 1911985573968197743}
-  - {fileID: -3465976776397467531}
-  - {fileID: 1492993146607850828}
-  - {fileID: -3787209985705669593}
-  - {fileID: 2804349124176615228}
-  - {fileID: -2598781895333536714}
-  - {fileID: 6116494432412551833}
-  - {fileID: -1154086746160817531}
-  EditorEvents:
-  - {fileID: 3975879371791727847}
-  - {fileID: 7210694712122935480}
-  - {fileID: 4778383394945834238}
-  - {fileID: 7785249142843757646}
-  - {fileID: 3341489242889250344}
-  - {fileID: -8115174646234040528}
-  - {fileID: 2396712434507361627}
-  - {fileID: 8656309329108580147}
-  - {fileID: 6488882681444654221}
-  - {fileID: 4886069395185646351}
-  - {fileID: -7073656267845426441}
-  - {fileID: 7469179525193479881}
-  - {fileID: 8822732440085358221}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: -3465976776397467531}
-  StringsBanks:
-  - {fileID: 883576379495393654}
-  cacheVersion: 131849
-<<<<<<< HEAD
-  cacheTime: 638955122866211767
-=======
-  cacheTime: 638954312413661839
->>>>>>> parent of 716b938 (rebloqueo)
-  SerializableEventsDict:
-  - key: event:/ENVIRONMENT/Recolectables/RecogerNota
-    index: 0
-  - key: event:/ENVIRONMENT/NPCs/Aliado
-    index: 1
-  - key: event:/AMBIENCE/Animales/Jungle-Sound
-    index: 2
-  - key: event:/AMBIENCE/Animales/Croac-Sapo
-    index: 3
-  - key: event:/AMBIENCE/Animales/Grillos
-    index: 4
-  - key: event:/PLAYER/Pasos/Pasto/Pasos_Pasto
-    index: 5
-  - key: event:/PLAYER/Pasos/Pasto/Caminar_Pasto
-    index: 6
-  - key: event:/PLAYER/Salto/Saltar
-    index: 7
-  - key: event:/PLAYER/TirarPiedra/Cargar
-    index: 8
-  - key: event:/PLAYER/TirarPiedra/ArrojarPiedra
-    index: 9
-  - key: event:/ENVIRONMENT/Destruibles/DestruirObjeto
-    index: 10
-  - key: event:/PLAYER/AtaqueMachete/AtaqueMachete
-    index: 11
-  - key: event:/SFX/Enemigos/Mosquito/MorirMosquito
-    index: 12
---- !u!114 &883576379495393654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-<<<<<<< HEAD
-  lastModified: 638955122858314668
-=======
-  lastModified: 638954312413631919
->>>>>>> parent of 716b938 (rebloqueo)
-  FileSizes:
-  - Name: 
-    Value: 2176
-  Exists: 1
---- !u!114 &1492993146607850828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music_Bank.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/SoundsFMOD/Desktop/Music_Bank.bank
-  Name: Music_Bank
-  StudioPath: bank:/Music_Bank
-  lastModified: 638930997831199452
-  FileSizes: []
-  Exists: 1
---- !u!114 &1911985573968197743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Ambience-Atmos_Bank.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/SoundsFMOD/Desktop/Ambience-Atmos_Bank.bank
-  Name: Ambience-Atmos_Bank
-  StudioPath: bank:/Ambience-Atmos_Bank
-  lastModified: 638955122857705244
-  FileSizes: []
-  Exists: 1
---- !u!114 &2396712434507361627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/PLAYER/Pasos/Pasto/Caminar_Pasto
-  m_EditorClassIdentifier: 
-  Path: event:/PLAYER/Pasos/Pasto/Caminar_Pasto
-  Guid:
-    Data1: -1726375094
-    Data2: 1264335529
-    Data3: -1936772698
-    Data4: -1837821932
-  Banks:
-  - {fileID: 2804349124176615228}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 6187
---- !u!114 &2804349124176615228
+--- !u!114 &-7685631432147471906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -425,123 +33,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-<<<<<<< HEAD
-  lastModified: 638955122866211767
-=======
-  lastModified: 638954312413661839
->>>>>>> parent of 716b938 (rebloqueo)
+  lastModified: 638955187195752069
   FileSizes: []
   Exists: 1
---- !u!114 &3341489242889250344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/AMBIENCE/Animales/Grillos
-  m_EditorClassIdentifier: 
-  Path: event:/AMBIENCE/Animales/Grillos
-  Guid:
-    Data1: 326006263
-    Data2: 1169613535
-    Data3: -2066853725
-    Data4: -1042152879
-  Banks:
-  - {fileID: 1911985573968197743}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 12500
---- !u!114 &3975879371791727847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ENVIRONMENT/Recolectables/RecogerNota
-  m_EditorClassIdentifier: 
-  Path: event:/ENVIRONMENT/Recolectables/RecogerNota
-  Guid:
-    Data1: -1378521387
-    Data2: 1115541145
-    Data3: -1797739114
-    Data4: 160617473
-  Banks:
-  - {fileID: -1154086746160817531}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &4778383394945834238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/AMBIENCE/Animales/Jungle-Sound
-  m_EditorClassIdentifier: 
-  Path: event:/AMBIENCE/Animales/Jungle-Sound
-  Guid:
-    Data1: 1251537650
-    Data2: 1210683685
-    Data3: -452869212
-    Data4: -906536679
-  Banks:
-  - {fileID: 1911985573968197743}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 5805321651797014718}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 5267
---- !u!114 &4886069395185646351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/PLAYER/TirarPiedra/ArrojarPiedra
-  m_EditorClassIdentifier: 
-  Path: event:/PLAYER/TirarPiedra/ArrojarPiedra
-  Guid:
-    Data1: -536892189
-    Data2: 1227390531
-    Data3: 1035134852
-    Data4: -1247038853
-  Banks:
-  - {fileID: 2804349124176615228}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &5805321651797014718
+--- !u!114 &-7652416362425380728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -565,7 +60,7 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &6116494432412551833
+--- !u!114 &-7626480680881791680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -575,15 +70,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Voice-Dialogue_Bank.bank
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: Assets/SoundsFMOD/Desktop/Voice-Dialogue_Bank.bank
-  Name: Voice-Dialogue_Bank
-  StudioPath: bank:/Voice-Dialogue_Bank
-  lastModified: 638930997833471814
-  FileSizes: []
+  Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638955187195642359
+  FileSizes:
+  - Name: 
+    Value: 2176
   Exists: 1
---- !u!114 &6488882681444654221
+--- !u!114 &-7520482851693601047
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -593,25 +90,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/PLAYER/TirarPiedra/Cargar
+  m_Name: event:/PLAYER/Pasos/Pasto/Caminar_Pasto
   m_EditorClassIdentifier: 
-  Path: event:/PLAYER/TirarPiedra/Cargar
+  Path: event:/PLAYER/Pasos/Pasto/Caminar_Pasto
   Guid:
-    Data1: -100764217
-    Data2: 1254599512
-    Data3: -1394550387
-    Data4: 1453257471
+    Data1: -1726375094
+    Data2: 1264335529
+    Data3: -1936772698
+    Data4: -1837821932
   Banks:
-  - {fileID: 2804349124176615228}
+  - {fileID: -7685631432147471906}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
-  Parameters:
-  - {fileID: 8209953313738871845}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2800
---- !u!114 &6661465802403445150
+  Length: 6187
+--- !u!114 &-7028217843433004220
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -620,22 +116,62 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/DestruirObjeto/Tipo
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Environment.bank
   m_EditorClassIdentifier: 
-  Name: Tipo
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 4161716514
-    data2: 1695555659
-  Type: 1
-  IsGlobal: 0
-  Labels: []
+  Path: Assets/SoundsFMOD/Desktop/Environment.bank
+  Name: Environment
+  StudioPath: bank:/Environment
+  lastModified: 638941294587439816
+  FileSizes: []
   Exists: 1
---- !u!114 &7210694712122935480
+--- !u!114 &-6481595306401110297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AMBIENCE/Animales/Jungle-Sound
+  m_EditorClassIdentifier: 
+  Path: event:/AMBIENCE/Animales/Jungle-Sound
+  Guid:
+    Data1: 1251537650
+    Data2: 1210683685
+    Data3: -452869212
+    Data4: -906536679
+  Banks:
+  - {fileID: -6423098956237804223}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -7652416362425380728}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5267
+--- !u!114 &-6423098956237804223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience-Atmos_Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/Ambience-Atmos_Bank.bank
+  Name: Ambience-Atmos_Bank
+  StudioPath: bank:/Ambience-Atmos_Bank
+  lastModified: 638955187195622411
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-6208179847570212994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -654,16 +190,40 @@ MonoBehaviour:
     Data3: -1183073874
     Data4: 689690209
   Banks:
-  - {fileID: -1154086746160817531}
+  - {fileID: -7028217843433004220}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -6980948626674342551}
+  - {fileID: 1444700603887092253}
   MinDistance: 1
   MaxDistance: 20
   Length: 1640
---- !u!114 &7469179525193479881
+--- !u!114 &-5047327903495875336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AtaqueMachete/RandomMelee
+  m_EditorClassIdentifier: 
+  Name: RandomMelee
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1473830687
+    data2: 10793407
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-4133822337401576578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -673,52 +233,294 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/PLAYER/AtaqueMachete/AtaqueMachete
+  m_Name: event:/SFX/Enemigos/Mosquito/MorirMosquito
   m_EditorClassIdentifier: 
-  Path: event:/PLAYER/AtaqueMachete/AtaqueMachete
+  Path: event:/SFX/Enemigos/Mosquito/MorirMosquito
   Guid:
-    Data1: -333896609
-    Data2: 1172665692
-    Data3: -845404257
-    Data4: 673168148
+    Data1: 815772303
+    Data2: 1277336910
+    Data3: 1232007553
+    Data4: -1278741862
   Banks:
-  - {fileID: 2804349124176615228}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -2631191085826664331}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 400
---- !u!114 &7785249142843757646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/AMBIENCE/Animales/Croac-Sapo
-  m_EditorClassIdentifier: 
-  Path: event:/AMBIENCE/Animales/Croac-Sapo
-  Guid:
-    Data1: -818603026
-    Data2: 1215082515
-    Data3: -1077061978
-    Data4: -1791259552
-  Banks:
-  - {fileID: 1911985573968197743}
+  - {fileID: -8723906228904132604}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 4973
---- !u!114 &8209953313738871845
+  Length: 1000
+--- !u!114 &-3908219103884948142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/DestruirObjeto/Panner
+  m_EditorClassIdentifier: 
+  Name: Panner
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2046405119
+    data2: 26682935
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-3615399980373436705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638931806601092043
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-2811402810781482132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLAYER/TirarPiedra/ArrojarPiedra
+  m_EditorClassIdentifier: 
+  Path: event:/PLAYER/TirarPiedra/ArrojarPiedra
+  Guid:
+    Data1: -536892189
+    Data2: 1227390531
+    Data3: 1035134852
+    Data4: -1247038853
+  Banks:
+  - {fileID: -7685631432147471906}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-102884809026456222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AMBIENCE/Animales/Grillos
+  m_EditorClassIdentifier: 
+  Path: event:/AMBIENCE/Animales/Grillos
+  Guid:
+    Data1: 326006263
+    Data2: 1169613535
+    Data3: -2066853725
+    Data4: -1042152879
+  Banks:
+  - {fileID: -6423098956237804223}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12500
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -7626480680881791680}
+  - {fileID: -6423098956237804223}
+  - {fileID: -7028217843433004220}
+  - {fileID: -3615399980373436705}
+  - {fileID: 8644932310883878174}
+  - {fileID: -8723906228904132604}
+  - {fileID: -7685631432147471906}
+  - {fileID: 6427350813054627438}
+  - {fileID: 4347584168356723024}
+  EditorEvents:
+  - {fileID: 3949222241678476966}
+  - {fileID: -6481595306401110297}
+  - {fileID: -102884809026456222}
+  - {fileID: -6208179847570212994}
+  - {fileID: 6272096052098197942}
+  - {fileID: -4133822337401576578}
+  - {fileID: 7570498835416355294}
+  - {fileID: 6351505282184984367}
+  - {fileID: -7520482851693601047}
+  - {fileID: 7268717783022139258}
+  - {fileID: 2395448341986740284}
+  - {fileID: 221986783000359775}
+  - {fileID: -2811402810781482132}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: -3615399980373436705}
+  StringsBanks:
+  - {fileID: -7626480680881791680}
+  cacheVersion: 131849
+  cacheTime: 638955187195752069
+  SerializableEventsDict:
+  - key: event:/AMBIENCE/Animales/Croac-Sapo
+    index: 0
+  - key: event:/AMBIENCE/Animales/Jungle-Sound
+    index: 1
+  - key: event:/AMBIENCE/Animales/Grillos
+    index: 2
+  - key: event:/ENVIRONMENT/NPCs/Aliado
+    index: 3
+  - key: event:/ENVIRONMENT/Recolectables/RecogerNota
+    index: 4
+  - key: event:/SFX/Enemigos/Mosquito/MorirMosquito
+    index: 5
+  - key: event:/ENVIRONMENT/Destruibles/DestruirObjeto
+    index: 6
+  - key: event:/PLAYER/Pasos/Pasto/Pasos_Pasto
+    index: 7
+  - key: event:/PLAYER/Pasos/Pasto/Caminar_Pasto
+    index: 8
+  - key: event:/PLAYER/AtaqueMachete/AtaqueMachete
+    index: 9
+  - key: event:/PLAYER/Salto/Saltar
+    index: 10
+  - key: event:/PLAYER/TirarPiedra/Cargar
+    index: 11
+  - key: event:/PLAYER/TirarPiedra/ArrojarPiedra
+    index: 12
+--- !u!114 &221986783000359775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLAYER/TirarPiedra/Cargar
+  m_EditorClassIdentifier: 
+  Path: event:/PLAYER/TirarPiedra/Cargar
+  Guid:
+    Data1: -100764217
+    Data2: 1254599512
+    Data3: -1394550387
+    Data4: 1453257471
+  Banks:
+  - {fileID: -7685631432147471906}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 3375857396192895641}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2800
+--- !u!114 &1343215476677948201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Saltar/Salto-Caida
+  m_EditorClassIdentifier: 
+  Name: Salto-Caida
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 312080183
+    data2: 3282331617
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &1444700603887092253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Aliado/RandomAllyNPC
+  m_EditorClassIdentifier: 
+  Name: RandomAllyNPC
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 2228391792
+    data2: 3973726400
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &2395448341986740284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLAYER/Salto/Saltar
+  m_EditorClassIdentifier: 
+  Path: event:/PLAYER/Salto/Saltar
+  Guid:
+    Data1: 771507817
+    Data2: 1184800331
+    Data3: -1755829840
+    Data4: -1209329405
+  Banks:
+  - {fileID: -7685631432147471906}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 1343215476677948201}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3375857396192895641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -742,7 +544,7 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
---- !u!114 &8656309329108580147
+--- !u!114 &3949222241678476966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -752,48 +554,234 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/PLAYER/Salto/Saltar
+  m_Name: event:/AMBIENCE/Animales/Croac-Sapo
   m_EditorClassIdentifier: 
-  Path: event:/PLAYER/Salto/Saltar
+  Path: event:/AMBIENCE/Animales/Croac-Sapo
   Guid:
-    Data1: 771507817
-    Data2: 1184800331
-    Data3: -1755829840
-    Data4: -1209329405
+    Data1: -818603026
+    Data2: 1215082515
+    Data3: -1077061978
+    Data4: -1791259552
   Banks:
-  - {fileID: 2804349124176615228}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -2580770970863302688}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &8822732440085358221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Enemigos/Mosquito/MorirMosquito
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Enemigos/Mosquito/MorirMosquito
-  Guid:
-    Data1: 815772303
-    Data2: 1277336910
-    Data3: 1232007553
-    Data4: -1278741862
-  Banks:
-  - {fileID: -3787209985705669593}
+  - {fileID: -6423098956237804223}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1000
+  Length: 4973
+--- !u!114 &4347584168356723024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Voice-Dialogue_Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/Voice-Dialogue_Bank.bank
+  Name: Voice-Dialogue_Bank
+  StudioPath: bank:/Voice-Dialogue_Bank
+  lastModified: 638931806601481701
+  FileSizes: []
+  Exists: 1
+--- !u!114 &4506722913249653232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/DestruirObjeto/Tipo
+  m_EditorClassIdentifier: 
+  Name: Tipo
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 4161716514
+    data2: 1695555659
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &6272096052098197942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENVIRONMENT/Recolectables/RecogerNota
+  m_EditorClassIdentifier: 
+  Path: event:/ENVIRONMENT/Recolectables/RecogerNota
+  Guid:
+    Data1: -1378521387
+    Data2: 1115541145
+    Data3: -1797739114
+    Data4: 160617473
+  Banks:
+  - {fileID: -7028217843433004220}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6351505282184984367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLAYER/Pasos/Pasto/Pasos_Pasto
+  m_EditorClassIdentifier: 
+  Path: event:/PLAYER/Pasos/Pasto/Pasos_Pasto
+  Guid:
+    Data1: -3528639
+    Data2: 1306778607
+    Data3: 752962186
+    Data4: 43525401
+  Banks:
+  - {fileID: -7685631432147471906}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8755215717203915377}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3020
+--- !u!114 &6427350813054627438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX_UI_Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/SFX_UI_Bank.bank
+  Name: SFX_UI_Bank
+  StudioPath: bank:/SFX_UI_Bank
+  lastModified: 638931806601481701
+  FileSizes: []
+  Exists: 1
+--- !u!114 &7268717783022139258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLAYER/AtaqueMachete/AtaqueMachete
+  m_EditorClassIdentifier: 
+  Path: event:/PLAYER/AtaqueMachete/AtaqueMachete
+  Guid:
+    Data1: -333896609
+    Data2: 1172665692
+    Data3: -845404257
+    Data4: 673168148
+  Banks:
+  - {fileID: -7685631432147471906}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -5047327903495875336}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 400
+--- !u!114 &7570498835416355294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENVIRONMENT/Destruibles/DestruirObjeto
+  m_EditorClassIdentifier: 
+  Path: event:/ENVIRONMENT/Destruibles/DestruirObjeto
+  Guid:
+    Data1: -563701215
+    Data2: 1321681869
+    Data3: -803159361
+    Data4: 1745064157
+  Banks:
+  - {fileID: -7685631432147471906}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -3908219103884948142}
+  - {fileID: 4506722913249653232}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1100
+--- !u!114 &8644932310883878174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music_Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/SoundsFMOD/Desktop/Music_Bank.bank
+  Name: Music_Bank
+  StudioPath: bank:/Music_Bank
+  lastModified: 638931806601111983
+  FileSizes: []
+  Exists: 1
+--- !u!114 &8755215717203915377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Pasos_Pasto/Gait
+  m_EditorClassIdentifier: 
+  Name: Gait
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2527882342
+    data2: 2363063229
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
