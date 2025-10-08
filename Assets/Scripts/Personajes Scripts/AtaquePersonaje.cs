@@ -95,6 +95,8 @@ public class AtaquePersonaje : MonoBehaviour
         piedraActual.Reposicionar(puntoIncial);
         piedraActual.ActivarProyectil();
         piedraActual.Impulso(fuerzatiro, dirX, dirY);
+        SoundEvents.LanzarPiedra?.Invoke(); //Sound By Chelo :D
+        SoundEvents.DetenerCarga?.Invoke(); //Sound By Chelo :D
         enAccion = false;
     }
     void InstanciarProyectiles()
@@ -134,6 +136,7 @@ public class AtaquePersonaje : MonoBehaviour
         {
             fuerzatiro = 0;
             enAccion = true;
+            SoundEvents.CargarFuerzaPiedra?.Invoke(); //Sound By Chelo :D
         }
         if (Input.GetButton("Fire1"))
         {
