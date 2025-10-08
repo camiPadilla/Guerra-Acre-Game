@@ -17,6 +17,10 @@ public class MosquitoController : MonoBehaviour
     {
         posicionInicial = transform.position;
         cambiarPosicion();
+        if(PosicionJugador == null)
+        {
+            PosicionJugador = GameObject.FindGameObjectWithTag("Player").transform;
+        }
         
     }
     
