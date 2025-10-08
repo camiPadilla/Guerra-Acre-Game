@@ -20,9 +20,12 @@ public class SAmbienceSounds : MonoBehaviour
         temporizador += Time.deltaTime;
         if (temporizador >= siguienteTiempo)
         {
-            Debug.Log("Reproduciendo sonido de aves: " + temporizador);
-            Ambiente.Play();
-            SetNuevoTiempo();
+            if (Ambiente != null)
+            {
+                Debug.Log("Reproduciendo sonido de aves: " + temporizador);
+                Ambiente.Play();
+                SetNuevoTiempo();
+            }
         }
     }
 
