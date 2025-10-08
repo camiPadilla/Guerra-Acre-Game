@@ -120,7 +120,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Enemies_Bank.bank
   Name: SFX_Enemies_Bank
   StudioPath: bank:/SFX_Enemies_Bank
-  lastModified: 638955122861032834
+  lastModified: 638955195437916356
   FileSizes: []
   Exists: 1
 --- !u!114 &-3465976776397467531
@@ -138,7 +138,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638955122858268933
+  lastModified: 638955195319244864
   FileSizes: []
   Exists: 1
 --- !u!114 &-2631191085826664331
@@ -231,6 +231,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-1462203793170779285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/MusicaMilitar
+  m_EditorClassIdentifier: 
+  Path: event:/MUSIC/MusicaMilitar
+  Guid:
+    Data1: -498716774
+    Data2: 1297591211
+    Data3: 64599946
+    Data4: 1224638656
+  Banks:
+  - {fileID: 1492993146607850828}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 187624
 --- !u!114 &-1154086746160817531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,13 +312,14 @@ MonoBehaviour:
   - {fileID: -7073656267845426441}
   - {fileID: 7469179525193479881}
   - {fileID: 8822732440085358221}
+  - {fileID: -1462203793170779285}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3465976776397467531}
   StringsBanks:
   - {fileID: 883576379495393654}
   cacheVersion: 131849
-  cacheTime: 638955122866211767
+  cacheTime: 638955195439216023
   SerializableEventsDict:
   - key: event:/ENVIRONMENT/Recolectables/RecogerNota
     index: 0
@@ -334,10 +362,10 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638955122858314668
+  lastModified: 638955195319285395
   FileSizes:
   - Name: 
-    Value: 2176
+    Value: 2226
   Exists: 1
 --- !u!114 &1492993146607850828
 MonoBehaviour:
@@ -354,7 +382,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Music_Bank.bank
   Name: Music_Bank
   StudioPath: bank:/Music_Bank
-  lastModified: 638930997831199452
+  lastModified: 638955195437277696
   FileSizes: []
   Exists: 1
 --- !u!114 &1911985573968197743
@@ -372,7 +400,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Ambience-Atmos_Bank.bank
   Name: Ambience-Atmos_Bank
   StudioPath: bank:/Ambience-Atmos_Bank
-  lastModified: 638955122857705244
+  lastModified: 638955195318993670
   FileSizes: []
   Exists: 1
 --- !u!114 &2396712434507361627
@@ -417,7 +445,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/SFX_Gameplay.bank
   Name: SFX_Gameplay
   StudioPath: bank:/SFX_Gameplay
-  lastModified: 638955122866211767
+  lastModified: 638955195439216023
   FileSizes: []
   Exists: 1
 --- !u!114 &3341489242889250344
