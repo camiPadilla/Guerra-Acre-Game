@@ -22,7 +22,8 @@ public class ControladorNPC : ObjetoRecogible
             //HUDManager.instancia.Ocultar();
         }
     }
-       
+
+
     public void Interactuar()
     {
         //Debug.Log("el NPC anda interactuando");
@@ -48,7 +49,7 @@ public class ControladorNPC : ObjetoRecogible
 
     public void MostrarMensaje()
     {
-        SoundEvents.HablarAliadoNPC?.Invoke(); //Sound by Chelo :D
+        SoundEvents.HablarAliadoNPC?.Invoke(); //Sonido by Chelo :D
         dialogo.GetComponent<SpriteRenderer>().sprite = MensajeNPC;
         dialogo.SetActive(true);
     }

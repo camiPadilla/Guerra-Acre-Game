@@ -41,7 +41,7 @@ public class EnvironmentSoundManager : MonoBehaviour
             //Debug.Log("Distancia Normalizada: " + distNormalizado);
             destruirObjetoEmitter.EventInstance.setParameterByName("Panner", -(distNormalizado));
             destruirObjetoEmitter.EventInstance.setParameterByName("Tipo", tipo);
-            Debug.Log("Valor actual del emiter: " + tipo);
+            //Debug.Log("Valor actual del emiter: " + tipo);
 
             
         }
@@ -68,7 +68,7 @@ public class EnvironmentSoundManager : MonoBehaviour
                 int nuevo;
                 do
                 {
-                    nuevo = UnityEngine.Random.Range(0, 3);
+                    nuevo = UnityEngine.Random.Range(0, 4);
                 } while (nuevo == ultimoValor);
 
                 ultimoValor = nuevo;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using PantallaCarga;
 
 public class HUDManager : MonoBehaviour
 {
@@ -10,12 +11,9 @@ public class HUDManager : MonoBehaviour
     public static HUDManager instancia;
     [SerializeField] TMP_Text text;
     GameObject mensajeE;
-    [SerializeField] GameObject pantallaNota;
-    [SerializeField] GameObject pantallaPausa;
-    [SerializeField] GameObject HUDGameplay;
-    [SerializeField] GameObject PantallaFin;
-    [SerializeField] GameObject pantallaMuerte;
-    [SerializeField] GameObject pantallaCarga;
+    [Header("Pantallas")]
+    [SerializeField] List<GameObject> pantallas;
+    [Header("Imagenes y barras")]
     [SerializeField] Sprite imagenClick;
     [SerializeField] Sprite imagenE;
     [SerializeField] Sprite imagenAumentoBala;
@@ -26,7 +24,6 @@ public class HUDManager : MonoBehaviour
     [SerializeField] List<GameObject> armas;
     [SerializeField] List<Sprite> imagenArmas;
     [SerializeField] GameObject hudBalas;
-    [SerializeField] GameObject padreInteraccion;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -141,12 +138,11 @@ public class HUDManager : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-
-        mensajeE = Instantiate(interactuable, padreInteraccion.transform);
-        mensajeE.transform.parent = padreInteraccion.transform;
+        StartCoroutine(DarBienvenida());
+        mensajeE = Instantiate(interactuable, transform);
         mensajeE.SetActive(false);
         imagenE = mensajeE.GetComponent<SpriteRenderer>().sprite;
-        mensajeE.GetComponent<SpriteRenderer>().sortingLayerName = "IU";
+        mensajeE.GetComponent<SpriteRenderer>().sortingOrder = 4;
         ActualizarBalasActual(0);
         ActualizarTotalBalas(0);
 
@@ -180,15 +176,19 @@ public class HUDManager : MonoBehaviour
     {
         DetenerTiempo();
         text.text = mensajeNuevo;
-        HUDGameplay.SetActive(false);
-        pantallaNota.SetActive(true);
+        pantallas[2].SetActive(false);
+        pantallas[0].SetActive(true);
 
     }
     public void Pausar()
     {
         DetenerTiempo();
-        pantallaPausa.SetActive(true);
-        HUDGameplay.SetActive(false);
+        pantallas[1].SetActive(true);
+        pantallas[2].SetActive(false);
+        pantallas[5].SetActive(false);
+        pantallas[6].SetActive(false);
+        pantallas[7].SetActive(false);
+
     }
     void DetenerTiempo()
     {
@@ -197,33 +197,61 @@ public class HUDManager : MonoBehaviour
     public void Reanudar()
     {
         Time.timeScale = 1;
-        HUDGameplay.SetActive(true);
+        pantallas[2].SetActive(true);
     }
     public void MostrarPantallaMuerte()
     {
-        pantallaMuerte.SetActive(true);
+        pantallas[4].SetActive(true);
         DetenerTiempo();
-        HUDGameplay.SetActive(false);
+        pantallas[2].SetActive(false);
     }
     public void MostrarPantallaCarga()
     {
-        PantallaFin.SetActive(false);
+        pantallas[3].SetActive(false);
         DetenerTiempo();
-        HUDGameplay.SetActive(false);
+        pantallas[2].SetActive(false);
     }
     public void MostrarPantallaFin()
     {
-        PantallaFin.SetActive(true);
+        pantallas[3].SetActive(true);
         DetenerTiempo();
-        HUDGameplay.SetActive(false);
+        pantallas[2].SetActive(false);
     }
     public void OcultarTodo()
     {
-        pantallaMuerte.SetActive(false);
-        pantallaNota.SetActive(false);
-        pantallaPausa.SetActive(false);
-        PantallaFin.SetActive(false);
+        pantallas[4].SetActive(false);
+        pantallas[0].SetActive(false);
+        pantallas[1].SetActive(false);
+        pantallas[3].SetActive(false);
         Time.timeScale = 1;
-        HUDGameplay.SetActive(false);
+        pantallas[2].SetActive(false);
+    }
+    public void MostarAjustes()
+    {
+        pantallas[5].SetActive(true);
+        pantallas[1].SetActive(false);
+        pantallas[2].SetActive(false);
+
+    }
+    public void MostrarColeccionables()
+    {
+        pantallas[1].SetActive(false);
+        pantallas[2].SetActive(false);
+        pantallas[6].SetActive(true);
+    }
+    public void SalirJUego()
+    {
+        pantallas[7].SetActive(true);
+    }
+    public void IrInicio()
+    {
+        pantallas[1].SetActive(false);
+        pantallas[2].SetActive(false);
+    }
+    IEnumerator DarBienvenida()
+    {
+        pantallas[8].SetActive(true);
+        yield return new WaitForSeconds(5f);
+        pantallas[8].SetActive(false);
     }
 }

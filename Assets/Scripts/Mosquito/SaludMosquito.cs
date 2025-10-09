@@ -12,6 +12,7 @@ public class SaludMosquito : MonoBehaviour
         Debug.Log("Perdi una vida mosquito");
         if(vidas == 0)
         {
+            SoundEvents.MorirMosquito?.Invoke();
             Destroy(this.gameObject);
         }
     }
