@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Piso, Water, UI, Player
 - Active game object:
-  - Name: Menu Inicio
+  - Name: Audio General
   - Tag: Untagged
   - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
