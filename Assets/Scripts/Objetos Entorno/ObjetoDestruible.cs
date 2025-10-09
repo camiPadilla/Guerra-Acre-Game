@@ -38,6 +38,7 @@ public class ObjetoDestruible : MonoBehaviour
 
             //Debug.Log("se destruyo");
             SendMessage("ActivarLoot", SendMessageOptions.DontRequireReceiver);
+            StopCoroutine(FeedBackGrafico());
             gameObject.SetActive(false);
             
         }    
