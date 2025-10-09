@@ -198,7 +198,7 @@ MonoBehaviour:
   Name: RandomAllyNPC
   StudioPath: 
   Min: 0
-  Max: 2
+  Max: 4
   Default: 0
   ID:
     data1: 2228391792
@@ -273,7 +273,7 @@ MonoBehaviour:
   Path: Assets/SoundsFMOD/Desktop/Environment.bank
   Name: Environment
   StudioPath: bank:/Environment
-  lastModified: 638955537037756428
+  lastModified: 638955578151085151
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -319,35 +319,35 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 883576379495393654}
   cacheVersion: 131849
-  cacheTime: 638955537047030851
+  cacheTime: 638955578151085151
   SerializableEventsDict:
   - key: event:/ENVIRONMENT/Recolectables/RecogerNota
     index: 0
-  - key: event:/ENVIRONMENT/NPCs/Aliado
-    index: 1
   - key: event:/AMBIENCE/Animales/Jungle-Sound
-    index: 2
+    index: 1
   - key: event:/AMBIENCE/Animales/Croac-Sapo
-    index: 3
+    index: 2
   - key: event:/AMBIENCE/Animales/Grillos
-    index: 4
+    index: 3
   - key: event:/PLAYER/Pasos/Pasto/Pasos_Pasto
-    index: 5
+    index: 4
   - key: event:/PLAYER/Pasos/Pasto/Caminar_Pasto
-    index: 6
+    index: 5
   - key: event:/PLAYER/Salto/Saltar
-    index: 7
+    index: 6
   - key: event:/PLAYER/TirarPiedra/Cargar
-    index: 8
+    index: 7
   - key: event:/PLAYER/TirarPiedra/ArrojarPiedra
-    index: 9
+    index: 8
   - key: event:/ENVIRONMENT/Destruibles/DestruirObjeto
-    index: 10
+    index: 9
   - key: event:/PLAYER/AtaqueMachete/AtaqueMachete
-    index: 11
+    index: 10
   - key: event:/SFX/Enemigos/Mosquito/MorirMosquito
-    index: 12
+    index: 11
   - key: event:/MUSIC/MusicaMilitar
+    index: 12
+  - key: event:/DIALOGUE/Aliados/NPCs/Aliado
     index: 13
 --- !u!114 &883576379495393654
 MonoBehaviour:
