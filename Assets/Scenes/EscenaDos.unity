@@ -20985,10 +20985,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialVelocity: {x: 0, y: 0}
-  posicionInicial: {x: 0, y: 0}
-  steps: 63
-  timeStep: 0.05
-  gravity: -9.81
+  nuevoProyectil: {fileID: 0}
+  proyectil: {fileID: 0}
 --- !u!96 &2070296297
 TrailRenderer:
   serializedVersion: 3
@@ -22606,40 +22604,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8118848952440042193, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8741705767408043528}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
---- !u!1 &8741705767408043526 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8118848952440042193, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
-  m_PrefabInstance: {fileID: 8741705767408043525}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8741705767408043527 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8885636048377164998, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
-  m_PrefabInstance: {fileID: 8741705767408043525}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8741705767408043528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8741705767408043526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09ef1dd6aafee7742b4af4c692e55b1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  marchaMilitarEmitter: {fileID: 8741705767408043527}
 --- !u!1001 &8759026123463707575
 PrefabInstance:
   m_ObjectHideFlags: 0
