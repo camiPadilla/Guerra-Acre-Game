@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AtaquePersonaje : MonoBehaviour
 {
+    [SerializeField] LineRenderer trayectoria;
     [SerializeField] GameObject prefabPiedra;
     [SerializeField] GameObject prefabBala;
     [SerializeField] Queue<Proyectil> piedraCola = new Queue<Proyectil>();
@@ -93,10 +94,14 @@ public class AtaquePersonaje : MonoBehaviour
         Proyectil piedraActual = piedraCola.Dequeue();
         Vector3 puntoIncial = new Vector3(transform.position.x,transform.position.y + 2,transform.position.z);
         piedraActual.Reposicionar(puntoIncial);
+        
         piedraActual.ActivarProyectil();
         piedraActual.Impulso(fuerzatiro, dirX, dirY);
+        SoundEvents.LanzarPiedra?.Invoke(); //Sound By Chelo :D
+        SoundEvents.DetenerCarga?.Invoke(); //Sound By Chelo :D
         enAccion = false;
     }
+    
     void InstanciarProyectiles()
     {
         //piedraCola.Clear();
@@ -126,6 +131,7 @@ public class AtaquePersonaje : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             StartCoroutine(AtaqueMachete());
+            SoundEvents.AtaqueMachete?.Invoke(); //Sound By Chelo :D
         }
     }
     private void EntradaPedra()
@@ -134,6 +140,7 @@ public class AtaquePersonaje : MonoBehaviour
         {
             fuerzatiro = 0;
             enAccion = true;
+            SoundEvents.CargarFuerzaPiedra?.Invoke(); //Sound By Chelo :D
         }
         if (Input.GetButton("Fire1"))
         {
@@ -142,6 +149,8 @@ public class AtaquePersonaje : MonoBehaviour
                 fuerzatiro = fuerzatiro + fuerzaMaxima * Time.deltaTime;
             }
         }
+        Vector3 puntoIncial = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+        
         if (Input.GetButtonUp("Fire1")) TirarPiedra();
     }
     private void EntradaDisparo()
