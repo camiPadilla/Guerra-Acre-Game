@@ -20,7 +20,7 @@ public class AtaquePersonaje : MonoBehaviour
     public int dirX;
     public float dirY;
     [SerializeField] Arma machete;
-    [SerializeField] int seleccionArma;
+    [SerializeField] public int seleccionArma;
     [SerializeField] int balasActual = 0;
     bool enAccion;
     bool recargando;
