@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] List<GameObject> CheckPoints;
-    public int hola;
+    [SerializeField] List<GameObject> objetosRecogibles;
     public static GameManager instancia;
     private void Awake()
     {
@@ -17,5 +16,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    // Start is called before the first frame update
+    public void InstanciarObjeto(Vector2 posicion)
+    {
+        int random = Random.Range(0, objetosRecogibles.Count);
+        Instantiate(objetosRecogibles[random], posicion, Quaternion.identity);
     }
 }

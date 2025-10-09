@@ -10,6 +10,6 @@ public class cajasDestruibles : ObjetoDestruible
     
     public void ActivarLoot()
     {
-        if(conLoot)   ObjetosManager.instancia.InstanciarObjeto(transform.position);
+        if(conLoot)   GameManager.instancia.InstanciarObjeto(transform.position);
     }
 }
