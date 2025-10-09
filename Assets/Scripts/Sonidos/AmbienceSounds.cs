@@ -22,7 +22,7 @@ public class SAmbienceSounds : MonoBehaviour
         {
             if (Ambiente != null)
             {
-                Debug.Log("Reproduciendo sonido de aves: " + temporizador);
+                //Debug.Log("Reproduciendo sonido de aves: " + temporizador);
                 Ambiente.Play();
                 SetNuevoTiempo();
             }
