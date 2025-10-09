@@ -6,8 +6,10 @@ public class UISoundManager : MonoBehaviour
     [SerializeField] EventReference hoverEvent;
     [SerializeField] EventReference clickEvent;
     [SerializeField] EventReference click2Event;
+    [SerializeField] EventReference hoverJochi;
+    [SerializeField] EventReference music;
 
-    
+
 
     public void PlayHover()
     {
@@ -25,5 +27,11 @@ public class UISoundManager : MonoBehaviour
     {
         if (!clickEvent.IsNull)
             RuntimeManager.PlayOneShot(clickEvent);
+    }
+
+    public void PlayHoverJochi()
+    {
+        if (!hoverJochi.IsNull)
+            RuntimeManager.PlayOneShot(hoverJochi);
     }
 }
