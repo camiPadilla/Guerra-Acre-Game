@@ -68,7 +68,7 @@ public class EnvironmentSoundManager : MonoBehaviour
                 int nuevo;
                 do
                 {
-                    nuevo = UnityEngine.Random.Range(0, 3);
+                    nuevo = UnityEngine.Random.Range(0, 4);
                 } while (nuevo == ultimoValor);
 
                 ultimoValor = nuevo;
