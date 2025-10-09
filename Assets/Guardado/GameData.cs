@@ -25,8 +25,4 @@ public class PlayerData
         balas = PlayerAtaque.GetBalasActuales();
         tipoArma = PlayerAtaque.seleccionArma;
     }
-    public class ProgressData
-    {
-        
-    }
 }
