@@ -544,9 +544,17 @@ PrefabInstance:
       value: MenuSoundManager
       objectReference: {fileID: 0}
     - target: {fileID: 1488897466569288098, guid: e51f84685e5035646b789b0b381ffb37, type: 3}
+      propertyPath: SFXFader
+      value: 
+      objectReference: {fileID: 1603998462}
+    - target: {fileID: 1488897466569288098, guid: e51f84685e5035646b789b0b381ffb37, type: 3}
       propertyPath: music.Path
       value: event:/UI/Music_UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1488897466569288098, guid: e51f84685e5035646b789b0b381ffb37, type: 3}
+      propertyPath: musicFader
+      value: 
+      objectReference: {fileID: 1759842361}
     - target: {fileID: 1488897466569288098, guid: e51f84685e5035646b789b0b381ffb37, type: 3}
       propertyPath: masterVolume
       value: 
@@ -3308,7 +3316,7 @@ GameObject:
   - component: {fileID: 385525864}
   - component: {fileID: 385525863}
   m_Layer: 5
-  m_Name: Audio General (2)
+  m_Name: VolumenSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5672,7 +5680,7 @@ GameObject:
   - component: {fileID: 723461329}
   - component: {fileID: 723461328}
   m_Layer: 5
-  m_Name: Audio General (1)
+  m_Name: VolumenMusica
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15282,7 +15290,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 138910652}
   m_HandleRect: {fileID: 138910651}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 0.2
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16772,7 +16780,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 584346445}
   m_HandleRect: {fileID: 584346444}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 0.2
   m_NumberOfSteps: 0
   m_OnValueChanged:

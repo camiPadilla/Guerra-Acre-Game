@@ -13,6 +13,8 @@ public class UISoundManager : MonoBehaviour
     [SerializeField] EventReference music;
 
     [SerializeField] private Scrollbar masterVolume;
+    [SerializeField] private Scrollbar musicFader;
+    [SerializeField] private Scrollbar SFXFader;
     private void Start()
     {
     
@@ -20,6 +22,8 @@ public class UISoundManager : MonoBehaviour
     void Update()
     {        
         ActualizarMasterVolume();   
+        ActualizarMusicVolume();
+        ActualizarSFXVolume();
     }
 
     public void PlayHover()
@@ -55,5 +59,25 @@ public class UISoundManager : MonoBehaviour
         RuntimeManager.StudioSystem.setParameterByName("MasterFader", volume);
         RuntimeManager.StudioSystem.getParameterByName("MasterFader", out float value);
         //Debug.Log("Valor actual del MasterFader: " + value);
+    }
+    public void ActualizarMusicVolume()
+    {
+
+        float volume = musicFader.value;
+        //Debug.Log("Valor actual del Scrollbar: " + volume);
+
+        RuntimeManager.StudioSystem.setParameterByName("MusicFader", volume);
+        //RuntimeManager.StudioSystem.getParameterByName("MusicFader", out float value);
+        //Debug.Log("Valor actual del MusicFader: " + value);
+    }
+    public void ActualizarSFXVolume()
+    {
+
+        float volume = SFXFader.value;
+        //Debug.Log("Valor actual del Scrollbar: " + volume);
+
+        RuntimeManager.StudioSystem.setParameterByName("SFXFader", volume);
+        //RuntimeManager.StudioSystem.getParameterByName("SFXFader", out float value);
+        //Debug.Log("Valor actual del SFXFader: " + value);
     }
 }
