@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public abstract class Enemigo_IA : MonoBehaviour
 {
     //conducta de la ia
-
+   
     [SerializeField] public Rigidbody2D rbEnemigo;
     [SerializeField] private Transform[] wayPoints;
     [SerializeField] bool patrullaje;
@@ -21,59 +21,64 @@ public abstract class Enemigo_IA : MonoBehaviour
     private bool enEspera;
     //funcion atacar que sera sobreecrita por sus hijos
     public abstract void Atacar();
-
+    
     public void Awake()
     {
-        rbEnemigo = GetComponent<Rigidbody2D>();
-
+         rbEnemigo = GetComponent<Rigidbody2D>();
+         
     }
 
-    void Update()
-    {
-        float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
+   void Update()
+{
+    float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
+    bool jugadorDerecha = jugador.position.x > transform.position.x;
+    Flip(jugadorDerecha);
 
-        if (patrullaje)
+    if (patrullaje)
+    {
+        if (distanciaJugador < rangoVision &&
+            Vector2.Distance(transform.position, wayPoints[currentWayPoint].position) < disWy)
         {
-            // si jugador en rango Y no se salió demasiado del área de patrullaje
-            if (distanciaJugador < rangoVision &&
-                Vector2.Distance(transform.position, wayPoints[currentWayPoint].position) < disWy)
-            {
-                //Corregir el giro hacia el enmigo, momento que sale de su vision girar al enemigo, 
-                //Al momento que lo vea al enemigo que gire hacia donde esta
-                Atacar();
-            }
-            else
-            {
-                PatrullajeIA();
-            }
+            Atacar();
         }
         else
         {
-            if (distanciaJugador < rangoVision)
-            {
-                Atacar();
-            }
-            else
-            {
-                rbEnemigo.velocity = Vector2.zero; // idle
-            }
+            PatrullajeIA();
         }
     }
+    else
+    {
+        if (distanciaJugador < rangoVision)
+        {
+            Atacar();
+        }
+        else
+        {
+            rbEnemigo.velocity = Vector2.zero; // idle
+        }
+    }
+}
+
 
     //funcion para voltear al enemigo en base a la posicion del jugador
-    public void Flip(bool isPlayerOnRight)
+public void Flip(bool isPlayerOnRight)
+{
+    if (isPlayerOnRight && !isFacingRight)
     {
-        //verifica si el enemigo esta mirando a la derecha y si el jugador esta a la derecha
-        if (isFacingRight && !isPlayerOnRight || !isFacingRight && isPlayerOnRight)
-        {
-            //cambia la dirX del enemigo
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1;
-            transform.localScale = localScale;
-        }
-
+        isFacingRight = true;
+        Vector3 localScale = transform.localScale;
+        localScale.x = Mathf.Abs(localScale.x);
+        transform.localScale = localScale;
     }
+    else if (!isPlayerOnRight && isFacingRight)
+    {
+        isFacingRight = false;
+        Vector3 localScale = transform.localScale;
+        localScale.x = -Mathf.Abs(localScale.x);
+        transform.localScale = localScale;
+    }
+}
+
     //funcion para el patrullaje del enemigo en base a los waypoints
     public void PatrullajeIA()
     {
@@ -113,7 +118,7 @@ public abstract class Enemigo_IA : MonoBehaviour
         enEspera = false;
         FlipPoint();
     }
-
+    
     //funcion para voltear al enemigo en base a la posicion del waypoint
     private void FlipPoint()
     {
@@ -130,7 +135,7 @@ public abstract class Enemigo_IA : MonoBehaviour
             transform.localScale = localScale;
         }
     }
-
+    
     private void Morir()
     {
         if (vida <= 0)

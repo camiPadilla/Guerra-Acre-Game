@@ -9,6 +9,7 @@ namespace PantallaCarga
     {
         public static LoaderScene instance;
         [SerializeField] private GameObject pantallaCarga;
+        [SerializeField] private GameObject SceneNames;
         [SerializeField] private LoadScreenAnimation loadScreenAnimation;
         private void Awake()
         {

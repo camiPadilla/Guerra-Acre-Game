@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6708150211806795917}
   - component: {fileID: 5402397033043342440}
   - component: {fileID: 7399555499859778606}
+  - component: {fileID: 5221992321499633469}
   m_Layer: 0
   m_Name: mosquito
   m_TagString: Untagged
@@ -99,9 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28590811318bfb43b22dd17b4967d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PosicionJugador: {fileID: 0}
+  PosicionJugador: {fileID: 2010399998378761295, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
   probabilidad: 1000
   velocidad: 2
+  damage: 1
 --- !u!114 &5402397033043342440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,3 +162,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.53}
   m_EdgeRadius: 0
+--- !u!114 &5221992321499633469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839562604753167896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 815772303
+      Data2: 1277336910
+      Data3: 1232007553
+      Data4: -1278741862
+    Path: event:/SFX/Enemigos/Mosquito/MorirMosquito
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

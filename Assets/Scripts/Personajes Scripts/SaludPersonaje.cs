@@ -5,8 +5,8 @@ using UnityEngine.Video;
 
 public class SaludPersonaje : MonoBehaviour
 {
-    [SerializeField] int vidasJugador = 6;
-    [SerializeField] int vidasEXtras = 0;
+    public int vidasJugador = 6;
+    public int vidasEXtras = 0;
     bool invulnerabilidad;
     [SerializeField] float tiempoInvulnerable;
     // Start is called before the first frame update

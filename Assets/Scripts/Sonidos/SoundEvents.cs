@@ -10,12 +10,14 @@ public static class SoundEvents
 
     //Lanzar piedra
     public static Action LanzarPiedra;
+    //Ataque Melee
+    public static Action AtaqueMachete;
 
     //SaltoCaída
     public static Action<float> Salto;
 
-    //Destruir Caja
-    public static Action<float> DestruirObjeto;
+    //Destruir Objetos
+    public static Action<float, int> DestruirObjeto;
 
     //Caminar Pasos
     public static Action PasosPasto;
@@ -26,6 +28,9 @@ public static class SoundEvents
 
     //Hablar NPC Aliado
     public static Action HablarAliadoNPC;
+
+    //Mosquito
+    public static Action MorirMosquito;
 
     //Ambientes
     public static Action Ambience;

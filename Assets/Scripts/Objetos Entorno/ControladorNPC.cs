@@ -23,8 +23,6 @@ public class ControladorNPC : ObjetoRecogible
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    { SoundEvents.HablarAliadoNPC?.Invoke(); } //Sound by Chelo :D
 
     public void Interactuar()
     {
@@ -51,6 +49,7 @@ public class ControladorNPC : ObjetoRecogible
 
     public void MostrarMensaje()
     {
+        SoundEvents.HablarAliadoNPC?.Invoke(); //Sonido by Chelo :D
         dialogo.GetComponent<SpriteRenderer>().sprite = MensajeNPC;
         dialogo.SetActive(true);
     }

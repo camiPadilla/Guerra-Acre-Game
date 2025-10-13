@@ -1,19 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TarodevController;
 
 public class PiedraEnemigo : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float fuerzaX = 5f;  // fuerza horizontal
-    [SerializeField] private float fuerzaY = 5f;  // fuerza vertical extra
-    [SerializeField] private Transform jugador;
+    [SerializeField] private float fuerzaX = 5f;
+    [SerializeField] private float fuerzaY = 5f;
     [SerializeField] private int damage = 1;
+
+    private Transform jugador;
+
+    public void Inicializar(Transform jugadorDestino)
+    {
+        jugador = jugadorDestino;
+        Lanzar();
+    }
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        jugador = FindAnyObjectByType<MovPersonaje>().transform;
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
     }
 
     private IEnumerator DestruirPiedra()
@@ -22,27 +28,29 @@ public class PiedraEnemigo : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Lanzar()
+    private void Lanzar()
     {
-        if (jugador == null) return;
+        if (jugador == null)
+        {
 
-        // Direccion hacia el jugador
+            return;
+        }
+
         Vector2 direccion = (jugador.position - transform.position).normalized;
-
-        // Aplicamos un impulso (horizontal hacia jugador + vertical extra)
         Vector2 fuerza = new Vector2(direccion.x * fuerzaX, fuerzaY);
-        rb.AddForce(fuerza, ForceMode2D.Impulse);
 
+        rb.AddForce(fuerza, ForceMode2D.Impulse);
         StartCoroutine(DestruirPiedra());
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.SendMessage("PerderVida", damage);
-            Destroy(gameObject);
+            collision.gameObject.SendMessage("PerderVida", damage, SendMessageOptions.DontRequireReceiver);
         }
 
-
+        Destroy(gameObject);
     }
 }
+
