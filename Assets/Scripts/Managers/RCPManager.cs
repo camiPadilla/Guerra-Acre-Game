@@ -12,7 +12,8 @@ public class RCPManager : MonoBehaviour
     static public RCPManager instancia;
     [SerializeField] Transform _target;
     [SerializeField] int puntosGanar;
-    int puntosActual;
+    [SerializeField] public GameObject padre;
+    int puntosActual=0;
     int conteoDeBalas=0;
     // Start is called before the first frame update
 
@@ -28,24 +29,28 @@ public class RCPManager : MonoBehaviour
         {
             instancia = this;
         }
+        
     }
-    void Start()
+    private void OnEnable()
     {
         InstanciarBarras();
         InvokeRepeating(nameof(ConfigurarBarra), 1f, 1.6f);
-        
-        //Invoke(nameof(ConfigurarBarra),1f);
     }
+
+
+
+
     public void AumentarPuntos(int incremento)
     {
         puntosActual += incremento;
-        Debug.Log("se aumentaron puntos");
+        Debug.Log("se aumentaron puntos en "+ puntosActual);
     }
     void InstanciarBarras()
     {
         for (int i = 0; i < cantidadBarras; i++)
         {
             barrasLista.Add(Instantiate(barraPrefab, transform.position, transform.rotation));
+            barrasLista[i].transform.parent = padre.transform;
         }
     }
     public GameObject ObtenerBarra()
@@ -77,27 +82,35 @@ public class RCPManager : MonoBehaviour
         GameObject nuevaBarra = ObtenerBarra();
         nuevaBarra.SetActive(true);
         ControladorBarra _micontroladorBarra = nuevaBarra.GetComponent<ControladorBarra>();
-        _micontroladorBarra.posicionInicial = transform;
+        _micontroladorBarra.posicionInicial = this.transform;
         _micontroladorBarra.target = _target;
         int IndiceRandom = Random.Range(0, ritmos.Count);
         _micontroladorBarra.tiempoBarra = ritmos[IndiceRandom];
         ;
     }
-    private void Update()
+    private void LateUpdate()
     {
         if (puntosActual == puntosGanar)
         {
             CancelInvoke();
             Debug.Log("Salvaste al boliviano");
-            Time.timeScale = 0;
+            
+            GameManager.instancia.VolverJuego();
         }
         else if (conteoDeBalas == 15)
         {
             CancelInvoke();
             Debug.Log("murio el boliviano");
-            Time.timeScale = 0;
+            
+            GameManager.instancia.VolverJuego();
         }
 
     }
-
+    public void desactivarMiniJuego(GameStateSO estado)
+    {
+        if (estado.stateName == "Playing")
+        {
+            this.enabled = false;
+        }
+    } 
 }
