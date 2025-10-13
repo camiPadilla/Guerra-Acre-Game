@@ -102,14 +102,14 @@ public class MovPersonaje : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("movible") && !collision.gameObject.GetComponent<ObjetoMovible>().getMovible())
+       /* if (collision.transform.CompareTag("movible") && !collision.gameObject.GetComponent<ObjetoMovible>().getMovible())
         {
             jalando = true;
         }
         else
         {
             jalando = false;
-        }
+         } */
 
     }
     private void OnTriggerEnter2D(Collider2D collision)

@@ -6,6 +6,12 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] List<GameObject> objetosRecogibles;
     public static GameManager instancia;
+    private int currentDisplay = 0;
+    [SerializeField] Camera camaraDisplay1;
+    [SerializeField] Camera camaraDisplay2;
+    [SerializeField] RCPManager rcMinijuego;
+    [SerializeField] GameStateChanger gameStateChanger;
+    [SerializeField] List<GameStateSO> estados;
     private void Awake()
     {
         if (instancia == null)
@@ -16,11 +22,58 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+       
+    }
+    private void Start()
+    {
+        gameStateChanger.GetComponent<GameStateChanger>();
+        gameStateChanger.SetGameState(estados[0]);
+    }
+    public void ActivarCamaraDisplay1()
+    {
+        if (camaraDisplay1 != null && camaraDisplay2 != null)
+        {
+            camaraDisplay1.gameObject.SetActive(true);
+            camaraDisplay2.gameObject.SetActive(false);
+            currentDisplay = 0;
+        }
+    }
+
+    public void ActivarCamaraDisplay2()
+    {
+        if (camaraDisplay1 != null && camaraDisplay2 != null)
+        {
+            camaraDisplay1.gameObject.SetActive(false);
+            camaraDisplay2.gameObject.SetActive(true);
+            currentDisplay = 1;
+        }
+    }
+
+    // Ejemplo de uso: alternar cámaras
+    public void CambiarDeCamara()
+    {
+        if (currentDisplay == 0)
+            ActivarCamaraDisplay2();
+        else
+            ActivarCamaraDisplay1();
     }
     // Start is called before the first frame update
     public void InstanciarObjeto(Vector2 posicion)
     {
         int random = Random.Range(0, objetosRecogibles.Count);
         Instantiate(objetosRecogibles[random], posicion, Quaternion.identity);
+    }
+    public void IniciarRPc(GameStateSO estado)
+    {
+        if (estado.stateName == "RCP")
+        {
+            CambiarDeCamara();
+            rcMinijuego.enabled = true;
+        }
+    }
+    public void VolverJuego()
+    {
+        gameStateChanger.SetGameState(estados[0]);
+        CambiarDeCamara();
     }
 }
