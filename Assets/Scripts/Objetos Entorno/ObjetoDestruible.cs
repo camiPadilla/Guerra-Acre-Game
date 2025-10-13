@@ -17,7 +17,9 @@ public class ObjetoDestruible : MonoBehaviour
     [SerializeField] int vidas;
     SpriteRenderer sprite;
     Color colorInicial;
-    [SerializeField] bool caja;
+    private bool destruido = false;
+    
+    
 
     bool enContacto = false;
 
@@ -38,6 +40,8 @@ public class ObjetoDestruible : MonoBehaviour
 
             //Debug.Log("se destruyo");
             SendMessage("ActivarLoot", SendMessageOptions.DontRequireReceiver);
+            StopCoroutine(FeedBackGrafico());
+            destruido = true;
             gameObject.SetActive(false);
             
         }    
@@ -51,7 +55,7 @@ public class ObjetoDestruible : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !caja )
+        if (collision.gameObject.CompareTag("Player") && tipo != 0 && !destruido)
         {
             StartCoroutine(FeedBackGrafico());
             enContacto = true;
@@ -59,7 +63,7 @@ public class ObjetoDestruible : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player")  && !caja)
+        if(collision.gameObject.CompareTag("Player")  && tipo != 0)
         {
             StopCoroutine(FeedBackGrafico());
             sprite.color = colorInicial;

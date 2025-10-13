@@ -14,6 +14,7 @@ public class GameStateListener : MonoBehaviour
     [Header("Acciones")]
     public UnityEvent onPlayingState;
     public UnityEvent onPausedState;
+    public UnityEvent onRCP;
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -57,6 +58,10 @@ public class GameStateListener : MonoBehaviour
         if(NuevoEstadoJuego.stateName == "Paused" && onPausedState != null)
         {
             onPausedState.Invoke();
+        }
+        if (NuevoEstadoJuego.stateName == "RCP" && onRCP != null)
+        {
+            onRCP.Invoke();
         }
     }
 }
