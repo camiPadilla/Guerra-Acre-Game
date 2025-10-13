@@ -205,7 +205,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a9d1b8fc8fd42b3498ddbc662d6fa6f8, type: 2}
   - {fileID: 11400000, guid: a9f7bbdee60e15b49b2d668a040e146d, type: 2}
   barrasLista: []
-  cantidadBarras: 2
+  cantidadBarras: 4
   _target: {fileID: 308074910}
   puntosGanar: 100
   padre: {fileID: 183294414}
@@ -1953,7 +1953,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &206396972
@@ -5732,7 +5732,7 @@ Transform:
   m_GameObject: {fileID: 539648960}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 329.0087, y: 4.8256097, z: -10}
+  m_LocalPosition: {x: 329.0087, y: 4.8256197, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9573,6 +9573,11 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 6.6, y: 1.12}
   m_Direction: 1
+--- !u!1 &935634275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2524825837220309006, guid: 17c42bcf213164d41a15bacb30589ab4, type: 3}
+  m_PrefabInstance: {fileID: 8420421344181764170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &936265110
 GameObject:
   m_ObjectHideFlags: 0
@@ -11655,7 +11660,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1118025463
@@ -13486,7 +13491,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1299777422
@@ -16236,17 +16241,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4611469219615973046, guid: 9abfc03b795e856468ea1811182f77c4, type: 3}
   m_PrefabInstance: {fileID: 8654669169908878418}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1546452241 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 692003688746548251, guid: 9abfc03b795e856468ea1811182f77c4, type: 3}
-  m_PrefabInstance: {fileID: 8654669169908878418}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546452240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 926f76a20ba331d41867a4d1366013fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1546452243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16267,7 +16261,7 @@ MonoBehaviour:
   _response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1546452241}
+      - m_Target: {fileID: 1546452246}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: IniciarRPc
         m_Mode: 0
@@ -16293,6 +16287,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 11400000, guid: 29bcb9539220f4b458c949695f6c402a, type: 2}
+--- !u!114 &1546452246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546452240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f5ef397f73e4cf0aede115e820bc09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camaraDisplay1: {fileID: 539648964}
+  camaraDisplay2: {fileID: 1676949994}
+  rcMinijuego: {fileID: 3929839}
+  gameStateChanger: {fileID: 1546452244}
+  estados:
+  - {fileID: 11400000, guid: 0a8e9e70f25d26a419a2a71d310252f7, type: 2}
+  - {fileID: 11400000, guid: a22ffefe7cf2fd447bdac6cd34955e30, type: 2}
+--- !u!1 &1550207609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8744344805171999029, guid: 17c42bcf213164d41a15bacb30589ab4, type: 3}
+  m_PrefabInstance: {fileID: 8420421344181764170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1554218068
 GameObject:
   m_ObjectHideFlags: 0
@@ -16683,6 +16701,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3937149, y: 4.36569}
   m_EdgeRadius: 0
+--- !u!1 &1596260238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7487858122769472535, guid: 17c42bcf213164d41a15bacb30589ab4, type: 3}
+  m_PrefabInstance: {fileID: 8420421344181764170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1597508915
 GameObject:
   m_ObjectHideFlags: 0
@@ -23531,6 +23554,22 @@ PrefabInstance:
       propertyPath: imagenAumentoBala
       value: 
       objectReference: {fileID: 21300000, guid: f65939b4b8218de4c8d8f48cd5cdb5ca, type: 3}
+    - target: {fileID: 5069061541654953842, guid: 17c42bcf213164d41a15bacb30589ab4, type: 3}
+      propertyPath: pantallas.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069061541654953842, guid: 17c42bcf213164d41a15bacb30589ab4, type: 3}
+      propertyPath: pantallas.Array.data[0]
+      value: 
+      objectReference: {fileID: 935634275}
+    - target: {fileID: 5069061541654953842, guid: 17c42bcf213164d41a15bacb30589ab4, type: 3}
+      propertyPath: pantallas.Array.data[1]
+      value: 
+      objectReference: {fileID: 1596260238}
+    - target: {fileID: 5069061541654953842, guid: 17c42bcf213164d41a15bacb30589ab4, type: 3}
+      propertyPath: pantallas.Array.data[2]
+      value: 
+      objectReference: {fileID: 1550207609}
     - target: {fileID: 7219699534777623404, guid: 17c42bcf213164d41a15bacb30589ab4, type: 3}
       propertyPath: m_Camera
       value: 
@@ -23713,6 +23752,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4611469219615973046, guid: 9abfc03b795e856468ea1811182f77c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1546452246}
     - targetCorrespondingSourceObject: {fileID: 4611469219615973046, guid: 9abfc03b795e856468ea1811182f77c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1546452243}
