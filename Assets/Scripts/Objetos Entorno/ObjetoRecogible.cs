@@ -10,13 +10,13 @@ public class ObjetoRecogible : MonoBehaviour
     // Start is called before the first frame update
     public void ObtenerTamaño()
     {
-        imagenSize = this.GetComponent<SpriteRenderer>().bounds.extents.y;
+        //imagenSize = this.GetComponent<SpriteRenderer>().bounds.extents.y;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
-            ObtenerTamaño();
+            //ObtenerTamaño();
             HUDManager.instancia.MostrarInteraccion(transform.position, 0.7f, "recogible");
             if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
             {
@@ -45,7 +45,7 @@ public class ObjetoRecogible : MonoBehaviour
         }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Player") && this.gameObject !=null)
+        if (collision.transform.CompareTag("Player") && gameObject !=null)
         {
             HUDManager.instancia.Ocultar();
             if (desactivado == true && nombreObjeto == "balas")

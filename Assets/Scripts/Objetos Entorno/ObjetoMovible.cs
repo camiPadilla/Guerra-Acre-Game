@@ -14,10 +14,7 @@ public class ObjetoMovible : MonoBehaviour
     }
 
     // Update is called once per fra
-    public bool getMovible()
-    {
-        return movible;
-    }
+   
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Player"))
@@ -31,7 +28,6 @@ public class ObjetoMovible : MonoBehaviour
                     tag = "movible";
                     HUDManager.instancia.Ocultar();
                     miCuerpo.mass = 10f;
-                    //MoverRoca(collision.gameObject);
                     Movimiento(controladorMovimiento);
                 }
                 else
@@ -50,14 +46,14 @@ public class ObjetoMovible : MonoBehaviour
         //Debug.Log(direccionX);
         if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje))
         {
-            miCuerpo.velocity = new Vector2(-2, miCuerpo.velocity.y);
+            miCuerpo.velocity = new Vector2(-3, miCuerpo.velocity.y);
             movible = false;
             jugadorMovimiento.enabled = false;
 
         }
         if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
-            miCuerpo.velocity = new Vector2(2, miCuerpo.velocity.y);
+            miCuerpo.velocity = new Vector2(3, miCuerpo.velocity.y);
             movible = false;
             jugadorMovimiento.enabled = false;
         }
