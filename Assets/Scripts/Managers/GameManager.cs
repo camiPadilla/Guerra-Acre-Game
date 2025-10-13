@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     
     public static GameManager instancia;
     private int currentDisplay = 0;
+    private GameStateSO estadoActual;
     [SerializeField] Camera camaraDisplay1;
     [SerializeField] Camera camaraDisplay2;
     [SerializeField] RCPManager rcMinijuego;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         gameStateChanger.GetComponent<GameStateChanger>();
         gameStateChanger.SetGameState(estados[0]);
+        SetEstadoActual(estados[0]);
     }
     public void ActivarCamaraDisplay1()
     {
@@ -68,6 +70,43 @@ public class GameManager : MonoBehaviour
     public void VolverJuego()
     {
         gameStateChanger.SetGameState(estados[0]);
+        SetEstadoActual(estados[0]);
         CambiarDeCamara();
+    }
+    public void PausarJuego()
+    {
+        gameStateChanger.SetGameState(estados[1]);
+        SetEstadoActual(estados[1]);
+    }
+    public void Estadonota()
+    {
+        gameStateChanger.SetGameState(estados[3]);
+        SetEstadoActual(estados[3]);
+    }
+    void SetEstadoActual(GameStateSO estado)
+    {
+        estadoActual = estado;
+    }
+    public void CerrarEstado()
+    {
+        switch(estadoActual.stateName)
+        {
+            case "Paused":
+                gameStateChanger.SetGameState(estados[0]);
+                HUDManager.instancia.ReanudarPartida();
+                SetEstadoActual(estados[0]);
+                break;
+            case "LeerNota":
+                gameStateChanger.SetGameState(estados[0]);
+                HUDManager.instancia.SalirNota();
+                SetEstadoActual(estados[0]);
+                break;
+            case "Playing":
+                PausarJuego();
+                HUDManager.instancia.Pausar();
+                break;
+            default:
+                break;
+        }
     }
 }

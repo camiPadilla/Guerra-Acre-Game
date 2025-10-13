@@ -4,7 +4,7 @@ using UnityEngine;
 public class ObjetoMovible : MonoBehaviour
 {
     Rigidbody2D miCuerpo;
-    bool movible = false;
+    
     [SerializeField] LayerMask personaje;
     [SerializeField] float distanciaRaycast;
     // Start is called before the first frame update
@@ -40,6 +40,16 @@ public class ObjetoMovible : MonoBehaviour
         }
 
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("cabeza"))
+        {
+         
+                collision.gameObject.GetComponentInParent<SaludPersonaje>().PerderVida(6);
+   
+        }
+    }
+
     private void Movimiento(PlayerController jugadorMovimiento)
     {
         float direccionX = Input.GetAxis("Horizontal");
@@ -47,24 +57,24 @@ public class ObjetoMovible : MonoBehaviour
         if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje))
         {
             miCuerpo.velocity = new Vector2(-3, miCuerpo.velocity.y);
-            movible = false;
+            
             jugadorMovimiento.enabled = false;
 
         }
         if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
             miCuerpo.velocity = new Vector2(3, miCuerpo.velocity.y);
-            movible = false;
+            
             jugadorMovimiento.enabled = false;
         }
         if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje))
         {
-            movible = true;
+            
             jugadorMovimiento.enabled = true;
         }
         if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
-            movible = true;
+            
             jugadorMovimiento.enabled = true;
         }
     }
@@ -73,7 +83,7 @@ public class ObjetoMovible : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             HUDManager.instancia.Ocultar();
-            movible = false;
+            
             DetenerObjeto(collision.gameObject.GetComponent<PlayerController>());
             
         }
