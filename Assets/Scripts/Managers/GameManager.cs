@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     //[SerializeField] List<GameObject> CheckPoints;
-    
+    //Este Game Manager estara encargado de los minijuegos y estados.
+    [Header("GameManger encargado de minijuegos y estados del juego")]
     public static GameManager instancia;
     private int currentDisplay = 0;
     private GameStateSO estadoActual;
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        
         gameStateChanger.GetComponent<GameStateChanger>();
         gameStateChanger.SetGameState(estados[0]);
         SetEstadoActual(estados[0]);

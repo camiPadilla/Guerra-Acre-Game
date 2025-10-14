@@ -1791,6 +1791,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3723244909631379704, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
   m_PrefabInstance: {fileID: 1750322850}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &190672136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 190672137}
+  m_Layer: 0
+  m_Name: PadreInteraccion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &190672137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190672136}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 179.21228, y: 57.632267, z: -2.355046}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &207282438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11453,6 +11484,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 692531209}
+    - target: {fileID: 4002052883811370512, guid: bb61b4d5fb682734094064a3e70042ae, type: 3}
+      propertyPath: padreInteraccion
+      value: 
+      objectReference: {fileID: 190672136}
     - target: {fileID: 4109974176219243029, guid: bb61b4d5fb682734094064a3e70042ae, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -11917,3 +11952,4 @@ SceneRoots:
   - {fileID: 1500042775}
   - {fileID: 1138020378}
   - {fileID: 2074601928}
+  - {fileID: 190672137}
