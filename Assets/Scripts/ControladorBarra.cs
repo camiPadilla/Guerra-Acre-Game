@@ -58,7 +58,7 @@ public class ControladorBarra : MonoBehaviour
             StartCoroutine("FeedBackGrafico", Color.green);
             RCPManager.instancia.AumentarPuntos(10);
             interactuable = false;
-        }else if(distancia > 0.32f && distancia<1.82f)
+        }else if(distancia > 1.82f && distancia<1.82f)
         {
             RCPManager.instancia.AumentarPuntos(5);
             StartCoroutine("FeedBackGrafico", Color.yellow);

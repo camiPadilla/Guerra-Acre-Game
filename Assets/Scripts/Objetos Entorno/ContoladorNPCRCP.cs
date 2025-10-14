@@ -13,14 +13,11 @@ public class ContoladorNPCRCP : ObjetoRecogible
     }
     public void Interactuar()
     {
-        Debug.Log("el NPC anda interactuando");
+        //Debug.Log("el NPC anda interactuando");
         acciones.Invoke();
         this.DestruirObjeto();
 
     }
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
