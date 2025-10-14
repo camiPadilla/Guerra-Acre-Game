@@ -24,6 +24,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] List<GameObject> armas;
     [SerializeField] List<Sprite> imagenArmas;
     [SerializeField] GameObject hudBalas;
+    [SerializeField] GameObject padreInteraccion;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -40,9 +41,19 @@ public class HUDManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Pausar();
+            GameManager.instancia.CerrarEstado();
         }
 
+    }
+    public void ReanudarPartida()
+    {
+        Reanudar();
+        pantallas[1].SetActive(false);
+    }
+    public void SalirNota()
+    {
+        Reanudar();
+        pantallas[0].SetActive(false);
     }
     public void ActivarRifle()
     {
@@ -139,10 +150,11 @@ public class HUDManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(DarBienvenida());
-        mensajeE = Instantiate(interactuable, transform);
+        mensajeE = Instantiate(interactuable, padreInteraccion.transform);
         mensajeE.SetActive(false);
+        padreInteraccion.transform.parent = mensajeE.transform;
         imagenE = mensajeE.GetComponent<SpriteRenderer>().sprite;
-        mensajeE.GetComponent<SpriteRenderer>().sortingOrder = 4;
+        mensajeE.GetComponent<SpriteRenderer>().sortingLayerName = "IU";
         ActualizarBalasActual(0);
         ActualizarTotalBalas(0);
 
@@ -176,6 +188,7 @@ public class HUDManager : MonoBehaviour
     {
         DetenerTiempo();
         text.text = mensajeNuevo;
+        GameManager.instancia.Estadonota();
         pantallas[2].SetActive(false);
         pantallas[0].SetActive(true);
 

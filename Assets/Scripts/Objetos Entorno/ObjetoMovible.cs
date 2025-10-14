@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 using TarodevController;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjetoMovible : MonoBehaviour
 {
     Rigidbody2D miCuerpo;
-    bool movible = false;
+    
     [SerializeField] LayerMask personaje;
     [SerializeField] float distanciaRaycast;
     // Start is called before the first frame update
@@ -18,10 +14,7 @@ public class ObjetoMovible : MonoBehaviour
     }
 
     // Update is called once per fra
-    public bool getMovible()
-    {
-        return movible;
-    }
+   
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Player"))
@@ -35,7 +28,6 @@ public class ObjetoMovible : MonoBehaviour
                     tag = "movible";
                     HUDManager.instancia.Ocultar();
                     miCuerpo.mass = 10f;
-                    //MoverRoca(collision.gameObject);
                     Movimiento(controladorMovimiento);
                 }
                 else
@@ -48,31 +40,41 @@ public class ObjetoMovible : MonoBehaviour
         }
 
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("cabeza"))
+        {
+         
+                collision.gameObject.GetComponentInParent<SaludPersonaje>().PerderVida(6);
+   
+        }
+    }
+
     private void Movimiento(PlayerController jugadorMovimiento)
     {
         float direccionX = Input.GetAxis("Horizontal");
         //Debug.Log(direccionX);
         if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje))
         {
-            miCuerpo.velocity = new Vector2(-2, miCuerpo.velocity.y);
-            movible = false;
+            miCuerpo.velocity = new Vector2(-3, miCuerpo.velocity.y);
+            
             jugadorMovimiento.enabled = false;
 
         }
         if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
-            miCuerpo.velocity = new Vector2(2, miCuerpo.velocity.y);
-            movible = false;
+            miCuerpo.velocity = new Vector2(3, miCuerpo.velocity.y);
+            
             jugadorMovimiento.enabled = false;
         }
         if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje))
         {
-            movible = true;
+            
             jugadorMovimiento.enabled = true;
         }
         if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
-            movible = true;
+            
             jugadorMovimiento.enabled = true;
         }
     }
@@ -81,7 +83,7 @@ public class ObjetoMovible : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             HUDManager.instancia.Ocultar();
-            movible = false;
+            
             DetenerObjeto(collision.gameObject.GetComponent<PlayerController>());
             
         }
