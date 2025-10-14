@@ -1,53 +1,82 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TarodevController;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveLoadSystem
 {
-    public static void CreateLevelData() 
-    //al crear nueva partida, incluir daros del nivel, lo terminado que esta y eso, supongo que solo eso , si se me ocurre mas, agregar mas
+    private static string levelDataPath = Application.persistentDataPath + "/leveldata.fun";
+    private static string playerDataPath = Application.persistentDataPath + "/playerdata.fun";
+
+    public static void CreateLevelData()
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/leveldata.fun";
-        FileStream stream = new FileStream(path, FileMode.Create);
+        FileStream stream = new FileStream(levelDataPath, FileMode.Create);
 
-        GameData data = new GameData();
+        GameData data = new GameData(); // de momento vacío
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
+    public static void SaveLevelData(GameData data)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(levelDataPath, FileMode.Create);
 
         formatter.Serialize(stream, data);
         stream.Close();
     }
-    public static void SaveLevelData()
-    {
-        //progreso del nivel, ademas de los datos del jugador, el checkpoint en el que esta, y si ha terminado el nivel o no, incluso las notas recogidas
-        //supongo que por partida , son equis notas
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/leveldata.fun";
-        FileStream stream = new FileStream(path, FileMode.Create);
 
-        GameData data = new GameData();
-
-        formatter.Serialize(stream, data);
-        stream.Close();
-    }
     public static GameData LoadLevelData()
     {
-        //lo mismo que saveleveldata, pero para cargar
-        //wanna guess )= ya me olvide 
-        string path = Application.persistentDataPath + "/leveldata.fun";
-        if (File.Exists(path))
+        if (File.Exists(levelDataPath))
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+            FileStream stream = new FileStream(levelDataPath, FileMode.Open);
 
-            GameData data = formatter.Deserialize(stream) as GameData;
+            GameData data = (GameData)formatter.Deserialize(stream);
             stream.Close();
             return data;
         }
         else
         {
-            Debug.LogError("No se ha encontrado el archivo de guardado en " + path);
+            Debug.LogError("No se ha encontrado el archivo de guardado en " + levelDataPath);
+            return null;
+        }
+    }
+
+    public static void DeleteLevelData()
+    {
+        if (File.Exists(levelDataPath))
+            File.Delete(levelDataPath);
+    }
+    public static void SavePlayerData(SaludPersonaje salud, AtaquePersonaje ataque, PlayerController playerCon)
+    {
+        PlayerData playerData = new PlayerData(salud, ataque, playerCon);
+
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(playerDataPath, FileMode.Create);
+
+        formatter.Serialize(stream, playerData);
+        stream.Close();
+    }
+
+    public static PlayerData LoadPlayerData()
+    {
+        if (File.Exists(playerDataPath))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(playerDataPath, FileMode.Open);
+
+            PlayerData playerData = (PlayerData)formatter.Deserialize(stream);
+            stream.Close();
+            return playerData;
+        }
+        else
+        {
+            Debug.LogError("No se ha encontrado el archivo de guardado en " + playerDataPath);
             return null;
         }
     }
