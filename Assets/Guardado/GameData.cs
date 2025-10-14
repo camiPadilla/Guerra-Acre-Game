@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TarodevController;
 
 [System.Serializable]
@@ -27,6 +28,27 @@ public class PlayerData
     }
     public class ProgressData
     {
-        
+        public int currentLevel;
+        public List<int> checkPointsActivos;
+        public ProgressData(int nivelActual, List<int> cpActivos)
+        {
+            this.currentLevel = nivelActual;
+            this.checkPointsActivos = cpActivos;
+        }
+
     }
+    public class LevelCompletionData
+    {
+        public int levelIndex;
+        public bool levelComplete;
+        public int cantNotas;
+        public LevelCompletionData(int levelIndex, bool levelComplete, int cantNotas)
+        {
+            this.levelIndex = levelIndex;
+            this.levelComplete = levelComplete;
+            this.cantNotas = cantNotas;
+        }
+    }
+    //quiero creer que para las notas, en el area de coleccionables, hacer una lista, y guardar el index de las notas que se han recogido, supongo que solo eso
+    //si se me ocurre algo mas, ya veremos mmmmhh
 }
