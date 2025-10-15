@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputPlayer : MonoBehaviour
 {
     //[SerializeField] BoxCollider2D machete;
-    bool interactaundo = false;
+    bool interactuando = false;
     bool moviendo = false;
 
     // Start is called before the first frame update
@@ -25,13 +25,13 @@ public class InputPlayer : MonoBehaviour
         //}
         if (Input.GetKey(KeyCode.E))
         {
-           // Debug.Log("Jugador listo para interactuar");
-            interactaundo = true;
+            
+            interactuando = true;
+        }else{
+            interactuando = false;
         }
-        else
-        {
-            interactaundo = false;
-        }
+        
+
         if (Input.GetButton("Fire2"))
         {
             Debug.Log("jugador listo para empujar");
@@ -39,8 +39,9 @@ public class InputPlayer : MonoBehaviour
         }
         else
         {
-            moviendo= false;
+            moviendo = false;
         }
+        //interactaundo = false;
     }
     //IEnumerator Espera()
     //{
@@ -50,7 +51,9 @@ public class InputPlayer : MonoBehaviour
 
     public bool getInteractuable()
     {
-        return interactaundo;
+        bool aux = interactuando;
+        interactuando = false;
+        return aux;
     }
     public bool GetMoviendo()
     {
