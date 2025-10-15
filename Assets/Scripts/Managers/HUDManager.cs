@@ -4,12 +4,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using PantallaCarga;
-using UnityEditorInternal;
 
 public class HUDManager : MonoBehaviour
 {
     [SerializeField] GameObject interactuable;
-    [SerializeField] DialogosManager dialogosManager;
     public static HUDManager instancia;
     [SerializeField] TMP_Text text;
     GameObject mensajeE;
@@ -27,7 +25,6 @@ public class HUDManager : MonoBehaviour
     [SerializeField] List<Sprite> imagenArmas;
     [SerializeField] GameObject hudBalas;
     [SerializeField] GameObject padreInteraccion;
-    private ControladorNPC npc;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -48,12 +45,16 @@ public class HUDManager : MonoBehaviour
         }
 
     }
-    public void ReanudarPartida(int indice)
+    public void ReanudarPartida()
     {
         Reanudar();
-        pantallas[indice].SetActive(false);
+        pantallas[1].SetActive(false);
     }
-    
+    public void SalirNota()
+    {
+        Reanudar();
+        pantallas[0].SetActive(false);
+    }
     public void ActivarRifle()
     {
         Debug.Log("hola activando arma");
@@ -180,25 +181,16 @@ public class HUDManager : MonoBehaviour
         mensajeE.SetActive(false);
     }
 
-    
+    public void Actualizar()
+    {
+    }
     public void LeerNota(string mensajeNuevo)
     {
         DetenerTiempo();
         text.text = mensajeNuevo;
-        GameManager.instancia.CambiarDeEstado(3);
+        GameManager.instancia.Estadonota();
         pantallas[2].SetActive(false);
         pantallas[0].SetActive(true);
-
-    }
-    public void IniciarDialogo(DialogosSO dialogo)
-    {
-
-        //DetenerTiempo();
-        GameManager.instancia.CambiarDeEstado(4);
-        dialogosManager.IniciarDialogo(dialogo);
-        pantallas[2].SetActive(false);
-        pantallas[9].SetActive(true);
-        return;
 
     }
     public void Pausar()

@@ -7,33 +7,50 @@ public class ControladorNPC : ObjetoRecogible
     [SerializeField] float tiempoEspera;
     bool dialogando = false;
     [SerializeField] Sprite MensajeNPC;
-    [SerializeField] DialogosSO dialogo;
-    int cont= 0;
+    [SerializeField] GameObject dialogo;
     // Start is called before the first frame update
     void Start()
     {
-        //dialogo.SetActive(false);
+        dialogo.SetActive(false);
     }
 
     // Update is called once per frame
-    
+    void LateUpdate()
+    {
+        if(dialogando == true)
+        {
+            //HUDManager.instancia.Ocultar();
+        }
+    }
+
+
     public void Interactuar()
     {
-        Debug.Log("estas en una interaccion de un NPC");
-        cont++;
-        if (GameManager.instancia.Onplaying())
+        //Debug.Log("el NPC anda interactuando");
+        if (dialogando == false)
         {
+            dialogando = true;
             MostrarMensaje();
-            
+            StartCoroutine(nameof(tiempoMensaje));
         }
 
 
     }
-    
+    IEnumerator tiempoMensaje()
+    {
+        
+        yield return new WaitForSeconds(tiempoEspera);
+        dialogo.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        dialogando = false;
+        
+
+    }
 
     public void MostrarMensaje()
     {
         SoundEvents.HablarAliadoNPC?.Invoke(); //Sonido by Chelo :D
-        HUDManager.instancia.IniciarDialogo(dialogo);
+        dialogo.GetComponent<SpriteRenderer>().sprite = MensajeNPC;
+        dialogo.SetActive(true);
     }
 }

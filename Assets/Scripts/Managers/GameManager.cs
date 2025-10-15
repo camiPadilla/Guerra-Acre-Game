@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     //[SerializeField] List<GameObject> CheckPoints;
-
+    
     public static GameManager instancia;
     private int currentDisplay = 0;
     private GameStateSO estadoActual;
@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] RCPManager rcMinijuego;
     [SerializeField] GameStateChanger gameStateChanger;
     [SerializeField] List<GameStateSO> estados;
-    [SerializeField] GameObject NPCrevivido;
     private void Awake()
     {
         if (instancia == null)
@@ -74,60 +73,37 @@ public class GameManager : MonoBehaviour
         SetEstadoActual(estados[0]);
         CambiarDeCamara();
     }
-
-    public void CambiarDeEstado(int indice)
+    public void PausarJuego()
     {
-        gameStateChanger.SetGameState(estados[indice]);
-        SetEstadoActual(estados[indice]);
+        gameStateChanger.SetGameState(estados[1]);
+        SetEstadoActual(estados[1]);
+    }
+    public void Estadonota()
+    {
+        gameStateChanger.SetGameState(estados[3]);
+        SetEstadoActual(estados[3]);
     }
     void SetEstadoActual(GameStateSO estado)
     {
         estadoActual = estado;
     }
-    public void RevivirNPC()
-    {
-        Debug.Log("lo reviviste");
-        NPCrevivido.gameObject.SetActive(true);
-        VolverJuego();
-    }
-    public bool EnDialogo()
-    {
-        if (estadoActual == estados[4])
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    } 
-    public bool Onplaying()
-    {
-        return estadoActual == estados[0];
-    }
     public void CerrarEstado()
     {
-        Debug.Log("se cambiara de estado");
-        switch (estadoActual.stateName)
+        switch(estadoActual.stateName)
         {
             case "Paused":
-                CambiarDeEstado(0);
-                HUDManager.instancia.ReanudarPartida(1);
-                
+                gameStateChanger.SetGameState(estados[0]);
+                HUDManager.instancia.ReanudarPartida();
+                SetEstadoActual(estados[0]);
                 break;
             case "LeerNota":
-                CambiarDeEstado(0);
-                HUDManager.instancia.ReanudarPartida(0);
-                
+                gameStateChanger.SetGameState(estados[0]);
+                HUDManager.instancia.SalirNota();
+                SetEstadoActual(estados[0]);
                 break;
             case "Playing":
-                
+                PausarJuego();
                 HUDManager.instancia.Pausar();
-                CambiarDeEstado(1);
-                break;
-            case "Dialogo":
-                CambiarDeEstado (0);
-                HUDManager.instancia.ReanudarPartida(9);
                 break;
             default:
                 break;

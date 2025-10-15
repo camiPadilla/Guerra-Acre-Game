@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjetoRecogible : MonoBehaviour
@@ -17,8 +16,8 @@ public class ObjetoRecogible : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            
-            HUDManager.instancia.MostrarInteraccion(transform.position, 0.8f, "recogible");
+            //ObtenerTamaño();
+            HUDManager.instancia.MostrarInteraccion(transform.position, 0.7f, "recogible");
             if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
             {
                 if (nombreObjeto != "NPC" && nombreObjeto != "nota")
@@ -36,9 +35,7 @@ public class ObjetoRecogible : MonoBehaviour
                 else
                 {
                     SendMessage("Interactuar");
-                    return;
                 }
-                
             }
         }
     }
