@@ -1,9 +1,13 @@
+using PantallaCarga;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class VolumeButton : MonoBehaviour
 {
-    private PlayerSettings prefsSet;
+    [SerializeField] private PlayerSettings prefsSet;
+    [SerializeField] private LoaderScene loader;
+    [SerializeField] private MasterGameManager master;
+
 
     private void Awake()
     {
@@ -39,4 +43,5 @@ public class VolumeButton : MonoBehaviour
             prefsSet.SetVolumenEfectos();
         }
     }
+
 }

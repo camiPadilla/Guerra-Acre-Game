@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Piso, Water, UI, Player
 - Active game object:
-  - Name: HUD Gameplay Padre v10.0
-  - Tag: Untagged
-  - Layer: UI
+  - Name: EnemigoDistancia
+  - Tag: Enemigo
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

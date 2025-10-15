@@ -16,7 +16,8 @@ public class EnemigoDisparo : Enemigo_IA
     [SerializeField] private int nroBalas = 15;
     [SerializeField] private int nroPiedras = 5;
     [SerializeField] private float distanciaOptima = 7f; // distancia ideal para disparar
-    [SerializeField] private float tolerancia = 1f;      // margen para no moverse tanto
+    [SerializeField] private float tolerancia = 1f; 
+         // margen para no moverse tanto
 
     [Header("fusil o piedra")]
     [SerializeField] private bool fusil; //para ver si es piedra o fusil , y atacar de manera diferente
@@ -30,9 +31,9 @@ public class EnemigoDisparo : Enemigo_IA
     // Si el jugador se sale de su rango vuelve a patrullar
         if (distanciaJugador > rangoVision)
         {
-            print("Volviendo a patrullar");
-            PatrullajeIA();
-            return;
+           print("Volviendo a patrullar");
+           estadoActual = estadosEnemigo.patrullaje;
+           return;
         }
     // Girar siempre hacia el jugador
         Flip(jugador.position.x < transform.position.x);

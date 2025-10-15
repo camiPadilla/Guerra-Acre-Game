@@ -3,17 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+
+public enum estadosEnemigo
+{
+    idle,
+    patrullaje,
+    ataque,
+    muerto,
+    persiguiendo
+}
 public abstract class Enemigo_IA : MonoBehaviour
 {
     //conducta de la ia
-   
+
     [SerializeField] public Rigidbody2D rbEnemigo;
     [SerializeField] private Transform[] wayPoints;
     [SerializeField] bool patrullaje;
     [SerializeField] public float rangoVision;
     [SerializeField] public int vida = 3;
     [SerializeField] private int disWy;
-    
+    //declarar enum
+    public estadosEnemigo estadoActual;
     public float speed;
     public Transform jugador;
     private bool isFacingRight = false;
@@ -21,63 +31,69 @@ public abstract class Enemigo_IA : MonoBehaviour
     private bool enEspera;
     //funcion atacar que sera sobreecrita por sus hijos
     public abstract void Atacar();
-    
+
     public void Awake()
     {
-         rbEnemigo = GetComponent<Rigidbody2D>();
-         
+        rbEnemigo = GetComponent<Rigidbody2D>();
+
     }
 
-   void Update()
-{
-    float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
-    bool jugadorDerecha = jugador.position.x > transform.position.x;
-    Flip(jugadorDerecha);
-
-    if (patrullaje)
+    void Update()
     {
-        if (distanciaJugador < rangoVision &&
-            Vector2.Distance(transform.position, wayPoints[currentWayPoint].position) < disWy)
+        
+    }
+    public void Mover()
+    {
+        float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
+        bool jugadorDerecha = jugador.position.x > transform.position.x;
+        Flip(jugadorDerecha);
+        if(distanciaJugador < rangoVision)
         {
-            Atacar();
+            estadoActual = estadosEnemigo.ataque;
         }
-        else
+        else if(transform.position.x < wayPoints[currentWayPoint].position.x + disWy && transform.position.x > wayPoints[currentWayPoint].position.x - disWy)
+        {
+            estadoActual = estadosEnemigo.patrullaje;
+        }
+        
+        if (estadoActual == estadosEnemigo.patrullaje)
         {
             PatrullajeIA();
         }
-    }
-    else
-    {
-        if (distanciaJugador < rangoVision)
+        else if (estadoActual == estadosEnemigo.ataque)
         {
-            Atacar();
+            if (distanciaJugador < rangoVision)
+            {
+                estadoActual = estadosEnemigo.ataque;
+                Atacar();
+            }
         }
         else
         {
-            rbEnemigo.velocity = Vector2.zero; // idle
+            estadoActual = estadosEnemigo.patrullaje;
+                rbEnemigo.velocity = Vector2.zero; // idle
+
         }
     }
-}
-
 
     //funcion para voltear al enemigo en base a la posicion del jugador
-public void Flip(bool isPlayerOnRight)
-{
-    if (isPlayerOnRight && !isFacingRight)
+    public void Flip(bool isPlayerOnRight)
     {
-        isFacingRight = true;
-        Vector3 localScale = transform.localScale;
-        localScale.x = Mathf.Abs(localScale.x);
-        transform.localScale = localScale;
+        if (isPlayerOnRight && !isFacingRight)
+        {
+            isFacingRight = true;
+            Vector3 localScale = transform.localScale;
+            localScale.x = Mathf.Abs(localScale.x);
+            transform.localScale = localScale;
+        }
+        else if (!isPlayerOnRight && isFacingRight)
+        {
+            isFacingRight = false;
+            Vector3 localScale = transform.localScale;
+            localScale.x = -Mathf.Abs(localScale.x);
+            transform.localScale = localScale;
+        }
     }
-    else if (!isPlayerOnRight && isFacingRight)
-    {
-        isFacingRight = false;
-        Vector3 localScale = transform.localScale;
-        localScale.x = -Mathf.Abs(localScale.x);
-        transform.localScale = localScale;
-    }
-}
 
     //funcion para el patrullaje del enemigo en base a los waypoints
     public void PatrullajeIA()
@@ -118,7 +134,7 @@ public void Flip(bool isPlayerOnRight)
         enEspera = false;
         FlipPoint();
     }
-    
+
     //funcion para voltear al enemigo en base a la posicion del waypoint
     private void FlipPoint()
     {
@@ -135,7 +151,7 @@ public void Flip(bool isPlayerOnRight)
             transform.localScale = localScale;
         }
     }
-    
+
     private void Morir()
     {
         if (vida <= 0)
@@ -147,7 +163,7 @@ public void Flip(bool isPlayerOnRight)
     public void RecibirDano(int damage)
     {
         Debug.Log("hola familia");
-        vida-=damage;
+        vida -= damage;
         Morir();
     }
     //por definir y llamar 
