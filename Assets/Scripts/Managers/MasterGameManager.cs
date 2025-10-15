@@ -19,6 +19,7 @@ public class MasterGameManager : MonoBehaviour
     public GameData gameData;
     private void Awake()
     {
+        ReferenciasPlayer();
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -63,48 +64,54 @@ public class MasterGameManager : MonoBehaviour
         }
 
     }
-    private void SaveGame()
+    public void SaveGame()
     {
         print("||Guardando partida...||");
         SaveLoadSystem.SavePlayerData(playerSalud, playerAtaque, playerController);
         SaveLoadSystem.SaveLevelData(gameData);
     }
     public void LoadGame()
-{
-    PlayerData playerData = SaveLoadSystem.LoadPlayerData();
-
-    if (playerData != null && playerController != null)
     {
-        int lastCheckpoint = PlayerPrefs.GetInt("LastCheckpoint", -1);
-        if (lastCheckpoint != -1)
+        PlayerData playerData = SaveLoadSystem.LoadPlayerData();
+
+        if (playerData != null && playerController != null)
         {
-            CheckPoints[] checkpoints = FindObjectsOfType<CheckPoints>();
-            foreach (var cp in checkpoints)
+            int lastCheckpoint = PlayerPrefs.GetInt("LastCheckpoint", -1);
+            if (lastCheckpoint != -1)
             {
-                if (cp.indexCP == lastCheckpoint)
+                CheckPoints[] checkpoints = FindObjectsOfType<CheckPoints>();
+                foreach (var cp in checkpoints)
                 {
-                    playerController.transform.position = cp.transform.position;
-                    break;
+                    if (cp.indexCP == lastCheckpoint)
+                    {
+                        playerController.transform.position = cp.transform.position;
+                        break;
+                    }
                 }
             }
+            else
+            {
+                // Si no hay checkpoint guardado, cargar posición normal
+                playerController.transform.position = new Vector3(
+                    playerData.position[0],
+                    playerData.position[1],
+                    playerData.position[2]
+                );
+            }
+            playerSalud.vidasJugador = playerData.vidasJugador;
+            playerSalud.vidasEXtras = playerData.vidasExtras;
+            playerAtaque.cantidadBalas = playerData.balas;
+            playerAtaque.seleccionArma = playerData.tipoArma;
         }
         else
         {
-            // Si no hay checkpoint guardado, cargar posición normal
-            playerController.transform.position = new Vector3(
-                playerData.position[0],
-                playerData.position[1],
-                playerData.position[2]
-            );
+            Debug.Log(" No se encontró partida previa o jugador no asignado.");
         }
-        playerSalud.vidasJugador = playerData.vidasJugador;
-        playerSalud.vidasEXtras = playerData.vidasExtras;
-        playerAtaque.cantidadBalas = playerData.balas;
-        playerAtaque.seleccionArma = playerData.tipoArma;
     }
-    else
+    public void DeleteGame()
     {
-        Debug.Log(" No se encontró partida previa o jugador no asignado.");
+        SaveLoadSystem.DeleteAllData();
+        PlayerPrefs.DeleteAll();
+        Debug.Log("Datos de guardado eliminados.");
     }
-}   
 }

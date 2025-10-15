@@ -54,6 +54,7 @@ public class UIManager : MonoBehaviour
         pantallasMenu[5].SetActive(false);
         pantallasMenu[6].SetActive(false);
         pantallasMenu[7].SetActive(false);
+        pantallasMenu[8].SetActive(false);
     }
     public void IrSalir()
     {

@@ -1,13 +1,18 @@
 using System.Collections.Generic;
-using TarodevController;
 using UnityEngine;
+using TarodevController;
 
 [System.Serializable]
 public class GameData
 {
-    // En caso de que quieras guardar más cosas globales (como volumen, nivel actual, etc.)
-    public int nivelActual;
-    public List<int> checkpointsActivos = new List<int>();
+    // Guarda la última posición conocida del jugador (por checkpoint)
+    public float[] playerPosition = new float[3];
+
+    // Lista de checkpoints activos
+    public List<bool> checkpointsActivos = new List<bool>();
+
+    // Lista de niveles completados
+   // public List<PlayerData.LevelCompletionData> nivelesCompletados = new List<PlayerData.LevelCompletionData>();
 }
 
 [System.Serializable]
@@ -16,6 +21,7 @@ public class PlayerData
     public int vidasJugador;
     public int vidasExtras;
     public float[] position = new float[3];
+
 
     // Armas
     public int balas;

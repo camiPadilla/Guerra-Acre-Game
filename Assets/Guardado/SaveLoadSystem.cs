@@ -1,83 +1,86 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TarodevController;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine;
+using System.Collections.Generic;
+using TarodevController;
 
 public static class SaveLoadSystem
 {
-    private static string levelDataPath = Application.persistentDataPath + "/leveldata.fun";
-    private static string playerDataPath = Application.persistentDataPath + "/playerdata.fun";
-
-    public static void CreateLevelData()
+    private static string playerPath = Application.persistentDataPath + "/playerData.save";
+    private static string gamePath = Application.persistentDataPath + "/gameData.save";
+    public static void SavePlayerData(SaludPersonaje playerSalud, AtaquePersonaje playerAtaque, PlayerController playerController)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        FileStream stream = new FileStream(levelDataPath, FileMode.Create);
+        FileStream stream = new FileStream(playerPath, FileMode.Create);
 
-        GameData data = new GameData(); // de momento vacío
-        formatter.Serialize(stream, data);
-        stream.Close();
-    }
-
-    public static void SaveLevelData(GameData data)
-    {
-        BinaryFormatter formatter = new BinaryFormatter();
-        FileStream stream = new FileStream(levelDataPath, FileMode.Create);
+        PlayerData data = new PlayerData(playerSalud, playerAtaque, playerController);
 
         formatter.Serialize(stream, data);
         stream.Close();
-    }
 
-    public static GameData LoadLevelData()
+        Debug.Log("Datos del jugador guardados");
+    }
+    public static PlayerData LoadPlayerData()
     {
-        if (File.Exists(levelDataPath))
+        if (File.Exists(playerPath))
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(levelDataPath, FileMode.Open);
+            FileStream stream = new FileStream(playerPath, FileMode.Open);
 
-            GameData data = (GameData)formatter.Deserialize(stream);
+            PlayerData data = formatter.Deserialize(stream) as PlayerData;
             stream.Close();
+
+            Debug.Log("Datos del jugador cargados");
             return data;
         }
         else
         {
-            Debug.LogError("No se ha encontrado el archivo de guardado en " + levelDataPath);
+            Debug.LogWarning("no hay archivos de guardado del jugador");
             return null;
         }
     }
 
-    public static void DeleteLevelData()
+    public static void SaveLevelData(GameData gameData)
     {
-        if (File.Exists(levelDataPath))
-            File.Delete(levelDataPath);
-    }
-    public static void SavePlayerData(SaludPersonaje salud, AtaquePersonaje ataque, PlayerController playerCon)
-    {
-        PlayerData playerData = new PlayerData(salud, ataque, playerCon);
+        if (gameData == null)
+        {
+            Debug.LogError("No hay GameData para guardar");
+            return;
+        }
 
         BinaryFormatter formatter = new BinaryFormatter();
-        FileStream stream = new FileStream(playerDataPath, FileMode.Create);
+        FileStream stream = new FileStream(gamePath, FileMode.Create);
 
-        formatter.Serialize(stream, playerData);
+        formatter.Serialize(stream, gameData);
         stream.Close();
-    }
 
-    public static PlayerData LoadPlayerData()
+        Debug.Log(" Progreso del juego guardado");
+    }
+    public static GameData LoadLevelData()
     {
-        if (File.Exists(playerDataPath))
+        if (File.Exists(gamePath))
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(playerDataPath, FileMode.Open);
+            FileStream stream = new FileStream(gamePath, FileMode.Open);
 
-            PlayerData playerData = (PlayerData)formatter.Deserialize(stream);
+            GameData data = formatter.Deserialize(stream) as GameData;
             stream.Close();
-            return playerData;
+
+            Debug.Log(" Datos del progreso del juego cargados");
+            return data;
         }
         else
         {
-            Debug.LogError("No se ha encontrado el archivo de guardado en " + playerDataPath);
+            Debug.LogWarning("No se encontró archivo de guardado del juego.");
             return null;
         }
+    }
+
+
+    public static void DeleteAllData()
+    {
+        if (File.Exists(playerPath)) File.Delete(playerPath);
+        if (File.Exists(gamePath)) File.Delete(gamePath);
+        Debug.Log("Se eliminaron todos los datos de guardado.");
     }
 }
