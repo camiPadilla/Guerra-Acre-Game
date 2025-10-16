@@ -7,6 +7,7 @@ public class CheckPoints : MonoBehaviour
     public int indexCP;
     public bool checkPointActivo;
     [SerializeField] GameManager gameManager;
+    [SerializeField] private Sprite[] sprites;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,17 @@ public class CheckPoints : MonoBehaviour
             //gameManager.ActivarCheckPoint(indexCP);
             checkPointActivo = true;
             Debug.Log("hola acabas de pasar por aqui :D");
+        }
+    }
+    public void CambiarEstadoBandera()
+    {
+        checkPointActivo = !checkPointActivo;
+        if (checkPointActivo) 
+        { 
+            gameObject.GetComponent<SpriteRenderer>().sprite = sprites[1];
+        }else
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
         }
     }
 }
