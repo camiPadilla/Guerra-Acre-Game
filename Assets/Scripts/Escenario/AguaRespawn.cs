@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AguaRespawn : MonoBehaviour
 {
+    [SerializeField]
     Transform puntoRespawn;
     // Start is called before the first frame update
     void Start()
@@ -20,8 +21,10 @@ public class AguaRespawn : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<SaludPersonaje>().PerderVida(1);
-            Debug.Log("le di al player");
+            SaludPersonaje personaje = collision.gameObject.GetComponent<SaludPersonaje>();
+            personaje.PerderVida(1);
+            personaje.transform.position = puntoRespawn.position;
+            Debug.Log("checkpoint");
         }
     }
 
