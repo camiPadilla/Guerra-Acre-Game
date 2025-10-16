@@ -83,4 +83,20 @@ public class SaludPersonaje : MonoBehaviour
         HUDManager.instancia.ActualizarArmadura(vidasEXtras);
         
     }
+    public void RegresarCheckPoint()
+    {
+        transform.position = ultimoCheckPoint.transform.position;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Respawn"))
+        {
+            if (ultimoCheckPoint != null)
+            {
+                ultimoCheckPoint.GetComponent<CheckPoints>().CambiarEstadoBandera();
+            }
+            ultimoCheckPoint = collision.gameObject;
+            ultimoCheckPoint.GetComponent<CheckPoints>().CambiarEstadoBandera();
+        }
+    }
 }
