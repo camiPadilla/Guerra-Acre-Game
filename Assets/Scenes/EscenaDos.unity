@@ -6173,7 +6173,7 @@ GameObject:
   - component: {fileID: 538834763}
   - component: {fileID: 538834764}
   m_Layer: 0
-  m_Name: DialogoManager
+  m_Name: DialogoManagerTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11377,6 +11377,10 @@ PrefabInstance:
     - target: {fileID: 2064483970700531087, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
       propertyPath: nombreObjeto
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064483970700531087, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
+      propertyPath: tiempoEspera
+      value: 2.51
       objectReference: {fileID: 0}
     - target: {fileID: 2980736928516761082, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
       propertyPath: m_FlipX
@@ -19183,11 +19187,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 206466102427302471, guid: 8a89918618155ce4499763482f7264a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 196.56969
+      value: 196.6
       objectReference: {fileID: 0}
     - target: {fileID: 206466102427302471, guid: 8a89918618155ce4499763482f7264a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.45035505
+      value: 0.88
       objectReference: {fileID: 0}
     - target: {fileID: 206466102427302471, guid: 8a89918618155ce4499763482f7264a9, type: 3}
       propertyPath: m_LocalPosition.z
