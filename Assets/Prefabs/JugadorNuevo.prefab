@@ -5500,6 +5500,7 @@ MonoBehaviour:
   vidasJugador: 6
   vidasEXtras: 0
   tiempoInvulnerable: 0
+  ultimoCheckPoint: {fileID: 0}
 --- !u!114 &6397999302006620584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5525,6 +5526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd61b9c79568094c8cfc443bcef3361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trayectoria: {fileID: 0}
   prefabPiedra: {fileID: 2164900311158193948, guid: 70451f7b4b036654198aa62b01befa36, type: 3}
   prefabBala: {fileID: 5851173175808208357, guid: c4c720e8212fe76459384672bdbefe94, type: 3}
   cantidadPiedras: 5
@@ -5840,6 +5842,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7688126329307371139}
+  - component: {fileID: 2792969940504618636}
   m_Layer: 6
   m_Name: Melee
   m_TagString: Untagged
@@ -5862,6 +5865,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3554893010345107530}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2792969940504618636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294839437890773020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -333896609
+      Data2: 1172665692
+      Data3: -845404257
+      Data4: 673168148
+    Path: event:/PLAYER/AtaqueMachete/AtaqueMachete
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: RandomMelee
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4053011667480015039
 GameObject:
   m_ObjectHideFlags: 0
