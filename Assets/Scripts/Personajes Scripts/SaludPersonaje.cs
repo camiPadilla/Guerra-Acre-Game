@@ -9,6 +9,7 @@ public class SaludPersonaje : MonoBehaviour
     public int vidasEXtras = 0;
     bool invulnerabilidad;
     [SerializeField] float tiempoInvulnerable;
+    [SerializeField] private GameObject ultimoCheckPoint;
     // Start is called before the first frame update
     void Start()
     {

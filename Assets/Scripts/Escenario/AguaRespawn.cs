@@ -16,4 +16,13 @@ public class AguaRespawn : MonoBehaviour
     {
         
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<SaludPersonaje>().PerderVida(1);
+            Debug.Log("le di al player");
+        }
+    }
+
 }
