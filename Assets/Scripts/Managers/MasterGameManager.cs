@@ -12,6 +12,8 @@ public class MasterGameManager : MonoBehaviour
     public SaludPersonaje playerSalud;
     public AtaquePersonaje playerAtaque;
     public PlayerController playerController;
+    public string escenaActual;
+    public string escenaSiguiente;
 
 
     // Start is called before the first frame update
@@ -50,6 +52,8 @@ public class MasterGameManager : MonoBehaviour
             {
                 SaveLoadSystem.LoadPlayerData();
             }
+            escenaActual = "EscenaUno";
+            escenaSiguiente = "EscenaDos";
         }
         if (scene.name == "EscenaDos")
         {
@@ -61,6 +65,8 @@ public class MasterGameManager : MonoBehaviour
             {
                 SaveLoadSystem.LoadPlayerData();
             }
+            escenaActual = "EscenaDos";
+            escenaSiguiente = "FinalScene";
         }
 
     }

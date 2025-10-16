@@ -55,6 +55,10 @@ public abstract class Enemigo_IA : MonoBehaviour
         float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
         bool jugadorDerecha = jugador.position.x > transform.position.x;
         disWy = Vector2.Distance(wayPoints[currentWayPoint].position, transform.position);
+        if (distanciaJugador < rangoVision && estadoActual != estadosEnemigo.ataque)
+        {
+        estadoActual = estadosEnemigo.ataque;
+        }
         switch (estadoActual)
         {
             case estadosEnemigo.idle:
@@ -63,6 +67,9 @@ public abstract class Enemigo_IA : MonoBehaviour
                 if (distanciaJugador < rangoVision)
                 {
                     estadoActual = estadosEnemigo.ataque;
+                }else{
+                    if (patrullaje) estadoActual = estadosEnemigo.patrullaje;
+                    else estadoActual = estadosEnemigo.idle;
                 }
                 break;
 
@@ -70,7 +77,6 @@ public abstract class Enemigo_IA : MonoBehaviour
                 PatrullajeIA();
                 if (distanciaJugador < rangoVision)
                 {
-                    Flip(jugadorDerecha);
                     estadoActual = estadosEnemigo.ataque;
                     
                 }
@@ -81,42 +87,41 @@ public abstract class Enemigo_IA : MonoBehaviour
                 break;
 
             case estadosEnemigo.ataque:
+                jugadorDerecha = jugador.position.x > transform.position.x;
+                Flip(jugadorDerecha);
+
                 if (disWy > 5.6f)
                 {
-                    if(patrullaje) estadoActual = estadosEnemigo.patrullaje;
-                    else estadoActual = estadosEnemigo.idle;
+                if (patrullaje) estadoActual = estadosEnemigo.patrullaje;
+                else estadoActual = estadosEnemigo.idle;
                 }
                 else
                 {
                     Atacar();
                 }
-            break;
+                break;
 
-        case estadosEnemigo.muerto:
-            rbEnemigo.velocity = Vector2.zero;
-            break;
+                case estadosEnemigo.muerto:
+                rbEnemigo.velocity = Vector2.zero;
+                break;
+        }
     }
-}
 
 
     //funcion para voltear al enemigo en base a la posicion del jugador
     public void Flip(bool isPlayerOnRight)
     {
-        if (isPlayerOnRight && !isFacingRight)
+        bool debeMirarDerecha = isPlayerOnRight;
+
+        if (debeMirarDerecha != isFacingRight)
         {
-            isFacingRight = true;
+            isFacingRight = debeMirarDerecha;
             Vector3 localScale = transform.localScale;
-            localScale.x = Mathf.Abs(localScale.x);
-            transform.localScale = localScale;
-        }
-        else if (!isPlayerOnRight && isFacingRight)
-        {
-            isFacingRight = false;
-            Vector3 localScale = transform.localScale;
-            localScale.x = -Mathf.Abs(localScale.x);
+            localScale.x *= -1; // invierte la dirección sin importar el tamaño original
             transform.localScale = localScale;
         }
     }
+
 
     //funcion para el patrullaje del enemigo en base a los waypoints
     public void PatrullajeIA()

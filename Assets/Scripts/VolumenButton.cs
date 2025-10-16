@@ -43,5 +43,31 @@ public class VolumeButton : MonoBehaviour
             prefsSet.SetVolumenEfectos();
         }
     }
+    public void IrMenu()
+    {
+        loader.LoadSceneString("MainMenu");
+    }
+    public void ReintentarNivel()
+    {
+        if (loader != null && master != null)
+        {
+            loader.LoadSceneString(master.escenaActual);
+            print("Reintentando nivel: " + master.escenaActual);
+        }
+    }
+    public void SigNivel()
+    {
+        if (loader != null && master != null)
+        {
+            loader.LoadSceneString(master.escenaSiguiente);
+            print("Cargando siguiente nivel: " + master.escenaSiguiente);
+        }
+    }
+    public void Guardar(){
+        if (master != null)
+        {
+            master.SaveGame();
+        }
+    }
 
 }

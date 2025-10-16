@@ -9,6 +9,7 @@ public class BalaEnemigo : MonoBehaviour
     [SerializeField] private float velocidadBala;
     [SerializeField] public int damage = 2;
     private Transform jugador;
+    [SerializeField] private GameObject enemigo;
 
     public void Inicializar(Transform jugadorDestino)
     {
@@ -42,5 +43,12 @@ public class BalaEnemigo : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject== enemigo)
+        {
+            Physics2D.IgnoreCollision(other, GetComponent<Collider2D>());
+        }
     }
 }
