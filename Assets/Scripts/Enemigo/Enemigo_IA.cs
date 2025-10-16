@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Security.Cryptography;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -21,60 +24,80 @@ public abstract class Enemigo_IA : MonoBehaviour
     [SerializeField] bool patrullaje;
     [SerializeField] public float rangoVision;
     [SerializeField] public int vida = 3;
-    [SerializeField] private int disWy;
+    [SerializeField] private float disWy;
     //declarar enum
     public estadosEnemigo estadoActual;
     public float speed;
     public Transform jugador;
     private bool isFacingRight = false;
-    private int currentWayPoint = 0;
+    public int currentWayPoint = 0;
     private bool enEspera;
+
     //funcion atacar que sera sobreecrita por sus hijos
     public abstract void Atacar();
+    //public abstract void Mover();
 
     public void Awake()
     {
         rbEnemigo = GetComponent<Rigidbody2D>();
 
     }
-
+    public void Start()
+    {
+        estadoActual = patrullaje ? estadosEnemigo.patrullaje : estadosEnemigo.idle;
+    }
     void Update()
     {
-        
+        Mover();
     }
     public void Mover()
     {
         float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
         bool jugadorDerecha = jugador.position.x > transform.position.x;
-        Flip(jugadorDerecha);
-        if(distanciaJugador < rangoVision)
+        disWy = Vector2.Distance(wayPoints[currentWayPoint].position, transform.position);
+        switch (estadoActual)
         {
-            estadoActual = estadosEnemigo.ataque;
-        }
-        else if(transform.position.x < wayPoints[currentWayPoint].position.x + disWy && transform.position.x > wayPoints[currentWayPoint].position.x - disWy)
-        {
-            estadoActual = estadosEnemigo.patrullaje;
-        }
-        
-        if (estadoActual == estadosEnemigo.patrullaje)
-        {
-            PatrullajeIA();
-        }
-        else if (estadoActual == estadosEnemigo.ataque)
-        {
-            if (distanciaJugador < rangoVision)
-            {
-                estadoActual = estadosEnemigo.ataque;
-                Atacar();
-            }
-        }
-        else
-        {
-            estadoActual = estadosEnemigo.patrullaje;
-                rbEnemigo.velocity = Vector2.zero; // idle
+            case estadosEnemigo.idle:
+                rbEnemigo.velocity = Vector2.zero;
 
-        }
+                if (distanciaJugador < rangoVision)
+                {
+                    estadoActual = estadosEnemigo.ataque;
+                }
+                break;
+
+            case estadosEnemigo.patrullaje:
+                PatrullajeIA();
+                if (distanciaJugador < rangoVision)
+                {
+                    Flip(jugadorDerecha);
+                    estadoActual = estadosEnemigo.ataque;
+                    
+                }
+                if (disWy < distanciaJugador && patrullaje)
+                {
+                    estadoActual = estadosEnemigo.patrullaje;
+                }
+                break;
+
+            case estadosEnemigo.ataque:
+                if (disWy > 5.6f)
+                {
+                    if(patrullaje) estadoActual = estadosEnemigo.patrullaje;
+                    else estadoActual = estadosEnemigo.idle;
+                }
+                else
+                {
+                    Atacar();
+                }
+            break;
+
+        case estadosEnemigo.muerto:
+            rbEnemigo.velocity = Vector2.zero;
+            break;
     }
+}
+
 
     //funcion para voltear al enemigo en base a la posicion del jugador
     public void Flip(bool isPlayerOnRight)
@@ -98,7 +121,6 @@ public abstract class Enemigo_IA : MonoBehaviour
     //funcion para el patrullaje del enemigo en base a los waypoints
     public void PatrullajeIA()
     {
-        SendMessage("DesactivarArma", SendMessageOptions.DontRequireReceiver);
         if (wayPoints.Length == 0) return;
 
         Vector2 destino = new Vector2(wayPoints[currentWayPoint].position.x, transform.position.y);
@@ -122,7 +144,7 @@ public abstract class Enemigo_IA : MonoBehaviour
         //si esta esperando no puede moverse
         enEspera = true;
         rbEnemigo.velocity = Vector2.zero;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         //cambia al siguiente waypoint
         currentWayPoint++;
         if (currentWayPoint >= wayPoints.Length)
@@ -162,7 +184,6 @@ public abstract class Enemigo_IA : MonoBehaviour
     }
     public void RecibirDano(int damage)
     {
-        Debug.Log("hola familia");
         vida -= damage;
         Morir();
     }
