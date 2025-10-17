@@ -106,6 +106,7 @@ namespace TarodevController
         }
         public void Detener()
         {
+            Debug.Log("estoy tieso");
             _rb.velocity = Vector3.zero;
             _frameInput.Move.x = 0;
         }
