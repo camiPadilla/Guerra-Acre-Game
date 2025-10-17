@@ -114,6 +114,7 @@ public class LoadScreenAnimation : MonoBehaviour
     }
     private void InstanciarCoca()
     {
+        //cambiar a setActive
         Image comida = Instantiate(cosa2, areaCanvas);
         RectTransform rt = comida.GetComponent<RectTransform>();
         float x = Random.Range(-200f, 200f);

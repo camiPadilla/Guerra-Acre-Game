@@ -3,11 +3,24 @@ using UnityEngine;
 
 public class PlayerSettings : MonoBehaviour
 {
+    public static PlayerSettings Instance { get; private set; }
     //Agregar las cosas que hacen falta para guardar los datos, osea sonido , etc.
     [SerializeField] private Scrollbar VolumenGeneral;
     [SerializeField] private Scrollbar VolumenMusica;
     [SerializeField] private Scrollbar VolumenEfectos;
     //Agregar resolucion y tamaño de pantalla, supongo que aplicaremos 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         LoadSettings();

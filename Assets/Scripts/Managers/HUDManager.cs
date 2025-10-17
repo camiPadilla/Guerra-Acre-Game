@@ -51,6 +51,7 @@ public class HUDManager : MonoBehaviour
     public void ReanudarPartida(int indice)
     {
         Reanudar();
+        Debug.Log("vuelves al juego");
         pantallas[indice].SetActive(false);
     }
     
@@ -259,6 +260,30 @@ public class HUDManager : MonoBehaviour
         pantallas[1].SetActive(false);
         pantallas[2].SetActive(false);
         pantallas[6].SetActive(true);
+    }
+    public void MostrarControles()
+    {
+        pantallas[1].SetActive(false);
+        pantallas[2].SetActive(false);
+        pantallas[10].SetActive(false);
+        pantallas[11].SetActive(true);
+        pantallas[9].SetActive(false);
+    }
+    public void MostrarSonido()
+    {
+        pantallas[1].SetActive(false);
+        pantallas[2].SetActive(false);
+        pantallas[11].SetActive(false);
+        pantallas[10].SetActive(true);
+        pantallas[9].SetActive(false);
+    }
+    public void MostrarVideo()
+    {
+        pantallas[1].SetActive(false);
+        pantallas[2].SetActive(false);
+        pantallas[11].SetActive(false);
+        pantallas[10].SetActive(false);
+        pantallas[9].SetActive(true);
     }
     public void SalirJUego()
     {

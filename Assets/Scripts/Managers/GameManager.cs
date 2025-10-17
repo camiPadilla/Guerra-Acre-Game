@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
     }
     public void CerrarEstado()
     {
-        Debug.Log("se cambiara de estado");
+        Debug.Log("se cambiara de estado a ");
         switch (estadoActual.stateName)
         {
             case "Paused":

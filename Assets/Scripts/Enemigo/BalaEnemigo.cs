@@ -9,6 +9,7 @@ public class BalaEnemigo : MonoBehaviour
     [SerializeField] private float velocidadBala;
     [SerializeField] public int damage = 2;
     private Transform jugador;
+    [SerializeField] private GameObject enemigo;
 
     public void Inicializar(Transform jugadorDestino)
     {
@@ -34,13 +35,17 @@ public class BalaEnemigo : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
-            collision.gameObject.SendMessage("PerderVida", damage, SendMessageOptions.DontRequireReceiver);
+            collision.gameObject.GetComponent<SaludPersonaje>().PerderVida(damage);
+             Destroy(gameObject);
         }
-
-        Destroy(gameObject);
+        if (collision.transform.CompareTag("Enemigo"))
+        {
+            Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>());
+        }
+       
     }
 }

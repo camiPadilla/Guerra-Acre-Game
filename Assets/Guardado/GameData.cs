@@ -1,54 +1,68 @@
 using System.Collections.Generic;
+using UnityEngine;
 using TarodevController;
 
 [System.Serializable]
-
 public class GameData
 {
-    
+    // Guarda la última posición conocida del jugador (por checkpoint)
+    public float[] playerPosition = new float[3];
+
+    // Lista de checkpoints activos
+    public List<bool> checkpointsActivos = new List<bool>();
+
+    // Lista de niveles completados
+   // public List<PlayerData.LevelCompletionData> nivelesCompletados = new List<PlayerData.LevelCompletionData>();
 }
+
+[System.Serializable]
 public class PlayerData
 {
     public int vidasJugador;
-    public int vidasEXtras;
+    public int vidasExtras;
     public float[] position = new float[3];
-    //para guardar cantidad de balas, y si la esta usando
+
+
+    // Armas
     public int balas;
     public int tipoArma;
-    public PlayerData(SaludPersonaje playerSalud, AtaquePersonaje PlayerAtaque, PlayerController player)
+
+    public PlayerData(SaludPersonaje playerSalud, AtaquePersonaje playerAtaque, PlayerController player)
     {
         vidasJugador = playerSalud.vidasJugador;
-        vidasEXtras = playerSalud.vidasEXtras;
+        vidasExtras = playerSalud.vidasEXtras;
         position[0] = player.transform.position.x;
         position[1] = player.transform.position.y;
         position[2] = player.transform.position.z;
-        //constructor para las balas, etc
-        balas = PlayerAtaque.GetBalasActuales();
-        tipoArma = PlayerAtaque.seleccionArma;
+        balas = playerAtaque.cantidadBalas;
+        tipoArma = playerAtaque.seleccionArma;
     }
-    public class ProgressData
-    {
-        public int currentLevel;
-        public List<int> checkPointsActivos;
-        public ProgressData(int nivelActual, List<int> cpActivos)
-        {
-            this.currentLevel = nivelActual;
-            this.checkPointsActivos = cpActivos;
-        }
+}
 
-    }
-    public class LevelCompletionData
+[System.Serializable]
+public class ProgressData
+{
+    public int currentLevel;
+    public List<int> checkPointsActivos = new List<int>();
+
+    public ProgressData(int nivelActual, List<int> cpActivos)
     {
-        public int levelIndex;
-        public bool levelComplete;
-        public int cantNotas;
-        public LevelCompletionData(int levelIndex, bool levelComplete, int cantNotas)
-        {
-            this.levelIndex = levelIndex;
-            this.levelComplete = levelComplete;
-            this.cantNotas = cantNotas;
-        }
+        currentLevel = nivelActual;
+        checkPointsActivos = cpActivos;
     }
-    //quiero creer que para las notas, en el area de coleccionables, hacer una lista, y guardar el index de las notas que se han recogido, supongo que solo eso
-    //si se me ocurre algo mas, ya veremos mmmmhh
+}
+
+[System.Serializable]
+public class LevelCompletionData
+{
+    public int levelIndex;
+    public bool levelComplete;
+    public int cantNotas;
+
+    public LevelCompletionData(int levelIndex, bool levelComplete, int cantNotas)
+    {
+        this.levelIndex = levelIndex;
+        this.levelComplete = levelComplete;
+        this.cantNotas = cantNotas;
+    }
 }

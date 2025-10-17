@@ -1,13 +1,14 @@
 <!-- UNITY CODE ASSIST INSTRUCTIONS START -->
-- Project name: Guerra-del-Acre-Game
+- Project name: Guerra-Acre-Game
 - Unity version: Unity 2022.3.62f1
 - Active scene:
+  - Name: EscenaUno
   - Tags:
     - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, hitbox, Destruible, Escenario, movible, NPC, Enemigo, LoaderScene, caja, cabeza
   - Layers:
-    - Default, TransparentFX, Ignore Raycast, Piso, Water, UI, Player
+    - Default, TransparentFX, Ignore Raycast, Piso, Water, UI, Player, Enemy
 - Active game object:
-  - Name: CHAcrelimpioDisq
-  - Tag: Untagged
-  - Layer: Default
+  - Name: JugadorNuevo
+  - Tag: Player
+  - Layer: Player
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
