@@ -18,6 +18,7 @@ namespace TarodevController
         private bool _cachedQueryStartInColliders; // Cache para configuración de Physics2D
         [SerializeField] private float reduccion;
         private bool forzarAgachado;
+        private float detenermiento = 1;
 
         //Added by Chelo .D
         private bool caminando;
@@ -70,8 +71,8 @@ namespace TarodevController
             // Aplicar deadzone y snapping si está habilitado
             if (_stats.SnapInput)
             {
-                _frameInput.Move.x = Mathf.Abs(_frameInput.Move.x) < _stats.HorizontalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.x);
-                _frameInput.Move.y = Mathf.Abs(_frameInput.Move.y) < _stats.VerticalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.y);
+                _frameInput.Move.x = Mathf.Abs(_frameInput.Move.x* detenermiento) < _stats.HorizontalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.x);
+                _frameInput.Move.y = Mathf.Abs(_frameInput.Move.y* detenermiento) < _stats.VerticalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.y);
             }
 
             // Manejar input de salto para buffer de salto
@@ -109,6 +110,14 @@ namespace TarodevController
             Debug.Log("estoy tieso");
             _rb.velocity = Vector3.zero;
             _frameInput.Move.x = 0;
+        }
+        public void IniciarDIalogo()
+        {
+            detenermiento = 0;
+        }
+        public void TerminarDialogo()
+        {
+            detenermiento = 1;
         }
 
         #region Collisions

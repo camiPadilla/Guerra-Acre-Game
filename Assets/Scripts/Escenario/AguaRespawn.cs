@@ -23,7 +23,8 @@ public class AguaRespawn : MonoBehaviour
         {
             SaludPersonaje personaje = collision.gameObject.GetComponent<SaludPersonaje>();
             personaje.PerderVida(1);
-            personaje.transform.position = puntoRespawn.position;
+            personaje.RegresarCheckPoint();
+            //personaje.transform.position = puntoRespawn.position;
             Debug.Log("checkpoint");
         }
     }

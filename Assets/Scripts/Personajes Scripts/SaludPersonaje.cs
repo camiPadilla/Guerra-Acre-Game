@@ -16,6 +16,7 @@ public class SaludPersonaje : MonoBehaviour
       
         HUDManager.instancia.ActualizarVida(vidasJugador);
         HUDManager.instancia.ActualizarArmadura(vidasEXtras);
+        RegresarCheckPoint();
 
         
     }
@@ -45,6 +46,14 @@ public class SaludPersonaje : MonoBehaviour
         }
 
     }
+    public void Respawn()
+    {
+        vidasJugador = 6;
+        gameObject.SetActive(true);
+        RegresarCheckPoint();
+        HUDManager.instancia.ActualizarVida(vidasJugador);
+
+    }
 
     IEnumerator Invulnerable()
     {
@@ -68,7 +77,6 @@ public class SaludPersonaje : MonoBehaviour
         }
         HUDManager.instancia.ActualizarVida(vidasJugador);
 
-        
     }
     public void ObtenerArmadura()
     {

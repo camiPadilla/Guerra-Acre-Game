@@ -5501,6 +5501,7 @@ MonoBehaviour:
   vidasJugador: 6
   vidasEXtras: 0
   tiempoInvulnerable: 0
+  ultimoCheckPoint: {fileID: 0}
 --- !u!114 &6397999302006620584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5513,6 +5514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4db5d1012a62d5489ba192a1e962d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  limiteBalas: 0
   aumento: 5
 --- !u!114 &4698883952993591493
 MonoBehaviour:
@@ -15715,7 +15717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4842350762693959654
 Transform:
   m_ObjectHideFlags: 0
