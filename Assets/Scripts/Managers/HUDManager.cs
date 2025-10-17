@@ -51,6 +51,7 @@ public class HUDManager : MonoBehaviour
     public void ReanudarPartida(int indice)
     {
         Reanudar();
+        Debug.Log("vuelves al juego");
         pantallas[indice].SetActive(false);
     }
     
