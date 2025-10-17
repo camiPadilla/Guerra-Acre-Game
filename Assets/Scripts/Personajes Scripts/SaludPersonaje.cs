@@ -33,7 +33,7 @@ public class SaludPersonaje : MonoBehaviour
             HUDManager.instancia.ActualizarVida(vidasJugador);
         }
         
-        if (vidasJugador == 0)
+        if (vidasJugador <= 0)
         {
             gameObject.SetActive(false);
             HUDManager.instancia.MostrarPantallaMuerte();

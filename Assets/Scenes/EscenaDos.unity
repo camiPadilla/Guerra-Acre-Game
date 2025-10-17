@@ -22705,7 +22705,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a22ffefe7cf2fd447bdac6cd34955e30, type: 2}
   - {fileID: 11400000, guid: bdcf56e3d17619140abb2dcd98ae0378, type: 2}
   - {fileID: 11400000, guid: 53994c16286979143bd29d6f8d8514a2, type: 2}
-  - {fileID: 11400000, guid: c17fe272b70c6584ebc6e768744f76c4, type: 2}
   onPlayingState:
     m_PersistentCalls:
       m_Calls: []
@@ -22715,6 +22714,21 @@ MonoBehaviour:
   onRCP:
     m_PersistentCalls:
       m_Calls: []
+  OnDialogo:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1817677491}
+        m_TargetAssemblyTypeName: TarodevController.PlayerController, Assembly-CSharp
+        m_MethodName: Detener
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2039073996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5711445529948412089, guid: 7f3637cdf5068674ba2d18e307b43883, type: 3}
