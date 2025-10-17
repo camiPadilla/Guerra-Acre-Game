@@ -54,6 +54,7 @@ public class UIManager : MonoBehaviour
         pantallasMenu[5].SetActive(false);
         pantallasMenu[6].SetActive(false);
         pantallasMenu[7].SetActive(false);
+        pantallasMenu[8].SetActive(false);
     }
     public void IrSalir()
     {
@@ -112,14 +113,27 @@ public class UIManager : MonoBehaviour
     }
     public void Desactivado()
     {
-         pantallasMenu[0].SetActive(false);
-         pantallasMenu[1].SetActive(false);
+        pantallasMenu[0].SetActive(false);
+        pantallasMenu[1].SetActive(false);
         pantallasMenu[2].SetActive(false);
         pantallasMenu[3].SetActive(false);
         pantallasMenu[4].SetActive(false);
-       pantallasMenu[5].SetActive(false);
+        pantallasMenu[5].SetActive(false);
         pantallasMenu[6].SetActive(false);
         pantallasMenu[7].SetActive(false);
+    }
+    //Si tiene partidas guardadas que vaya a este menu, aun por ver....
+    public void IrCargar()
+    {
+        pantallasMenu[0].SetActive(false);
+        pantallasMenu[1].SetActive(false);
+        pantallasMenu[2].SetActive(false);
+        pantallasMenu[3].SetActive(false);
+        pantallasMenu[4].SetActive(false);
+        pantallasMenu[5].SetActive(false);
+        pantallasMenu[6].SetActive(false);
+        pantallasMenu[7].SetActive(false);
+        pantallasMenu[8].SetActive(true);
     }
     public void Salir()
     {

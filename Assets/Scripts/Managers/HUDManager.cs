@@ -260,6 +260,30 @@ public class HUDManager : MonoBehaviour
         pantallas[2].SetActive(false);
         pantallas[6].SetActive(true);
     }
+    public void MostrarControles()
+    {
+        pantallas[1].SetActive(false);
+        pantallas[2].SetActive(false);
+        pantallas[10].SetActive(false);
+        pantallas[11].SetActive(true);
+        pantallas[9].SetActive(false);
+    }
+    public void MostrarSonido()
+    {
+        pantallas[1].SetActive(false);
+        pantallas[2].SetActive(false);
+        pantallas[11].SetActive(false);
+        pantallas[10].SetActive(true);
+        pantallas[9].SetActive(false);
+    }
+    public void MostrarVideo()
+    {
+        pantallas[1].SetActive(false);
+        pantallas[2].SetActive(false);
+        pantallas[11].SetActive(false);
+        pantallas[10].SetActive(false);
+        pantallas[9].SetActive(true);
+    }
     public void SalirJUego()
     {
         pantallas[7].SetActive(true);
