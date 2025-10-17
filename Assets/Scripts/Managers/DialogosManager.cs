@@ -31,7 +31,7 @@ public class DialogosManager : MonoBehaviour
             {
                 dialogando = false;
                 GameManager.instancia.CerrarEstado();
-                Debug.Log("Probando Commits");
+                
             }
         }
     }
