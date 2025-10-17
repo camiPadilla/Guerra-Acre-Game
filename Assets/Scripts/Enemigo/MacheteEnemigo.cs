@@ -9,7 +9,6 @@ public class MacheteEnemigo : MonoBehaviour
         if(collision.transform.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<SaludPersonaje>().PerderVida(1);
-            Debug.Log("le di al player");
         }
     }
 }
