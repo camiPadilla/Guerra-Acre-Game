@@ -15,6 +15,18 @@ public class UISoundManager : MonoBehaviour
     [SerializeField] private Scrollbar masterVolume;
     [SerializeField] private Scrollbar musicFader;
     [SerializeField] private Scrollbar SFXFader;
+
+    private void Awake()
+    {
+        int managers = FindObjectsOfType<UISoundManager>().Length;
+        if (managers > 1)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+    }
     private void Start()
     {
     
