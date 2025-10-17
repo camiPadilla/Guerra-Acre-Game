@@ -104,6 +104,11 @@ namespace TarodevController
 
             ApplyMovement(); // Aplicar velocidad final al Rigidbody
         }
+        public void Detener()
+        {
+            _rb.velocity = Vector3.zero;
+            _frameInput.Move.x = 0;
+        }
 
         #region Collisions
 

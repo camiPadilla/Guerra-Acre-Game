@@ -9,6 +9,7 @@ public class SaludPersonaje : MonoBehaviour
     public int vidasEXtras = 0;
     bool invulnerabilidad;
     [SerializeField] float tiempoInvulnerable;
+    [SerializeField] private GameObject ultimoCheckPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -81,5 +82,21 @@ public class SaludPersonaje : MonoBehaviour
         }
         HUDManager.instancia.ActualizarArmadura(vidasEXtras);
         
+    }
+    public void RegresarCheckPoint()
+    {
+        transform.position = ultimoCheckPoint.transform.position;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Respawn"))
+        {
+            if (ultimoCheckPoint != null)
+            {
+                ultimoCheckPoint.GetComponent<CheckPoints>().CambiarEstadoBandera();
+            }
+            ultimoCheckPoint = collision.gameObject;
+            ultimoCheckPoint.GetComponent<CheckPoints>().CambiarEstadoBandera();
+        }
     }
 }
