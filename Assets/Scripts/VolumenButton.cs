@@ -9,16 +9,15 @@ public class VolumeButton : MonoBehaviour
     [SerializeField] private MasterGameManager master;
 
 
-    private void Awake()
+    private void Start()
     {
         // Buscar automáticamente el PlayerPrefsManager si no está asignado
-        if (PlayerSettings.Instance != null)
-        {
-            prefsSet = PlayerSettings.Instance;
-        }
-        else
+        if (PlayerSettings.Instance == null && LoaderScene.instance == null && MasterGameManager.instance == null)
         {
             prefsSet = FindObjectOfType<PlayerSettings>();
+            loader = FindObjectOfType<LoaderScene>();
+            master = FindObjectOfType<MasterGameManager>();
+
         }
     }
 

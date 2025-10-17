@@ -35,20 +35,17 @@ public class BalaEnemigo : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
-            collision.gameObject.SendMessage("PerderVida", damage, SendMessageOptions.DontRequireReceiver);
+            collision.gameObject.GetComponent<SaludPersonaje>().PerderVida(damage);
+             Destroy(gameObject);
         }
-
-        Destroy(gameObject);
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject== enemigo)
+        if (collision.transform.CompareTag("Enemigo"))
         {
-            Physics2D.IgnoreCollision(other, GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>());
         }
+       
     }
 }
