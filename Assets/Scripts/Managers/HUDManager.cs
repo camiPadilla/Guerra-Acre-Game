@@ -11,10 +11,13 @@ public class HUDManager : MonoBehaviour
     [SerializeField] GameObject interactuable;
     [SerializeField] DialogosManager dialogosManager;
     public static HUDManager instancia;
+
     [SerializeField] TMP_Text text;
     GameObject mensajeE;
     [Header("Pantallas")]
-    [SerializeField] List<GameObject> pantallas;
+    [SerializeField] GameObject menues;
+    [SerializeField] GameObject pantallaBienvenida;
+    [SerializeField] GameObject HUDGame;
     [Header("Imagenes y barras")]
     [SerializeField] Sprite imagenClick;
     [SerializeField] Sprite imagenE;
@@ -27,6 +30,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] List<Sprite> imagenArmas;
     [SerializeField] GameObject hudBalas;
     [SerializeField] GameObject padreInteraccion;
+    [SerializeField] MasterGameManager masterGameManager;
     private ControladorNPC npc;
     // Start is called before the first frame update
     private void Awake()
@@ -38,6 +42,14 @@ public class HUDManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+        if (masterGameManager == null)
+        {
+            masterGameManager = FindObjectOfType<MasterGameManager>();
+        }
+        if(menues == null)
+        {
+            menues = GameObject.FindGameObjectWithTag("canvas");
         }
     }
     private void Update()
@@ -52,7 +64,7 @@ public class HUDManager : MonoBehaviour
     {
         Reanudar();
         Debug.Log("vuelves al juego");
-        pantallas[indice].SetActive(false);
+        menues.SetActive(false);
     }
     
     public void ActivarRifle()
@@ -184,11 +196,11 @@ public class HUDManager : MonoBehaviour
     
     public void LeerNota(string mensajeNuevo)
     {
-        DetenerTiempo();
+        masterGameManager.DetenerTiempo();
         text.text = mensajeNuevo;
         GameManager.instancia.CambiarDeEstado(3);
-        pantallas[2].SetActive(false);
-        pantallas[0].SetActive(true);
+        menues.SetActive(false);
+        menues.SetActive(true);
 
     }
     public void IniciarDialogo(DialogosSO dialogo)
@@ -197,107 +209,28 @@ public class HUDManager : MonoBehaviour
         //DetenerTiempo();
         GameManager.instancia.CambiarDeEstado(4);
         dialogosManager.IniciarDialogo(dialogo);
-        pantallas[2].SetActive(false);
-        pantallas[9].SetActive(true);
+        menues.SetActive(false);
+        menues.SetActive(true);
         return;
 
     }
     public void Pausar()
     {
-        DetenerTiempo();
-        pantallas[1].SetActive(true);
-        pantallas[2].SetActive(false);
-        pantallas[5].SetActive(false);
-        pantallas[6].SetActive(false);
-        pantallas[7].SetActive(false);
-
-    }
-    void DetenerTiempo()
-    {
-        Time.timeScale = 0;
+        masterGameManager.DetenerTiempo();
+        print("hola familia");
+        menues.SetActive(true);
+        HUDGame.SetActive(false);
+    //llamar al hud
     }
     public void Reanudar()
     {
         Time.timeScale = 1;
-        pantallas[2].SetActive(true);
-    }
-    public void MostrarPantallaMuerte()
-    {
-        pantallas[4].SetActive(true);
-        DetenerTiempo();
-        pantallas[2].SetActive(false);
-    }
-    public void MostrarPantallaCarga()
-    {
-        pantallas[3].SetActive(false);
-        DetenerTiempo();
-        pantallas[2].SetActive(false);
-    }
-    public void MostrarPantallaFin()
-    {
-        pantallas[3].SetActive(true);
-        DetenerTiempo();
-        pantallas[2].SetActive(false);
-    }
-    public void OcultarTodo()
-    {
-        pantallas[4].SetActive(false);
-        pantallas[0].SetActive(false);
-        pantallas[1].SetActive(false);
-        pantallas[3].SetActive(false);
-        Time.timeScale = 1;
-        pantallas[2].SetActive(false);
-    }
-    public void MostarAjustes()
-    {
-        pantallas[5].SetActive(true);
-        pantallas[1].SetActive(false);
-        pantallas[2].SetActive(false);
-
-    }
-    public void MostrarColeccionables()
-    {
-        pantallas[1].SetActive(false);
-        pantallas[2].SetActive(false);
-        pantallas[6].SetActive(true);
-    }
-    public void MostrarControles()
-    {
-        pantallas[1].SetActive(false);
-        pantallas[2].SetActive(false);
-        pantallas[10].SetActive(false);
-        pantallas[11].SetActive(true);
-        pantallas[9].SetActive(false);
-    }
-    public void MostrarSonido()
-    {
-        pantallas[1].SetActive(false);
-        pantallas[2].SetActive(false);
-        pantallas[11].SetActive(false);
-        pantallas[10].SetActive(true);
-        pantallas[9].SetActive(false);
-    }
-    public void MostrarVideo()
-    {
-        pantallas[1].SetActive(false);
-        pantallas[2].SetActive(false);
-        pantallas[11].SetActive(false);
-        pantallas[10].SetActive(false);
-        pantallas[9].SetActive(true);
-    }
-    public void SalirJUego()
-    {
-        pantallas[7].SetActive(true);
-    }
-    public void IrInicio()
-    {
-        pantallas[1].SetActive(false);
-        pantallas[2].SetActive(false);
+        menues.SetActive(false);
     }
     IEnumerator DarBienvenida()
     {
-        pantallas[8].SetActive(true);
+        pantallaBienvenida.SetActive(true);
         yield return new WaitForSeconds(5f);
-        pantallas[8].SetActive(false);
+        pantallaBienvenida.SetActive(false);
     }
 }

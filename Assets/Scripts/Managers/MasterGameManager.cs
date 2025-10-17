@@ -14,6 +14,7 @@ public class MasterGameManager : MonoBehaviour
     public PlayerController playerController;
     public string escenaActual;
     public string escenaSiguiente;
+    public bool InGame;
 
 
     // Start is called before the first frame update
@@ -119,5 +120,9 @@ public class MasterGameManager : MonoBehaviour
         SaveLoadSystem.DeleteAllData();
         PlayerPrefs.DeleteAll();
         Debug.Log("Datos de guardado eliminados.");
+    }
+     public void DetenerTiempo()
+    {
+        Time.timeScale = 0;
     }
 }

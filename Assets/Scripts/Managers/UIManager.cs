@@ -6,10 +6,28 @@ using UnityEngine.Audio;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] List<GameObject> pantallasMenu;
-    
+    public static UIManager instancia;
+    [SerializeField] private GameObject Menues;
+    [SerializeField] List<GameObject> pantallasMainMenu;
+    [SerializeField] List<GameObject> pantallaInGame;
+    [SerializeField] MasterGameManager masterGameManager;
+
 
     [SerializeField] string escenaPartida;
+    void Awake()
+    {
+        if(instancia != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instancia = this;
+            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(Menues);
+        }
+        
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,116 +42,116 @@ public class UIManager : MonoBehaviour
     }
     public void IrMenu()
     {
-        pantallasMenu[0].SetActive(true);
-        pantallasMenu[1].SetActive(false);
-        pantallasMenu[2].SetActive(false);
-        pantallasMenu[3].SetActive(false);
-        pantallasMenu[4].SetActive(false);
-        pantallasMenu[5].SetActive(false);
-       pantallasMenu[6].SetActive(false);
-        pantallasMenu[7].SetActive(false);
+        pantallasMainMenu[0].SetActive(true);
+        pantallasMainMenu[1].SetActive(false);
+        pantallasMainMenu[2].SetActive(false);
+        pantallasMainMenu[3].SetActive(false);
+        pantallasMainMenu[4].SetActive(false);
+        pantallasMainMenu[5].SetActive(false);
+       pantallasMainMenu[6].SetActive(false);
+        pantallasMainMenu[7].SetActive(false);
     }
     public void IrColeccionables()
     {
-        pantallasMenu[0].SetActive(false);
-        pantallasMenu[1].SetActive(true);
-        pantallasMenu[2].SetActive(false);
-        pantallasMenu[3].SetActive(false);
-        pantallasMenu[4].SetActive(false);
-       pantallasMenu[5].SetActive(false);
-        pantallasMenu[6].SetActive(false);
-        pantallasMenu[7].SetActive(false);
+        pantallasMainMenu[0].SetActive(false);
+        pantallasMainMenu[1].SetActive(true);
+        pantallasMainMenu[2].SetActive(false);
+        pantallasMainMenu[3].SetActive(false);
+        pantallasMainMenu[4].SetActive(false);
+       pantallasMainMenu[5].SetActive(false);
+        pantallasMainMenu[6].SetActive(false);
+        pantallasMainMenu[7].SetActive(false);
     }
     public void IrMenuPartida()
     {
-         pantallasMenu[0].SetActive(false);
-        pantallasMenu[1].SetActive(false);
-        pantallasMenu[2].SetActive(true);
-        pantallasMenu[3].SetActive(false);
-        pantallasMenu[4].SetActive(false);
-        pantallasMenu[5].SetActive(false);
-        pantallasMenu[6].SetActive(false);
-        pantallasMenu[7].SetActive(false);
-        pantallasMenu[8].SetActive(false);
+         pantallasMainMenu[0].SetActive(false);
+        pantallasMainMenu[1].SetActive(false);
+        pantallasMainMenu[2].SetActive(true);
+        pantallasMainMenu[3].SetActive(false);
+        pantallasMainMenu[4].SetActive(false);
+        pantallasMainMenu[5].SetActive(false);
+        pantallasMainMenu[6].SetActive(false);
+        pantallasMainMenu[7].SetActive(false);
+        pantallasMainMenu[8].SetActive(false);
     }
     public void IrSalir()
     {
-         pantallasMenu[0].SetActive(false);
-        pantallasMenu[1].SetActive(false);
-        pantallasMenu[2].SetActive(false);
-        pantallasMenu[3].SetActive(true);
-        pantallasMenu[4].SetActive(false);
-        pantallasMenu[5].SetActive(false);
-       pantallasMenu[6].SetActive(false);
-        pantallasMenu[7].SetActive(false);
+         pantallasMainMenu[0].SetActive(false);
+        pantallasMainMenu[1].SetActive(false);
+        pantallasMainMenu[2].SetActive(false);
+        pantallasMainMenu[3].SetActive(true);
+        pantallasMainMenu[4].SetActive(false);
+        pantallasMainMenu[5].SetActive(false);
+       pantallasMainMenu[6].SetActive(false);
+        pantallasMainMenu[7].SetActive(false);
     }
     public void IrOpciones()
     {
-        pantallasMenu[0].SetActive(false);
-        pantallasMenu[1].SetActive(false);
-        pantallasMenu[2].SetActive(false);
-        pantallasMenu[3].SetActive(false);
-        pantallasMenu[4].SetActive(true);
-        pantallasMenu[5].SetActive(false);
-        pantallasMenu[6].SetActive(false);
-        pantallasMenu[7].SetActive(false);
+        pantallasMainMenu[0].SetActive(false);
+        pantallasMainMenu[1].SetActive(false);
+        pantallasMainMenu[2].SetActive(false);
+        pantallasMainMenu[3].SetActive(false);
+        pantallasMainMenu[4].SetActive(true);
+        pantallasMainMenu[5].SetActive(false);
+        pantallasMainMenu[6].SetActive(false);
+        pantallasMainMenu[7].SetActive(false);
     }
     public void IrAudio()
     {
-        pantallasMenu[0].SetActive(false);
-        pantallasMenu[1].SetActive(false);
-        pantallasMenu[2].SetActive(false);
-        pantallasMenu[3].SetActive(false);
-        pantallasMenu[4].SetActive(false);
-        pantallasMenu[5].SetActive(true);
-        pantallasMenu[6].SetActive(false);
-        pantallasMenu[7].SetActive(false);
+        pantallasMainMenu[0].SetActive(false);
+        pantallasMainMenu[1].SetActive(false);
+        pantallasMainMenu[2].SetActive(false);
+        pantallasMainMenu[3].SetActive(false);
+        pantallasMainMenu[4].SetActive(false);
+        pantallasMainMenu[5].SetActive(true);
+        pantallasMainMenu[6].SetActive(false);
+        pantallasMainMenu[7].SetActive(false);
     }
     public void IrControles()
     {
-         pantallasMenu[0].SetActive(false);
-        pantallasMenu[1].SetActive(false);
-        pantallasMenu[2].SetActive(false);
-        pantallasMenu[3].SetActive(false);
-        pantallasMenu[4].SetActive(false);
-        pantallasMenu[5].SetActive(false);
-        pantallasMenu[6].SetActive(true);
-        pantallasMenu[7].SetActive(false);
+        pantallasMainMenu[0].SetActive(false);
+        pantallasMainMenu[1].SetActive(false);
+        pantallasMainMenu[2].SetActive(false);
+        pantallasMainMenu[3].SetActive(false);
+        pantallasMainMenu[4].SetActive(false);
+        pantallasMainMenu[5].SetActive(false);
+        pantallasMainMenu[6].SetActive(true);
+        pantallasMainMenu[7].SetActive(false);
     }
     public void IrVideo()
     {
-         pantallasMenu[0].SetActive(false);
-        pantallasMenu[1].SetActive(false);
-        pantallasMenu[2].SetActive(false);
-        pantallasMenu[3].SetActive(false);
-        pantallasMenu[4].SetActive(false);
-        pantallasMenu[5].SetActive(false);
-        pantallasMenu[6].SetActive(false);
-        pantallasMenu[7].SetActive(true);
+         pantallasMainMenu[0].SetActive(false);
+        pantallasMainMenu[1].SetActive(false);
+        pantallasMainMenu[2].SetActive(false);
+        pantallasMainMenu[3].SetActive(false);
+        pantallasMainMenu[4].SetActive(false);
+        pantallasMainMenu[5].SetActive(false);
+        pantallasMainMenu[6].SetActive(false);
+        pantallasMainMenu[7].SetActive(true);
     }
     public void Desactivado()
     {
-        pantallasMenu[0].SetActive(false);
-        pantallasMenu[1].SetActive(false);
-        pantallasMenu[2].SetActive(false);
-        pantallasMenu[3].SetActive(false);
-        pantallasMenu[4].SetActive(false);
-        pantallasMenu[5].SetActive(false);
-        pantallasMenu[6].SetActive(false);
-        pantallasMenu[7].SetActive(false);
+        pantallasMainMenu[0].SetActive(false);
+        pantallasMainMenu[1].SetActive(false);
+        pantallasMainMenu[2].SetActive(false);
+        pantallasMainMenu[3].SetActive(false);
+        pantallasMainMenu[4].SetActive(false);
+        pantallasMainMenu[5].SetActive(false);
+        pantallasMainMenu[6].SetActive(false);
+        pantallasMainMenu[7].SetActive(false);
     }
     //Si tiene partidas guardadas que vaya a este menu, aun por ver....
     public void IrCargar()
     {
-        pantallasMenu[0].SetActive(false);
-        pantallasMenu[1].SetActive(false);
-        pantallasMenu[2].SetActive(false);
-        pantallasMenu[3].SetActive(false);
-        pantallasMenu[4].SetActive(false);
-        pantallasMenu[5].SetActive(false);
-        pantallasMenu[6].SetActive(false);
-        pantallasMenu[7].SetActive(false);
-        pantallasMenu[8].SetActive(true);
+        pantallasMainMenu[0].SetActive(false);
+        pantallasMainMenu[1].SetActive(false);
+        pantallasMainMenu[2].SetActive(false);
+        pantallasMainMenu[3].SetActive(false);
+        pantallasMainMenu[4].SetActive(false);
+        pantallasMainMenu[5].SetActive(false);
+        pantallasMainMenu[6].SetActive(false);
+        pantallasMainMenu[7].SetActive(false);
+        pantallasMainMenu[8].SetActive(true);
     }
     public void Salir()
     {
@@ -142,5 +160,138 @@ public class UIManager : MonoBehaviour
     public void Comezar()
     {
         SceneManager.LoadScene(escenaPartida);
+    }
+    //Menus InGame
+    public void PausarGame()
+    {
+        pantallaInGame[0].SetActive(true);
+        pantallaInGame[1].SetActive(false);
+        pantallaInGame[2].SetActive(false);
+        pantallaInGame[3].SetActive(false);
+        pantallaInGame[4].SetActive(false);
+        pantallaInGame[5].SetActive(false);
+        pantallaInGame[6].SetActive(false);
+        pantallaInGame[7].SetActive(false);
+        pantallaInGame[8].SetActive(false);
+
+    }
+    public void MostrarPantallaMuerteGame()
+    {
+        pantallaInGame[1].SetActive(true);
+        pantallaInGame[0].SetActive(false);
+        pantallaInGame[2].SetActive(false);
+        pantallaInGame[3].SetActive(false);
+        pantallaInGame[4].SetActive(false);
+        pantallaInGame[5].SetActive(false);
+        pantallaInGame[6].SetActive(false);
+        pantallaInGame[7].SetActive(false);
+        pantallaInGame[8].SetActive(false);
+    }
+    public void MostrarPantallaFinGame()
+    {
+        pantallaInGame[4].SetActive(true);
+        pantallaInGame[0].SetActive(false);
+        pantallaInGame[1].SetActive(false);
+        pantallaInGame[2].SetActive(false);
+        pantallaInGame[3].SetActive(false);
+        pantallaInGame[5].SetActive(false);
+        pantallaInGame[6].SetActive(false);
+        pantallaInGame[7].SetActive(false);
+        pantallaInGame[8].SetActive(false);
+    }
+    public void OcultarTodoGame()
+    {
+        pantallaInGame[0].SetActive(false);
+        pantallaInGame[1].SetActive(false);
+        pantallaInGame[2].SetActive(false);
+        pantallaInGame[3].SetActive(false);
+        pantallaInGame[4].SetActive(false);
+        pantallaInGame[5].SetActive(false);
+        pantallaInGame[6].SetActive(false);
+        pantallaInGame[7].SetActive(false);
+        pantallaInGame[8].SetActive(false);
+        Time.timeScale = 1;
+    }
+    public void MostarAjustesGame()
+    {
+        pantallaInGame[0].SetActive(false);
+        pantallaInGame[1].SetActive(false);
+        pantallaInGame[2].SetActive(true);
+        pantallaInGame[3].SetActive(false);
+        pantallaInGame[4].SetActive(false);
+        pantallaInGame[5].SetActive(false);
+        pantallaInGame[6].SetActive(false);
+        pantallaInGame[7].SetActive(false);
+        pantallaInGame[8].SetActive(false);
+
+    }
+    public void MostrarColeccionablesGame()
+    {
+        pantallaInGame[0].SetActive(false);
+        pantallaInGame[1].SetActive(false);
+        pantallaInGame[2].SetActive(false);
+        pantallaInGame[3].SetActive(true);
+        pantallaInGame[4].SetActive(false);
+        pantallaInGame[5].SetActive(false);
+        pantallaInGame[6].SetActive(false);
+        pantallaInGame[7].SetActive(false);
+        pantallaInGame[8].SetActive(false);
+    }
+    public void MostrarControlesGame()
+    {
+        //falta agregarla ui de controles
+        pantallaInGame[0].SetActive(false);
+        pantallaInGame[1].SetActive(false);
+        pantallaInGame[2].SetActive(false);
+        pantallaInGame[3].SetActive(false);
+        pantallaInGame[4].SetActive(false);
+        pantallaInGame[5].SetActive(false);
+        pantallaInGame[6].SetActive(false);
+        pantallaInGame[7].SetActive(true);
+        pantallaInGame[8].SetActive(false);
+    }
+    public void MostrarSonidoGame()
+    {
+        //falta agregar la ui dsonido
+        pantallaInGame[0].SetActive(false);
+        pantallaInGame[1].SetActive(false);
+        pantallaInGame[2].SetActive(false);
+        pantallaInGame[3].SetActive(false);
+        pantallaInGame[4].SetActive(false);
+        pantallaInGame[5].SetActive(false);
+        pantallaInGame[6].SetActive(true);
+        pantallaInGame[7].SetActive(false);
+        pantallaInGame[8].SetActive(false);
+    }
+    public void MostrarVideoGame()
+    {
+        //falta agregar la ui de video
+        pantallaInGame[0].SetActive(false);
+        pantallaInGame[1].SetActive(false);
+        pantallaInGame[2].SetActive(false);
+        pantallaInGame[3].SetActive(false);
+        pantallaInGame[4].SetActive(false);
+        pantallaInGame[5].SetActive(false);
+        pantallaInGame[6].SetActive(false);
+        pantallaInGame[7].SetActive(false);
+        pantallaInGame[8].SetActive(true);
+    }
+    public void SalirJUego()
+    {
+        pantallaInGame[0].SetActive(false);
+        pantallaInGame[1].SetActive(false);
+        pantallaInGame[2].SetActive(false);
+        pantallaInGame[3].SetActive(false);
+        pantallaInGame[4].SetActive(false);
+        pantallaInGame[5].SetActive(true);
+        pantallaInGame[6].SetActive(false);
+        pantallaInGame[7].SetActive(false);
+        pantallaInGame[8].SetActive(false);
+
+    }
+    public void IrInicio()
+    {
+        pantallaInGame[1].SetActive(false);
+        pantallaInGame[2].SetActive(false);
     }
 }
