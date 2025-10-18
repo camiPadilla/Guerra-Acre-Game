@@ -15731,6 +15731,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 276495864231939706, guid: 2962db414d153fc46b83764dc4777fa9, type: 3}
   m_PrefabInstance: {fileID: 2015167574}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1420912818 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5361451021944865714, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+  m_PrefabInstance: {fileID: 1817677487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1431915540
 GameObject:
   m_ObjectHideFlags: 0
@@ -25069,7 +25080,7 @@ PrefabInstance:
     - target: {fileID: 5629687840868250841, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
       propertyPath: macheteEmitter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1420912818}
     - target: {fileID: 5629687840868250841, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
       propertyPath: ataquePersonaje
       value: 
@@ -25090,6 +25101,46 @@ PrefabInstance:
       propertyPath: lanzarpiedraEmitter
       value: 
       objectReference: {fileID: 576016917}
+    - target: {fileID: 6462498274155997310, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: musicNivel_1.Path
+      value: event:/MUSIC/MusicALT
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462498274155997310, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: musicNivel_2.Path
+      value: event:/MUSIC/MusicAMilitar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462498274155997310, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: musicNivel_1.Guid.Data1
+      value: -1874145143
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462498274155997310, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: musicNivel_1.Guid.Data2
+      value: 1178390609
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462498274155997310, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: musicNivel_1.Guid.Data3
+      value: -150782835
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462498274155997310, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: musicNivel_1.Guid.Data4
+      value: 1484269956
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462498274155997310, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: musicNivel_2.Guid.Data1
+      value: -498716774
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462498274155997310, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: musicNivel_2.Guid.Data2
+      value: 1297591211
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462498274155997310, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: musicNivel_2.Guid.Data3
+      value: 64599946
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462498274155997310, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+      propertyPath: musicNivel_2.Guid.Data4
+      value: 1224638656
+      objectReference: {fileID: 0}
     - target: {fileID: 8118848952440042193, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
       propertyPath: m_Name
       value: SoundManager
@@ -25102,8 +25153,7 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6462498274155997310, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
