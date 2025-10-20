@@ -26,11 +26,24 @@ public static class SoundEvents
     //Recoger notas
     public static Action RecogerNota;
 
+    //Recoger Arma
+    public static Action RecogerArma;
+
+    //Recoger Balas
+    public static Action RecogerBalas;
+
+    //Bandera Checkpoint
+    public static Action CheckpointActivado;
+
     //Hablar NPC Aliado
     public static Action HablarAliadoNPC;
 
     //Mosquito
     public static Action MorirMosquito;
+
+    //Arrastrar Objeto
+    public static Action ArrastrarObjeto;
+    public static Action DetenerArrastrarObjeto;
 
     //Ambientes
     public static Action Ambience;

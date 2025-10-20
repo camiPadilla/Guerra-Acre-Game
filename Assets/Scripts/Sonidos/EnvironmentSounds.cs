@@ -17,12 +17,26 @@ public class EnvironmentSounds : MonoBehaviour
     [SerializeField] StudioEventEmitter notaSoundEmitter;
     [SerializeField] StudioEventEmitter aliadoEmitter;
 
+    [SerializeField] StudioEventEmitter arrastrarCaja;
+
+    [SerializeField] EventReference recogerArma;
+    [SerializeField] EventReference recogerBalas;
+
+    [SerializeField] EventReference ativarCheckpoint;
     private void OnEnable()
     {        
         SoundEvents.DestruirObjeto += ReproducirDestruirObjeto;
 
         SoundEvents.RecogerNota += RecogerNota;
         SoundEvents.HablarAliadoNPC += ReproducirAliadoNPC;
+
+        SoundEvents.RecogerArma += RecogerArma;
+        SoundEvents.RecogerBalas += RecogerBalas;
+
+        SoundEvents.ArrastrarObjeto += ArrastrarObjeto;
+        SoundEvents.DetenerArrastrarObjeto += DetenerArrastrarObjeto;
+
+        SoundEvents.CheckpointActivado += ActivarCheckpoint;
     }
 
 
@@ -80,4 +94,34 @@ public class EnvironmentSounds : MonoBehaviour
             //Debug.Log("Valor actual del emiter: " + test);
         }
     }
+
+    public void RecogerArma()
+    {
+        if (!recogerArma.IsNull)
+            RuntimeManager.PlayOneShot(recogerArma);
+    }
+    public void RecogerBalas()
+    {
+        if (!recogerBalas.IsNull)
+            RuntimeManager.PlayOneShot(recogerBalas);
+    }
+    public void ActivarCheckpoint()
+    {
+        if (!ativarCheckpoint.IsNull)
+            RuntimeManager.PlayOneShot(ativarCheckpoint);
+    }
+
+    public void ArrastrarObjeto()
+    {
+        if (arrastrarCaja != null)
+            arrastrarCaja.Play();
+    }
+
+    public void DetenerArrastrarObjeto()
+    {
+        if (arrastrarCaja != null)
+            arrastrarCaja.Stop();
+    }
+
+    
 }

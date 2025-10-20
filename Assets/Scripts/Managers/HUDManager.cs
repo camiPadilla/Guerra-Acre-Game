@@ -57,12 +57,14 @@ public class HUDManager : MonoBehaviour
     
     public void ActivarRifle()
     {
+        SoundEvents.RecogerArma?.Invoke(); //Sonido by Chelo :D
         Debug.Log("hola activando arma");
         armas[2].GetComponent<UnityEngine.UI.Image>().sprite = imagenArmas[1];
 
     }
     public void AumentarBalas(Vector2 posicion)
     {
+        SoundEvents.RecogerBalas?.Invoke(); //Sonido by Chelo :D
         mensajeE.GetComponent<SpriteRenderer>().sprite = imagenAumentoBala;
         Vector2 posicionMensaje = new Vector2(posicion.x, posicion.y + 2f);
         mensajeE.transform.position = posicionMensaje;

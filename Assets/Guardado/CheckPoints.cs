@@ -24,6 +24,8 @@ public class CheckPoints : MonoBehaviour
         if (collision.CompareTag("Player") && !checkPointActivo)
         {
             //gameManager.ActivarCheckPoint(indexCP);
+
+            SoundEvents.CheckpointActivado?.Invoke(); // Sonido by Chelo :D
             checkPointActivo = true;
             Debug.Log("hola acabas de pasar por aqui :D");
         }
