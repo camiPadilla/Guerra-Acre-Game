@@ -108,9 +108,11 @@ MonoBehaviour:
   patrullaje: 1
   rangoVision: 6
   vida: 3
+  disWy: 0
+  estadoActual: 0
   speed: 4
   jugador: {fileID: 0}
-  Armas: []
+  currentWayPoint: 0
   balaPrefab: {fileID: 0}
   piedraPrefab: {fileID: 5909298912844603922, guid: b01e3924796414bdbaeb50a790fbd14c, type: 3}
   puntoDisparoBala: {fileID: 6013079162051924959}

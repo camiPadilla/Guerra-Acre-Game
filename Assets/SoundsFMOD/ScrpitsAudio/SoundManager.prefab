@@ -515,7 +515,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19216ca6a3b9755458e46791c03ff38d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   morirMosquitoEmitter: {fileID: 5221992321499633469, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+  disparoEnemigo:
+    Guid:
+      Data1: 1027750505
+      Data2: 1163882630
+      Data3: 241106052
+      Data4: 297592229
+    Path: event:/SFX/Enemigos/Siringuero/DisparoEnemigo
+  recibirDano:
+    Guid:
+      Data1: 1530430406
+      Data2: 1105530839
+      Data3: 1736012168
+      Data4: 1748623154
+    Path: event:/SFX/Enemigos/Siringuero/RecibirDano
 --- !u!114 &6462498274155997310
 MonoBehaviour:
   m_ObjectHideFlags: 0

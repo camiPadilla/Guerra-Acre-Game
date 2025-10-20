@@ -189,6 +189,7 @@ public abstract class Enemigo_IA : MonoBehaviour
     }
     public void RecibirDano(int damage)
     {
+        SoundEvents.RecibirDano?.Invoke(transform.position.x); //Sound by Chelo :D
         vida -= damage;
         Morir();
     }

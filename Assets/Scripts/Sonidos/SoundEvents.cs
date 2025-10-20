@@ -41,6 +41,10 @@ public static class SoundEvents
     //Mosquito
     public static Action MorirMosquito;
 
+    //Siringuero
+    public static Action<float> DisparoEnemigo;
+    public static Action<float> RecibirDano;
+
     //Arrastrar Objeto
     public static Action ArrastrarObjeto;
     public static Action DetenerArrastrarObjeto;
