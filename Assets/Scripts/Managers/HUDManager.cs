@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using PantallaCarga;
 using UnityEditorInternal;
+using System.Threading;
 
 public class HUDManager : MonoBehaviour
 {
@@ -46,11 +47,14 @@ public class HUDManager : MonoBehaviour
         if (masterGameManager == null)
         {
             masterGameManager = FindObjectOfType<MasterGameManager>();
+            menues = GameObject.FindWithTag("canvas");
         }
-        if(menues == null)
+        if (menues == null)
         {
-            menues = GameObject.FindGameObjectWithTag("canvas");
+            
+            //menues = FindObjectOfType<GameObject>(CompareTag("canvas"));
         }
+        menues.SetActive(false);
     }
     private void Update()
     {
@@ -64,6 +68,7 @@ public class HUDManager : MonoBehaviour
     {
         Reanudar();
         Debug.Log("vuelves al juego");
+         HUDGame.SetActive(true);
         menues.SetActive(false);
     }
     

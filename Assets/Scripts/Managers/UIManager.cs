@@ -7,7 +7,8 @@ using UnityEngine.Audio;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instancia;
-    [SerializeField] private GameObject Menues;
+    [SerializeField] private GameObject MenuInGame;
+    [SerializeField] private GameObject MainMenu;
     [SerializeField] List<GameObject> pantallasMainMenu;
     [SerializeField] List<GameObject> pantallaInGame;
     [SerializeField] MasterGameManager masterGameManager;
@@ -24,7 +25,8 @@ public class UIManager : MonoBehaviour
         {
             instancia = this;
             DontDestroyOnLoad(gameObject);
-            DontDestroyOnLoad(Menues);
+            DontDestroyOnLoad(MenuInGame);
+            DontDestroyOnLoad(MainMenu);
         }
         
     }
