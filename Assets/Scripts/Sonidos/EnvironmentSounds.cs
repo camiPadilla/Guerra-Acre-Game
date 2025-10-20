@@ -23,6 +23,8 @@ public class EnvironmentSounds : MonoBehaviour
     [SerializeField] EventReference recogerBalas;
 
     [SerializeField] EventReference ativarCheckpoint;
+
+    [SerializeField] EventReference aguaSplash;
     private void OnEnable()
     {        
         SoundEvents.DestruirObjeto += ReproducirDestruirObjeto;
@@ -37,6 +39,8 @@ public class EnvironmentSounds : MonoBehaviour
         SoundEvents.DetenerArrastrarObjeto += DetenerArrastrarObjeto;
 
         SoundEvents.CheckpointActivado += ActivarCheckpoint;
+
+        SoundEvents.CaerAgua += ReproducirSplash;
     }
 
 
@@ -123,5 +127,11 @@ public class EnvironmentSounds : MonoBehaviour
             arrastrarCaja.Stop();
     }
 
-    
+    public void ReproducirSplash()
+    {
+        if (!aguaSplash.IsNull) {
+            RuntimeManager.PlayOneShot(aguaSplash);
+        }
+    }
+
 }

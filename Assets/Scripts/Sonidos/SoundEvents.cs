@@ -49,6 +49,9 @@ public static class SoundEvents
     public static Action ArrastrarObjeto;
     public static Action DetenerArrastrarObjeto;
 
+    //Caer al agua
+    public static Action CaerAgua;
+
     //Ambientes
     public static Action Ambience;
 }
