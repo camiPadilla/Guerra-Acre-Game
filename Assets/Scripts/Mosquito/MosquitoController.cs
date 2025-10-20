@@ -12,6 +12,7 @@ public class MosquitoController : MonoBehaviour
     [SerializeField] int damage = 1;
     Vector2 posicionAleatoria;
     Vector2 posicionInicial;
+
     // Start is called before the first frame update
     void Start()
     {
