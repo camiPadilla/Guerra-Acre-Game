@@ -10,18 +10,28 @@ public class SaludPersonaje : MonoBehaviour
     bool invulnerabilidad;
     [SerializeField] float tiempoInvulnerable;
     [SerializeField] private GameObject ultimoCheckPoint;
+    [SerializeField] private BoxCollider boxCollider;
     // Start is called before the first frame update
     void Start()
     {
-      
+      boxCollider.enabled = false;
         HUDManager.instancia.ActualizarVida(vidasJugador);
         HUDManager.instancia.ActualizarArmadura(vidasEXtras);
 
         
     }
+    IEnumerator ActivarCollider()
+    {
+        boxCollider.enabled = true;
+        yield return new WaitForSeconds(1f);
+        boxCollider.enabled = false;
 
+    }
     public void PerderVida(int damage)
     {
+        if(damage == 1){
+                        StartCoroutine(ActivarCollider());
+        }
         if (vidasEXtras > 0 && !invulnerabilidad)
         {
             vidasEXtras-=damage;
