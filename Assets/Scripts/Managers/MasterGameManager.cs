@@ -125,4 +125,12 @@ public class MasterGameManager : MonoBehaviour
     {
         Time.timeScale = 0;
     }
+    public void ReanudarTiempo()
+    {
+        Time.timeScale = 1;
+    }
+    public void ComunicarCierre()
+    {
+        GameManager.instancia.CerrarEstado();
+    }
 }

@@ -2062,11 +2062,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2010399998378761295, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.1
+      value: 47.137
       objectReference: {fileID: 0}
     - target: {fileID: 2010399998378761295, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.1
+      value: -2.145
       objectReference: {fileID: 0}
     - target: {fileID: 2010399998378761295, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2136,6 +2136,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1308249837}
     m_Modifications:
+    - target: {fileID: 2064483970700531087, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
+      propertyPath: dialogo
+      value: 
+      objectReference: {fileID: 11400000, guid: 742d123fcf97a2144978ffa6df0df19d, type: 2}
+    - target: {fileID: 2064483970700531087, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
+      propertyPath: nombreObjeto
+      value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064483970700531087, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
+      propertyPath: tiempoEspera
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3723244909631379704, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
       propertyPath: m_LocalPosition.x
       value: -183.43
@@ -3452,6 +3464,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1308249837}
     m_Modifications:
+    - target: {fileID: 2064483970700531087, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
+      propertyPath: dialogo
+      value: 
+      objectReference: {fileID: 11400000, guid: 742d123fcf97a2144978ffa6df0df19d, type: 2}
     - target: {fileID: 3723244909631379704, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
       propertyPath: m_LocalPosition.x
       value: -55.569412
@@ -3711,17 +3727,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 503006416}
     - target: {fileID: 4673974816659341828, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
+      propertyPath: textoNota
+      value: 
+      objectReference: {fileID: 503006419}
+    - target: {fileID: 4673974816659341828, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
       propertyPath: dialogosManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1366375186}
     - target: {fileID: 4673974816659341828, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
       propertyPath: padreInteraccion
       value: 
       objectReference: {fileID: 87655308}
     - target: {fileID: 4673974816659341828, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
+      propertyPath: menues.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673974816659341828, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
+      propertyPath: MensajeInteraccion
+      value: 
+      objectReference: {fileID: 7710909887009950346, guid: 2ebb90790b727f1438278d0f724d21bd, type: 3}
+    - target: {fileID: 4673974816659341828, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
       propertyPath: pantallaBienvenida
       value: 
       objectReference: {fileID: 503006415}
+    - target: {fileID: 4673974816659341828, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
+      propertyPath: menues.Array.data[0]
+      value: 
+      objectReference: {fileID: 503006418}
+    - target: {fileID: 4673974816659341828, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
+      propertyPath: menues.Array.data[1]
+      value: 
+      objectReference: {fileID: 503006417}
     - target: {fileID: 4728465643504451746, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3846,6 +3882,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2677132465210023995, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
   m_PrefabInstance: {fileID: 503006414}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &503006417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3434053446056234626, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
+  m_PrefabInstance: {fileID: 503006414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &503006418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4728465643504451746, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
+  m_PrefabInstance: {fileID: 503006414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &503006419 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1572005036479026975, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
+  m_PrefabInstance: {fileID: 503006414}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &503313441
 GameObject:
   m_ObjectHideFlags: 0
@@ -5862,6 +5919,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1308249837}
     m_Modifications:
+    - target: {fileID: 2064483970700531087, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
+      propertyPath: dialogo
+      value: 
+      objectReference: {fileID: 11400000, guid: 742d123fcf97a2144978ffa6df0df19d, type: 2}
     - target: {fileID: 3723244909631379704, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
       propertyPath: m_LocalPosition.x
       value: -60.190002
@@ -6059,7 +6120,7 @@ PrefabInstance:
     - target: {fileID: 5685511640570837674, guid: 9abfc03b795e856468ea1811182f77c4, type: 3}
       propertyPath: estados.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: c17fe272b70c6584ebc6e768744f76c4, type: 2}
+      objectReference: {fileID: 11400000, guid: 57337b364362e1c4692485f2d05e3f37, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8392,8 +8453,32 @@ PrefabInstance:
     - {fileID: 4402360222415952931, guid: 60dba18e2d917054193dc3f4797ad936, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6687171044969650790, guid: 60dba18e2d917054193dc3f4797ad936, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1366375186}
   m_SourcePrefab: {fileID: 100100000, guid: 60dba18e2d917054193dc3f4797ad936, type: 3}
+--- !u!1 &1366375185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6687171044969650790, guid: 60dba18e2d917054193dc3f4797ad936, type: 3}
+  m_PrefabInstance: {fileID: 1366375184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1366375186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366375185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a26ce8b80b304ecb8bfafae735ad780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pantallaDialogo: {fileID: 1150588992}
+  cajaDeDialogo: {fileID: 255851493}
+  dialogoActual: 
+  velocidad: 0.5
 --- !u!1001 &1371589645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10025,6 +10110,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1308249837}
     m_Modifications:
+    - target: {fileID: 2064483970700531087, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
+      propertyPath: dialogo
+      value: 
+      objectReference: {fileID: 11400000, guid: 742d123fcf97a2144978ffa6df0df19d, type: 2}
     - target: {fileID: 3723244909631379704, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
       propertyPath: m_LocalPosition.x
       value: -50.19014
@@ -10082,6 +10171,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1308249837}
     m_Modifications:
+    - target: {fileID: 2064483970700531087, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
+      propertyPath: dialogo
+      value: 
+      objectReference: {fileID: 11400000, guid: 742d123fcf97a2144978ffa6df0df19d, type: 2}
     - target: {fileID: 3723244909631379704, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
       propertyPath: m_LocalPosition.x
       value: -34.729
@@ -10629,7 +10722,7 @@ Transform:
   m_GameObject: {fileID: 1887834879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.1, y: -1.9399999, z: -10}
+  m_LocalPosition: {x: 47.137, y: -0.985, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11193,7 +11286,7 @@ Transform:
   m_GameObject: {fileID: 1990159116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.1, y: -1.9399999, z: -10}
+  m_LocalPosition: {x: 47.137, y: -0.985, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11369,6 +11462,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1308249837}
     m_Modifications:
+    - target: {fileID: 2064483970700531087, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
+      propertyPath: dialogo
+      value: 
+      objectReference: {fileID: 11400000, guid: 742d123fcf97a2144978ffa6df0df19d, type: 2}
     - target: {fileID: 3723244909631379704, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
       propertyPath: m_LocalPosition.x
       value: -132.548
@@ -11449,6 +11546,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1308249837}
     m_Modifications:
+    - target: {fileID: 2064483970700531087, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
+      propertyPath: dialogo
+      value: 
+      objectReference: {fileID: 11400000, guid: 742d123fcf97a2144978ffa6df0df19d, type: 2}
     - target: {fileID: 3723244909631379704, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
       propertyPath: m_LocalScale.x
       value: -1
