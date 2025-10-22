@@ -39,6 +39,10 @@ public static class SoundEvents
     public static Action SinBalas;
     public static Action RecargarBalas;
 
+    //Daño Personaje
+    public static Action DanoPersonaje;
+    public static Action MorirPersonaje;
+
     //Bandera Checkpoint
     public static Action CheckpointActivado;
 

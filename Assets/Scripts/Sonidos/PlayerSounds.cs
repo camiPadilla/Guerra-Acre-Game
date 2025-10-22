@@ -21,6 +21,10 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] EventReference activarPiedra;
     [SerializeField] EventReference sinBalas;
     [SerializeField] EventReference recargaBalas;
+    [SerializeField] EventReference dano;
+    [SerializeField] EventReference muerte;
+
+    private EventInstance instanciaMuerte;
 
     private void OnEnable()
     {
@@ -38,8 +42,15 @@ public class PlayerSounds : MonoBehaviour
 
         SoundEvents.SinBalas += ReproducirSinBalas;
         SoundEvents.RecargarBalas += ReproducirRecargaBalas;
+
+        SoundEvents.MorirPersonaje += ReproducirMuerte;
+        SoundEvents.DanoPersonaje += ReproducirDano;
     }
 
+    private void Start()
+    {
+        instanciaMuerte = RuntimeManager.CreateInstance(muerte);
+    }
     void Update()
     {
         if (pasosPastoEmitter != null && pasosPastoEmitter.IsPlaying())
@@ -183,6 +194,33 @@ public class PlayerSounds : MonoBehaviour
         if (!recargaBalas.IsNull)
         {
             RuntimeManager.PlayOneShot(recargaBalas);
+        }
+    }
+    public void ReproducirMuerte()
+    {
+        if (!muerte.IsNull)
+        {
+            instanciaMuerte.start();
+            int ultimoValor = -1;
+            int NuevoRandom()
+            {
+                int nuevo;
+                do
+                {
+                    nuevo = UnityEngine.Random.Range(0, 1);
+                } while (nuevo == ultimoValor);
+
+                ultimoValor = nuevo;
+                return nuevo;
+            }
+            instanciaMuerte.setParameterByName("Random0-1", NuevoRandom());
+        }
+    }
+    public void ReproducirDano()
+    {
+        if (!dano.IsNull)
+        {
+            RuntimeManager.PlayOneShot(dano);
         }
     }
 }
