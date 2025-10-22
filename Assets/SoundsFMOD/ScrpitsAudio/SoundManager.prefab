@@ -464,6 +464,34 @@ MonoBehaviour:
   cargarpiedraEmitter: {fileID: 0}
   lanzarpiedraEmitter: {fileID: 0}
   macheteEmitter: {fileID: 0}
+  activarMachete:
+    Guid:
+      Data1: 352659908
+      Data2: 1097710944
+      Data3: 1664281516
+      Data4: -666231794
+    Path: event:/PLAYER/AtaqueMachete/ActivarMachete
+  activarPiedra:
+    Guid:
+      Data1: -850326458
+      Data2: 1314596266
+      Data3: -1932478052
+      Data4: -580160827
+    Path: event:/PLAYER/TirarPiedra/CambiarArmaPiedra
+  sinBalas:
+    Guid:
+      Data1: 1052647182
+      Data2: 1284617823
+      Data3: 932881343
+      Data4: 1762045310
+    Path: event:/PLAYER/Fusil/SinBalas
+  recargaBalas:
+    Guid:
+      Data1: -322496470
+      Data2: 1286163186
+      Data3: -1230636617
+      Data4: 1378629448
+    Path: event:/PLAYER/Fusil/Recarga
 --- !u!114 &2547597476191356893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,14 +558,21 @@ MonoBehaviour:
       Data2: 1163882630
       Data3: 241106052
       Data4: 297592229
-    Path: event:/SFX/Enemigos/Siringuero/DisparoEnemigo
+    Path: event:/ENEMIGOS/Siringuero/DisparoEnemigo
   recibirDano:
     Guid:
       Data1: 1530430406
       Data2: 1105530839
       Data3: 1736012168
       Data4: 1748623154
-    Path: event:/SFX/Enemigos/Siringuero/RecibirDano
+    Path: event:/ENEMIGOS/Siringuero/RecibirDano
+  morirSiringuero:
+    Guid:
+      Data1: 893830102
+      Data2: 1256542711
+      Data3: 1848164527
+      Data4: -486241707
+    Path: event:/ENEMIGOS/Siringuero/MorirEnemigo
 --- !u!114 &6462498274155997310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,15 +587,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicNivel_1:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1874145143
+      Data2: 1178390609
+      Data3: -150782835
+      Data4: 1484269956
+    Path: event:/MUSIC/Levels/Nivel1
   musicNivel_2:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -498716774
+      Data2: 1297591211
+      Data3: 64599946
+      Data4: 1224638656
+    Path: event:/MUSIC/Levels/Nivel2

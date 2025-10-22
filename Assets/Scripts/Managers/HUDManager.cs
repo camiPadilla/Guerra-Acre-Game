@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine.UI;
 using PantallaCarga;
 using UnityEditorInternal;
+using FMODUnity;
+using UnityEditor.SceneManagement;
 
 public class HUDManager : MonoBehaviour
 {
@@ -28,6 +30,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] GameObject hudBalas;
     [SerializeField] GameObject padreInteraccion;
     private ControladorNPC npc;
+
+    int armaAnterior = 0;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -100,6 +104,23 @@ public class HUDManager : MonoBehaviour
     }
     public void ActualizarArma(int armaActiva)
     {
+        //ADDED BY CHELO :D
+        if (armaActiva != armaAnterior)
+        {            
+            switch (armaActiva)
+                {
+                    case 0:
+                        SoundEvents.CambiarArmaMachete?.Invoke();
+                        break;
+                    case 1:
+                        SoundEvents.CambiarArmaPiedra?.Invoke();
+                        break;
+                    case 2:
+                        SoundEvents.RecogerArma?.Invoke();
+                        break;
+                }
+                armaAnterior = armaActiva;
+        }
 
         foreach (GameObject arma in armas)
         {

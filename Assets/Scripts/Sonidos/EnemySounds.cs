@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using FMOD.Studio;
 using FMODUnity;
 using TarodevController;
@@ -11,20 +12,24 @@ public class EnemySounds : MonoBehaviour
     [SerializeField] StudioEventEmitter morirMosquitoEmitter;
     [SerializeField] EventReference disparoEnemigo;
     [SerializeField] EventReference recibirDano;
+    [SerializeField] EventReference morirSiringuero;
 
     private EventInstance instanciaRecibirDano;
     private EventInstance instanciaDisparoEnemigo;
+    private EventInstance instanciaMorirSiringuero;
 
     void Start()
     {
         instanciaRecibirDano = RuntimeManager.CreateInstance(recibirDano);
         instanciaDisparoEnemigo = RuntimeManager.CreateInstance(disparoEnemigo);
+        instanciaMorirSiringuero = RuntimeManager.CreateInstance(morirSiringuero);
     }
     private void OnEnable()
     {
         SoundEvents.MorirMosquito += ReproducirMorirMosquito;
         SoundEvents.DisparoEnemigo += ReproducirDisparoEnemigo;
         SoundEvents.RecibirDano += ReproducirRecibirDano;
+        SoundEvents.MorirSiringuero += ReproducirMorirSiringuero;
 
     }
 
@@ -72,6 +77,16 @@ public class EnemySounds : MonoBehaviour
             //Debug.Log("Valor actual del emiter: " + tipo);
 
 
+        }
+    }
+    public void ReproducirMorirSiringuero(float posicionObjeto)
+    {
+        if (!morirSiringuero.IsNull)
+        {           
+            instanciaMorirSiringuero.start();
+            float distancia = Player.transform.position.x - posicionObjeto;
+            float distNormalizado = distancia / 8;
+            instanciaMorirSiringuero.setParameterByName("Panner", -(distNormalizado));
         }
     }
 }

@@ -17,6 +17,10 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] StudioEventEmitter cargarpiedraEmitter;
     [SerializeField] StudioEventEmitter lanzarpiedraEmitter;
     [SerializeField] StudioEventEmitter macheteEmitter;
+    [SerializeField] EventReference activarMachete;
+    [SerializeField] EventReference activarPiedra;
+    [SerializeField] EventReference sinBalas;
+    [SerializeField] EventReference recargaBalas;
 
     private void OnEnable()
     {
@@ -29,6 +33,11 @@ public class PlayerSounds : MonoBehaviour
         SoundEvents.Salto += ReproducirSalto;
         SoundEvents.PasosPasto += ReproducirPasos;
         SoundEvents.DetenerPasosPasto += DetenerPasos;
+        SoundEvents.CambiarArmaMachete += ActivarMacheteSonido;
+        SoundEvents.CambiarArmaPiedra += ActivarPiedraSonido;
+
+        SoundEvents.SinBalas += ReproducirSinBalas;
+        SoundEvents.RecargarBalas += ReproducirRecargaBalas;
     }
 
     void Update()
@@ -145,6 +154,35 @@ public class PlayerSounds : MonoBehaviour
                 return nuevo;
             }
             macheteEmitter.EventInstance.setParameterByName("RandomMelee", NuevoRandom());
+        }
+    }
+
+    public void ActivarMacheteSonido()
+    {
+        if (!activarMachete.IsNull)
+        {
+            RuntimeManager.PlayOneShot(activarMachete);
+        }
+    }
+    public void ActivarPiedraSonido()
+    {
+        if (!activarPiedra.IsNull)
+        {
+            RuntimeManager.PlayOneShot(activarPiedra);
+        }
+    }
+    public void ReproducirSinBalas()
+    {
+        if (!sinBalas.IsNull)
+        {
+            RuntimeManager.PlayOneShot(sinBalas);
+        }
+    }
+    public void ReproducirRecargaBalas()
+    {
+        if (!recargaBalas.IsNull)
+        {
+            RuntimeManager.PlayOneShot(recargaBalas);
         }
     }
 }

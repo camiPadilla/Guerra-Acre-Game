@@ -183,6 +183,7 @@ public abstract class Enemigo_IA : MonoBehaviour
     {
         if (vida <= 0)
         {
+            SoundEvents.MorirSiringuero?.Invoke(transform.position.x); //Sound by Chelo :D
             //Animacion de muerte
             Destroy(gameObject);
         }

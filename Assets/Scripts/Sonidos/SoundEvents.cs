@@ -10,9 +10,13 @@ public static class SoundEvents
 
     //Lanzar piedra
     public static Action LanzarPiedra;
+    public static Action CambiarArmaPiedra;
+
     //Ataque Melee
     public static Action AtaqueMachete;
+    public static Action CambiarArmaMachete;
 
+    
     //SaltoCaída
     public static Action<float> Salto;
 
@@ -31,6 +35,9 @@ public static class SoundEvents
 
     //Recoger Balas
     public static Action RecogerBalas;
+    //Ataque Fusil
+    public static Action SinBalas;
+    public static Action RecargarBalas;
 
     //Bandera Checkpoint
     public static Action CheckpointActivado;
@@ -44,6 +51,7 @@ public static class SoundEvents
     //Siringuero
     public static Action<float> DisparoEnemigo;
     public static Action<float> RecibirDano;
+    public static Action<float> MorirSiringuero;
 
     //Arrastrar Objeto
     public static Action ArrastrarObjeto;
