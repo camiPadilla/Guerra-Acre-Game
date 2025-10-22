@@ -1,5 +1,6 @@
 
 using System;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public static class SoundEvents
@@ -34,5 +35,9 @@ public static class SoundEvents
 
     //Ambientes
     public static Action Ambience;
+
+    public static Action RecogerArma;
+
+    public static Action RecogerBalas;
 }
 

@@ -14,9 +14,9 @@ public class HUDManager : MonoBehaviour
     public static HUDManager instancia;
 
     [SerializeField] TMP_Text text;
-    GameObject mensajeE;
+    [SerializeField]GameObject mensajeE;
     [Header("Pantallas")]
-    [SerializeField] GameObject menues;
+    [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject pantallaBienvenida;
     [SerializeField] GameObject HUDGame;
     [Header("Imagenes y barras")]
@@ -47,14 +47,13 @@ public class HUDManager : MonoBehaviour
         if (masterGameManager == null)
         {
             masterGameManager = FindObjectOfType<MasterGameManager>();
-            menues = GameObject.FindWithTag("canvas");
         }
-        if (menues == null)
+        if (menuInGame == null)
         {
-            
+            menuInGame = GameObject.FindWithTag("canvas");
             //menues = FindObjectOfType<GameObject>(CompareTag("canvas"));
         }
-        menues.SetActive(false);
+        menuInGame.SetActive(false);
     }
     private void Update()
     {
@@ -69,17 +68,19 @@ public class HUDManager : MonoBehaviour
         Reanudar();
         Debug.Log("vuelves al juego");
          HUDGame.SetActive(true);
-        menues.SetActive(false);
+        menuInGame.SetActive(false);
     }
     
     public void ActivarRifle()
     {
+        SoundEvents.RecogerArma.Invoke(); //Sonido by Chelo :D
         Debug.Log("hola activando arma");
         armas[2].GetComponent<UnityEngine.UI.Image>().sprite = imagenArmas[1];
 
     }
     public void AumentarBalas(Vector2 posicion)
     {
+        SoundEvents.RecogerBalas.Invoke(); //Sonido by Chelo :D
         mensajeE.GetComponent<SpriteRenderer>().sprite = imagenAumentoBala;
         Vector2 posicionMensaje = new Vector2(posicion.x, posicion.y + 2f);
         mensajeE.transform.position = posicionMensaje;
@@ -204,8 +205,8 @@ public class HUDManager : MonoBehaviour
         masterGameManager.DetenerTiempo();
         text.text = mensajeNuevo;
         GameManager.instancia.CambiarDeEstado(3);
-        menues.SetActive(false);
-        menues.SetActive(true);
+        menuInGame.SetActive(false);
+        menuInGame.SetActive(true);
 
     }
     public void IniciarDialogo(DialogosSO dialogo)
@@ -214,8 +215,8 @@ public class HUDManager : MonoBehaviour
         //DetenerTiempo();
         GameManager.instancia.CambiarDeEstado(4);
         dialogosManager.IniciarDialogo(dialogo);
-        menues.SetActive(false);
-        menues.SetActive(true);
+        menuInGame.SetActive(false);
+        menuInGame.SetActive(true);
         return;
 
     }
@@ -223,14 +224,14 @@ public class HUDManager : MonoBehaviour
     {
         masterGameManager.DetenerTiempo();
         print("hola familia");
-        menues.SetActive(true);
+        menuInGame.SetActive(true);
         HUDGame.SetActive(false);
     //llamar al hud
     }
     public void Reanudar()
     {
         Time.timeScale = 1;
-        menues.SetActive(false);
+        menuInGame.SetActive(false);
     }
     IEnumerator DarBienvenida()
     {

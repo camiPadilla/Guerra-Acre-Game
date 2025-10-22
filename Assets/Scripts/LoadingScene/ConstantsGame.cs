@@ -11,7 +11,7 @@ namespace PantallaCarga
         public const string SCENADOS = "EscenaDos";
 
         //-----------------------
-        public const string SCENEMAINMENU = "MainMenu";
+        public const string MAINMENU = "MainMenu";
         public const string SCENECREDITS = "Credits"; 
         public const string SCENESAVELOAD = "SaveLoadSettings";
         //----------------------- 
