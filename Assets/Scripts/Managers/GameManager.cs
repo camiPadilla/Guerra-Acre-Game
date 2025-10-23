@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
         {
             case "Paused":
                 CambiarDeEstado(0);
-                HUDManager.instancia.ReanudarPartida(3);
+                HUDManager.instancia.ReanudarPartida(1);
                 
                 break;
             case "LeerNota":
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
                 break;
             case "Dialogo":
                 CambiarDeEstado (0);
-                HUDManager.instancia.ReanudarPartida(1);
+                HUDManager.instancia.ReanudarPartida(9);
                 break;
             default:
                 break;

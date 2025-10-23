@@ -23,7 +23,6 @@ public class DialogosManager : MonoBehaviour
     {
         if (Input.anyKeyDown && dialogando == true && !GameManager.instancia.Onplaying())
         {
-            Debug.Log("Quieres salir del juego");
             if (FraseEnProceso())
             {
                 FinalizarDialogo();

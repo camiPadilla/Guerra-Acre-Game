@@ -9,16 +9,14 @@ using System.Threading;
 
 public class HUDManager : MonoBehaviour
 {
-    public static HUDManager instancia;
-    [Header("Elementos HUD")]
     [SerializeField] GameObject interactuable;
     [SerializeField] DialogosManager dialogosManager;
-    
-    [SerializeField] TMP_Text textoNota;
-    [SerializeField]GameObject MensajeInteraccion;
+    public static HUDManager instancia;
+
+    [SerializeField] TMP_Text text;
+    [SerializeField]GameObject mensajeE;
     [Header("Pantallas")]
-    [SerializeField] List<GameObject> menues;
-    [SerializeField] GameObject menuPausa;
+    [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject pantallaBienvenida;
     [SerializeField] GameObject HUDGame;
     [Header("Imagenes y barras")]
@@ -50,20 +48,12 @@ public class HUDManager : MonoBehaviour
         {
             masterGameManager = FindObjectOfType<MasterGameManager>();
         }
-        if (menuPausa == null)
+        if (menuInGame == null)
         {
-            menuPausa = GameObject.FindWithTag("canvas");
-            foreach(Transform child in menuPausa.transform)
-            {
-                if (child.gameObject.name == "PantallaPausa")
-                {
-                    menuPausa = child.gameObject;
-                }
-            }
-
+            menuInGame = GameObject.FindWithTag("canvas");
+            //menues = FindObjectOfType<GameObject>(CompareTag("canvas"));
         }
-        menuPausa.SetActive(false);
-        
+        menuInGame.SetActive(false);
     }
     private void Update()
     {
@@ -76,15 +66,9 @@ public class HUDManager : MonoBehaviour
     public void ReanudarPartida(int indice)
     {
         Reanudar();
-        Debug.Log("vuelves al juego"); 
-        HUDGame.SetActive(true);
-        if (indice == 3)
-        {
-            menuPausa.SetActive(false);
-            return;
-        }
-        menues[indice].SetActive(false);
-        
+        Debug.Log("vuelves al juego");
+         HUDGame.SetActive(true);
+        menuInGame.SetActive(false);
     }
     
     public void ActivarRifle()
@@ -97,24 +81,24 @@ public class HUDManager : MonoBehaviour
     public void AumentarBalas(Vector2 posicion)
     {
         SoundEvents.RecogerBalas.Invoke(); //Sonido by Chelo :D
-        MensajeInteraccion.GetComponent<SpriteRenderer>().sprite = imagenAumentoBala;
+        mensajeE.GetComponent<SpriteRenderer>().sprite = imagenAumentoBala;
         Vector2 posicionMensaje = new Vector2(posicion.x, posicion.y + 2f);
-        MensajeInteraccion.transform.position = posicionMensaje;
-        MensajeInteraccion.SetActive(true);
-        //Debug.Log("ganaste 5 ");
+        mensajeE.transform.position = posicionMensaje;
+        mensajeE.SetActive(true);
+        Debug.Log("ganaste 5 ");
         StartCoroutine("FadeOut", 0.25f);
 
 
     }
     IEnumerator FadeOut(float tiempoTotal)
     {
-        SpriteRenderer miSpriteRenderer = MensajeInteraccion.GetComponent<SpriteRenderer>();
+        SpriteRenderer miSpriteRenderer = mensajeE.GetComponent<SpriteRenderer>();
         Vector2 movement = Vector2.up * 0.5f * Time.deltaTime;
         float startTime = Time.time;
 
         while (Time.time - startTime < tiempoTotal)
         {
-            MensajeInteraccion.transform.Translate(movement);
+            mensajeE.transform.Translate(movement);
             float porcentaje = (Time.time - startTime) / tiempoTotal;
             Color color = miSpriteRenderer.color;
             color.a = Mathf.Lerp(1f, 0f, porcentaje);
@@ -128,7 +112,7 @@ public class HUDManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         final.a = 1f;
         miSpriteRenderer.color = final;
-        MensajeInteraccion.SetActive(false);
+        mensajeE.SetActive(false);
     }
     public void ActualizarArma(int armaActiva)
     {
@@ -184,11 +168,11 @@ public class HUDManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(DarBienvenida());
-        MensajeInteraccion = Instantiate(interactuable, padreInteraccion.transform);
-        MensajeInteraccion.SetActive(false);
-        padreInteraccion.transform.parent = MensajeInteraccion.transform;
-        imagenE = MensajeInteraccion.GetComponent<SpriteRenderer>().sprite;
-        MensajeInteraccion.GetComponent<SpriteRenderer>().sortingLayerName = "IU";
+        mensajeE = Instantiate(interactuable, padreInteraccion.transform);
+        mensajeE.SetActive(false);
+        padreInteraccion.transform.parent = mensajeE.transform;
+        imagenE = mensajeE.GetComponent<SpriteRenderer>().sprite;
+        mensajeE.GetComponent<SpriteRenderer>().sortingLayerName = "IU";
         ActualizarBalasActual(0);
         ActualizarTotalBalas(0);
 
@@ -197,59 +181,62 @@ public class HUDManager : MonoBehaviour
     {
         if (nombre == "movible")
         {
-            MensajeInteraccion.GetComponent<SpriteRenderer>().sprite = imagenClick;
+            mensajeE.GetComponent<SpriteRenderer>().sprite = imagenClick;
         }
         else if (nombre == "recogible")
         {
-            MensajeInteraccion.GetComponent<SpriteRenderer>().sprite = imagenE;
+            mensajeE.GetComponent<SpriteRenderer>().sprite = imagenE;
         }
-        Vector2 posicionE = new Vector2(posicion.x, posicion.y + imagen * 2f + 0.5f);
-        MensajeInteraccion.transform.position = posicionE;
-        MensajeInteraccion.SetActive(true);
+        //Debug.Log("mostrado");
+        Vector2 posicionE = new Vector2(posicion.x, posicion.y + imagen * 2f);
+        mensajeE.transform.position = posicionE;
+        mensajeE.SetActive(true);
 
     }
     public void Ocultar()
     {
-        MensajeInteraccion.SetActive(false);
+        //Debug.Log("ocultado");
+        mensajeE.SetActive(false);
     }
 
     
     public void LeerNota(string mensajeNuevo)
     {
         masterGameManager.DetenerTiempo();
-        textoNota.text = mensajeNuevo;
+        text.text = mensajeNuevo;
         GameManager.instancia.CambiarDeEstado(3);
-        menues[0].SetActive(true);
-        HUDGame.SetActive(false);
+        menuInGame.SetActive(false);
+        menuInGame.SetActive(true);
 
     }
     public void IniciarDialogo(DialogosSO dialogo)
     {
 
         //DetenerTiempo();
-        Debug.Log("hola deberias estar dialogando");
         GameManager.instancia.CambiarDeEstado(4);
         dialogosManager.IniciarDialogo(dialogo);
-        menues[1].SetActive(true);
-        HUDGame.SetActive(false);
-
+        menuInGame.SetActive(false);
+        menuInGame.SetActive(true);
+        return;
 
     }
     public void Pausar()
     {
         masterGameManager.DetenerTiempo();
-        menuPausa.SetActive(true);
+        print("hola familia");
+        menuInGame.SetActive(true);
         HUDGame.SetActive(false);
     //llamar al hud
     }
     public void Reanudar()
     {
         Time.timeScale = 1;
+        menuInGame.SetActive(false);
     }
     IEnumerator DarBienvenida()
     {
         pantallaBienvenida.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         pantallaBienvenida.SetActive(false);
     }
 }
