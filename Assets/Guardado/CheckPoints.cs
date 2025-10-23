@@ -6,7 +6,6 @@ public class CheckPoints : MonoBehaviour
 {
     public int indexCP;
     public bool checkPointActivo;
-    [SerializeField] GameManager gameManager;
     [SerializeField] private Sprite[] sprites;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +22,7 @@ public class CheckPoints : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !checkPointActivo)
         {
-            //gameManager.ActivarCheckPoint(indexCP);
+           MasterGameManager.instance.ActivarCheckPoint(indexCP);
             checkPointActivo = true;
             Debug.Log("hola acabas de pasar por aqui :D");
         }

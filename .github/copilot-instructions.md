@@ -2,7 +2,7 @@
 - Project name: Guerra-Acre-Game
 - Unity version: Unity 2022.3.62f1
 - Active game object:
-  - Name: LoaderScene
+  - Name: Carga1
   - Tag: Untagged
-  - Layer: Default
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
