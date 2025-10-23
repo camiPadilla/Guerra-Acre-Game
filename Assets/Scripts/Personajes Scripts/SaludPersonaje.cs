@@ -10,28 +10,52 @@ public class SaludPersonaje : MonoBehaviour
     bool invulnerabilidad;
     [SerializeField] float tiempoInvulnerable;
     [SerializeField] private GameObject ultimoCheckPoint;
-    [SerializeField] private BoxCollider boxCollider;
+    [SerializeField] private BoxCollider boxColliderVeneno;
+    [SerializeField] private BoxCollider boxColliderHerido;
+    [SerializeField] private Animator animatorVeneno;
+    [SerializeField] private Animator animatorHerido;
     // Start is called before the first frame update
     void Start()
     {
-      boxCollider.enabled = false;
+        animatorVeneno = boxColliderVeneno.gameObject.GetComponent<Animator>();
+        animatorHerido = boxColliderVeneno.gameObject.GetComponent<Animator>();
+        boxColliderVeneno.enabled = false;
+
         HUDManager.instancia.ActualizarVida(vidasJugador);
         HUDManager.instancia.ActualizarArmadura(vidasEXtras);
         RegresarCheckPoint();
 
         
     }
-    IEnumerator ActivarCollider()
+    IEnumerator ActivarColliderVeneno()
     {
-        boxCollider.enabled = true;
+        boxColliderVeneno.enabled = true;
         yield return new WaitForSeconds(1f);
-        boxCollider.enabled = false;
+        animatorVeneno.SetTrigger("Hide");
+        yield return new WaitForSeconds(0.5f);
+        boxColliderVeneno.enabled = false;
 
+    }
+    public void ActivarHerido(bool activado)
+    {
+        if (!activado)
+        {
+            StartCoroutine(DesactivarHerido());
+            return;
+        }
+        boxColliderHerido.enabled = activado;
+        
+    }
+    IEnumerator DesactivarHerido()
+    {
+        animatorHerido.SetTrigger("Hide");
+        yield return new WaitForSeconds(0.5f);
+        boxColliderHerido.enabled = false;
     }
     public void PerderVida(int damage)
     {
-        if(damage == 0){
-           StartCoroutine(ActivarCollider());
+        if(damage == 0 && !invulnerabilidad){
+           StartCoroutine(ActivarColliderVeneno());
             damage = 1;
         }
         if (vidasEXtras > 0 && !invulnerabilidad)
@@ -57,11 +81,18 @@ public class SaludPersonaje : MonoBehaviour
         {
             StartCoroutine("Invulnerable");
         }
+        if (vidasJugador == 1)
+        {
+            Debug.Log("mi vida es uno ayuda");
+            ActivarHerido(true);
+        }
+        
 
     }
     public void Respawn()
     {
         vidasJugador = 6;
+        ActivarHerido(false);
         gameObject.SetActive(true);
         RegresarCheckPoint();
         HUDManager.instancia.ActualizarVida(vidasJugador);
@@ -87,6 +118,7 @@ public class SaludPersonaje : MonoBehaviour
         else
         {
             vidasJugador++;
+            ActivarHerido(false);
         }
         HUDManager.instancia.ActualizarVida(vidasJugador);
 
