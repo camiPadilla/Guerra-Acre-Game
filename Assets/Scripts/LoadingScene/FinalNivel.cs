@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class FinalNivel : MonoBehaviour
 {
-    [SerializeField] private GameObject pantallaProgreso;
+
     public void Start()
     {
-
+        
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

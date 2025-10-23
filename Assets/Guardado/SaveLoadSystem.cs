@@ -64,6 +64,12 @@ public static class SaveLoadSystem
         }
         Debug.Log("Adios partida :(");
     }
+    public static bool ExisteGuardado(int slot)
+    {
+        string path = Application.persistentDataPath + $"/save{slot}.dat";
+        return File.Exists(path);
+    }
+
 }
 
 
