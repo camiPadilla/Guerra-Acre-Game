@@ -30,8 +30,9 @@ public class SaludPersonaje : MonoBehaviour
     }
     public void PerderVida(int damage)
     {
-        if(damage == 1){
-                        StartCoroutine(ActivarCollider());
+        if(damage == 0){
+           StartCoroutine(ActivarCollider());
+            damage = 1;
         }
         if (vidasEXtras > 0 && !invulnerabilidad)
         {

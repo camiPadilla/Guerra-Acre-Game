@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Security.Cryptography;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -184,11 +183,13 @@ public abstract class Enemigo_IA : MonoBehaviour
         if (vida <= 0)
         {
             //Animacion de muerte
+            GameManager.instancia.ActualizarEnemigosMuertos();
             Destroy(gameObject);
         }
     }
     public void RecibirDano(int damage)
     {
+        Debug.Log("holaa me mori"); 
         SoundEvents.RecibirDano?.Invoke(transform.position.x); //Sound by Chelo :D
         vida -= damage;
         Morir();
