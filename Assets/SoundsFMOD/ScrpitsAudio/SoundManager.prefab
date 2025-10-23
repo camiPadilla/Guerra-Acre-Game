@@ -438,7 +438,6 @@ RectTransform:
   m_Children:
   - {fileID: 6665142848369252505}
   - {fileID: 7151955346874194335}
-  - {fileID: 4936066008393060310}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -465,6 +464,34 @@ MonoBehaviour:
   cargarpiedraEmitter: {fileID: 0}
   lanzarpiedraEmitter: {fileID: 0}
   macheteEmitter: {fileID: 0}
+  activarMachete:
+    Guid:
+      Data1: 352659908
+      Data2: 1097710944
+      Data3: 1664281516
+      Data4: -666231794
+    Path: event:/PLAYER/AtaqueMachete/ActivarMachete
+  activarPiedra:
+    Guid:
+      Data1: -850326458
+      Data2: 1314596266
+      Data3: -1932478052
+      Data4: -580160827
+    Path: event:/PLAYER/TirarPiedra/CambiarArmaPiedra
+  sinBalas:
+    Guid:
+      Data1: 1052647182
+      Data2: 1284617823
+      Data3: 932881343
+      Data4: 1762045310
+    Path: event:/PLAYER/Fusil/SinBalas
+  recargaBalas:
+    Guid:
+      Data1: -322496470
+      Data2: 1286163186
+      Data3: -1230636617
+      Data4: 1378629448
+    Path: event:/PLAYER/Fusil/Recarga
 --- !u!114 &2547597476191356893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +509,35 @@ MonoBehaviour:
   destruirObjetoEmitter: {fileID: 4921346731422639757}
   notaSoundEmitter: {fileID: 6635562047886092443, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
   aliadoEmitter: {fileID: 8591814281696499630, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
+  arrastrarCaja: {fileID: 8265611565940467569, guid: ac3c190c99fe615438668f052adefab9, type: 3}
+  recogerArma:
+    Guid:
+      Data1: -1573356155
+      Data2: 1151185586
+      Data3: -1324613477
+      Data4: 197944101
+    Path: event:/ENVIRONMENT/Recolectables/RecogerArma
+  recogerBalas:
+    Guid:
+      Data1: 1804833990
+      Data2: 1265739571
+      Data3: 1264394625
+      Data4: 1867136884
+    Path: event:/ENVIRONMENT/Recolectables/RecogerBalas
+  ativarCheckpoint:
+    Guid:
+      Data1: -745809950
+      Data2: 1137938029
+      Data3: -518704488
+      Data4: -729813394
+    Path: event:/ENVIRONMENT/CheckPoints/BanderaCheckPoint
+  aguaSplash:
+    Guid:
+      Data1: -512618197
+      Data2: 1247670989
+      Data3: -1199725636
+      Data4: -766587748
+    Path: event:/ENVIRONMENT/Agua/AguaSplash
 --- !u!114 &149300560514156855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,7 +550,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19216ca6a3b9755458e46791c03ff38d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   morirMosquitoEmitter: {fileID: 5221992321499633469, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+  disparoEnemigo:
+    Guid:
+      Data1: 1027750505
+      Data2: 1163882630
+      Data3: 241106052
+      Data4: 297592229
+    Path: event:/ENEMIGOS/Siringuero/DisparoEnemigo
+  recibirDano:
+    Guid:
+      Data1: 1530430406
+      Data2: 1105530839
+      Data3: 1736012168
+      Data4: 1748623154
+    Path: event:/ENEMIGOS/Siringuero/RecibirDano
+  morirSiringuero:
+    Guid:
+      Data1: 893830102
+      Data2: 1256542711
+      Data3: 1848164527
+      Data4: -486241707
+    Path: event:/ENEMIGOS/Siringuero/MorirEnemigo
 --- !u!114 &6462498274155997310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,71 +585,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ef1dd6aafee7742b4af4c692e55b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marchaMilitarEmitter: {fileID: 8885636048377164998}
---- !u!1 &8573417346186797517
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4936066008393060310}
-  - component: {fileID: 8885636048377164998}
-  m_Layer: 5
-  m_Name: Musica
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &4936066008393060310
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8573417346186797517}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3218586942073531259}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8885636048377164998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8573417346186797517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
+  musicNivel_1:
+    Guid:
+      Data1: -1874145143
+      Data2: 1178390609
+      Data3: -150782835
+      Data4: 1484269956
+    Path: event:/MUSIC/Levels/Nivel1
+  musicNivel_2:
     Guid:
       Data1: -498716774
       Data2: 1297591211
       Data3: 64599946
       Data4: 1224638656
-    Path: event:/MUSIC/MusicaMilitar
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+    Path: event:/MUSIC/Levels/Nivel2

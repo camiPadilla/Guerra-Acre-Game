@@ -20,7 +20,7 @@ public class AtaquePersonaje : MonoBehaviour
     public int dirX;
     public float dirY;
     [SerializeField] Arma machete;
-    [SerializeField] public int seleccionArma;
+    [SerializeField] public int seleccionArma = 0;
     [SerializeField] int balasActual = 0;
     bool enAccion;
     bool recargando;
@@ -157,18 +157,19 @@ public class AtaquePersonaje : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && recargando == false)
         {
-            if (balasActual == 0)
-            {
-                Recargar();
-            }
+            
             if (balasActual > 0)
             {
+                SoundEvents.DisparoEnemigo?.Invoke(transform.position.x); //Sound By Chelo :D
                 Disparar();
                 balasActual--;
                 HUDManager.instancia.ActualizarBalasActual(balasActual);
                 StartCoroutine(nameof(TiempoRecarga), 1f);
             }
-
+            else if (balasActual == 0)
+            {
+                Recargar();
+            }
 
         }
     }
@@ -179,6 +180,7 @@ public class AtaquePersonaje : MonoBehaviour
         int totalBalas = GetComponent<InventarioManager>().GetBalas();
         if (totalBalas > 0)
         {
+            SoundEvents.RecargarBalas.Invoke(); //Sound By Chelo :D
             StartCoroutine(nameof(TiempoRecarga), 2);
             totalBalas -= (5 - balasActual);
             if (totalBalas < 0)
@@ -198,6 +200,7 @@ public class AtaquePersonaje : MonoBehaviour
         }
         else
         {
+            SoundEvents.SinBalas?.Invoke(); //Sound By Chelo :D
             Debug.Log("no puedes recargar no tienes balas ");
         }
         HUDManager.instancia.ActualizarBalasActual(balasActual);

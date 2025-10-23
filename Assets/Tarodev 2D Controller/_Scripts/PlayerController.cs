@@ -255,7 +255,6 @@ namespace TarodevController
         {
             if (caminando != _valorCaminandoAnterior)
             {
-                // Hubo un cambio de estado
                 if (caminando)
                 {
                     //Debug.Log("Caminando");
@@ -267,7 +266,6 @@ namespace TarodevController
                     SoundEvents.DetenerPasosPasto?.Invoke(); //Sonido by Chelo :D
                 }
 
-                // Actualizar el valor anterior
                 _valorCaminandoAnterior = caminando;
             }
         }
