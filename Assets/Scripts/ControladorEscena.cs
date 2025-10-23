@@ -2,6 +2,7 @@ using PantallaCarga;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using TarodevController;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,9 @@ public class ControladorEscena : MonoBehaviour
     public SaludPersonaje vidas;
     public SaludPersonaje escudos;
     public AtaquePersonaje balas;
+    [SerializeField] PlayerController player;
+    [SerializeField]public int ChPoint;
+    [SerializeField] string nameScene;
     //contarEnemigos
     //-------textos para ui------
     public TMP_Text textVidas;
@@ -23,33 +27,22 @@ public class ControladorEscena : MonoBehaviour
 
     private void Start()
     {
+        
         if(loaderScene == null)
         {
-            FindObjectOfType(typeof(LoaderScene));
+            loaderScene = FindObjectOfType<LoaderScene>();
         }
-        if(vidas == null)
-        {
-            FindObjectOfType(typeof(SaludPersonaje));
-        }
-        if(escudos == null)
-        {
-            FindObjectOfType(typeof(SaludPersonaje));
-        }
-        if(balas == null)
-        {
-            FindObjectOfType(typeof(AtaquePersonaje));
-        }
+       nameScene = ConstantsGame.SCENAUNO;
     }
-    public void Uptade()
+    public void Update()
     {
         ProgresoFinal();
     }
     public void ProgresoFinal()
     {
-        textVidas.text = vidas.ToString();
-        textEsc.text = escudos.ToString();
-        textBalas.text = balas.ToString();
-        textEsc.text = escudos.ToString(); 
+        textVidas.text = vidas.vidasJugador.ToString();
+        textEsc.text = escudos.vidasEXtras.ToString();
+        textBalas.text = balas.GetBalasActuales().ToString();
     }
 
     public void IrMenu()
@@ -58,10 +51,20 @@ public class ControladorEscena : MonoBehaviour
     }
     public void SiguienteNivel()
     {
-        if(sceneIndex == 1)
+        if (sceneIndex == 1)
         {
-            loaderScene.LoadSceneString(ConstantsGame.SCENAUNO);
+            loaderScene.LoadSceneString(ConstantsGame.SCENADOS);
+            
         }
         //procede para mas escena si es el caso
+    }
+    public void guardarPartida()
+    {
+        GameData data = new GameData(vidas, balas, player, sceneIndex, nameScene, ChPoint);
+        SaveLoadSystem.SaveGame(data, sceneIndex);
+    }
+    public void ReiniciarNivel()
+    {
+        loaderScene.LoadSceneString(ConstantsGame.SCENAUNO);
     }
 }

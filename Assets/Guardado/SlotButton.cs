@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,39 +8,67 @@ public class SlotButton : MonoBehaviour
     public int slotId;
     public Image fondo;
     public TMP_Text texto;
-    public Sprite spritevacio;
+    public Sprite spriteVacio;
     public Sprite spriteOcupado;
-    public Button delete;
-    public Button start;
+    public Button deleteButton;
+    public Button startButton;
 
-    [SerializeField] MasterGameManager manager;
-    // Start is called before the first frame update
+    [SerializeField] private MasterGameManager manager;
+
     void Start()
     {
+        if (manager == null)
+            manager = FindObjectOfType<MasterGameManager>();
+
         ActualizarVisual();
     }
+
     public void ActualizarVisual()
     {
+        // Revisa si existe un guardado en ese slot
         if (SaveLoadSystem.ExisteGuardado(slotId))
         {
             fondo.sprite = spriteOcupado;
-            texto.text = "Nivel " + manager.escenaActual;
-            delete.gameObject.SetActive(true);
-            start.gameObject.SetActive(true);
+
+            // Intentamos obtener los datos para mostrar info
+            GameData data = SaveLoadSystem.LoadGame(slotId);
+            if (data != null)
+            {
+                texto.text = "Nivel: " + data.currentLevel + 
+                             "\nEscena: " + data.lastScene;
+            }
+            else
+            {
+                texto.text = "Partida guardada";
+            }
+
+            deleteButton.gameObject.SetActive(true);
+            startButton.gameObject.SetActive(true);
         }
         else
         {
-            fondo.sprite = spritevacio;
-            texto.text = "Vacio";
-            delete.gameObject.SetActive(false);
-            start.gameObject.SetActive(false);
+            fondo.sprite = spriteVacio;
+            texto.text = "Vacío";
+            deleteButton.gameObject.SetActive(false);
+            startButton.gameObject.SetActive(false);
         }
     }
+
     public void Cargar()
     {
+        if (manager == null)
+            manager = FindObjectOfType<MasterGameManager>();
+
         if (SaveLoadSystem.ExisteGuardado(slotId))
         {
-            SaveLoadSystem.LoadGame(slotId);
+            manager.SetSlot(slotId);
+            manager.LoadGame(); // que haga todo el proceso: leer, cargar escena y restaurar jugador
         }
+    }
+
+    public void Eliminar()
+    {
+        SaveLoadSystem.DeleteSlot(slotId);
+        ActualizarVisual(); // actualiza sprite y texto después de eliminar
     }
 }

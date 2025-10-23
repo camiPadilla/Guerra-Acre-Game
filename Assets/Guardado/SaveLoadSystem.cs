@@ -53,24 +53,22 @@ public static class SaveLoadSystem
     {
         string path = basePath + slot + ".save";
         return File.Exists(path);
-    } 
+    }
+
     public static void DeleteAllData()
     {
-        for(int i = 0; i<=3; i++)
+        for (int i = 1; i <= 3; i++)
         {
-            string path = basePath + 1 + ".save";
-            if(File.Exists(path))
+            string path = basePath + i + ".save";
+            if (File.Exists(path))
                 File.Delete(path);
         }
-        Debug.Log("Adios partida :(");
+        Debug.Log("Adiós partidas :(");
     }
+
     public static bool ExisteGuardado(int slot)
     {
-        string path = Application.persistentDataPath + $"/save{slot}.dat";
+        string path = basePath + slot + ".save";
         return File.Exists(path);
     }
 }
-
-
-
-

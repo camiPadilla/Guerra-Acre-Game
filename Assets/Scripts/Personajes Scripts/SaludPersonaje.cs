@@ -36,7 +36,7 @@ public class SaludPersonaje : MonoBehaviour
         if (vidasJugador <= 0)
         {
             gameObject.SetActive(false);
-            UIManager.instancia.MostrarPantallaMuerteGame();
+            MenuPausa.instance.MostrarPantallaMuerteGame();
 
         }
         else if(!invulnerabilidad)
