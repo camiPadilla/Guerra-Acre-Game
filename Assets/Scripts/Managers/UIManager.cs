@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
             instancia = this;
             DontDestroyOnLoad(gameObject);
             DontDestroyOnLoad(MenuInGame);
-            DontDestroyOnLoad(MainMenu);
+           // DontDestroyOnLoad(MainMenu);
         }
         
     }
@@ -38,10 +38,6 @@ public class UIManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void IrMenu()
     {
         pantallasMainMenu[0].SetActive(true);
@@ -133,14 +129,10 @@ public class UIManager : MonoBehaviour
     }
     public void Desactivado()
     {
-        pantallasMainMenu[0].SetActive(false);
-        pantallasMainMenu[1].SetActive(false);
-        pantallasMainMenu[2].SetActive(false);
-        pantallasMainMenu[3].SetActive(false);
-        pantallasMainMenu[4].SetActive(false);
-        pantallasMainMenu[5].SetActive(false);
-        pantallasMainMenu[6].SetActive(false);
-        pantallasMainMenu[7].SetActive(false);
+        foreach (var pantalla in pantallasMainMenu)
+        {
+           pantalla.SetActive(false);
+        }
     }
     //Si tiene partidas guardadas que vaya a este menu, aun por ver....
     public void IrCargar()
