@@ -10,6 +10,7 @@ public class JuegoDadoManager : MonoBehaviour
 {
     [SerializeField] private List<Dado> dados;
     [SerializeField] private VasoManager vaso;
+    [SerializeField] private GameObject[] polytallas;
     private int escalera,full, poker, grande;
     private int[] puntos = new int[6];
     public int bonusPrimera;
@@ -21,6 +22,8 @@ public class JuegoDadoManager : MonoBehaviour
     private TextMeshProUGUI[] puntosUI;
     [SerializeField]
     private TextMeshProUGUI puntajeTotal;
+    [SerializeField]
+    private TextMeshProUGUI puntajeTotalEnemigo;
     [SerializeField] 
     private int cantidadTirosMax;
     private int puntaje, puntajeEnemigo;
@@ -41,6 +44,12 @@ public class JuegoDadoManager : MonoBehaviour
             Instance = this;
         }
         cantidadTiros = 0;
+    }
+    private void Start()
+    {
+        CambiarPantalla(1);
+        DesactivarDados();
+        DesactivarVaso();
     }
 
     public void DesactivarDados()
@@ -228,13 +237,17 @@ public class JuegoDadoManager : MonoBehaviour
         vaso.usable = true;
         if(cantidadTiros == cantidadTirosMax)
         {
+            cantidadTiros++;
+        }
+        if (cantidadTiros > cantidadTirosMax)
+        {
             EvaluarVictoria();
             vaso.usable = false;
         }
     }
     public void Prueba(Button boton)
     {
-        if (!botones)
+        if (!botones || !(cantidadTiros <= cantidadTirosMax))
         {
             boton.interactable = true;
         }
@@ -259,5 +272,13 @@ public class JuegoDadoManager : MonoBehaviour
         Debug.Log("Perdiste");
 
     }
-
+    public void CambiarPantalla(int numero)
+    {
+        for (int i = 0; i < polytallas.Length; i++)
+        {
+            polytallas[i].SetActive(false);
+            if(i == numero) polytallas[i].SetActive(true);
+            if (i == 0) ActivarVaso();
+        }
+    }
 }
