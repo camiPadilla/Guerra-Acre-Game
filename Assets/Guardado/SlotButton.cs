@@ -25,25 +25,17 @@ public class SlotButton : MonoBehaviour
 
     public void ActualizarVisual()
     {
-        // Revisa si existe un guardado en ese slot
         if (SaveLoadSystem.ExisteGuardado(slotId))
         {
             fondo.sprite = spriteOcupado;
 
-            // Intentamos obtener los datos para mostrar info
             GameData data = SaveLoadSystem.LoadGame(slotId);
             if (data != null)
             {
-                texto.text = "Nivel: " + data.currentLevel + 
-                             "\nEscena: " + data.lastScene;
+                texto.text = "Nivel " + manager.currentLevel.ToString();
+                deleteButton.gameObject.SetActive(true);
+                startButton.gameObject.SetActive(true);
             }
-            else
-            {
-                texto.text = "Partida guardada";
-            }
-
-            deleteButton.gameObject.SetActive(true);
-            startButton.gameObject.SetActive(true);
         }
         else
         {
