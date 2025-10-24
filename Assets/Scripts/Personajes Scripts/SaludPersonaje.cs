@@ -66,13 +66,13 @@ public class SaludPersonaje : MonoBehaviour
         else if(!invulnerabilidad)
         {            
             vidasJugador -=damage;
-            if(vidasJugador>0) SoundEvents.DanoPersonaje?.Invoke(); //Sound by Chelo :D
+            if (vidasJugador > 0) SoundEvents.DanoPersonaje();//Sound by Chelo :D
             HUDManager.instancia.ActualizarVida(vidasJugador);
         }
         
         if (vidasJugador <= 0)
         {
-            SoundEvents.MorirPersonaje?.Invoke(); //Sound by Chelo :D
+            SoundEvents.MorirPersonaje(); //Sound by Chelo :D
             gameObject.SetActive(false);
             HUDManager.instancia.MostrarPantallaMuerte();
 

@@ -4,11 +4,11 @@
 - Active scene:
   - Name: EscenaUno
   - Tags:
-    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, hitbox, Destruible, Escenario, movible, NPC, Enemigo, LoaderScene, caja, cabeza
+    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, hitbox, Destruible, Escenario, movible, NPC, Enemigo, LoaderScene, caja, cabeza, canvas
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Piso, Water, UI, Player, Enemy, Post Procesing
 - Active game object:
-  - Name: PantallaFinJuego
+  - Name: HUD Gameplay Padre v10.0
   - Tag: Untagged
   - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

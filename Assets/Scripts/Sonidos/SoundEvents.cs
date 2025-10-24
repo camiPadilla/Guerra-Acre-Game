@@ -17,7 +17,7 @@ public static class SoundEvents
     public static Action CambiarArmaMachete;
 
     
-    //SaltoCaída
+    //SaltoCaï¿½da
     public static Action<float> Salto;
 
     //Destruir Objetos
@@ -39,9 +39,14 @@ public static class SoundEvents
     public static Action SinBalas;
     public static Action RecargarBalas;
 
-    //Daño Personaje
+
+    internal static object MorirPersonaje()
+    {
+        throw new NotImplementedException();
+    }
+    //Daï¿½o Personaje
     public static Action DanoPersonaje;
-    public static Action MorirPersonaje;
+    public static Action MorirPersonajee;
 
     //Bandera Checkpoint
     public static Action CheckpointActivado;

@@ -29,6 +29,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] List<Sprite> imagenArmas;
     [SerializeField] GameObject hudBalas;
     [SerializeField] GameObject padreInteraccion;
+    [SerializeField] GameObject menuPausa;
     private ControladorNPC npc;
 
     int armaAnterior = 0;
@@ -43,6 +44,8 @@ public class HUDManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        menuPausa.gameObject.SetActive(false);
+
     }
     private void Update()
     {

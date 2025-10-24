@@ -43,7 +43,7 @@ public class PlayerSounds : MonoBehaviour
         SoundEvents.SinBalas += ReproducirSinBalas;
         SoundEvents.RecargarBalas += ReproducirRecargaBalas;
 
-        SoundEvents.MorirPersonaje += ReproducirMuerte;
+        SoundEvents.MorirPersonajee += ReproducirMuerte;
         SoundEvents.DanoPersonaje += ReproducirDano;
     }
 
