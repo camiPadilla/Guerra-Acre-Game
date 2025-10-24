@@ -2,7 +2,6 @@
 - Project name: Guerra-Acre-Game
 - Unity version: Unity 2022.3.62f1
 - Active scene:
-  - Name: MainMenu
   - Tags:
     - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, hitbox, Destruible, Escenario, movible, NPC, Enemigo, LoaderScene, caja, cabeza, canvasGame, canvas
   - Layers:
