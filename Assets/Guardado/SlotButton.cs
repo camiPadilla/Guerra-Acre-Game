@@ -36,7 +36,7 @@ public class SlotButton : MonoBehaviour
             fondo.sprite = spriteVacio;
             texto.text = "Vacío";
             deleteButton.gameObject.SetActive(false);
-            startButton.gameObject.SetActive(false); // puedes dejarlo activo para "Nuevo juego"
+            startButton.gameObject.SetActive(false);
         }
     }
 
