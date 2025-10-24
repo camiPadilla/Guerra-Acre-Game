@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -39,8 +40,12 @@ public class JuegoDadoManager : MonoBehaviour
     //CosasEnemigo
     private int[] puntajesEnemigo;
     private bool[] anotablesEnemigo;
+    [SerializeField]
+    private int[,] posiblesCasos = new int[16,2];
     [SerializeField] List<Dado> dadosEnemigo;
-
+    int[] carasEnemigo = new int[6];
+    int[] carasOpuestas = new int[6];
+    int[] carasUsadas = new int[6];
 
 
     public static JuegoDadoManager Instance { get; private set; }
@@ -304,8 +309,122 @@ public class JuegoDadoManager : MonoBehaviour
         targetCamara = targetEnemigo;
     }
     // Enemigo
-    private void ContarPuntosEnemigo()
+    private int[] ContarPuntosEnemigo(int[] caras)
+    {
+        puntajesEnemigo = new int[9];
+        int[] frecuencia = new int[7];
+        bool par = false;
+        bool trio = false;
+        bool cuatro = false;
+        bool cinco = false;
+        int[] tal = new int[2];
+
+        for (int i = 0; i < dadosEnemigo.Count; i++)
+        {
+            int cara = caras[i];
+            frecuencia[cara]++;
+
+        }
+        for (int i = 1; i <= 6; i++)
+        {
+            puntajesEnemigo[i - 1] = i * frecuencia[i];
+            if (frecuencia[i] == 2) par = true;
+            else
+            if (frecuencia[i] == 3) trio = true;
+            else
+            if (frecuencia[i] == 4) cuatro = true;
+            else
+            if (frecuencia[i] == 5) cinco = true;
+        }
+
+        if ((frecuencia[2] == 1 && frecuencia[3] == 1 && frecuencia[4] == 1 && frecuencia[5] == 1 && frecuencia[6] == 1) ||
+        (frecuencia[1] == 1 && frecuencia[2] == 1 && frecuencia[3] == 1 && frecuencia[4] == 1 && frecuencia[5] == 1))
+        {
+            puntajesEnemigo[6] = 20 + bonusPrimera;
+        }
+        else if (par && trio)
+        {
+            puntajesEnemigo[7] = 30 + bonusPrimera;
+        }
+        else if (cuatro)
+        {
+            puntajesEnemigo[8] = 40 + bonusPrimera;
+        }
+        else if (cinco)
+        {
+            if (bonusPrimera > 0)
+            {
+                Debug.Log("EL contrario Saco Dormida");
+                //perder
+            }
+            else
+            {
+                puntajesEnemigo[9] = 50;
+            }
+        }
+        int puntajeMax = 0;
+        int indice = 0;
+        for (int j = 0; j <= puntajesEnemigo.Length ; j++)
+        {
+            if (puntajesEnemigo[j]> puntajeMax)
+            {
+                puntajeMax = puntajesEnemigo[j];
+                indice = j;
+            }
+        }
+        tal[0] = puntajeMax;
+        tal[1] = indice;
+        return tal;
+    }
+    private int VoltearFalso(int cara)
+    {
+        switch (cara)
+        {
+            case 1: cara = 6; break;
+            case 2: cara = 5; break;
+            case 3: cara = 4; break;
+            case 4: cara = 3; break;
+            case 5: cara = 2; break;
+            case 6: cara = 1; break;
+        }
+        return cara;
+    }
+    private void Intercabiar1Cara(int queDado)
+    {
+        for (int i = 0;  i < 6; i++)
+        {
+            carasUsadas[i] = carasEnemigo[i];
+            if (i == queDado)
+            {
+                carasUsadas[i] = carasOpuestas[i];
+            }
+        }
+    }
+    private void ElegirPuntaje()
     {
 
+        carasUsadas = carasEnemigo;
+
+        for (int i = 0; i <= dadosEnemigo.Count; i++)
+        {
+            carasEnemigo[i] = dadosEnemigo[i].GetCara();
+            carasOpuestas[i] = VoltearFalso(carasEnemigo[i]);
+        }
+        for (int i = 0; i <16; i++)
+        {
+            switch (i)
+            {
+                case 0:  break;
+                case 1:  break;
+                case 2:  break;
+                case 3:  break;
+                case 4:  break;
+                case 5:  break;
+                case 6:  break;
+            }
+            int[] puntos = ContarPuntosEnemigo(carasUsadas);
+            posiblesCasos[i, 0] = puntos[0];
+            posiblesCasos[i, 1] = puntos[1];
+        }
     }
 }
