@@ -74,8 +74,8 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[0].SetActive(false);
         pantallaInGame[1].SetActive(false);
         pantallaInGame[2].SetActive(false);
-        pantallaInGame[3].SetActive(true);
-        pantallaInGame[4].SetActive(false);
+        pantallaInGame[3].SetActive(false);
+        pantallaInGame[4].SetActive(true);
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(false);
         pantallaInGame[7].SetActive(false);

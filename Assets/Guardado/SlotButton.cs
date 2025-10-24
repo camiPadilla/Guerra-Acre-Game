@@ -12,12 +12,12 @@ public class SlotButton : MonoBehaviour
     public Button deleteButton;
     public Button startButton;
 
-    [SerializeField] private MasterGameManager Mmanager;
+    [SerializeField] private MasterGameManager manager;
 
     void Start()
     {
-        if (Mmanager == null)
-            Mmanager = FindObjectOfType<MasterGameManager>();
+        if (manager == null)
+            manager = FindObjectOfType<MasterGameManager>();
 
         ActualizarVisual();
     }
@@ -36,19 +36,23 @@ public class SlotButton : MonoBehaviour
             fondo.sprite = spriteVacio;
             texto.text = "Vacío";
             deleteButton.gameObject.SetActive(false);
-            startButton.gameObject.SetActive(false); 
+            startButton.gameObject.SetActive(false); // puedes dejarlo activo para "Nuevo juego"
         }
     }
 
     public void Cargar()
     {
-        if (Mmanager == null)
-            Mmanager = FindObjectOfType<MasterGameManager>();
+        if (manager == null)
+            manager = FindObjectOfType<MasterGameManager>();
 
         if (SaveLoadSystem.ExisteGuardado(slotId))
         {
-            Mmanager.SetSlot(slotId);
-            Mmanager.LoadGame();
+            manager.SetSlot(slotId);
+            manager.LoadGame();
+        }
+        else
+        {
+            manager.SetSlot(slotId);
         }
     }
 
