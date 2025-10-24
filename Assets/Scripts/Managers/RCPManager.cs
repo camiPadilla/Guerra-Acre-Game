@@ -35,6 +35,7 @@ public class RCPManager : MonoBehaviour
     {
         InstanciarBarras();
         InvokeRepeating(nameof(ConfigurarBarra), 1f, 1.6f);
+        puntosGanar = 100;
     }
 
 
@@ -44,6 +45,11 @@ public class RCPManager : MonoBehaviour
     {
         puntosActual += incremento;
         Debug.Log("se aumentaron puntos en "+ puntosActual);
+        if (puntosActual >= puntosGanar) 
+        {
+            CancelInvoke();
+            GameManager.instancia.RevivirNPC();
+        }
     }
     void InstanciarBarras()
     {
@@ -78,6 +84,13 @@ public class RCPManager : MonoBehaviour
     public void ConfigurarBarra()
     {
         conteoDeBalas++;
+        if (conteoDeBalas == 16)
+        {
+            CancelInvoke();
+            Debug.Log("murio el boliviano");
+
+            GameManager.instancia.VolverJuego();
+        }
         Debug.Log("pasaron " + conteoDeBalas);
         GameObject nuevaBarra = ObtenerBarra();
         nuevaBarra.SetActive(true);
@@ -88,24 +101,7 @@ public class RCPManager : MonoBehaviour
         _micontroladorBarra.tiempoBarra = ritmos[IndiceRandom];
         ;
     }
-    private void LateUpdate()
-    {
-        if (puntosActual == puntosGanar)
-        {
-            CancelInvoke();
-            Debug.Log("Salvaste al boliviano");
-            
-            GameManager.instancia.VolverJuego();
-        }
-        else if (conteoDeBalas == 15)
-        {
-            CancelInvoke();
-            Debug.Log("murio el boliviano");
-            
-            GameManager.instancia.VolverJuego();
-        }
-
-    }
+    
     public void desactivarMiniJuego(GameStateSO estado)
     {
         if (estado.stateName == "Playing")

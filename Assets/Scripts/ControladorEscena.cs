@@ -47,7 +47,7 @@ public class ControladorEscena : MonoBehaviour
 
     public void IrMenu()
     {
-        loaderScene.LoadSceneString(ConstantsGame.MAINMENU);
+        loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
     }
     public void SiguienteNivel()
     {
@@ -66,5 +66,12 @@ public class ControladorEscena : MonoBehaviour
     public void ReiniciarNivel()
     {
         loaderScene.LoadSceneString(ConstantsGame.SCENAUNO);
+    }
+    public void Salir()
+    {
+        Application.Quit();
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 }

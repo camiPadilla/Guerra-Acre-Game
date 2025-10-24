@@ -45,6 +45,7 @@ public class EnemigoDisparo : Enemigo_IA
 
         if (nroBalas > 0)
         {
+            SoundEvents.DisparoEnemigo?.Invoke(transform.position.x); // Sonido by Chelo :D
             GameObject nuevaBala = Instantiate(balaPrefab, puntoDisparoBala.position, puntoDisparoBala.rotation);
             BalaEnemigo bala = nuevaBala.GetComponent<BalaEnemigo>();
             if (bala != null) bala.Inicializar(jugador);

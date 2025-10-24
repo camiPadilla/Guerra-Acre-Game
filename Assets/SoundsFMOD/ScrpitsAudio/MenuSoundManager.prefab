@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9219868892188211812}
   - component: {fileID: 1488897466569288098}
-  - component: {fileID: 3141227913205389294}
   m_Layer: 0
   m_Name: MenuSoundManager
   m_TagString: Untagged
@@ -68,46 +67,11 @@ MonoBehaviour:
     Path: event:/UI/Clic2
   hoverJochi:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  music:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
---- !u!114 &3141227913205389294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286100996077952544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -718356713
-      Data2: 1135442014
-      Data3: 533650865
-      Data4: -1778317473
-    Path: event:/UI/Music_UI
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+      Data1: 1656085011
+      Data2: 1128360245
+      Data3: 935637656
+      Data4: 504310757
+    Path: event:/UI/Hover_Jochi
+  masterVolume: {fileID: 0}
+  musicFader: {fileID: 0}
+  SFXFader: {fileID: 0}

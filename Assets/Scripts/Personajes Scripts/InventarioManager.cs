@@ -7,7 +7,9 @@ public class InventarioManager : MonoBehaviour
     int balas = 0;
 
     int dinamitas;
+    [SerializeField] int limiteBalas;
     [SerializeField] int aumento;
+    [SerializeField] List<string> listaNotas;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,10 @@ public class InventarioManager : MonoBehaviour
     public void SetBalas(int nuevaCantidad)
     {
         balas = nuevaCantidad;
+        if(balas > limiteBalas)
+        {
+            balas = limiteBalas;
+        }
         HUDManager.instancia.ActualizarTotalBalas(balas);
 
 
@@ -46,7 +52,9 @@ public class InventarioManager : MonoBehaviour
                 SendMessage("ObtenerArmadura");
                 break;
             case "dinamita":
+                
                 dinamitas++;
+                if (dinamitas > 5) dinamitas = 5;
                 Debug.Log("el jugador tiene en dinamita " + dinamitas);
                 break;
             case "arma":
@@ -56,5 +64,9 @@ public class InventarioManager : MonoBehaviour
         }
 
 
+    }
+    public void ActualizarNotas(string ID)
+    {
+        listaNotas.Add(ID);
     }
 }

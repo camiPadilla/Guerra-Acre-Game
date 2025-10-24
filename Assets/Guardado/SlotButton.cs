@@ -1,4 +1,3 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,23 +24,10 @@ public class SlotButton : MonoBehaviour
 
     public void ActualizarVisual()
     {
-        // Revisa si existe un guardado en ese slot
         if (SaveLoadSystem.ExisteGuardado(slotId))
         {
             fondo.sprite = spriteOcupado;
-
-            // Intentamos obtener los datos para mostrar info
-            GameData data = SaveLoadSystem.LoadGame(slotId);
-            if (data != null)
-            {
-                texto.text = "Nivel: " + data.currentLevel + 
-                             "\nEscena: " + data.lastScene;
-            }
-            else
-            {
-                texto.text = "Partida guardada";
-            }
-
+            texto.text = "Partida guardada";
             deleteButton.gameObject.SetActive(true);
             startButton.gameObject.SetActive(true);
         }
@@ -62,13 +48,17 @@ public class SlotButton : MonoBehaviour
         if (SaveLoadSystem.ExisteGuardado(slotId))
         {
             manager.SetSlot(slotId);
-            manager.LoadGame(); // que haga todo el proceso: leer, cargar escena y restaurar jugador
+            manager.LoadGame();
+        }
+        else
+        {
+            manager.SetSlot(slotId);
         }
     }
 
     public void Eliminar()
     {
         SaveLoadSystem.DeleteSlot(slotId);
-        ActualizarVisual(); // actualiza sprite y texto después de eliminar
+        ActualizarVisual();
     }
 }

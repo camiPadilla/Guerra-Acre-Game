@@ -1,6 +1,5 @@
 
 using System;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public static class SoundEvents
@@ -11,10 +10,14 @@ public static class SoundEvents
 
     //Lanzar piedra
     public static Action LanzarPiedra;
+    public static Action CambiarArmaPiedra;
+
     //Ataque Melee
     public static Action AtaqueMachete;
+    public static Action CambiarArmaMachete;
 
-    //SaltoCaída
+    
+    //SaltoCaï¿½da
     public static Action<float> Salto;
 
     //Destruir Objetos
@@ -27,17 +30,46 @@ public static class SoundEvents
     //Recoger notas
     public static Action RecogerNota;
 
+    //Recoger Arma
+    public static Action RecogerArma;
+
+    //Recoger Balas
+    public static Action RecogerBalas;
+    //Ataque Fusil
+    public static Action SinBalas;
+    public static Action RecargarBalas;
+
+
+    internal static object MorirPersonaje()
+    {
+        throw new NotImplementedException();
+    }
+    //Daï¿½o Personaje
+    public static Action DanoPersonaje;
+    public static Action MorirPersonajee;
+
+    //Bandera Checkpoint
+    public static Action CheckpointActivado;
+
     //Hablar NPC Aliado
     public static Action HablarAliadoNPC;
 
     //Mosquito
     public static Action MorirMosquito;
 
+    //Siringuero
+    public static Action<float> DisparoEnemigo;
+    public static Action<float> RecibirDano;
+    public static Action<float> MorirSiringuero;
+
+    //Arrastrar Objeto
+    public static Action ArrastrarObjeto;
+    public static Action DetenerArrastrarObjeto;
+
+    //Caer al agua
+    public static Action CaerAgua;
+
     //Ambientes
     public static Action Ambience;
-
-    public static Action RecogerArma;
-
-    public static Action RecogerBalas;
 }
 

@@ -1,4 +1,4 @@
-using TarodevController;
+﻿using TarodevController;
 using UnityEngine;
 
 public class ObjetoMovible : MonoBehaviour
@@ -7,6 +7,9 @@ public class ObjetoMovible : MonoBehaviour
     
     [SerializeField] LayerMask personaje;
     [SerializeField] float distanciaRaycast;
+
+    private bool arrastrando = false; // ← añade esta variable al inicio de la clase
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,7 @@ public class ObjetoMovible : MonoBehaviour
                 }
                 else
                 {
+                    SoundEvents.DetenerArrastrarObjeto?.Invoke(); // Sonido by Chelo :D
                     DetenerObjeto(controladorMovimiento);
 
 
@@ -60,22 +64,45 @@ public class ObjetoMovible : MonoBehaviour
             
             jugadorMovimiento.enabled = false;
 
+            //ADDED BY CHELO :D
+            if (!arrastrando)
+            {
+                arrastrando = true;
+                SoundEvents.ArrastrarObjeto?.Invoke();
+            }
+
         }
         if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
             miCuerpo.velocity = new Vector2(3, miCuerpo.velocity.y);
             
             jugadorMovimiento.enabled = false;
+            //ADDED BY CHELO :D
+            if (!arrastrando)
+            {
+                arrastrando = true;
+                SoundEvents.ArrastrarObjeto?.Invoke();
+            }
         }
         if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje))
         {
-            
+            //ADDED BY CHELO :D
             jugadorMovimiento.enabled = true;
+            if (arrastrando)
+            {
+                arrastrando = false;
+                SoundEvents.DetenerArrastrarObjeto?.Invoke();
+            }
         }
         if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
-            
+            //ADDED BY CHELO :D
             jugadorMovimiento.enabled = true;
+            if (arrastrando)
+            {
+                arrastrando = false;
+                SoundEvents.DetenerArrastrarObjeto?.Invoke();
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D collision)

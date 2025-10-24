@@ -5,23 +5,11 @@ using UnityEngine.SceneManagement;
 
 namespace PantallaCarga 
 {
-   
     public class LoadSceneNames : MonoBehaviour
-    { 
-        static LoadSceneNames instance;
-        private void Awake()
-        {
-            if (instance != null && instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+    {
         public void SceneMainMenu()
         {
-            LoaderScene.instance.LoadSceneString(ConstantsGame.MAINMENU);
+            LoaderScene.instance.LoadSceneString(ConstantsGame.SCENEMAINMENU);
         }
         //Agregar las demas escenas como el menu , etc
         public void SceneEscenaUno()

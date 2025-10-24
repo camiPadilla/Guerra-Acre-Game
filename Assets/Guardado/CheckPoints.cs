@@ -6,8 +6,8 @@ public class CheckPoints : MonoBehaviour
 {
     public int indexCP;
     public bool checkPointActivo;
+    [SerializeField] GameManager gameManager;
     [SerializeField] private Sprite[] sprites;
-    [SerializeField] private ControladorEscena encargado;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +23,11 @@ public class CheckPoints : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !checkPointActivo)
         {
-           MasterGameManager.instance.ActivarCheckPoint(indexCP);
+            //gameManager.ActivarCheckPoint(indexCP);
+
+            SoundEvents.CheckpointActivado?.Invoke(); // Sonido by Chelo :D
             checkPointActivo = true;
             Debug.Log("hola acabas de pasar por aqui :D");
-            encargado.ChPoint = indexCP;
         }
     }
     public void CambiarEstadoBandera()
