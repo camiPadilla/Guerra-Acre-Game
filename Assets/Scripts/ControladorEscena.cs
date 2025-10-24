@@ -67,4 +67,11 @@ public class ControladorEscena : MonoBehaviour
     {
         loaderScene.LoadSceneString(ConstantsGame.SCENAUNO);
     }
+    public void Salir()
+    {
+        Application.Quit();
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+    }
 }

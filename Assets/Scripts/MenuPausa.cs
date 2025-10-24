@@ -31,46 +31,20 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(false);
         pantallaInGame[7].SetActive(false);
-        pantallaInGame[8].SetActive(false);
 
     }
     public void MostrarPantallaMuerteGame()
     {
+        pantallaInGame[0].SetActive(false);
         pantallaInGame[1].SetActive(true);
-        pantallaInGame[0].SetActive(false);
         pantallaInGame[2].SetActive(false);
         pantallaInGame[3].SetActive(false);
         pantallaInGame[4].SetActive(false);
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(false);
         pantallaInGame[7].SetActive(false);
-        pantallaInGame[8].SetActive(false);
     }
-    public void MostrarPantallaFinGame()
-    {
-        pantallaInGame[4].SetActive(true);
-        pantallaInGame[0].SetActive(false);
-        pantallaInGame[1].SetActive(false);
-        pantallaInGame[2].SetActive(false);
-        pantallaInGame[3].SetActive(false);
-        pantallaInGame[5].SetActive(false);
-        pantallaInGame[6].SetActive(false);
-        pantallaInGame[7].SetActive(false);
-        pantallaInGame[8].SetActive(false);
-    }
-    public void OcultarTodoGame()
-    {
-        pantallaInGame[0].SetActive(false);
-        pantallaInGame[1].SetActive(false);
-        pantallaInGame[2].SetActive(false);
-        pantallaInGame[3].SetActive(false);
-        pantallaInGame[4].SetActive(false);
-        pantallaInGame[5].SetActive(false);
-        pantallaInGame[6].SetActive(false);
-        pantallaInGame[7].SetActive(false);
-        pantallaInGame[8].SetActive(false);
-        Time.timeScale = 1;
-    }
+    
     public void MostarAjustesGame()
     {
         pantallaInGame[0].SetActive(false);
@@ -81,7 +55,6 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(false);
         pantallaInGame[7].SetActive(false);
-        pantallaInGame[8].SetActive(false);
 
     }
     public void MostrarColeccionablesGame()
@@ -94,7 +67,6 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(false);
         pantallaInGame[7].SetActive(false);
-        pantallaInGame[8].SetActive(false);
     }
     public void MostrarControlesGame()
     {
@@ -103,11 +75,22 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[1].SetActive(false);
         pantallaInGame[2].SetActive(false);
         pantallaInGame[3].SetActive(false);
-        pantallaInGame[4].SetActive(false);
+        pantallaInGame[4].SetActive(true);
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(false);
-        pantallaInGame[7].SetActive(true);
-        pantallaInGame[8].SetActive(false);
+        pantallaInGame[7].SetActive(false);
+    }
+    public void SalirJUego()
+    {
+        pantallaInGame[0].SetActive(false);
+        pantallaInGame[1].SetActive(false);
+        pantallaInGame[2].SetActive(false);
+        pantallaInGame[3].SetActive(false);
+        pantallaInGame[4].SetActive(false);
+        pantallaInGame[5].SetActive(true);
+        pantallaInGame[6].SetActive(false);
+        pantallaInGame[7].SetActive(false);
+
     }
     public void MostrarSonidoGame()
     {
@@ -120,7 +103,6 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(true);
         pantallaInGame[7].SetActive(false);
-        pantallaInGame[8].SetActive(false);
     }
     public void MostrarVideoGame()
     {
@@ -132,21 +114,20 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[4].SetActive(false);
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(false);
-        pantallaInGame[7].SetActive(false);
-        pantallaInGame[8].SetActive(true);
+        pantallaInGame[7].SetActive(true);
     }
-    public void SalirJUego()
+    
+    public void OcultarTodoGame()
     {
         pantallaInGame[0].SetActive(false);
         pantallaInGame[1].SetActive(false);
         pantallaInGame[2].SetActive(false);
         pantallaInGame[3].SetActive(false);
         pantallaInGame[4].SetActive(false);
-        pantallaInGame[5].SetActive(true);
+        pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(false);
         pantallaInGame[7].SetActive(false);
-        pantallaInGame[8].SetActive(false);
-
+        Time.timeScale = 1;
     }
 }
 

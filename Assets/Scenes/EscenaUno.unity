@@ -1733,9 +1733,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8875619986240355831}
-        m_TargetAssemblyTypeName: PantallaCarga.LoadSceneNames, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1580160072}
+        m_TargetAssemblyTypeName: ControladorEscena, Assembly-CSharp
+        m_MethodName: Salir
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11382,7 +11382,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1780045982}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
-        m_MethodName: MostarAjustesGame
+        m_MethodName: PausarGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15261,7 +15261,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1780045982}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
-        m_MethodName: PausarGame
+        m_MethodName: MostarAjustesGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15943,6 +15943,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 490182438}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: CerrarEstado
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18562,7 +18574,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1780045982}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
-        m_MethodName: MostarAjustesGame
+        m_MethodName: PausarGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18620,7 +18632,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 822064909172062598, guid: bcaeac3b345744a349f48314e5da9203, type: 3}
   m_PrefabInstance: {fileID: 8875619986240355830}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8875619986240355831}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dba03799a0540a439bc6ceaae7d1e84, type: 3}
@@ -21184,12 +21196,11 @@ MonoBehaviour:
   pantallaInGame:
   - {fileID: 1129612957}
   - {fileID: 877667169}
-  - {fileID: 0}
   - {fileID: 11931452}
   - {fileID: 326621608}
+  - {fileID: 2092687574}
   - {fileID: 1652203457}
   - {fileID: 1426554850}
-  - {fileID: 2092687574}
   - {fileID: 333702100}
   masterGameManager: {fileID: 0}
 --- !u!4 &1781067842 stripped
@@ -21426,7 +21437,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1780045982}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
-        m_MethodName: MostarAjustesGame
+        m_MethodName: PausarGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21947,7 +21958,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1780045982}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
-        m_MethodName: MostrarControlesGame
+        m_MethodName: MostarAjustesGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23844,7 +23855,7 @@ Transform:
   m_GameObject: {fileID: 1990159116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.643789, y: -0.97202, z: -10}
+  m_LocalPosition: {x: -7.6524844, y: -0.97203, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26222,11 +26233,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcaeac3b345744a349f48314e5da9203, type: 3}
---- !u!1 &8875619986240355831 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6641269064928778876, guid: bcaeac3b345744a349f48314e5da9203, type: 3}
-  m_PrefabInstance: {fileID: 8875619986240355830}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
