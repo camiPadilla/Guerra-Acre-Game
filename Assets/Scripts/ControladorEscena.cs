@@ -47,7 +47,7 @@ public class ControladorEscena : MonoBehaviour
 
     public void IrMenu()
     {
-        loaderScene.LoadSceneString(ConstantsGame.MAINMENU);
+        loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
     }
     public void SiguienteNivel()
     {
