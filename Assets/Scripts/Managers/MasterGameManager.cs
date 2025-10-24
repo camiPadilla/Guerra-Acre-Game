@@ -8,12 +8,12 @@ using Unity.Mathematics;
 public class MasterGameManager : MonoBehaviour
 {
     public List<bool> checkpointsActivos = new List<bool>();
-    public List<LevelCompletionData > nivelesCompletados = new List<LevelCompletionData>();
     public SaludPersonaje playerSalud;
     public AtaquePersonaje playerAtaque;
     public PlayerController playerController;
     public string escenaActual;
     public string escenaSiguiente;
+    public int AcSlot;
 
 
     // Start is called before the first frame update
@@ -50,7 +50,7 @@ public class MasterGameManager : MonoBehaviour
             playerController = FindObjectOfType<PlayerController>();
             if (playerSalud != null && playerAtaque != null && playerController != null)
             {
-                SaveLoadSystem.LoadPlayerData();
+                SaveLoadSystem.LoadGame(AcSlot);
             }
             escenaActual = "EscenaUno";
             escenaSiguiente = "EscenaDos";
@@ -63,7 +63,7 @@ public class MasterGameManager : MonoBehaviour
             playerController = FindObjectOfType<PlayerController>();
             if (playerSalud != null && playerAtaque != null && playerController != null)
             {
-                SaveLoadSystem.LoadPlayerData();
+                SaveLoadSystem.LoadGame(AcSlot);
             }
             escenaActual = "EscenaDos";
             escenaSiguiente = "FinalScene";
@@ -73,14 +73,13 @@ public class MasterGameManager : MonoBehaviour
     public void SaveGame()
     {
         print("||Guardando partida...||");
-        SaveLoadSystem.SavePlayerData(playerSalud, playerAtaque, playerController);
-        SaveLoadSystem.SaveLevelData(gameData);
+        SaveLoadSystem.LoadGame(AcSlot);
     }
     public void LoadGame()
     {
-        PlayerData playerData = SaveLoadSystem.LoadPlayerData();
+        GameData data = SaveLoadSystem.LoadGame(AcSlot);
 
-        if (playerData != null && playerController != null)
+        if (data != null && playerController != null)
         {
             int lastCheckpoint = PlayerPrefs.GetInt("LastCheckpoint", -1);
             if (lastCheckpoint != -1)
@@ -99,15 +98,15 @@ public class MasterGameManager : MonoBehaviour
             {
                 // Si no hay checkpoint guardado, cargar posición normal
                 playerController.transform.position = new Vector3(
-                    playerData.position[0],
-                    playerData.position[1],
-                    playerData.position[2]
+                    data.position[0],
+                    data.position[1],
+                    data.position[2]
                 );
             }
-            playerSalud.vidasJugador = playerData.vidasJugador;
-            playerSalud.vidasEXtras = playerData.vidasExtras;
-            playerAtaque.cantidadBalas = playerData.balas;
-            playerAtaque.seleccionArma = playerData.tipoArma;
+            playerSalud.vidasJugador = data.vidasJugador;
+            playerSalud.vidasEXtras = data.vidasExtras;
+            playerAtaque.cantidadBalas = data.balas;
+            playerAtaque.seleccionArma = data.tipoArma;
         }
         else
         {

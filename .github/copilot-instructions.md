@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Piso, Water, UI, Player, Enemy
 - Active game object:
-  - Name: JugadorNuevo
-  - Tag: Player
-  - Layer: Player
+  - Name: MenuPausa
+  - Tag: Untagged
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
