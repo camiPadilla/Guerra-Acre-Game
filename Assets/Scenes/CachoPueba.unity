@@ -707,6 +707,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88711713}
   m_CullTransparentMesh: 1
+--- !u!114 &114204765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8607575608861409392, guid: 3a26a7b80e3522d43bd43b25ee17240d, type: 3}
+  m_PrefabInstance: {fileID: 1961887808}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d103902e3aa111b44ba325b6dbb81054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &114428928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,6 +1303,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172396221}
   m_CullTransparentMesh: 1
+--- !u!114 &185371878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8607575608861409392, guid: 3a26a7b80e3522d43bd43b25ee17240d, type: 3}
+  m_PrefabInstance: {fileID: 393523211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d103902e3aa111b44ba325b6dbb81054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &187013769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,6 +2527,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401258645}
   m_CullTransparentMesh: 1
+--- !u!114 &407908821 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8607575608861409392, guid: 3a26a7b80e3522d43bd43b25ee17240d, type: 3}
+  m_PrefabInstance: {fileID: 1598747355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d103902e3aa111b44ba325b6dbb81054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &416617262
 GameObject:
   m_ObjectHideFlags: 0
@@ -5735,6 +5768,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979076396}
   m_CullTransparentMesh: 1
+--- !u!114 &985997643 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8607575608861409392, guid: 3a26a7b80e3522d43bd43b25ee17240d, type: 3}
+  m_PrefabInstance: {fileID: 886267318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d103902e3aa111b44ba325b6dbb81054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &988573203
 GameObject:
   m_ObjectHideFlags: 0
@@ -6980,6 +7024,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130749873}
   m_CullTransparentMesh: 1
+--- !u!114 &1137604428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8607575608861409392, guid: 3a26a7b80e3522d43bd43b25ee17240d, type: 3}
+  m_PrefabInstance: {fileID: 1606732458}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d103902e3aa111b44ba325b6dbb81054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1143283982
 GameObject:
   m_ObjectHideFlags: 0
@@ -11694,7 +11749,7 @@ Transform:
   m_GameObject: {fileID: 1814463923}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11719,15 +11774,15 @@ MonoBehaviour:
   - {fileID: 927657636}
   - {fileID: 2093895047}
   vaso: {fileID: 887012117}
-  polytallas:
+  pantallas:
   - {fileID: 767940422}
   - {fileID: 1875548759}
   - {fileID: 376581822}
   - {fileID: 1202044759}
   - {fileID: 1143283982}
   bonusPrimera: 0
-  anote: {fileID: 0}
-  UI: []
+  anote: {fileID: 421550442}
+  anoteEnemigo: {fileID: 0}
   puntosUI:
   - {fileID: 1881931875}
   - {fileID: 1816362656}
@@ -11741,7 +11796,16 @@ MonoBehaviour:
   - {fileID: 501706202}
   puntajeTotal: {fileID: 399008685}
   puntajeTotalEnemigo: {fileID: 0}
-  cantidadTirosMax: 3
+  cantidadTirosMax: 10
+  targetEnemigo: {fileID: 0}
+  camara: {fileID: 1352861076}
+  velCamara: 5
+  dadosEnemigo:
+  - {fileID: 185371878}
+  - {fileID: 407908821}
+  - {fileID: 1137604428}
+  - {fileID: 114204765}
+  - {fileID: 985997643}
 --- !u!95 &1814463926
 Animator:
   serializedVersion: 5

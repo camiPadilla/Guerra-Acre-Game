@@ -132,8 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreObjeto: NPC
-  tiempoEspera: 2.5
-  MensajeNPC: {fileID: 21300000, guid: 2b893d939b2980744bdb1c227c9bda56, type: 3}
   dialogo: {fileID: 11400000, guid: 199e150380c459d44be7baa4e758aded, type: 2}
 --- !u!70 &9125319325033845983
 CapsuleCollider2D:
@@ -189,7 +187,7 @@ MonoBehaviour:
       Data2: 1286031859
       Data3: -1183073874
       Data4: 689690209
-    Path: event:/ENVIRONMENT/NPCs/Aliado
+    Path: event:/DIALOGUE/Aliados/NPCs/Aliado
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0

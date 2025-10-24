@@ -250,8 +250,8 @@ public class JuegoDadoManager : MonoBehaviour
         puntajeTotal.text = puntaje.ToString();
 
         //turno Oponente
-        CamaraEnemigo();
-        StartCoroutine(vaso.TiradaEnemigo());
+        //CamaraEnemigo();
+        //StartCoroutine(vaso.TiradaEnemigo());
 
         vaso.usable = true;
         if(cantidadTiros == cantidadTirosMax)
