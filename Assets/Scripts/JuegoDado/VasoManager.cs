@@ -47,4 +47,9 @@ public class VasoManager : MonoBehaviour
     {
         juegoManager.Tirar();
     }
+    public IEnumerator TiradaEnemigo()
+    {
+        yield return new WaitForSeconds(1);
+        animator.SetTrigger("TiraEnemigo");
+    }
 }

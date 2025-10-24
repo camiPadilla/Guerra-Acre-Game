@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,14 +11,12 @@ public class JuegoDadoManager : MonoBehaviour
 {
     [SerializeField] private List<Dado> dados;
     [SerializeField] private VasoManager vaso;
-    [SerializeField] private GameObject[] polytallas;
+    [SerializeField] private GameObject[] pantallas;
     private int escalera,full, poker, grande;
     private int[] puntos = new int[6];
     public int bonusPrimera;
     [SerializeField]
-    private GameObject anote;
-    [SerializeField]
-    private GameObject[] UI;
+    private GameObject anote,anoteEnemigo;
     [SerializeField]
     private TextMeshProUGUI[] puntosUI;
     [SerializeField]
@@ -30,6 +29,18 @@ public class JuegoDadoManager : MonoBehaviour
     private int vueltas;
     private int cantidadTiros;
     private bool botones;
+    
+    //Camara
+    [SerializeField] Transform targetEnemigo;
+    [SerializeField] GameObject camara;
+    Transform targetCamara;
+    [SerializeField] float velCamara;
+    
+    //CosasEnemigo
+    private int[] puntajesEnemigo;
+    private bool[] anotablesEnemigo;
+    [SerializeField] List<Dado> dadosEnemigo;
+
 
 
     public static JuegoDadoManager Instance { get; private set; }
@@ -50,6 +61,14 @@ public class JuegoDadoManager : MonoBehaviour
         CambiarPantalla(1);
         DesactivarDados();
         DesactivarVaso();
+        targetCamara = transform;
+    }
+    private void Update()
+    {
+        if (Vector3.Distance(camara.transform.position, targetCamara.position) > 0.1f)
+        {
+            camara.transform.position = Vector3.MoveTowards(camara.transform.position, targetCamara.position, velCamara * Time.deltaTime);
+        }
     }
 
     public void DesactivarDados()
@@ -106,15 +125,6 @@ public class JuegoDadoManager : MonoBehaviour
             int cara = dados[i].GetCara();
             frecuencia[cara]++;
 
-            //switch (cara)
-            //{
-            //    case 1: balas = balas +1; break;
-            //    case 2: tontos = tontos + 2; break;
-            //    case 3: trenes = trenes + 3; break;
-            //    case 4: cuadras = cuadras + 4; break;
-            //    case 5: quinas = quinas + 5; break;
-            //    case 6: cenas = cenas + 6; break;
-            //}
         }
         for (int i = 1; i <= 6 ; i++)
         {
@@ -233,7 +243,11 @@ public class JuegoDadoManager : MonoBehaviour
             botones = false;
         }
         puntajeTotal.text = puntaje.ToString();
+
         //turno Oponente
+        CamaraEnemigo();
+        StartCoroutine(vaso.TiradaEnemigo());
+
         vaso.usable = true;
         if(cantidadTiros == cantidadTirosMax)
         {
@@ -274,11 +288,24 @@ public class JuegoDadoManager : MonoBehaviour
     }
     public void CambiarPantalla(int numero)
     {
-        for (int i = 0; i < polytallas.Length; i++)
+        for (int i = 0; i < pantallas.Length; i++)
         {
-            polytallas[i].SetActive(false);
-            if(i == numero) polytallas[i].SetActive(true);
+            pantallas[i].SetActive(false);
+            if(i == numero) pantallas[i].SetActive(true);
             if (i == 0) ActivarVaso();
         }
+    }
+    public void CamaraPropia()
+    {
+        targetCamara = transform;
+    }
+    public void CamaraEnemigo()
+    {
+        targetCamara = targetEnemigo;
+    }
+    // Enemigo
+    private void ContarPuntosEnemigo()
+    {
+
     }
 }
