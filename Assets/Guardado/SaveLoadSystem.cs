@@ -1,86 +1,74 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
-using System.Collections.Generic;
-using TarodevController;
 
 public static class SaveLoadSystem
 {
-    private static string playerPath = Application.persistentDataPath + "/playerData.save";
-    private static string gamePath = Application.persistentDataPath + "/gameData.save";
-    public static void SavePlayerData(SaludPersonaje playerSalud, AtaquePersonaje playerAtaque, PlayerController playerController)
-    {
-        BinaryFormatter formatter = new BinaryFormatter();
-        FileStream stream = new FileStream(playerPath, FileMode.Create);
+    private static string basePath = Application.persistentDataPath + "/slot";
 
-        PlayerData data = new PlayerData(playerSalud, playerAtaque, playerController);
+    public static void SaveGame(GameData data, int slot)
+    {
+        string path = basePath + slot + ".save";
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(path, FileMode.Create);
 
         formatter.Serialize(stream, data);
         stream.Close();
 
-        Debug.Log("Datos del jugador guardados");
+        Debug.Log("Juego guardado en " + path);
     }
-    public static PlayerData LoadPlayerData()
+
+    public static GameData LoadGame(int slot)
     {
-        if (File.Exists(playerPath))
+        string path = basePath + slot + ".save";
+        if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(playerPath, FileMode.Open);
-
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
-            stream.Close();
-
-            Debug.Log("Datos del jugador cargados");
-            return data;
-        }
-        else
-        {
-            Debug.LogWarning("no hay archivos de guardado del jugador");
-            return null;
-        }
-    }
-
-    public static void SaveLevelData(GameData gameData)
-    {
-        if (gameData == null)
-        {
-            Debug.LogError("No hay GameData para guardar");
-            return;
-        }
-
-        BinaryFormatter formatter = new BinaryFormatter();
-        FileStream stream = new FileStream(gamePath, FileMode.Create);
-
-        formatter.Serialize(stream, gameData);
-        stream.Close();
-
-        Debug.Log(" Progreso del juego guardado");
-    }
-    public static GameData LoadLevelData()
-    {
-        if (File.Exists(gamePath))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(gamePath, FileMode.Open);
+            FileStream stream = new FileStream(path, FileMode.Open);
 
             GameData data = formatter.Deserialize(stream) as GameData;
             stream.Close();
 
-            Debug.Log(" Datos del progreso del juego cargados");
+            Debug.Log("Juego cargado desde " + path);
             return data;
         }
         else
         {
-            Debug.LogWarning("No se encontró archivo de guardado del juego.");
+            Debug.LogWarning("No hay guardado en el slot " + slot);
             return null;
         }
     }
 
+    public static void DeleteSlot(int slot)
+    {
+        string path = basePath + slot + ".save";
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+            Debug.Log("Guardado del slot " + slot + " eliminado.");
+        }
+    }
+
+    public static bool HasSave(int slot)
+    {
+        string path = basePath + slot + ".save";
+        return File.Exists(path);
+    }
 
     public static void DeleteAllData()
     {
-        if (File.Exists(playerPath)) File.Delete(playerPath);
-        if (File.Exists(gamePath)) File.Delete(gamePath);
-        Debug.Log("Se eliminaron todos los datos de guardado.");
+        for (int i = 1; i <= 3; i++)
+        {
+            string path = basePath + i + ".save";
+            if (File.Exists(path))
+                File.Delete(path);
+        }
+        Debug.Log("Adiós partidas :(");
+    }
+
+    public static bool ExisteGuardado(int slot)
+    {
+        string path = basePath + slot + ".save";
+        return File.Exists(path);
     }
 }

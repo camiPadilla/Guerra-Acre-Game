@@ -39,13 +39,16 @@ public class JuegoDadoManager : MonoBehaviour
     
     //CosasEnemigo
     private int[] puntajesEnemigo;
-    private bool[] anotablesEnemigo;
+    private bool[] anotablesEnemigo = new bool[10];
     [SerializeField]
     private int[,] posiblesCasos = new int[16,2];
     [SerializeField] List<Dado> dadosEnemigo;
     int[] carasEnemigo = new int[6];
     int[] carasOpuestas = new int[6];
     int[] carasUsadas = new int[6];
+    [SerializeField]
+    private TextMeshProUGUI[] puntosEnemigoUI;
+    private GameObject[] marcasEnemigo;
 
 
     public static JuegoDadoManager Instance { get; private set; }
@@ -66,6 +69,7 @@ public class JuegoDadoManager : MonoBehaviour
         CambiarPantalla(1);
         DesactivarDados();
         DesactivarVaso();
+        LimpiarAnotesEnemigo();
         targetCamara = transform;
     }
     private void Update()
@@ -75,7 +79,13 @@ public class JuegoDadoManager : MonoBehaviour
             camara.transform.position = Vector3.MoveTowards(camara.transform.position, targetCamara.position, velCamara * Time.deltaTime);
         }
     }
-
+    private void LimpiarAnotesEnemigo()
+    {
+        for (int i = 0; i < anotablesEnemigo.Length; i++)
+        {
+            anotablesEnemigo[i] = true;
+        }
+    }
     public void DesactivarDados()
     {
         for (int i = 0; i < dados.Count; i++)
@@ -309,6 +319,16 @@ public class JuegoDadoManager : MonoBehaviour
         targetCamara = targetEnemigo;
     }
     // Enemigo
+    public void TiradaEnemigo()
+    {
+        vueltas = 0;
+        for (int i = 0; i < dadosEnemigo.Count; i++)
+        {
+            dadosEnemigo[i].Girar();
+        }
+        ElegirPuntaje();
+            
+    }
     private int[] ContarPuntosEnemigo(int[] caras)
     {
         puntajesEnemigo = new int[9];
@@ -364,7 +384,7 @@ public class JuegoDadoManager : MonoBehaviour
         }
         int puntajeMax = 0;
         int indice = 0;
-        for (int j = 0; j <= puntajesEnemigo.Length ; j++)
+        for (int j = 0; j < puntajesEnemigo.Length ; j++)
         {
             if (puntajesEnemigo[j]> puntajeMax)
             {
@@ -405,26 +425,55 @@ public class JuegoDadoManager : MonoBehaviour
 
         carasUsadas = carasEnemigo;
 
-        for (int i = 0; i <= dadosEnemigo.Count; i++)
+        for (int i = 0; i < dadosEnemigo.Count; i++)
         {
             carasEnemigo[i] = dadosEnemigo[i].GetCara();
             carasOpuestas[i] = VoltearFalso(carasEnemigo[i]);
         }
         for (int i = 0; i <16; i++)
         {
-            switch (i)
+            if (i == 1 || i == 6 || i == 7 || i == 8 || i == 9)
             {
-                case 0:  break;
-                case 1:  break;
-                case 2:  break;
-                case 3:  break;
-                case 4:  break;
-                case 5:  break;
-                case 6:  break;
+                Intercabiar1Cara(1);
+            }
+            if (i == 2 || i == 10 || i == 11 || i == 12 || i == 6)
+            {
+                Intercabiar1Cara(2);
+
+            }
+            if (i == 3 || i == 13 || i == 14 || i == 7 || i == 10)
+            {
+                Intercabiar1Cara(3);
+
+            }
+            if (i == 4 || i == 15 || i == 8 || i == 11 || i == 13)
+            {
+                Intercabiar1Cara(4);
+
+            }
+            if (i == 5 || i == 9 || i == 12 || i == 14 || i == 15)
+            {
+                Intercabiar1Cara(5);
+
             }
             int[] puntos = ContarPuntosEnemigo(carasUsadas);
             posiblesCasos[i, 0] = puntos[0];
             posiblesCasos[i, 1] = puntos[1];
+        }
+    }
+    private void AnotarEnemigo()
+    {
+        Debug.Log(posiblesCasos.Length);
+        puntajeEnemigo = 0;
+        int anote = 0;
+        //revisar cual es la mejor jugada, esperar, marcar en el papel, anotar puntos, bloquear anote
+        for (int i = 0; i < posiblesCasos.Length; i++)
+        {
+            if (posiblesCasos[i,0] > puntajeEnemigo && anotablesEnemigo[i])
+            {
+                puntajeEnemigo = posiblesCasos[i,0];
+                anote = posiblesCasos[i,1];
+            }
         }
     }
 }
