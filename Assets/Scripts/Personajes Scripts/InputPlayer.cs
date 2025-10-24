@@ -34,7 +34,7 @@ public class InputPlayer : MonoBehaviour
 
         if (Input.GetButton("Fire2"))
         {
-            Debug.Log("jugador listo para empujar");
+            //Debug.Log("jugador listo para empujar");
             moviendo = true;
         }
         else

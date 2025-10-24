@@ -23,6 +23,7 @@ public class ObjetoRecogible : MonoBehaviour
             {
                 if (nombreObjeto != "NPC" && nombreObjeto != "nota")
                 {
+                    
                     collision.gameObject.SendMessage("RecibirInfo", nombreObjeto);
                     DestruirObjeto();
                     desactivado = true;

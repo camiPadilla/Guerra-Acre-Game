@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -160847282481893832}
   - component: {fileID: 6311441923917428430}
   - component: {fileID: 741997258597849513}
+  - component: {fileID: 8265611565940467569}
   m_Layer: 3
   m_Name: ObjetoMovibleNIvel1
   m_TagString: Untagged
@@ -175,3 +176,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8265611565940467569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8659629044543239103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -499264137
+      Data2: 1116582881
+      Data3: -1982763841
+      Data4: 1497809404
+    Path: event:/ENVIRONMENT/Movibles/ArrastrarCaja
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

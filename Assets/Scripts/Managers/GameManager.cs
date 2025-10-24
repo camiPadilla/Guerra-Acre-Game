@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameStateChanger gameStateChanger;
     [SerializeField] List<GameStateSO> estados;
     [SerializeField] GameObject NPCrevivido;
+    [SerializeField] int enemigosMuertos=0;
     private void Awake()
     {
         if (instancia == null)
@@ -51,7 +52,10 @@ public class GameManager : MonoBehaviour
             currentDisplay = 1;
         }
     }
-
+    public void ActualizarEnemigosMuertos()
+    {
+        enemigosMuertos++;
+    }
     // Ejemplo de uso: alternar c�maras
     public void CambiarDeCamara()
     {
@@ -107,7 +111,7 @@ public class GameManager : MonoBehaviour
     }
     public void CerrarEstado()
     {
-        Debug.Log("se cambiara de estado");
+        Debug.Log("se cambiara de estado a ");
         switch (estadoActual.stateName)
         {
             case "Paused":

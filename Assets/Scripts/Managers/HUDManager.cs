@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine.UI;
 using PantallaCarga;
 using UnityEditorInternal;
+using FMODUnity;
+using UnityEditor.SceneManagement;
 
 public class HUDManager : MonoBehaviour
 {
@@ -28,6 +30,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] GameObject hudBalas;
     [SerializeField] GameObject padreInteraccion;
     private ControladorNPC npc;
+
+    int armaAnterior = 0;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -51,17 +55,20 @@ public class HUDManager : MonoBehaviour
     public void ReanudarPartida(int indice)
     {
         Reanudar();
+        Debug.Log("vuelves al juego");
         pantallas[indice].SetActive(false);
     }
     
     public void ActivarRifle()
     {
+        SoundEvents.RecogerArma?.Invoke(); //Sonido by Chelo :D
         Debug.Log("hola activando arma");
         armas[2].GetComponent<UnityEngine.UI.Image>().sprite = imagenArmas[1];
 
     }
     public void AumentarBalas(Vector2 posicion)
     {
+        SoundEvents.RecogerBalas?.Invoke(); //Sonido by Chelo :D
         mensajeE.GetComponent<SpriteRenderer>().sprite = imagenAumentoBala;
         Vector2 posicionMensaje = new Vector2(posicion.x, posicion.y + 2f);
         mensajeE.transform.position = posicionMensaje;
@@ -97,6 +104,23 @@ public class HUDManager : MonoBehaviour
     }
     public void ActualizarArma(int armaActiva)
     {
+        //ADDED BY CHELO :D
+        if (armaActiva != armaAnterior)
+        {            
+            switch (armaActiva)
+                {
+                    case 0:
+                        SoundEvents.CambiarArmaMachete?.Invoke();
+                        break;
+                    case 1:
+                        SoundEvents.CambiarArmaPiedra?.Invoke();
+                        break;
+                    case 2:
+                        SoundEvents.RecogerArma?.Invoke();
+                        break;
+                }
+                armaAnterior = armaActiva;
+        }
 
         foreach (GameObject arma in armas)
         {
