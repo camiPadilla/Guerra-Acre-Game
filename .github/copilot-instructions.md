@@ -6,7 +6,7 @@
   - Tags:
     - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, hitbox, Destruible, Escenario, movible, NPC, Enemigo, LoaderScene, caja, cabeza, canvasGame, canvas
   - Layers:
-    - Default, TransparentFX, Ignore Raycast, Piso, Water, UI, Player, Enemy
+    - Default, TransparentFX, Ignore Raycast, Water, UI
 - Active game object:
   - Name: Carga1
   - Tag: Untagged
