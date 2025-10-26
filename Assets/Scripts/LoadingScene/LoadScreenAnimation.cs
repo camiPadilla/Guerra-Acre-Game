@@ -13,7 +13,6 @@ public class LoadScreenAnimation : MonoBehaviour
     [SerializeField] private Image cosa2;
     [SerializeField] private Image fade;
     [SerializeField] private RectTransform areaCanvas;
-    [SerializeField] private GameObject avesCazadasOb;
     [SerializeField] private TMPro.TextMeshProUGUI avesCazadasText;
     private int avesCazadas = 0;
 
@@ -38,21 +37,18 @@ public class LoadScreenAnimation : MonoBehaviour
 
         if (tipoInteraccion == 0)
         {
-            avesCazadasOb.SetActive(true);
             // tigrillo y ave
             cosa1.sprite = sprites[0];
             cosa2.sprite = sprites[1];
         }
         else if (tipoInteraccion == 1)
         {
-            avesCazadasOb.SetActive(false);
             // soldado comiendo coca
             cosa1.sprite = sprites[2];
             cosa2.sprite = sprites[3];
         }
         else
         {
-            avesCazadasOb.SetActive(false);
             // soldado bailando
             cosa1.sprite = sprites[4];
             cosa2.sprite = sprites[5];

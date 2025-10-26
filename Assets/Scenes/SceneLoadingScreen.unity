@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &218532568 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8710964657233791646, guid: d13588a35b29046c9acba130dbfcdc2b, type: 3}
-  m_PrefabInstance: {fileID: 4218770541933099599}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &583781101 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4020421791254060638, guid: d13588a35b29046c9acba130dbfcdc2b, type: 3}
@@ -309,17 +304,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1822900656 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7487540874631296027, guid: d13588a35b29046c9acba130dbfcdc2b, type: 3}
-  m_PrefabInstance: {fileID: 4218770541933099599}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1886637151 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 20980139387913367, guid: d13588a35b29046c9acba130dbfcdc2b, type: 3}
@@ -418,7 +402,8 @@ PrefabInstance:
       value: CanvasPantallaCarga
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8710964657233791646, guid: d13588a35b29046c9acba130dbfcdc2b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d13588a35b29046c9acba130dbfcdc2b, type: 3}
@@ -485,11 +470,11 @@ PrefabInstance:
     - target: {fileID: 4247882099459375640, guid: 0ee75e4a7c21c43b185e68994b2e1c5b, type: 3}
       propertyPath: avesCazadasOb
       value: 
-      objectReference: {fileID: 218532568}
+      objectReference: {fileID: 0}
     - target: {fileID: 4247882099459375640, guid: 0ee75e4a7c21c43b185e68994b2e1c5b, type: 3}
       propertyPath: avesCazadasText
       value: 
-      objectReference: {fileID: 1822900656}
+      objectReference: {fileID: 0}
     - target: {fileID: 9119956665811603709, guid: 0ee75e4a7c21c43b185e68994b2e1c5b, type: 3}
       propertyPath: m_Name
       value: LoadScreenAnimation
