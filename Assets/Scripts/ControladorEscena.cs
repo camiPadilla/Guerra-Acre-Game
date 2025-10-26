@@ -13,17 +13,18 @@ public class ControladorEscena : MonoBehaviour
     public int sceneIndex;
     public LoaderScene loaderScene;
     public SaludPersonaje vidas;
-    public SaludPersonaje escudos;
+    public InventarioManager cantidadNotas;
     public AtaquePersonaje balas;
+    public GameManager gameManager;
     [SerializeField] PlayerController player;
     [SerializeField]public int ChPoint;
     [SerializeField] string nameScene;
     //contarEnemigos
     //-------textos para ui------
     public TMP_Text textVidas;
-    public TMP_Text textEsc;
+    public TMP_Text textNot;
     public TMP_Text textBalas;
-    public TMP_Text textAtaque;
+    public TMP_Text textEnemigos;
 
     private void Start()
     {
@@ -41,8 +42,9 @@ public class ControladorEscena : MonoBehaviour
     public void ProgresoFinal()
     {
         textVidas.text = vidas.vidasJugador.ToString();
-        textEsc.text = escudos.vidasEXtras.ToString();
+        textNot.text = cantidadNotas.cantNotas.ToString();
         textBalas.text = balas.GetBalasActuales().ToString();
+        textEnemigos.text =gameManager.enemigosMuertos.ToString();
     }
 
     public void IrMenu()
@@ -56,7 +58,11 @@ public class ControladorEscena : MonoBehaviour
             loaderScene.LoadSceneString(ConstantsGame.SCENADOS);
             
         }
-        //procede para mas escena si es el caso
+        else if(sceneIndex == 2) 
+        {
+                loaderScene.LoadSceneString(ConstantsGame.SCENECREDITS);
+        }
+        //procede con un swich con mas niveles pero como solo son 2 , po aqui nomas jsahdsafsa
     }
     public void guardarPartida()
     {

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameStateChanger gameStateChanger;
     [SerializeField] List<GameStateSO> estados;
     [SerializeField] GameObject NPCrevivido;
-    [SerializeField] int enemigosMuertos=0;
+    [SerializeField] public int enemigosMuertos=0;
     private void Awake()
     {
         if (instancia == null)
