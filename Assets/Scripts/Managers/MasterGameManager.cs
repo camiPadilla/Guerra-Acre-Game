@@ -1,123 +1,185 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
-using TarodevController;
 using UnityEngine.SceneManagement;
-using Unity.Mathematics;
+using TarodevController;
+using PantallaCarga;
+
 public class MasterGameManager : MonoBehaviour
 {
-    public List<bool> checkpointsActivos = new List<bool>();
-    public List<LevelCompletionData > nivelesCompletados = new List<LevelCompletionData>();
+    public static MasterGameManager instance;
+
+
     public SaludPersonaje playerSalud;
     public AtaquePersonaje playerAtaque;
     public PlayerController playerController;
+    public LoaderScene loaderScene;
+
+    public List<bool> checkpointsActivos = new List<bool>();
+    public GameData gameData;
+
     public string escenaActual;
     public string escenaSiguiente;
+    public bool InGame;
+    public int lastCP;
+    public int AcPoint;
+    public int currentLevel = 1;
 
 
-    // Start is called before the first frame update
-    public static MasterGameManager instance;
-    public GameData gameData;
+    [SerializeField] public int currentSlot = 1; // se define desde el menú
+
     private void Awake()
     {
-        ReferenciasPlayer();
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
         }
+
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        ReferenciasPlayer();
+        SceneManager.sceneLoaded += OnLoadScene;
     }
+
+
     private void ReferenciasPlayer()
     {
         playerSalud = FindObjectOfType<SaludPersonaje>();
         playerAtaque = FindObjectOfType<AtaquePersonaje>();
         playerController = FindObjectOfType<PlayerController>();
     }
-    private void OnLoadSecene(Scene scene, LoadSceneMode mode)
+
+    public void SetSlot(int slot)
     {
+        currentSlot = slot;
+        Debug.Log("Slot seleccionado: " + currentSlot);
+    }
+
+    private void OnLoadScene(Scene scene, LoadSceneMode mode)
+    {
+        ReferenciasPlayer();
+
         if (scene.name == "MainMenu")
         {
-            print("Hola estas en el Main Menu");
+            Debug.Log("Estas en el Main Menu");
+            return;
         }
+
+        // Configuración según la escena
         if (scene.name == "EscenaUno")
         {
-            print("Hola estas en el Nivel 1 o tutorial en otras palabras");
-            playerSalud = FindObjectOfType<SaludPersonaje>();
-            playerAtaque = FindObjectOfType<AtaquePersonaje>();
-            playerController = FindObjectOfType<PlayerController>();
-            if (playerSalud != null && playerAtaque != null && playerController != null)
-            {
-                SaveLoadSystem.LoadPlayerData();
-            }
             escenaActual = "EscenaUno";
             escenaSiguiente = "EscenaDos";
         }
-        if (scene.name == "EscenaDos")
+        else if (scene.name == "EscenaDos")
         {
-            print("Hola estas en el Nivel 2");
-            playerSalud = FindObjectOfType<SaludPersonaje>();
-            playerAtaque = FindObjectOfType<AtaquePersonaje>();
-            playerController = FindObjectOfType<PlayerController>();
-            if (playerSalud != null && playerAtaque != null && playerController != null)
-            {
-                SaveLoadSystem.LoadPlayerData();
-            }
             escenaActual = "EscenaDos";
             escenaSiguiente = "FinalScene";
         }
 
+        LoadGame(); 
     }
+
+    public void ActivarCheckPoint(int index)
+    {
+        if (gameData == null)
+            gameData = new GameData(playerSalud, playerAtaque, playerController, currentLevel, SceneManager.GetActiveScene().name, lastCP, currentSlot);
+
+        // Asegurar que la lista sea suficientemente larga
+        if (index >= gameData.checkpointsActivos.Count)
+        {
+            for (int i = gameData.checkpointsActivos.Count; i <= index; i++)
+                gameData.checkpointsActivos.Add(false);
+        }
+
+        gameData.checkpointsActivos[index] = true;
+        gameData.lastCheckPoint = index;
+
+        SaveGame();
+        Debug.Log("✅ Checkpoint activado y guardado: " + index);
+    }
+
     public void SaveGame()
     {
-        print("||Guardando partida...||");
-        SaveLoadSystem.SavePlayerData(playerSalud, playerAtaque, playerController);
-        SaveLoadSystem.SaveLevelData(gameData);
+        GameData data = new GameData(playerSalud, playerAtaque, playerController, currentLevel, SceneManager.GetActiveScene().name, lastCP, currentSlot);
+        SaveLoadSystem.SaveGame(data, currentSlot);
+        Debug.Log($"💾 Juego guardado en slot {currentSlot}");
     }
+
     public void LoadGame()
     {
-        PlayerData playerData = SaveLoadSystem.LoadPlayerData();
-
-        if (playerData != null && playerController != null)
+        GameData data = SaveLoadSystem.LoadGame(currentSlot);
+        if (data != null)
         {
-            int lastCheckpoint = PlayerPrefs.GetInt("LastCheckpoint", -1);
-            if (lastCheckpoint != -1)
-            {
-                CheckPoints[] checkpoints = FindObjectsOfType<CheckPoints>();
-                foreach (var cp in checkpoints)
-                {
-                    if (cp.indexCP == lastCheckpoint)
-                    {
-                        playerController.transform.position = cp.transform.position;
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                // Si no hay checkpoint guardado, cargar posición normal
-                playerController.transform.position = new Vector3(
-                    playerData.position[0],
-                    playerData.position[1],
-                    playerData.position[2]
-                );
-            }
-            playerSalud.vidasJugador = playerData.vidasJugador;
-            playerSalud.vidasEXtras = playerData.vidasExtras;
-            playerAtaque.cantidadBalas = playerData.balas;
-            playerAtaque.seleccionArma = playerData.tipoArma;
+            StartCoroutine(LoadRestore(data));
+            Debug.Log($"📂 Partida cargada desde slot {currentSlot}");
         }
         else
         {
-            Debug.Log(" No se encontró partida previa o jugador no asignado.");
+            Debug.LogWarning("⚠️ No hay partida guardada en este slot.");
         }
     }
+
+    private IEnumerator LoadRestore(GameData data)
+    {
+        // Si la escena guardada no es la actual, se cambia
+        if (SceneManager.GetActiveScene().name != data.lastScene)
+            SceneManager.LoadScene(data.lastScene);
+
+        yield return new WaitForSeconds(0.2f);
+
+        ReferenciasPlayer();
+        yield return RestoreAfterLoad(data);
+    }
+
+    private IEnumerator RestoreAfterLoad(GameData data)
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        // Restaurar posición desde el último checkpoint o posición guardada
+        int lastCheckPoint = data.lastCheckPoint;
+        if (lastCheckPoint != -1)
+        {
+            CheckPoints[] checkPoints = FindObjectsOfType<CheckPoints>();
+            foreach (var cp in checkPoints)
+            {
+                if (cp.indexCP == lastCheckPoint)
+                {
+                    playerController.transform.position = cp.transform.position;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            playerController.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
+        }
+
+        playerSalud.vidasJugador = data.vidasJugador;
+        playerSalud.vidasEXtras = data.vidasExtras;
+        playerAtaque.cantidadBalas = data.balas;
+        playerAtaque.seleccionArma = data.tipoArma;
+    }
+
+
+    public void NewGame()
+    {
+        SaveLoadSystem.DeleteSlot(currentSlot);
+        loaderScene.LoadSceneString("EscenaUno");
+        Debug.Log($"🌱 Nuevo juego iniciado en slot {currentSlot}");
+    }
+
+
     public void DeleteGame()
     {
         SaveLoadSystem.DeleteAllData();
-        PlayerPrefs.DeleteAll();
-        Debug.Log("Datos de guardado eliminados.");
+        Debug.Log("🗑️ Datos de guardado eliminados completamente.");
+    }
+
+    public void DetenerTiempo()
+    {
+        Time.timeScale = 0;
     }
 }

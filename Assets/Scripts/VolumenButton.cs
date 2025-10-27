@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class VolumeButton : MonoBehaviour
 {
-    [SerializeField] private PlayerSettings prefsSet;
+
     [SerializeField] private LoaderScene loader;
     [SerializeField] private MasterGameManager master;
 
@@ -12,34 +12,11 @@ public class VolumeButton : MonoBehaviour
     private void Start()
     {
         // Buscar automáticamente el PlayerPrefsManager si no está asignado
-        if (PlayerSettings.Instance == null && LoaderScene.instance == null && MasterGameManager.instance == null)
+        if (LoaderScene.instance == null && MasterGameManager.instance == null)
         {
-            prefsSet = FindObjectOfType<PlayerSettings>();
             loader = FindObjectOfType<LoaderScene>();
             master = FindObjectOfType<MasterGameManager>();
 
-        }
-    }
-
-    public void CambiarVolumenGen()
-    {
-        if (prefsSet != null)
-        {
-            prefsSet.SetVolumenGeneral();
-        }
-    }
-    public void CambiarVolumenMus()
-    {
-        if (prefsSet != null)
-        {
-            prefsSet.SetVolumenMusica();
-        }
-    }
-    public void CambiarVolumenEfe()
-    {
-        if (prefsSet != null)
-        {
-            prefsSet.SetVolumenEfectos();
         }
     }
     public void IrMenu()

@@ -1,68 +1,43 @@
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 using TarodevController;
+using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class GameData
 {
-    // Guarda la última posición conocida del jugador (por checkpoint)
-    public float[] playerPosition = new float[3];
+    public int slotNumber;            
 
-    // Lista de checkpoints activos
-    public List<bool> checkpointsActivos = new List<bool>();
-
-    // Lista de niveles completados
-   // public List<PlayerData.LevelCompletionData> nivelesCompletados = new List<PlayerData.LevelCompletionData>();
-}
-
-[System.Serializable]
-public class PlayerData
-{
+    public float[] position;
     public int vidasJugador;
     public int vidasExtras;
-    public float[] position = new float[3];
-
-
-    // Armas
     public int balas;
     public int tipoArma;
 
-    public PlayerData(SaludPersonaje playerSalud, AtaquePersonaje playerAtaque, PlayerController player)
-    {
-        vidasJugador = playerSalud.vidasJugador;
-        vidasExtras = playerSalud.vidasEXtras;
-        position[0] = player.transform.position.x;
-        position[1] = player.transform.position.y;
-        position[2] = player.transform.position.z;
-        balas = playerAtaque.cantidadBalas;
-        tipoArma = playerAtaque.seleccionArma;
-    }
-}
-
-[System.Serializable]
-public class ProgressData
-{
     public int currentLevel;
-    public List<int> checkPointsActivos = new List<int>();
+    public string lastScene;
+    public int lastCheckPoint;
+    public List<bool> checkpointsActivos = new List<bool>();
 
-    public ProgressData(int nivelActual, List<int> cpActivos)
+    public GameData(SaludPersonaje salud, AtaquePersonaje ataque, PlayerController controller, int level, string scene, int cPoint, int slot)
     {
-        currentLevel = nivelActual;
-        checkPointsActivos = cpActivos;
-    }
-}
+        slotNumber = slot;
 
-[System.Serializable]
-public class LevelCompletionData
-{
-    public int levelIndex;
-    public bool levelComplete;
-    public int cantNotas;
+        position = new float[3];
+        position[0] = controller.transform.position.x;
+        position[1] = controller.transform.position.y;
+        position[2] = controller.transform.position.z;
 
-    public LevelCompletionData(int levelIndex, bool levelComplete, int cantNotas)
-    {
-        this.levelIndex = levelIndex;
-        this.levelComplete = levelComplete;
-        this.cantNotas = cantNotas;
+        vidasJugador = salud.vidasJugador;
+        vidasExtras = salud.vidasEXtras;
+        balas = ataque.cantidadBalas;
+        tipoArma = ataque.seleccionArma;
+
+        currentLevel = level;
+        lastScene = scene;
+        lastCheckPoint = cPoint;
+
+        if (checkpointsActivos == null)
+            checkpointsActivos = new List<bool>();
     }
 }

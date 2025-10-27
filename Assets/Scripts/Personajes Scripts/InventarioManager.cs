@@ -10,6 +10,7 @@ public class InventarioManager : MonoBehaviour
     [SerializeField] int limiteBalas;
     [SerializeField] int aumento;
     [SerializeField] List<string> listaNotas;
+    public int cantNotas = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -68,5 +69,6 @@ public class InventarioManager : MonoBehaviour
     public void ActualizarNotas(string ID)
     {
         listaNotas.Add(ID);
+        cantNotas++;
     }
 }
