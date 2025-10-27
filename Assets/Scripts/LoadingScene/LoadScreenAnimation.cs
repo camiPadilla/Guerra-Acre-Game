@@ -5,31 +5,18 @@ using UnityEngine.UI;
 
 public class LoadScreenAnimation : MonoBehaviour
 {
-    public static LoadScreenAnimation instance;
 
     [Header("Sprites de las interacciones")]
     [SerializeField] private List<Sprite> sprites;
     [SerializeField] private Image cosa1;
     [SerializeField] private Image cosa2;
-    [SerializeField] private Image fade;
     [SerializeField] private RectTransform areaCanvas;
-    [SerializeField] private TMPro.TextMeshProUGUI avesCazadasText;
-    private int avesCazadas = 0;
 
     public int tipoInteraccion;
     private bool aveCazada = false;
-
-    //para los clones de los bolos de coca
-    private List<Image> clonesCoca = new List<Image>();
     private void Start()
     {
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+        tipoInteraccion = Random.Range(0, 2);
     }
 
     public void MiniJuegos()
@@ -74,8 +61,6 @@ public class LoadScreenAnimation : MonoBehaviour
             cosa1.rectTransform.position = new UnityEngine.Vector3(cosa2.rectTransform.position.x, cosa2.rectTransform.position.y, 0);
             if (aveCazada)
             {
-                avesCazadas++;
-                avesCazadasText.text = avesCazadas.ToString();
                 cosa1.sprite = sprites[6];
                 StartCoroutine(RespawnAve());
             }
@@ -127,18 +112,4 @@ public class LoadScreenAnimation : MonoBehaviour
 
         }
     }
-    public  void ResgisterClones(Image clone)
-    {
-        clonesCoca.Add(clone);
-    }
-    public void DestroyAllClones()
-    {
-        foreach (var c in clonesCoca)
-        {
-            if (c != null)
-                Destroy(c);
-        }
-        clonesCoca.Clear();
-    }
 }
-

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerSettings : MonoBehaviour
 {
-    public static PlayerSettings Instance { get; private set; }
+    public static PlayerSettings Instance { get;  set; }
     //Agregar las cosas que hacen falta para guardar los datos, osea sonido , etc.
     [SerializeField] private Scrollbar VolumenGeneral;
     [SerializeField] private Scrollbar VolumenMusica;
@@ -24,27 +24,46 @@ public class PlayerSettings : MonoBehaviour
     void Start()
     {
         LoadSettings();
+
+        VolumenGeneral.onValueChanged.AddListener(SetVolumenGeneral);
+        VolumenMusica.onValueChanged.AddListener(SetVolumenMusica);
+        VolumenEfectos.onValueChanged.AddListener(SetVolumenEfectos);
     }
-    private void LoadSettings()
+
+    public void LoadSettings()
     {
         VolumenGeneral.value = PlayerPrefs.GetFloat("VolumenGeneral");
         VolumenMusica.value = PlayerPrefs.GetFloat("VolumenMusica");
         VolumenEfectos.value = PlayerPrefs.GetFloat("VolumenEfectos");
     }
-    public void SetVolumenGeneral()
+    public void SetVolumenGeneral(float value)
     {
-        PlayerPrefs.SetFloat("VolumenGeneral", VolumenGeneral.value);
+        PlayerPrefs.SetFloat("VolumenGeneral", value);
     }
-    public void SetVolumenMusica()
+
+    public void SetVolumenMusica(float value)
     {
-        PlayerPrefs.SetFloat("VolumenMusica", VolumenMusica.value);
+        PlayerPrefs.SetFloat("VolumenMusica", value);
     }
-    public void SetVolumenEfectos()
+
+    public void SetVolumenEfectos(float value)
     {
-        PlayerPrefs.SetFloat("VolumenEfectos", VolumenEfectos.value);
+        PlayerPrefs.SetFloat("VolumenEfectos", value);
     }
     public void ReserDefaultValues()
     {
         PlayerPrefs.DeleteAll();
+    }
+    public float GetVolumenGeneral()
+    {
+        return VolumenGeneral.value;
+    } 
+    public float GetVolumenMusica()
+    {
+        return VolumenMusica.value;
+    } 
+    public float GetVolumenEfectos()
+    {
+        return VolumenEfectos.value;
     }
 }

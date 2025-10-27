@@ -6,18 +6,23 @@ using UnityEngine;
 [Serializable]
 public class GameData
 {
-    public float[] position;       
+    public int slotNumber;            
+
+    public float[] position;
     public int vidasJugador;
     public int vidasExtras;
     public int balas;
     public int tipoArma;
+
     public int currentLevel;
     public string lastScene;
     public int lastCheckPoint;
     public List<bool> checkpointsActivos = new List<bool>();
 
-    public GameData(SaludPersonaje salud, AtaquePersonaje ataque, PlayerController controller, int level, string scene, int cPoint)
+    public GameData(SaludPersonaje salud, AtaquePersonaje ataque, PlayerController controller, int level, string scene, int cPoint, int slot)
     {
+        slotNumber = slot;
+
         position = new float[3];
         position[0] = controller.transform.position.x;
         position[1] = controller.transform.position.y;
@@ -27,10 +32,12 @@ public class GameData
         vidasExtras = salud.vidasEXtras;
         balas = ataque.cantidadBalas;
         tipoArma = ataque.seleccionArma;
+
         currentLevel = level;
+        lastScene = scene;
         lastCheckPoint = cPoint;
+
         if (checkpointsActivos == null)
             checkpointsActivos = new List<bool>();
-
     }
 }

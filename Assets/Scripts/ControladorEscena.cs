@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 using TarodevController;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -16,6 +17,7 @@ public class ControladorEscena : MonoBehaviour
     public InventarioManager cantidadNotas;
     public AtaquePersonaje balas;
     public GameManager gameManager;
+    [SerializeField] MasterGameManager masterGameManager;
     [SerializeField] PlayerController player;
     [SerializeField]public int ChPoint;
     [SerializeField] string nameScene;
@@ -25,15 +27,16 @@ public class ControladorEscena : MonoBehaviour
     public TMP_Text textNot;
     public TMP_Text textBalas;
     public TMP_Text textEnemigos;
+    //Para los ajustes pipipi
 
     private void Start()
     {
-        
-        if(loaderScene == null)
+
+        if (loaderScene == null)
         {
             loaderScene = FindObjectOfType<LoaderScene>();
         }
-       nameScene = ConstantsGame.SCENAUNO;
+        nameScene = ConstantsGame.SCENAUNO;
     }
     public void Update()
     {
@@ -64,11 +67,12 @@ public class ControladorEscena : MonoBehaviour
         }
         //procede con un swich con mas niveles pero como solo son 2 , po aqui nomas jsahdsafsa
     }
-    public void guardarPartida()
+    public void GuardarPartida()
     {
-        GameData data = new GameData(vidas, balas, player, sceneIndex, nameScene, ChPoint);
-        SaveLoadSystem.SaveGame(data, sceneIndex);
+        GameData data = new GameData(vidas, balas, player, sceneIndex, nameScene, ChPoint,masterGameManager.currentSlot);
+        SaveLoadSystem.SaveGame(data,masterGameManager.currentSlot);
     }
+
     public void ReiniciarNivel()
     {
         loaderScene.LoadSceneString(ConstantsGame.SCENAUNO);
@@ -80,4 +84,5 @@ public class ControladorEscena : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
     }
+    
 }

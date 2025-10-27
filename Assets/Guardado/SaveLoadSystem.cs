@@ -15,7 +15,7 @@ public static class SaveLoadSystem
         formatter.Serialize(stream, data);
         stream.Close();
 
-        Debug.Log("Juego guardado en " + path);
+        Debug.Log($"Juego guardado en: {path}");
     }
 
     public static GameData LoadGame(int slot)
@@ -29,12 +29,12 @@ public static class SaveLoadSystem
             GameData data = formatter.Deserialize(stream) as GameData;
             stream.Close();
 
-            Debug.Log("Juego cargado desde " + path);
+            Debug.Log($"Juego cargado desde: {path}");
             return data;
         }
         else
         {
-            Debug.LogWarning("No hay guardado en el slot " + slot);
+            Debug.LogWarning($"No hay guardado en el slot {slot}");
             return null;
         }
     }
@@ -45,7 +45,7 @@ public static class SaveLoadSystem
         if (File.Exists(path))
         {
             File.Delete(path);
-            Debug.Log("Guardado del slot " + slot + " eliminado.");
+            Debug.Log($"Guardado del slot {slot} eliminado.");
         }
     }
 
@@ -64,11 +64,5 @@ public static class SaveLoadSystem
                 File.Delete(path);
         }
         Debug.Log("Adiós partidas :(");
-    }
-
-    public static bool ExisteGuardado(int slot)
-    {
-        string path = basePath + slot + ".save";
-        return File.Exists(path);
     }
 }
