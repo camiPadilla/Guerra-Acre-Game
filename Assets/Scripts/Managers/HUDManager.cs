@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using PantallaCarga;
-using UnityEditorInternal;
 using System.Threading;
 
 public class HUDManager : MonoBehaviour
