@@ -16,6 +16,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] TMP_Text text;
     [SerializeField]GameObject mensajeE;
     [Header("Pantallas")]
+
+    [SerializeField] List<GameObject> menues;
     [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject pantallaBienvenida;
     [SerializeField] GameObject HUDGame;
@@ -67,8 +69,16 @@ public class HUDManager : MonoBehaviour
     {
         Reanudar();
         Debug.Log("vuelves al juego");
-         HUDGame.SetActive(true);
-        menuInGame.SetActive(false);
+        HUDGame.SetActive(true);
+        if (indice == 3)
+        {
+            menuInGame.SetActive(false);
+        }
+        else
+        {
+            menues[indice].SetActive(false);
+        }
+
     }
     
     public void ActivarRifle()
@@ -205,8 +215,8 @@ public class HUDManager : MonoBehaviour
         masterGameManager.DetenerTiempo();
         text.text = mensajeNuevo;
         GameManager.instancia.CambiarDeEstado(3);
-        menuInGame.SetActive(false);
-        menuInGame.SetActive(true);
+        HUDGame.SetActive(false);
+        menues[0].SetActive(true);
 
     }
     public void IniciarDialogo(DialogosSO dialogo)
@@ -215,9 +225,9 @@ public class HUDManager : MonoBehaviour
         //DetenerTiempo();
         GameManager.instancia.CambiarDeEstado(4);
         dialogosManager.IniciarDialogo(dialogo);
-        menuInGame.SetActive(false);
-        menuInGame.SetActive(true);
-        return;
+        HUDGame.SetActive(false);
+        menues[1].SetActive(true);
+        
 
     }
     public void Pausar()
