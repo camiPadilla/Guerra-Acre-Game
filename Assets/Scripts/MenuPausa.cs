@@ -127,19 +127,23 @@ public class MenuPausa : MonoBehaviour
     }
     //Setteamos los valores del volumen etc.
     public void GetVolumenes()
+{
+    if (PlayerSettings.Instance != null)
     {
-        if (PlayerSettings.Instance != null)
-        {
-            // sincroniza sliders con PlayerSettings
-            VolGen.value = PlayerSettings.Instance.GetComponent<PlayerSettings>().GetVolumenGeneral();
-            VolMus.value = PlayerSettings.Instance.GetComponent<PlayerSettings>().GetVolumenMusica();
-            VolSFX.value = PlayerSettings.Instance.GetComponent<PlayerSettings>().GetVolumenEfectos();
+        VolGen.onValueChanged.RemoveAllListeners();
+        VolMus.onValueChanged.RemoveAllListeners();
+        VolSFX.onValueChanged.RemoveAllListeners();
 
-            VolGen.onValueChanged.AddListener(PlayerSettings.Instance.SetVolumenGeneral);
-            VolMus.onValueChanged.AddListener(PlayerSettings.Instance.SetVolumenMusica);
-            VolSFX.onValueChanged.AddListener(PlayerSettings.Instance.SetVolumenEfectos);
-        }
+        VolGen.value = PlayerSettings.Instance.GetVolumenGeneral();
+        VolMus.value = PlayerSettings.Instance.GetVolumenMusica();
+        VolSFX.value = PlayerSettings.Instance.GetVolumenEfectos();
+
+        VolGen.onValueChanged.AddListener(value => PlayerSettings.Instance.SetVolumenGeneral(value));
+        VolMus.onValueChanged.AddListener(value => PlayerSettings.Instance.SetVolumenMusica(value));
+        VolSFX.onValueChanged.AddListener(value => PlayerSettings.Instance.SetVolumenEfectos(value));
     }
+}
+
     
 }
 
