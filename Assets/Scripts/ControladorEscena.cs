@@ -28,10 +28,6 @@ public class ControladorEscena : MonoBehaviour
     public TMP_Text textBalas;
     public TMP_Text textEnemigos;
     //Para los ajustes pipipi
-    public PlayerSettings playerSettings;
-    [SerializeField] private Scrollbar volGen;
-    [SerializeField] private Scrollbar volMus;
-    [SerializeField] private Scrollbar volEfe;
 
     private void Start()
     {
@@ -41,11 +37,6 @@ public class ControladorEscena : MonoBehaviour
             loaderScene = FindObjectOfType<LoaderScene>();
         }
         nameScene = ConstantsGame.SCENAUNO;
-        if (playerSettings == null)
-        {
-            playerSettings = FindObjectOfType<PlayerSettings>();
-        }
-        Volumenes();
     }
     public void Update()
     {
@@ -93,11 +84,5 @@ public class ControladorEscena : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
     }
-    public void Volumenes()
-    {
-        PlayerPrefs.SetFloat("volGen", volGen.value);
-        PlayerPrefs.SetFloat("volMus", volMus.value);
-        PlayerPrefs.SetFloat("volEfe", volEfe.value);
-
-    }
+    
 }

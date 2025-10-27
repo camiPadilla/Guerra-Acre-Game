@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuPausa : MonoBehaviour
 {
@@ -8,6 +9,13 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private GameObject MenuInGame;
     [SerializeField] List<GameObject> pantallaInGame;
     [SerializeField] MasterGameManager masterGameManager;
+
+    //Para trabajar con el audio
+    [SerializeField] private Scrollbar VolGen;
+    [SerializeField] private Scrollbar VolMus;
+    [SerializeField] private Scrollbar VolSFX;
+
+    [SerializeField] PlayerSettings playerSettings;
     void Awake()
     {
         if (instance != null)
@@ -20,6 +28,7 @@ public class MenuPausa : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             DontDestroyOnLoad(MenuInGame);
         }
+        GetVolumenes();
     }
     public void PausarGame()
     {
@@ -116,18 +125,21 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[6].SetActive(false);
         pantallaInGame[7].SetActive(true);
     }
-    
-    public void OcultarTodoGame()
+    //Setteamos los valores del volumen etc.
+    public void GetVolumenes()
     {
-        pantallaInGame[0].SetActive(false);
-        pantallaInGame[1].SetActive(false);
-        pantallaInGame[2].SetActive(false);
-        pantallaInGame[3].SetActive(false);
-        pantallaInGame[4].SetActive(false);
-        pantallaInGame[5].SetActive(false);
-        pantallaInGame[6].SetActive(false);
-        pantallaInGame[7].SetActive(false);
-        Time.timeScale = 1;
+        if (PlayerSettings.Instance != null)
+        {
+            // sincroniza sliders con PlayerSettings
+            VolGen.value = PlayerSettings.Instance.GetComponent<PlayerSettings>().GetVolumenGeneral();
+            VolMus.value = PlayerSettings.Instance.GetComponent<PlayerSettings>().GetVolumenMusica();
+            VolSFX.value = PlayerSettings.Instance.GetComponent<PlayerSettings>().GetVolumenEfectos();
+
+            VolGen.onValueChanged.AddListener(PlayerSettings.Instance.SetVolumenGeneral);
+            VolMus.onValueChanged.AddListener(PlayerSettings.Instance.SetVolumenMusica);
+            VolSFX.onValueChanged.AddListener(PlayerSettings.Instance.SetVolumenEfectos);
+        }
     }
+    
 }
 

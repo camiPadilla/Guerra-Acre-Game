@@ -2572,6 +2572,7 @@ MonoBehaviour:
   loaderScene: {fileID: 745871459}
   checkpointsActivos: 
   gameData:
+    slotNumber: 0
     position: []
     vidasJugador: 0
     vidasExtras: 0
@@ -2587,6 +2588,7 @@ MonoBehaviour:
   lastCP: 0
   AcPoint: 0
   currentLevel: 1
+  currentSlot: 1
 --- !u!1 &303086192
 GameObject:
   m_ObjectHideFlags: 0
@@ -7274,6 +7276,67 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8804277017021129019, guid: 599c3379ef9c042ff8f44990800cbe10, type: 3}
   m_PrefabInstance: {fileID: 778373323}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &781720777
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4948443466666871306, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.618536
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5482779
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.3034825
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772595360620824679, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/MUSIC/Menu/Music_UI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
 --- !u!1 &791669705
 GameObject:
   m_ObjectHideFlags: 0
@@ -13550,7 +13613,7 @@ GameObject:
   - component: {fileID: 1421652287}
   - component: {fileID: 1421652286}
   m_Layer: 5
-  m_Name: Scrollbar
+  m_Name: ScrollbarGen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16292,7 +16355,7 @@ GameObject:
   - component: {fileID: 1603998463}
   - component: {fileID: 1603998462}
   m_Layer: 5
-  m_Name: Scrollbar
+  m_Name: ScrollbarSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17916,7 +17979,7 @@ GameObject:
   - component: {fileID: 1759842362}
   - component: {fileID: 1759842361}
   m_Layer: 5
-  m_Name: Scrollbar
+  m_Name: ScrollbarMus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21710,3 +21773,4 @@ SceneRoots:
   - {fileID: 766816962}
   - {fileID: 1084748935}
   - {fileID: 287030857}
+  - {fileID: 781720777}
