@@ -5630,17 +5630,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6688602503695095191, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
   m_PrefabInstance: {fileID: 503006414}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &348303577 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4673974816659341828, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
-  m_PrefabInstance: {fileID: 503006414}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 221a874ed5fbd714790124f5698bf999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &351966203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3723244909631379704, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
@@ -6646,8 +6635,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 641129339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.8, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -2.1084, y: 0}
   m_SizeDelta: {x: -4.2168, y: 28.8242}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6941,8 +6930,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 229119056}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.8, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -2.1083908, y: 0}
   m_SizeDelta: {x: -4.2168, y: 28.8242}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7239,6 +7228,10 @@ PrefabInstance:
     - target: {fileID: 8890498535186539233, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
       propertyPath: m_Name
       value: HUD Gameplay Padre v10.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890498535186539233, guid: 2ad8754c35631cf4eadd15627e5e4645, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -14068,7 +14061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1129612958
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17342,7 +17335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1426554851
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18060,8 +18053,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1194308222}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.8, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -2.1084, y: 0}
   m_SizeDelta: {x: -4.2168, y: 28.8242}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -22546,18 +22539,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 348303577}
-        m_TargetAssemblyTypeName: HUDManager, Assembly-CSharp
-        m_MethodName: OcultarTodo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1874564832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25783,6 +25764,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 652375561}
+    - target: {fileID: 5744782137003336282, guid: c4043dcf48b0dc74db6711afd895c291, type: 3}
+      propertyPath: volEfe
+      value: 
+      objectReference: {fileID: 908562531}
+    - target: {fileID: 5744782137003336282, guid: c4043dcf48b0dc74db6711afd895c291, type: 3}
+      propertyPath: volGen
+      value: 
+      objectReference: {fileID: 1723976806}
+    - target: {fileID: 5744782137003336282, guid: c4043dcf48b0dc74db6711afd895c291, type: 3}
+      propertyPath: volMus
+      value: 
+      objectReference: {fileID: 748221255}
     - target: {fileID: 5744782137003336282, guid: c4043dcf48b0dc74db6711afd895c291, type: 3}
       propertyPath: textNot
       value: 

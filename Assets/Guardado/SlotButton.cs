@@ -24,7 +24,7 @@ public class SlotButton : MonoBehaviour
 
     public void ActualizarVisual()
     {
-        if (SaveLoadSystem.ExisteGuardado(slotId))
+        if (SaveLoadSystem.HasSave(slotId))
         {
             fondo.sprite = spriteOcupado;
             texto.text = "Partida guardada";
@@ -45,7 +45,7 @@ public class SlotButton : MonoBehaviour
         if (manager == null)
             manager = FindObjectOfType<MasterGameManager>();
 
-        if (SaveLoadSystem.ExisteGuardado(slotId))
+        if (SaveLoadSystem.HasSave(slotId))
         {
             manager.SetSlot(slotId);
             manager.LoadGame();
