@@ -17,12 +17,15 @@ public class SaludPersonaje : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animatorVeneno = boxColliderVeneno.gameObject.GetComponent<Animator>();
-        animatorHerido = boxColliderVeneno.gameObject.GetComponent<Animator>();
-        boxColliderVeneno.enabled = false;
-
         HUDManager.instancia.ActualizarVida(vidasJugador);
         HUDManager.instancia.ActualizarArmadura(vidasEXtras);
+        if (boxColliderHerido != null || boxColliderVeneno!=null){
+        animatorVeneno = boxColliderVeneno.gameObject.GetComponent<Animator>();
+            animatorHerido = boxColliderVeneno.gameObject.GetComponent<Animator>();
+        }
+        boxColliderVeneno.enabled = false;
+
+        
         RegresarCheckPoint();
 
         
