@@ -74,8 +74,7 @@ public class SaludPersonaje : MonoBehaviour
         {
             SoundEvents.MorirPersonaje(); //Sound by Chelo :D
             gameObject.SetActive(false);
-            //HUDManager.instancia.MostrarPantallaMuerte();
-
+            //HUDManager.
         }
         else if(!invulnerabilidad)
         {
