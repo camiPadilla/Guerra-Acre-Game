@@ -34,9 +34,9 @@ public class AtaquePersonaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) seleccionArma = 0;
-        if (Input.GetKeyDown(KeyCode.Alpha2)) seleccionArma = 1;
-        if (Input.GetKeyDown(KeyCode.Alpha3) && conArma) seleccionArma = 2;
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { seleccionArma = 0; SoundEvents.CambiarArmaMachete?.Invoke(); }
+            if (Input.GetKeyDown(KeyCode.Alpha2)) { seleccionArma = 1; SoundEvents.CambiarArmaPiedra?.Invoke(); }
+                if (Input.GetKeyDown(KeyCode.Alpha3) && conArma) { seleccionArma = 2; SoundEvents.RecogerArma?.Invoke(); }
         HUDManager.instancia.ActualizarArma(seleccionArma);
         if (Input.GetAxis("Horizontal") >= 0.1f)
         {
