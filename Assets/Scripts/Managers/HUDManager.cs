@@ -13,7 +13,7 @@ public class HUDManager : MonoBehaviour
     public static HUDManager instancia;
 
     [SerializeField] TMP_Text text;
-    [SerializeField]GameObject mensajeE;
+    [SerializeField] GameObject mensajeE;
     [Header("Pantallas")]
 
     [SerializeField] List<GameObject> menues;
@@ -79,7 +79,7 @@ public class HUDManager : MonoBehaviour
         }
 
     }
-    
+
     public void ActivarRifle()
     {
         SoundEvents.RecogerArma.Invoke(); //Sonido by Chelo :D
@@ -208,7 +208,7 @@ public class HUDManager : MonoBehaviour
         mensajeE.SetActive(false);
     }
 
-    
+
     public void LeerNota(string mensajeNuevo)
     {
         masterGameManager.DetenerTiempo();
@@ -226,7 +226,7 @@ public class HUDManager : MonoBehaviour
         dialogosManager.IniciarDialogo(dialogo);
         HUDGame.SetActive(false);
         menues[1].SetActive(true);
-        
+
 
     }
     public void Pausar()
@@ -235,7 +235,7 @@ public class HUDManager : MonoBehaviour
         print("hola familia");
         menuInGame.SetActive(true);
         HUDGame.SetActive(false);
-    //llamar al hud
+        //llamar al hud
     }
     public void Reanudar()
     {
