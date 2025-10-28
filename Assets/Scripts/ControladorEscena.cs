@@ -1,9 +1,11 @@
 using PantallaCarga;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Xml.Serialization;
 using TarodevController;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,6 +13,10 @@ using UnityEngine.Video;
 
 public class ControladorEscena : MonoBehaviour
 {
+    public int ScenType;
+    /*
+    con esto me refiero a que si el tipo de escena es 0 es el menu, y si el de 1 o 2  sera 
+    */
     public int sceneIndex;
     public LoaderScene loaderScene;
     public SaludPersonaje vidas;
@@ -47,7 +53,7 @@ public class ControladorEscena : MonoBehaviour
     {
         textVidas.text = vidas.vidasJugador.ToString();
         textNot.text = cantidadNotas.cantNotas.ToString();
-        textBalas.text = balas.GetBalasActuales().ToString();
+        textBalas.text = balas.GettotalBalas().ToString();
         textEnemigos.text =gameManager.enemigosMuertos.ToString();
     }
 

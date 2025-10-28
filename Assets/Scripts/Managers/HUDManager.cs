@@ -5,13 +5,13 @@ using TMPro;
 using UnityEngine.UI;
 using PantallaCarga;
 using System.Threading;
+using Unity.VisualScripting;
 
 public class HUDManager : MonoBehaviour
 {
+    public static HUDManager instancia;
     [SerializeField] GameObject interactuable;
     [SerializeField] DialogosManager dialogosManager;
-    public static HUDManager instancia;
-
     [SerializeField] TMP_Text text;
     [SerializeField] GameObject mensajeE;
     [Header("Pantallas")]
@@ -20,6 +20,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject pantallaBienvenida;
     [SerializeField] GameObject HUDGame;
+    [SerializeField] GameObject pantallaMuerte;
+    [SerializeField] GameObject FinJuegoScreen;
     [Header("Imagenes y barras")]
     [SerializeField] Sprite imagenClick;
     [SerializeField] Sprite imagenE;
@@ -37,13 +39,14 @@ public class HUDManager : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        if (instancia == null)
+        if (instancia != null)
         {
-            instancia = this;
+            Destroy(gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            instancia = this;
+            DontDestroyOnLoad(gameObject);
         }
         if (masterGameManager == null)
         {
@@ -241,11 +244,23 @@ public class HUDManager : MonoBehaviour
     {
         Time.timeScale = 1;
         menuInGame.SetActive(false);
+        
     }
     IEnumerator DarBienvenida()
     {
         pantallaBienvenida.SetActive(true);
         yield return new WaitForSeconds(5f);
         pantallaBienvenida.SetActive(false);
+    }
+    public void Muerto()
+    {
+        HUDGame.SetActive(false);
+        pantallaMuerte.SetActive(true);
+    }
+    public void OcultarProg()
+    {
+        pantallaMuerte.SetActive(false);
+        FinJuegoScreen.SetActive(false);
+        HUDGame.SetActive(false);
     }
 }

@@ -15,8 +15,12 @@ namespace PantallaCarga
                 Destroy(gameObject);
                 return;
             }
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            else
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            
         }
         public void LoadSceneString(string sceneName)
         {
