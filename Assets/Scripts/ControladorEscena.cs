@@ -17,6 +17,7 @@ public class ControladorEscena : MonoBehaviour
     public InventarioManager cantidadNotas;
     public AtaquePersonaje balas;
     public GameManager gameManager;
+    [SerializeField] private GameObject MenuInGame;
     [SerializeField] MasterGameManager masterGameManager;
     [SerializeField] PlayerController player;
     [SerializeField]public int ChPoint;
@@ -50,10 +51,6 @@ public class ControladorEscena : MonoBehaviour
         textEnemigos.text =gameManager.enemigosMuertos.ToString();
     }
 
-    public void IrMenu()
-    {
-        loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
-    }
     public void SiguienteNivel()
     {
         if (sceneIndex == 1)
@@ -84,5 +81,16 @@ public class ControladorEscena : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
-    
+    public void IrMenu()
+    {
+        loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
+        Destroy(MenuPausa.instance?.gameObject);
+        Destroy(HUDManager.instancia?.gameObject);
+        Destroy(MenuInGame);
+    }
+    public void CrearPart()
+    {
+        masterGameManager.NewGame();
+    }
+
 }

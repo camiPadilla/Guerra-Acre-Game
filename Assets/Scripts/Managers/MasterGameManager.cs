@@ -35,6 +35,10 @@ public class MasterGameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        if (loaderScene == null)
+        {
+            loaderScene = FindObjectOfType<LoaderScene>();
+        }
 
         instance = this;
         DontDestroyOnLoad(gameObject);
@@ -98,14 +102,14 @@ public class MasterGameManager : MonoBehaviour
         gameData.lastCheckPoint = index;
 
         SaveGame();
-        Debug.Log("✅ Checkpoint activado y guardado: " + index);
+        Debug.Log(" Checkpoint activado y guardado: " + index);
     }
 
     public void SaveGame()
     {
         GameData data = new GameData(playerSalud, playerAtaque, playerController, currentLevel, SceneManager.GetActiveScene().name, lastCP, currentSlot);
         SaveLoadSystem.SaveGame(data, currentSlot);
-        Debug.Log($"💾 Juego guardado en slot {currentSlot}");
+        Debug.Log($" Juego guardado en slot {currentSlot}");
     }
 
     public void LoadGame()
@@ -114,11 +118,11 @@ public class MasterGameManager : MonoBehaviour
         if (data != null)
         {
             StartCoroutine(LoadRestore(data));
-            Debug.Log($"📂 Partida cargada desde slot {currentSlot}");
+            Debug.Log($" Partida cargada desde slot {currentSlot}");
         }
         else
         {
-            Debug.LogWarning("⚠️ No hay partida guardada en este slot.");
+            Debug.LogWarning(" No hay partida guardada en este slot.");
         }
     }
 
@@ -167,15 +171,15 @@ public class MasterGameManager : MonoBehaviour
     public void NewGame()
     {
         SaveLoadSystem.DeleteSlot(currentSlot);
-        loaderScene.LoadSceneString("EscenaUno");
-        Debug.Log($"🌱 Nuevo juego iniciado en slot {currentSlot}");
+        loaderScene.LoadSceneString(ConstantsGame.SCENAUNO);
+        Debug.Log($" Nuevo juego iniciado en slot {currentSlot}");
     }
 
 
     public void DeleteGame()
     {
         SaveLoadSystem.DeleteAllData();
-        Debug.Log("🗑️ Datos de guardado eliminados completamente.");
+        Debug.Log(" Datos de guardado eliminados completamente.");
     }
 
     public void DetenerTiempo()
