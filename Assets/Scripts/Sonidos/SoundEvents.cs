@@ -40,13 +40,9 @@ public static class SoundEvents
     public static Action RecargarBalas;
 
 
-    internal static object MorirPersonaje()
-    {
-        throw new NotImplementedException();
-    }
-    //Da�o Personaje
+    //Dano Personaje
     public static Action DanoPersonaje;
-    public static Action MorirPersonajee;
+    public static Action MorirPersonaje;
 
     //Bandera Checkpoint
     public static Action CheckpointActivado;
