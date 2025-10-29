@@ -17,7 +17,6 @@ public class HUDManager : MonoBehaviour
     [Header("Pantallas")]
 
     [SerializeField] List<GameObject> menues;
-    [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject pantallaBienvenida;
     [SerializeField] GameObject HUDGame;
     [SerializeField] GameObject pantallaMuerte;
@@ -46,26 +45,12 @@ public class HUDManager : MonoBehaviour
         else
         {
             instancia = this;
-            DontDestroyOnLoad(gameObject);
         }
         if (masterGameManager == null)
         {
             masterGameManager = FindObjectOfType<MasterGameManager>();
         }
-        if (menuInGame == null)
-        {
-            menuInGame = GameObject.FindWithTag("canvas");
-            //menues = FindObjectOfType<GameObject>(CompareTag("canvas"));
-        }
-        menuInGame.SetActive(false);
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            GameManager.instancia.CerrarEstado();
-        }
-
+        
     }
     public void ReanudarPartida(int indice)
     {
@@ -74,7 +59,7 @@ public class HUDManager : MonoBehaviour
         HUDGame.SetActive(true);
         if (indice == 3)
         {
-            menuInGame.SetActive(false);
+            MasterGameManager.instance.Despausar();
         }
         else
         {
@@ -242,14 +227,14 @@ public class HUDManager : MonoBehaviour
     {
         masterGameManager.DetenerTiempo();
         print("hola familia");
-        menuInGame.SetActive(true);
+        MasterGameManager.instance.PausarOtravez();
         HUDGame.SetActive(false);
         //llamar al hud
     }
     public void Reanudar()
     {
         Time.timeScale = 1;
-        menuInGame.SetActive(false);
+        //menuInGame.SetActive(false);
         
     }
     public IEnumerator DarBienvenida()

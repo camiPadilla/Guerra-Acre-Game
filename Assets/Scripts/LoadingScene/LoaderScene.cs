@@ -30,8 +30,8 @@ namespace PantallaCarga
             while (!loadLoading.isDone)
                 yield return null;
 
-            // Pequeña espera visual
-            yield return new WaitForSeconds(1f);
+            // Pequeï¿½a espera visual
+            yield return new WaitForSeconds(10f);
 
             AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
             operation.allowSceneActivation = false;

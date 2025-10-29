@@ -36,14 +36,16 @@ public class ControladorEscena : MonoBehaviour
     private void Start()
     {
         if (loaderScene == null) loaderScene = FindObjectOfType<LoaderScene>();
-        if (hudManager == null) hudManager = FindObjectOfType<HUDManager>();
-        if (masterGameManager == null) masterGameManager = FindObjectOfType<MasterGameManager>();
-
-        if (hudManager != null) HUD = hudManager.gameObject;
+        if (masterGameManager == null) masterGameManager = FindObjectOfType<MasterGameManager>(); 
         if (MenuInGame == null) MenuInGame = GameObject.FindWithTag("canvas");
 
         if (HUD != null) HUD.SetActive(true);
-        if (MenuInGame != null) MenuInGame.SetActive(false);
+        if (MenuInGame != null)
+        {
+            MenuInGame.SetActive(true);
+            MasterGameManager.instance.AsignarMenuPausa(MenuInGame);
+        }
+         
 
         switch (sceneIndex)
         {
@@ -104,6 +106,7 @@ public class ControladorEscena : MonoBehaviour
         Destroy(HUDManager.instancia.gameObject);
         Destroy(MenuInGame);
         Destroy(masterGameManager?.gameObject);
+        Destroy(loaderScene);
     }
 
     public void ReiniciarNivel()
@@ -122,7 +125,6 @@ public class ControladorEscena : MonoBehaviour
 #endif
     }
 
-    // ---------------- GUARDADO ----------------
 
     public void GuardarPartida()
     {
