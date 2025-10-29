@@ -21,7 +21,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] GameObject pantallaBienvenida;
     [SerializeField] GameObject HUDGame;
     [SerializeField] GameObject pantallaMuerte;
-    [SerializeField] GameObject FinJuegoScreen;
+    [SerializeField] GameObject hudGamePlay;
     [Header("Imagenes y barras")]
     [SerializeField] Sprite imagenClick;
     [SerializeField] Sprite imagenE;
@@ -179,7 +179,7 @@ public class HUDManager : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        StartCoroutine(DarBienvenida());
+        //Bienvenido();
         mensajeE = Instantiate(interactuable, padreInteraccion.transform);
         mensajeE.SetActive(false);
         padreInteraccion.transform.parent = mensajeE.transform;
@@ -188,6 +188,12 @@ public class HUDManager : MonoBehaviour
         ActualizarBalasActual(0);
         ActualizarTotalBalas(0);
 
+    }
+    public void Bienvenido()
+    {
+        StartCoroutine(DarBienvenida());
+        hudGamePlay.SetActive(true);
+        HUDGame.SetActive(true);
     }
     public void MostrarInteraccion(Vector2 posicion, float imagen, string nombre)
     {
@@ -246,7 +252,7 @@ public class HUDManager : MonoBehaviour
         menuInGame.SetActive(false);
         
     }
-    IEnumerator DarBienvenida()
+    public IEnumerator DarBienvenida()
     {
         pantallaBienvenida.SetActive(true);
         yield return new WaitForSeconds(5f);
@@ -260,7 +266,5 @@ public class HUDManager : MonoBehaviour
     public void OcultarProg()
     {
         pantallaMuerte.SetActive(false);
-        FinJuegoScreen.SetActive(false);
-        HUDGame.SetActive(false);
     }
 }

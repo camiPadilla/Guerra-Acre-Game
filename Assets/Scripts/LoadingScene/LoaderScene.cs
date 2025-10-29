@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +7,7 @@ namespace PantallaCarga
     public class LoaderScene : MonoBehaviour
     {
         public static LoaderScene instance;
+
         private void Awake()
         {
             if (instance != null && instance != this)
@@ -15,23 +15,34 @@ namespace PantallaCarga
                 Destroy(gameObject);
                 return;
             }
-            else
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            
+
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         public void LoadSceneString(string sceneName)
         {
-            SceneManager.LoadScene(ConstantsGame.SCENELOADINGSCREEN);
-            StartCoroutine(PantallaCarga(sceneName));
+            StartCoroutine(CargarConPantalla(sceneName));
         }
-        private IEnumerator PantallaCarga(string sceneName)
+
+        private IEnumerator CargarConPantalla(string sceneName)
         {
-            yield return new WaitForSeconds(10f);
+            AsyncOperation loadLoading = SceneManager.LoadSceneAsync(ConstantsGame.SCENELOADINGSCREEN);
+            while (!loadLoading.isDone)
+                yield return null;
+
+            // Pequeña espera visual
+            yield return new WaitForSeconds(1f);
+
             AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
-            yield return new WaitUntil(()=>operation.progress <=0.9f);
+            operation.allowSceneActivation = false;
+
+            while (operation.progress < 0.9f)
+            {
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(0.5f);
+            operation.allowSceneActivation = true;
         }
     }
 }
