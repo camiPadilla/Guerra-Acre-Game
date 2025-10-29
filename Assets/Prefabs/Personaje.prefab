@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd61b9c79568094c8cfc443bcef3361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trayectoria: {fileID: 0}
   prefabPiedra: {fileID: 2164900311158193948, guid: 70451f7b4b036654198aa62b01befa36, type: 3}
   prefabBala: {fileID: 5851173175808208357, guid: c4c720e8212fe76459384672bdbefe94, type: 3}
   cantidadPiedras: 3
@@ -87,11 +88,12 @@ MonoBehaviour:
   fuerzatiro: 0
   fuerzaMaxima: 250
   origen: {fileID: 2615481058069094499}
+  miRigid: {fileID: 0}
   dirX: 0
   dirY: 0
   machete: {fileID: 2941534513542743513}
   seleccionArma: 0
-  miAnimator: {fileID: 4651849745667609872}
+  balasActual: 0
 --- !u!114 &1646096487101240812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +219,7 @@ MonoBehaviour:
       Data2: 1254599512
       Data3: -1394550387
       Data4: 1453257471
-    Path: event:/SFX/Gameplay/Player/TirarPiedra/Cargar
+    Path: event:/PLAYER/TirarPiedra/Cargar
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0

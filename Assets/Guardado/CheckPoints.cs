@@ -8,6 +8,8 @@ public class CheckPoints : MonoBehaviour
     public bool checkPointActivo;
     [SerializeField] GameManager gameManager;
     [SerializeField] private Sprite[] sprites;
+
+    private bool checkPointSound = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,6 @@ public class CheckPoints : MonoBehaviour
         {
             //gameManager.ActivarCheckPoint(indexCP);
 
-            SoundEvents.CheckpointActivado?.Invoke(); // Sonido by Chelo :D
             checkPointActivo = true;
             Debug.Log("hola acabas de pasar por aqui :D");
         }
@@ -34,7 +35,9 @@ public class CheckPoints : MonoBehaviour
     {
         checkPointActivo = !checkPointActivo;
         if (checkPointActivo) 
-        { 
+        {
+            if (checkPointSound){SoundEvents.CheckpointActivado?.Invoke(); // Sonido by Chelo :D
+                checkPointSound = false;}
             gameObject.GetComponent<SpriteRenderer>().sprite = sprites[1];
         }else
         {

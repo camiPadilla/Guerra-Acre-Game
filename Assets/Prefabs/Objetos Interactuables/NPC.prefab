@@ -73,9 +73,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0bbeb95f9d87e0e40a464af3ad53bc49, type: 3}
-  m_Color: {r: 0.1764706, g: 0.6117647, b: 0.5176471, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 21300000, guid: 4828161124e926045b2720c865e1a065, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.98039216}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.9230769, y: 2}
@@ -132,8 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreObjeto: NPC
-  tiempoEspera: 2.5
-  MensajeNPC: {fileID: 21300000, guid: 2b893d939b2980744bdb1c227c9bda56, type: 3}
   dialogo: {fileID: 11400000, guid: 199e150380c459d44be7baa4e758aded, type: 2}
 --- !u!70 &9125319325033845983
 CapsuleCollider2D:
@@ -189,7 +187,7 @@ MonoBehaviour:
       Data2: 1286031859
       Data3: -1183073874
       Data4: 689690209
-    Path: event:/ENVIRONMENT/NPCs/Aliado
+    Path: event:/DIALOGUE/Aliados/NPCs/Aliado
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0

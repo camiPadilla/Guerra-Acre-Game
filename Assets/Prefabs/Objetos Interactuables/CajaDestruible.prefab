@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c00dc248b2a214f8166844f8c1897b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipo: 0
   vidas: 2
-  caja: 0
   conLoot: 0
 --- !u!61 &5574616867964259311
 BoxCollider2D:
@@ -194,7 +194,7 @@ MonoBehaviour:
       Data2: 1321681869
       Data3: -803159361
       Data4: 1745064157
-    Path: event:/SFX/Gameplay/Player/RomperCaja/RomperCaja
+    Path: event:/ENVIRONMENT/Destruibles/DestruirObjeto
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0

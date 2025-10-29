@@ -17,12 +17,15 @@ public class SaludPersonaje : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animatorVeneno = boxColliderVeneno.gameObject.GetComponent<Animator>();
-        animatorHerido = boxColliderVeneno.gameObject.GetComponent<Animator>();
-        boxColliderVeneno.enabled = false;
-
         HUDManager.instancia.ActualizarVida(vidasJugador);
         HUDManager.instancia.ActualizarArmadura(vidasEXtras);
+        if (boxColliderHerido != null || boxColliderVeneno!=null){
+        animatorVeneno = boxColliderVeneno.gameObject.GetComponent<Animator>();
+            animatorHerido = boxColliderVeneno.gameObject.GetComponent<Animator>();
+        }
+        boxColliderVeneno.enabled = false;
+
+        
         RegresarCheckPoint();
 
         
@@ -66,7 +69,7 @@ public class SaludPersonaje : MonoBehaviour
         else if(!invulnerabilidad)
         {            
             vidasJugador -=damage;
-            if(vidasJugador>0) SoundEvents.DanoPersonaje?.Invoke(); //Sound by Chelo :D
+            if (vidasJugador > 0) SoundEvents.DanoPersonaje?.Invoke();//Sound by Chelo :D
             HUDManager.instancia.ActualizarVida(vidasJugador);
         }
         
@@ -74,8 +77,7 @@ public class SaludPersonaje : MonoBehaviour
         {
             SoundEvents.MorirPersonaje?.Invoke(); //Sound by Chelo :D
             gameObject.SetActive(false);
-            HUDManager.instancia.MostrarPantallaMuerte();
-
+            HUDManager.instancia.Muerto();
         }
         else if(!invulnerabilidad)
         {

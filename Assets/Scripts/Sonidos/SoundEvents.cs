@@ -17,7 +17,7 @@ public static class SoundEvents
     public static Action CambiarArmaMachete;
 
     
-    //SaltoCaída
+    //SaltoCaï¿½da
     public static Action<float> Salto;
 
     //Destruir Objetos
@@ -39,7 +39,8 @@ public static class SoundEvents
     public static Action SinBalas;
     public static Action RecargarBalas;
 
-    //Daño Personaje
+
+    //Dano Personaje
     public static Action DanoPersonaje;
     public static Action MorirPersonaje;
 

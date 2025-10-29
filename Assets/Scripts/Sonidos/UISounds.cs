@@ -24,7 +24,7 @@ public class UISounds : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
     private void Start()
     {

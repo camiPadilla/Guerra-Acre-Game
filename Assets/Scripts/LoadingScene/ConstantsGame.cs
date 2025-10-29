@@ -12,7 +12,7 @@ namespace PantallaCarga
 
         //-----------------------
         public const string SCENEMAINMENU = "MainMenu";
-        public const string SCENECREDITS = "Credits"; 
+        public const string SCENECREDITS = "Creditos"; 
         public const string SCENESAVELOAD = "SaveLoadSettings";
         //----------------------- 
     }

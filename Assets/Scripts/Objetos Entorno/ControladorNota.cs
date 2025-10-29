@@ -12,6 +12,7 @@ public class ControladorNota : ObjetoRecogible
     public void leer()
     {
         InventarioManager player = FindFirstObjectByType<InventarioManager>();
+        if (!tutorial)
         player.ActualizarNotas(nota.ID);
         Debug.Log("leyendo nota");
         if (tutorial)

@@ -104,6 +104,20 @@ public class ObjetoMovible : MonoBehaviour
                 SoundEvents.DetenerArrastrarObjeto?.Invoke();
             }
         }
+        // ADDED FIX BY CHELO :D
+        if (arrastrando)
+        {
+            bool contactoIzquierda = Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje);
+            bool contactoDerecha = Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje);
+
+            // Si no hay contacto o el jugador no está moviéndose horizontalmente, se detiene el sonido
+            if ((!contactoIzquierda && !contactoDerecha) || direccionX == 0)
+            {
+                arrastrando = false;
+                SoundEvents.DetenerArrastrarObjeto?.Invoke();
+                jugadorMovimiento.enabled = true;
+            }
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {

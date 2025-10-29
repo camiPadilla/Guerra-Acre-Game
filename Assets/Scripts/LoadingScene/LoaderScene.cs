@@ -8,9 +8,6 @@ namespace PantallaCarga
     public class LoaderScene : MonoBehaviour
     {
         public static LoaderScene instance;
-        [SerializeField] private GameObject pantallaCarga;
-        [SerializeField] private GameObject SceneNames;
-        [SerializeField] private LoadScreenAnimation loadScreenAnimation;
         private void Awake()
         {
             if (instance != null && instance != this)
@@ -18,27 +15,23 @@ namespace PantallaCarga
                 Destroy(gameObject);
                 return;
             }
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-            DontDestroyOnLoad(pantallaCarga);
-
-            if (pantallaCarga != null)
-                pantallaCarga.SetActive(false);
-
-
+            else
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            
         }
         public void LoadSceneString(string sceneName)
         {
-            loadScreenAnimation.GetComponent<LoadScreenAnimation>().tipoInteraccion = Random.Range(0, 3);
+            SceneManager.LoadScene(ConstantsGame.SCENELOADINGSCREEN);
             StartCoroutine(PantallaCarga(sceneName));
         }
         private IEnumerator PantallaCarga(string sceneName)
         {
-            pantallaCarga.SetActive(true);
             yield return new WaitForSeconds(10f);
-            loadScreenAnimation.DestroyAllClones();
-            SceneManager.LoadSceneAsync(sceneName);
-            pantallaCarga.SetActive(false);
+            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+            yield return new WaitUntil(()=>operation.progress <=0.9f);
         }
     }
 }
