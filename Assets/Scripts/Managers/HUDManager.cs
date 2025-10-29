@@ -5,21 +5,22 @@ using TMPro;
 using UnityEngine.UI;
 using PantallaCarga;
 using System.Threading;
+using Unity.VisualScripting;
 
 public class HUDManager : MonoBehaviour
 {
+    public static HUDManager instancia;
     [SerializeField] GameObject interactuable;
     [SerializeField] DialogosManager dialogosManager;
-    public static HUDManager instancia;
-
     [SerializeField] TMP_Text text;
     [SerializeField] GameObject mensajeE;
     [Header("Pantallas")]
 
     [SerializeField] List<GameObject> menues;
-    [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject pantallaBienvenida;
     [SerializeField] GameObject HUDGame;
+    [SerializeField] GameObject pantallaMuerte;
+    [SerializeField] GameObject hudGamePlay;
     [Header("Imagenes y barras")]
     [SerializeField] Sprite imagenClick;
     [SerializeField] Sprite imagenE;
@@ -37,32 +38,19 @@ public class HUDManager : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        if (instancia == null)
+        if (instancia != null)
         {
-            instancia = this;
+            Destroy(gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            instancia = this;
         }
         if (masterGameManager == null)
         {
             masterGameManager = FindObjectOfType<MasterGameManager>();
         }
-        if (menuInGame == null)
-        {
-            menuInGame = GameObject.FindWithTag("canvas");
-            //menues = FindObjectOfType<GameObject>(CompareTag("canvas"));
-        }
-        menuInGame.SetActive(false);
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            GameManager.instancia.CerrarEstado();
-        }
-
+        
     }
     public void ReanudarPartida(int indice)
     {
@@ -71,7 +59,7 @@ public class HUDManager : MonoBehaviour
         HUDGame.SetActive(true);
         if (indice == 3)
         {
-            menuInGame.SetActive(false);
+            MasterGameManager.instance.Despausar();
         }
         else
         {
@@ -176,7 +164,7 @@ public class HUDManager : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        StartCoroutine(DarBienvenida());
+        //Bienvenido();
         mensajeE = Instantiate(interactuable, padreInteraccion.transform);
         mensajeE.SetActive(false);
         padreInteraccion.transform.parent = mensajeE.transform;
@@ -185,6 +173,12 @@ public class HUDManager : MonoBehaviour
         ActualizarBalasActual(0);
         ActualizarTotalBalas(0);
 
+    }
+    public void Bienvenido()
+    {
+        StartCoroutine(DarBienvenida());
+        hudGamePlay.SetActive(true);
+        HUDGame.SetActive(true);
     }
     public void MostrarInteraccion(Vector2 posicion, float imagen, string nombre)
     {
@@ -233,19 +227,29 @@ public class HUDManager : MonoBehaviour
     {
         masterGameManager.DetenerTiempo();
         print("hola familia");
-        menuInGame.SetActive(true);
+        MasterGameManager.instance.PausarOtravez();
         HUDGame.SetActive(false);
         //llamar al hud
     }
     public void Reanudar()
     {
         Time.timeScale = 1;
-        menuInGame.SetActive(false);
+        //menuInGame.SetActive(false);
+        
     }
-    IEnumerator DarBienvenida()
+    public IEnumerator DarBienvenida()
     {
         pantallaBienvenida.SetActive(true);
         yield return new WaitForSeconds(5f);
         pantallaBienvenida.SetActive(false);
+    }
+    public void Muerto()
+    {
+        HUDGame.SetActive(false);
+        pantallaMuerte.SetActive(true);
+    }
+    public void OcultarProg()
+    {
+        pantallaMuerte.SetActive(false);
     }
 }

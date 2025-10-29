@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -82,6 +83,13 @@ public class AtaquePersonaje : MonoBehaviour
     public int GetBalasActuales()
     {
         return balasActual;
+    }
+    public int GettotalBalas()
+    {
+        int total;
+        total = balasActual + GetComponent<InventarioManager>().GetBalas();
+
+        return total;
     }
     public void SetDireccion(int NdirX, float NdirY)
     {

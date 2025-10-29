@@ -9,7 +9,6 @@ public class MasterGameManager : MonoBehaviour
 {
     public static MasterGameManager instance;
 
-
     public SaludPersonaje playerSalud;
     public AtaquePersonaje playerAtaque;
     public PlayerController playerController;
@@ -24,7 +23,8 @@ public class MasterGameManager : MonoBehaviour
     public int lastCP;
     public int AcPoint;
     public int currentLevel = 1;
-
+    [SerializeField] GameObject menuInGame;
+    [SerializeField] GameObject menuPausa;
 
     [SerializeField] public int currentSlot = 1; // se define desde el menú
 
@@ -39,14 +39,34 @@ public class MasterGameManager : MonoBehaviour
         {
             loaderScene = FindObjectOfType<LoaderScene>();
         }
-
+        
         instance = this;
         DontDestroyOnLoad(gameObject);
 
         ReferenciasPlayer();
         SceneManager.sceneLoaded += OnLoadScene;
     }
+    public void AsignarMenuPausa(GameObject menu)
+    {
+        menuInGame = menu;
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.instancia.CerrarEstado();
+        }
 
+    }
+    public void PausarOtravez()
+    {
+         menuPausa.SetActive(true);
+    }
+    public void Despausar()
+    {
+
+        menuPausa.SetActive(false);
+    }
 
     private void ReferenciasPlayer()
     {
@@ -67,6 +87,7 @@ public class MasterGameManager : MonoBehaviour
 
         if (scene.name == "MainMenu")
         {
+            menuInGame.SetActive(false);
             Debug.Log("Estas en el Main Menu");
             return;
         }
@@ -76,11 +97,15 @@ public class MasterGameManager : MonoBehaviour
         {
             escenaActual = "EscenaUno";
             escenaSiguiente = "EscenaDos";
+            menuInGame.SetActive(true);
+            menuPausa.SetActive(false);
         }
         else if (scene.name == "EscenaDos")
         {
             escenaActual = "EscenaDos";
             escenaSiguiente = "FinalScene";
+            menuInGame.SetActive(true);
+            menuPausa.SetActive(false);
         }
 
         LoadGame(); 

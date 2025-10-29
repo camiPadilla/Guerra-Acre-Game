@@ -8,6 +8,9 @@ public class PlayerSettings : MonoBehaviour
     [SerializeField] private Scrollbar VolumenGeneral;
     [SerializeField] private Scrollbar VolumenMusica;
     [SerializeField] private Scrollbar VolumenEfectos;
+    [SerializeField] private Scrollbar VolGenPause;
+    [SerializeField] private Scrollbar VolMusPause;
+    [SerializeField] private Scrollbar VolEfcPause;
     //Agregar resolucion y tamaño de pantalla, supongo que aplicaremos 
     void Awake()
     {
@@ -28,13 +31,16 @@ public class PlayerSettings : MonoBehaviour
         VolumenGeneral.onValueChanged.AddListener(SetVolumenGeneral);
         VolumenMusica.onValueChanged.AddListener(SetVolumenMusica);
         VolumenEfectos.onValueChanged.AddListener(SetVolumenEfectos);
+        VolGenPause.onValueChanged.AddListener(SetVolumenGeneral);
+        VolMusPause.onValueChanged.AddListener(SetVolumenMusica);
+        VolEfcPause.onValueChanged.AddListener(SetVolumenEfectos);
     }
 
     public void LoadSettings()
     {
-        VolumenGeneral.value = PlayerPrefs.GetFloat("VolumenGeneral");
-        VolumenMusica.value = PlayerPrefs.GetFloat("VolumenMusica");
-        VolumenEfectos.value = PlayerPrefs.GetFloat("VolumenEfectos");
+        VolGenPause.value = PlayerPrefs.GetFloat("VolumenGeneral");
+        VolMusPause.value = PlayerPrefs.GetFloat("VolumenMusica");
+        VolEfcPause.value = PlayerPrefs.GetFloat("VolumenEfectos");
     }
     public void SetVolumenGeneral(float value)
     {
