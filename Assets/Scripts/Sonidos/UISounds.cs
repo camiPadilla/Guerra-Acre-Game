@@ -64,30 +64,30 @@ public class UISounds : MonoBehaviour
     public void ActualizarMasterVolume() 
     {
         
-        float volume = masterVolume.value;
+        //float volume = masterVolume.value;
         //Debug.Log("Valor actual del Scrollbar: " + volume);
 
-        RuntimeManager.StudioSystem.setParameterByName("MasterFader", volume);
-        RuntimeManager.StudioSystem.getParameterByName("MasterFader", out float value);
+        //RuntimeManager.StudioSystem.setParameterByName("MasterFader", volume);
+        //RuntimeManager.StudioSystem.getParameterByName("MasterFader", out float value);
         //Debug.Log("Valor actual del MasterFader: " + value);
     }
     public void ActualizarMusicVolume()
     {
 
-        float volume = musicFader.value;
+        //float volume = musicFader.value;
         //Debug.Log("Valor actual del Scrollbar: " + volume);
 
-        RuntimeManager.StudioSystem.setParameterByName("MusicFader", volume);
+        //RuntimeManager.StudioSystem.setParameterByName("MusicFader", volume);
         //RuntimeManager.StudioSystem.getParameterByName("MusicFader", out float value);
         //Debug.Log("Valor actual del MusicFader: " + value);
     }
     public void ActualizarSFXVolume()
     {
 
-        float volume = SFXFader.value;
+        //float volume = SFXFader.value;
         //Debug.Log("Valor actual del Scrollbar: " + volume);
 
-        RuntimeManager.StudioSystem.setParameterByName("SFXFader", volume);
+        //RuntimeManager.StudioSystem.setParameterByName("SFXFader", volume);
         //RuntimeManager.StudioSystem.getParameterByName("SFXFader", out float value);
         //Debug.Log("Valor actual del SFXFader: " + value);
     }

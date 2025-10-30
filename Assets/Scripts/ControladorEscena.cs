@@ -2,6 +2,7 @@ using PantallaCarga;
 using System.Collections;
 using TarodevController;
 using TMPro;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,10 +34,14 @@ public class ControladorEscena : MonoBehaviour
     [Header("Checkpoints")]
     public int ChPoint;
 
-    private void Start()
+public void Awake()
     {
         if (loaderScene == null) loaderScene = FindObjectOfType<LoaderScene>();
-        if (masterGameManager == null) masterGameManager = FindObjectOfType<MasterGameManager>(); 
+    }
+    private void Start()
+    {
+        
+        if (masterGameManager == null) masterGameManager = FindObjectOfType<MasterGameManager>();
         if (MenuInGame == null) MenuInGame = GameObject.FindWithTag("canvas");
 
         if (HUD != null) HUD.SetActive(true);
@@ -45,7 +50,7 @@ public class ControladorEscena : MonoBehaviour
             MenuInGame.SetActive(true);
             MasterGameManager.instance.AsignarMenuPausa(MenuInGame);
         }
-         
+
 
         switch (sceneIndex)
         {
@@ -76,6 +81,7 @@ public class ControladorEscena : MonoBehaviour
 
     private void ActualizarHUD()
     {
+        //if (vidas != null) HUDManager.instancia.ActualizarVida(vidas.vidasJugador);
         if (vidas != null) textVidas.text = vidas.vidasJugador.ToString();
         if (cantidadNotas != null) textNot.text = cantidadNotas.cantNotas.ToString();
         if (balas != null) textBalas.text = balas.GettotalBalas().ToString();
@@ -85,7 +91,7 @@ public class ControladorEscena : MonoBehaviour
     public void SiguienteNivel()
     {
         if (HUD != null) HUD.SetActive(false);
-
+        SoundEvents.DetenerMusica?.Invoke(); //Sonido by Chelo :D
         switch (sceneIndex)
         {
             case 1:
