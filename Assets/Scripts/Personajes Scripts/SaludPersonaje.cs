@@ -14,9 +14,13 @@ public class SaludPersonaje : MonoBehaviour
     [SerializeField] private BoxCollider boxColliderHerido;
     [SerializeField] private Animator animatorVeneno;
     [SerializeField] private Animator animatorHerido;
+
+    private Vector3 posicionInicial; //ADDED BY CHELO :D
+
     // Start is called before the first frame update
     void Start()
     {
+        posicionInicial = transform.position; //ADDED BY CHELO :D
         HUDManager.instancia.ActualizarVida(vidasJugador);
         HUDManager.instancia.ActualizarArmadura(vidasEXtras);
         if (boxColliderHerido != null || boxColliderVeneno!=null){
@@ -140,7 +144,18 @@ public class SaludPersonaje : MonoBehaviour
     }
     public void RegresarCheckPoint()
     {
-        transform.position = ultimoCheckPoint.transform.position;
+        if (ultimoCheckPoint != null)// ADDED BY CHELO :D
+        {
+            transform.position = ultimoCheckPoint.transform.position;
+        }
+        else
+        {
+            // Si no hay checkpoint, usa la posición inicial del personaje
+            Debug.LogWarning("No hay checkpoint asignado, regresando al punto inicial.");
+
+            // Puedes guardar la posición inicial al comenzar
+            transform.position = posicionInicial;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

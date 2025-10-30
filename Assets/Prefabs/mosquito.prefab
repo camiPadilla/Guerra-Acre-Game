@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6708150211806795917}
   - component: {fileID: 5402397033043342440}
   - component: {fileID: 7399555499859778606}
-  - component: {fileID: 5221992321499633469}
+  - component: {fileID: 2129748442756443806}
   m_Layer: 0
   m_Name: mosquito
   m_TagString: Untagged
@@ -162,7 +162,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.53}
   m_EdgeRadius: 0
---- !u!114 &5221992321499633469
+--- !u!114 &2129748442756443806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,19 +177,21 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 815772303
-      Data2: 1277336910
-      Data3: 1232007553
-      Data4: -1278741862
-    Path: event:/ENEMIGOS/Mosquito/MorirMosquito
+      Data1: 1661787082
+      Data2: 1122142370
+      Data3: 1082946690
+      Data4: 204297627
+    Path: event:/ENEMIGOS/Mosquito/VueloMosquito
   Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   NonRigidbodyVelocity: 0
-  Params: []
+  Params:
+  - Name: Panner
+    Value: 0
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
