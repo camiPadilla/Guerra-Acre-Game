@@ -17,11 +17,11 @@ public class ControladorNota : ObjetoRecogible
         Debug.Log("leyendo nota");
         if (tutorial)
         {
-            HUDManager.instancia.LeerNota(mensajeNota);
+            HUDManager.instancia.LeerNotaTutorial(mensajeNota);
         }
         else
         {
-            HUDManager.instancia.LeerNota(nota.textoNota);
+            HUDManager.instancia.LeerNota(nota.notaImagen);
             this.DestruirObjeto();
         }
            

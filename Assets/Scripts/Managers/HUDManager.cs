@@ -13,6 +13,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] GameObject interactuable;
     [SerializeField] DialogosManager dialogosManager;
     [SerializeField] TMP_Text text;
+    [SerializeField] UnityEngine.UI.Image imagenNota;
+    [SerializeField] GameObject fondoTutorial;
     [SerializeField] GameObject mensajeE;
     [Header("Pantallas")]
 
@@ -203,14 +205,27 @@ public class HUDManager : MonoBehaviour
     }
 
 
-    public void LeerNota(string mensajeNuevo)
+    public void LeerNota(Sprite nuevaImagen)
     {
         masterGameManager.DetenerTiempo();
-        text.text = mensajeNuevo;
+        text.text = "";
+        imagenNota.gameObject.SetActive(true);
+        fondoTutorial.gameObject.SetActive(false);
+        imagenNota.sprite = nuevaImagen;
         GameManager.instancia.CambiarDeEstado(3);
         HUDGame.SetActive(false);
         menues[0].SetActive(true);
 
+    }
+    public void LeerNotaTutorial(string mensajeNuevo)
+    {
+        masterGameManager.DetenerTiempo();
+        imagenNota.gameObject.SetActive(false);
+        fondoTutorial.gameObject.SetActive(true);
+        text.text = mensajeNuevo;
+        GameManager.instancia.CambiarDeEstado(3);
+        HUDGame.SetActive(false);
+        menues[0].SetActive(true);
     }
     public void IniciarDialogo(DialogosSO dialogo)
     {
