@@ -49,7 +49,7 @@ public class ObjetoRecogible : MonoBehaviour
         }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Player") && gameObject !=null)
+        if (collision.transform.CompareTag("Player") && gameObject !=null && (HUDManager.instancia != null))
         {
             HUDManager.instancia.Ocultar();
             if (desactivado == true && nombreObjeto == "balas")
@@ -60,9 +60,5 @@ public class ObjetoRecogible : MonoBehaviour
 
         }
     }
-
-
-
-    
 
 }

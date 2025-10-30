@@ -2,6 +2,7 @@ using PantallaCarga;
 using System.Collections;
 using TarodevController;
 using TMPro;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -76,6 +77,7 @@ public class ControladorEscena : MonoBehaviour
 
     private void ActualizarHUD()
     {
+        //if (vidas != null) HUDManager.instancia.ActualizarVida(vidas.vidasJugador);
         if (vidas != null) textVidas.text = vidas.vidasJugador.ToString();
         if (cantidadNotas != null) textNot.text = cantidadNotas.cantNotas.ToString();
         if (balas != null) textBalas.text = balas.GettotalBalas().ToString();
@@ -85,7 +87,7 @@ public class ControladorEscena : MonoBehaviour
     public void SiguienteNivel()
     {
         if (HUD != null) HUD.SetActive(false);
-
+        SoundEvents.DetenerMusica?.Invoke(); //Sonido by Chelo :D
         switch (sceneIndex)
         {
             case 1:
