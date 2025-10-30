@@ -34,10 +34,14 @@ public class ControladorEscena : MonoBehaviour
     [Header("Checkpoints")]
     public int ChPoint;
 
-    private void Start()
+public void Awake()
     {
         if (loaderScene == null) loaderScene = FindObjectOfType<LoaderScene>();
-        if (masterGameManager == null) masterGameManager = FindObjectOfType<MasterGameManager>(); 
+    }
+    private void Start()
+    {
+        
+        if (masterGameManager == null) masterGameManager = FindObjectOfType<MasterGameManager>();
         if (MenuInGame == null) MenuInGame = GameObject.FindWithTag("canvas");
 
         if (HUD != null) HUD.SetActive(true);
@@ -46,7 +50,7 @@ public class ControladorEscena : MonoBehaviour
             MenuInGame.SetActive(true);
             MasterGameManager.instance.AsignarMenuPausa(MenuInGame);
         }
-         
+
 
         switch (sceneIndex)
         {
