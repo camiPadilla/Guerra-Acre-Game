@@ -67,5 +67,8 @@ public static class SoundEvents
 
     //Ambientes
     public static Action Ambience;
+
+    //Detener Musica
+    public static Action DetenerMusica;
 }
 
