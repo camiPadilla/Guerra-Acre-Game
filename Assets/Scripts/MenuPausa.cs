@@ -143,10 +143,10 @@ public class MenuPausa : MonoBehaviour
     }
     public void IrMenu()
     {
-        loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
-        Destroy(MenuPausa.instance?.gameObject);
-        Destroy(HUDManager.instancia?.gameObject);
+        MasterGameManager.instance.IrMenu();
         Destroy(MenuInGame);
+        Destroy(this.gameObject);
+        
     }
     public void Salir()
     {

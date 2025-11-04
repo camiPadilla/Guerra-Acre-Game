@@ -25,7 +25,7 @@ public class MasterGameManager : MonoBehaviour
     public int currentLevel = 1;
     [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject menuPausa;
-
+    [SerializeField] PlayerSettings plape;
     [SerializeField] public int currentSlot = 1; // se define desde el menú
 
     private void Awake()
@@ -210,5 +210,19 @@ public class MasterGameManager : MonoBehaviour
     public void DetenerTiempo()
     {
         Time.timeScale = 0;
+    }
+    public void IrMenu()
+    {
+        loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
+
+        // Destruye objetos persistentes para limpiar
+        Destroy(MenuPausa.instance.gameObject);
+        Destroy(HUDManager.instancia.gameObject);
+        //Destroy(MenuInGame);
+        Destroy(gameObject);
+        Destroy(loaderScene);
+        Destroy(plape.gameObject);
+        Destroy(loaderScene.gameObject);
+        Destroy(menuInGame);
     }
 }

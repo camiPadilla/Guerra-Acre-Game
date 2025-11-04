@@ -19,9 +19,10 @@ public class ControladorEscena : MonoBehaviour
     [SerializeField] AtaquePersonaje balas;
     [SerializeField] GameManager gameManager;
     [SerializeField] PlayerController player;
+    
 
     [Header("UI")]
-    [SerializeField] GameObject MenuInGame;
+    //[SerializeField] GameObject MenuInGame;
     [SerializeField] GameObject HUD;
     [SerializeField] HUDManager hudManager;
 
@@ -40,16 +41,11 @@ public void Awake()
     }
     private void Start()
     {
-        
-        if (masterGameManager == null) masterGameManager = FindObjectOfType<MasterGameManager>();
-        if (MenuInGame == null) MenuInGame = GameObject.FindWithTag("canvas");
 
+        if (masterGameManager == null) masterGameManager = FindObjectOfType<MasterGameManager>();
+       // if (MenuInGame == null) MenuInGame = GameObject.FindWithTag("canvas");
         if (HUD != null) HUD.SetActive(true);
-        if (MenuInGame != null)
-        {
-            MenuInGame.SetActive(true);
-            MasterGameManager.instance.AsignarMenuPausa(MenuInGame);
-        }
+        
 
 
         switch (sceneIndex)
@@ -59,11 +55,11 @@ public void Awake()
                 break;
             case 1:
                 nameScene = ConstantsGame.SCENAUNO;
-                hudManager?.Bienvenido();
+                hudManager.Bienvenido();
                 break;
             case 2:
                 nameScene = ConstantsGame.SCENADOS;
-                hudManager?.Bienvenido();
+                hudManager.Bienvenido();
                 break;
             case 3:
                 nameScene = ConstantsGame.SCENECREDITS;
@@ -102,17 +98,9 @@ public void Awake()
                 break;
         }
     }
-
-    public void IrMenu()
+public void VolverMenu()
     {
-        loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
-
-        // Destruye objetos persistentes para limpiar
-        Destroy(MenuPausa.instance.gameObject);
-        Destroy(HUDManager.instancia.gameObject);
-        Destroy(MenuInGame);
-        Destroy(masterGameManager?.gameObject);
-        Destroy(loaderScene);
+        masterGameManager.IrMenu();
     }
 
     public void ReiniciarNivel()
