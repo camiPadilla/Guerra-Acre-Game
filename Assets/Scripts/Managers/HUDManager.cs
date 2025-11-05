@@ -118,7 +118,7 @@ public class HUDManager : MonoBehaviour
 
         foreach (GameObject arma in armas)
         {
-            UnityEngine.UI.Image imagenArma = arma.GetComponent<UnityEngine.UI.Image>();
+            Image imagenArma = arma.GetComponent<Image>();
             RectTransform tranformArma = arma.GetComponent<RectTransform>();
             if (armas.IndexOf(arma) == armaActiva)
             {
