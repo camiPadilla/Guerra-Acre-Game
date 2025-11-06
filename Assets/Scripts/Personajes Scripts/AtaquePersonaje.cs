@@ -28,7 +28,8 @@ public class AtaquePersonaje : MonoBehaviour
     bool recargando;
     bool conArma=false;
 
-    [SerializeField] PlayerAnimator animator;
+    [SerializeField] private PlayerAnimator animator;
+    [SerializeField] private PlayerController _player;
     // Start is called before the first frame update
     void Start()
     {
@@ -141,8 +142,9 @@ public class AtaquePersonaje : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            //StartCoroutine(AtaqueMachete());
-            animator.AtaqueMachete();
+            StartCoroutine(AtaqueMachete());
+            _player.Detener();
+            animator.AtaqueMacheteAn();
             SoundEvents.AtaqueMachete?.Invoke(); //Sound By Chelo :D
         }
     }
@@ -243,10 +245,13 @@ public class AtaquePersonaje : MonoBehaviour
     }
     private IEnumerator AtaqueMachete()
     {
-        machete.Reposicionar(new Vector3(transform.position.x + 0.592f * dirX, transform.position.y+ 0.967f, transform.position.z));
-        ActivarMachete();
+        //machete.Reposicionar(new Vector3(transform.position.x + 0.592f * dirX, transform.position.y+ 0.967f, transform.position.z));
+        //ActivarMachete();
+        //animator.AtaqueMacheteAn();
+        _player.IniciarDIalogo();
         yield return new WaitForSeconds(.5f);
-        DesactivarMachete();
+        _player.TerminarDialogo();
+        //DesactivarMachete();
         //miAnimator.SetTrigger("atacar");
     }
     public void ActivarMachete()

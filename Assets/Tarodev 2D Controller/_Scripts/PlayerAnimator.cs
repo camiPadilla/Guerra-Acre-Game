@@ -218,7 +218,7 @@ namespace TarodevController
             main.startColor = _currentGradient;
         }
 
-        public void AtaqueMachete()
+        public void AtaqueMacheteAn()
         {
             newAnim.SetTrigger("ataqueMachete");
             Debug.Log("Atacando");
