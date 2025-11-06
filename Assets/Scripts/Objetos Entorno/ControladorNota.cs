@@ -13,7 +13,11 @@ public class ControladorNota : ObjetoRecogible
     {
         InventarioManager player = FindFirstObjectByType<InventarioManager>();
         if (!tutorial)
-        player.ActualizarNotas(nota.ID);
+        {
+            //player.ActualizarNotas(nota.ID);
+            ControladorEscena escena = FindFirstObjectByType<ControladorEscena>();
+            escena.ObtenerNota(nota);
+        }
         Debug.Log("leyendo nota");
         if (tutorial)
         {

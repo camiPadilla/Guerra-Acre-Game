@@ -13,7 +13,8 @@ public class MasterGameManager : MonoBehaviour
     public AtaquePersonaje playerAtaque;
     public PlayerController playerController;
     public LoaderScene loaderScene;
-
+    [SerializeField] List<NotasSO> notasObtenidas = new List<NotasSO>();
+    [SerializeField] NotasSO notaVacia;
     public List<bool> checkpointsActivos = new List<bool>();
     public GameData gameData;
 
@@ -26,8 +27,20 @@ public class MasterGameManager : MonoBehaviour
     [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject menuPausa;
     [SerializeField] PlayerSettings plape;
+    
+    //private string IdNotas[];
     [SerializeField] public int currentSlot = 1; // se define desde el menú
-
+    private void Start()
+    {
+        InicializarLista();
+    }
+    public void InicializarLista()
+    {
+        for(int i= 0;i<7; i++)
+        {
+            notasObtenidas.Add(notaVacia);
+        }
+    }
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -52,7 +65,7 @@ public class MasterGameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && GameManager.instancia != null)
         {
             GameManager.instancia.CerrarEstado();
         }
@@ -224,5 +237,14 @@ public class MasterGameManager : MonoBehaviour
         Destroy(plape.gameObject);
        // Destroy(loaderScene.gameObject);
         Destroy(menuInGame);
+    }
+    public void AddNota(NotasSO notaNueva)
+    {
+        int indice = notaNueva.numeroNota;
+        notasObtenidas[indice] = notaNueva;
+    }
+    public List<NotasSO> ObtenerNotas()
+    {
+        return notasObtenidas;
     }
 }
