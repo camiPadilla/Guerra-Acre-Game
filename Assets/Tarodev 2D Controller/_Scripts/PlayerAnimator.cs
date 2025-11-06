@@ -13,7 +13,7 @@ namespace TarodevController
         [SerializeField] private SpriteRenderer _sprite; // Referencia al SpriteRenderer para voltear el sprite
         [SerializeField] private GameObject personajeObject;
         [SerializeField] private Animator newAnim;
-        [SerializeField] private Animator newAnim2;
+        //[SerializeField] private Animator newAnim2;
 
         [Header("Settings")]
         [SerializeField, Range(1f, 3f)]
@@ -41,6 +41,7 @@ namespace TarodevController
             // Obtener referencias a los componentes necesarios
             _source = GetComponent<AudioSource>();
             _player = GetComponentInParent<IPlayerController>(); // Buscar en el padre
+
         }
 
         private void OnEnable()
@@ -99,8 +100,8 @@ namespace TarodevController
         {
             newAnim.SetFloat("dirX", Mathf.Abs(_player.FrameInput.x));
             newAnim.SetBool("agachado", _player.agachado);
-            newAnim2.SetFloat("dirX", Mathf.Abs(_player.FrameInput.x));
-            newAnim2.SetBool("agachado", _player.agachado);
+            //newAnim2.SetFloat("dirX", Mathf.Abs(_player.FrameInput.x));
+            //newAnim2.SetBool("agachado", _player.agachado);
         }
         private void HandleIdleSpeed()
         {
@@ -217,9 +218,16 @@ namespace TarodevController
             main.startColor = _currentGradient;
         }
 
+        public void AtaqueMacheteAn()
+        {
+            newAnim.SetTrigger("ataqueMachete");
+            Debug.Log("Atacando");
+        }
+
         // Hashes est�ticos para los par�metros del Animator (mejor performance)
         private static readonly int GroundedKey = Animator.StringToHash("Grounded");
         private static readonly int IdleSpeedKey = Animator.StringToHash("IdleSpeed");
         private static readonly int JumpKey = Animator.StringToHash("Jump");
+       
     }
 }
