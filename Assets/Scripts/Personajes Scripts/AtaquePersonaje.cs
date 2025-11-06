@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Schema;
+using TarodevController;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -26,6 +27,8 @@ public class AtaquePersonaje : MonoBehaviour
     bool enAccion;
     bool recargando;
     bool conArma=false;
+
+    [SerializeField] PlayerAnimator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -138,7 +141,8 @@ public class AtaquePersonaje : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            StartCoroutine(AtaqueMachete());
+            //StartCoroutine(AtaqueMachete());
+            animator.AtaqueMachete();
             SoundEvents.AtaqueMachete?.Invoke(); //Sound By Chelo :D
         }
     }
