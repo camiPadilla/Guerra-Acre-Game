@@ -19,7 +19,7 @@ public class ControladorEscena : MonoBehaviour
     [SerializeField] AtaquePersonaje balas;
     [SerializeField] GameManager gameManager;
     [SerializeField] PlayerController player;
-    
+    [SerializeField] NotasSO notaNueva;
 
     [Header("UI")]
     //[SerializeField] GameObject MenuInGame;
@@ -144,5 +144,10 @@ public void VolverMenu()
     public void CrearPart()
     {
         masterGameManager?.NewGame();
+    }
+    public void ObtenerNota(NotasSO nota)
+    {
+        notaNueva = nota;
+        masterGameManager.AddNota(notaNueva);
     }
 }

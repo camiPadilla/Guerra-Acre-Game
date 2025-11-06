@@ -26,6 +26,7 @@ public class MasterGameManager : MonoBehaviour
     [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject menuPausa;
     [SerializeField] PlayerSettings plape;
+    [SerializeField] List<NotasSO> notasObtenidas;
     [SerializeField] public int currentSlot = 1; // se define desde el menú
 
     private void Awake()
@@ -224,5 +225,9 @@ public class MasterGameManager : MonoBehaviour
         Destroy(plape.gameObject);
         Destroy(loaderScene.gameObject);
         Destroy(menuInGame);
+    }
+    public void AddNota(NotasSO notaNueva)
+    {
+        notasObtenidas.Add(notaNueva);
     }
 }
