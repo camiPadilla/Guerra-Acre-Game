@@ -23,14 +23,11 @@ public class EnemigoDisparo : Enemigo_IA
         if (jugador == null) return;
 
         float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
-
-        // Siempre mirar hacia el jugador
         Flip(jugador.position.x > transform.position.x);
 
         if (followPlayer)
             Posicionarse(distanciaJugador);
 
-        // Si está dentro del rango óptimo, dispara
         if (Mathf.Abs(distanciaJugador - distanciaOptima) <= tolerancia && puedeDisparar)
         {
             if (fusil)

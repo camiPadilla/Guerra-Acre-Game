@@ -1076,6 +1076,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: followPlayer
       value: 0
       objectReference: {fileID: 0}
@@ -1090,6 +1094,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
@@ -1142,6 +1150,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1947,6 +1963,10 @@ PrefabInstance:
       value: EnemigoMelee 1
       objectReference: {fileID: 0}
     - target: {fileID: 1028762434347418982, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028762434347418982, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -2209,6 +2229,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1523941632}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: wayPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2231,6 +2255,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
@@ -2283,6 +2311,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3054,6 +3090,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemigoDistancia (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7959882
@@ -3105,6 +3145,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3917,6 +3965,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: followPlayer
       value: 0
       objectReference: {fileID: 0}
@@ -3939,6 +3991,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
@@ -3991,6 +4047,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4387,6 +4451,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: followPlayer
       value: 0
       objectReference: {fileID: 0}
@@ -4401,6 +4469,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
@@ -4453,6 +4525,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5269,6 +5349,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: followPlayer
       value: 0
       objectReference: {fileID: 0}
@@ -5283,6 +5367,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
@@ -5335,6 +5423,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6152,8 +6248,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: jugador
+      value: 
+      objectReference: {fileID: 1523941632}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: patrullaje
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: followPlayer
@@ -6166,6 +6270,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_IsActive
@@ -6222,6 +6330,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7188,6 +7304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemigoDistancia (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7959882
@@ -7239,6 +7359,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7421,6 +7549,10 @@ PrefabInstance:
     - target: {fileID: 966422161970855687, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
       propertyPath: m_Name
       value: EnemigoMelee 1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028762434347418982, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1627156284950849943, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
       propertyPath: m_Sprite
@@ -7816,6 +7948,171 @@ PolygonCollider2D:
       - {x: 0.70668185, y: -0.6901212}
       - {x: 3.685645, y: -0.7808612}
   m_UseDelaunayMesh: 0
+--- !u!43 &517347028
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 42
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 16
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.5, y: 0.5, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 00000100020003000100000003000400010005000400030006000400050004000600070002000800000000000900030001000a00020004000b00010003000c00050007000d00040005000e00060006000f000700
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 16
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 704
+    _typelessdata: 0000003f000000bf000000000000803f0000008000000080000000800000003f000000bf0000003f000000bf0000003f0000003f00000000000000800000803f00000080000000800000003f0000003f0000003f0000003f0000003f00000000000000000000803f0000008000000080000000800000003f0000003f0000003f000000bf00000000000000bf0000000000000080000080bf00000000000000800000003f000000bf000000bf000000bf000000000000003f00000000000000800000803f0000008000000080000000bf0000003f0000003f0000003f000000bf000000bf0000000000000080000080bf0000000000000080000000bf000000bf000000bf000000bf000000bf0000000000000000000080bf000000800000008000000080000000bf000000bf000000bf0000003f000000bf0000003f00000000000080bf000000800000008000000080000000bf0000003f000000bf0000003f0000003f00000000000000000000803f0000008000000080000000800000003f0000003f0000003f000000bf0000003f000000bf0000000000000080000080bf00000000000000800000003f000000bf0000003f000000bf0000003f0000003f000000000000803f0000008000000080000000800000003f0000003f0000003f0000003f000000000000003f00000000000000800000803f0000008000000080000000bf0000003f0000003f0000003f00000000000000bf0000000000000080000080bf00000000000000800000003f000000bf000000bf000000bf000000bf0000003f00000000000000800000803f0000008000000080000000bf0000003f000000bf0000003f000000bf000000bf00000000000080bf000000800000008000000080000000bf000000bf000000bf000000bf000000bf0000000000000000000080bf000000800000008000000080000000bf000000bf000000bf0000003f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.5, y: 0.5, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &520736398
 GameObject:
   m_ObjectHideFlags: 0
@@ -7972,6 +8269,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: wayPoints.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -7982,6 +8283,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
@@ -8034,6 +8339,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8790,171 +9103,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562241883}
   m_CullTransparentMesh: 1
---- !u!43 &573213207
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 11
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 42
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 16
-    localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0.5, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 00000100020003000100000003000400010005000400030006000400050004000600070002000800000000000900030001000a00020004000b00010003000c00050007000d00040005000e00060006000f000700
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 16
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 704
-    _typelessdata: 0000003f000000bf000000000000803f0000008000000080000000800000003f000000bf0000003f000000bf0000003f0000003f00000000000000800000803f00000080000000800000003f0000003f0000003f0000003f0000003f00000000000000000000803f0000008000000080000000800000003f0000003f0000003f000000bf00000000000000bf0000000000000080000080bf00000000000000800000003f000000bf000000bf000000bf000000000000003f00000000000000800000803f0000008000000080000000bf0000003f0000003f0000003f000000bf000000bf0000000000000080000080bf0000000000000080000000bf000000bf000000bf000000bf000000bf0000000000000000000080bf000000800000008000000080000000bf000000bf000000bf0000003f000000bf0000003f00000000000080bf000000800000008000000080000000bf0000003f000000bf0000003f0000003f00000000000000000000803f0000008000000080000000800000003f0000003f0000003f000000bf0000003f000000bf0000000000000080000080bf00000000000000800000003f000000bf0000003f000000bf0000003f0000003f000000000000803f0000008000000080000000800000003f0000003f0000003f0000003f000000000000003f00000000000000800000803f0000008000000080000000bf0000003f0000003f0000003f00000000000000bf0000000000000080000080bf00000000000000800000003f000000bf000000bf000000bf000000bf0000003f00000000000000800000803f0000008000000080000000bf0000003f000000bf0000003f000000bf000000bf00000000000080bf000000800000008000000080000000bf000000bf000000bf000000bf000000bf0000000000000000000080bf000000800000008000000080000000bf000000bf000000bf0000003f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.5, y: 0.5, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1001 &573576445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8966,6 +9114,10 @@ PrefabInstance:
     - target: {fileID: 966422161970855687, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
       propertyPath: m_Name
       value: EnemigoMelee 1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028762434347418982, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1811835447238245385, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
       propertyPath: jugador
@@ -9204,6 +9356,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1523941632}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: followPlayer
       value: 0
       objectReference: {fileID: 0}
@@ -9230,6 +9386,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
@@ -9282,6 +9442,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9413,6 +9581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemigoDistancia (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7959882
@@ -9464,6 +9636,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9966,6 +10146,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: followPlayer
       value: 0
       objectReference: {fileID: 0}
@@ -9988,6 +10172,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
@@ -10040,6 +10228,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13587,6 +13783,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: followPlayer
       value: 0
       objectReference: {fileID: 0}
@@ -13601,6 +13801,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
@@ -13653,6 +13857,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13826,6 +14038,10 @@ PrefabInstance:
     - target: {fileID: 966422161970855687, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
       propertyPath: m_Name
       value: EnemigoMelee 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028762434347418982, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1627156284950849943, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -14138,6 +14354,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemigoMelee 1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1028762434347418982, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028762434347418982, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1811835447238245385, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
       propertyPath: jugador
       value: 
@@ -14305,6 +14529,10 @@ PrefabInstance:
     - target: {fileID: 966422161970855687, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
       propertyPath: m_Name
       value: EnemigoMelee 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028762434347418982, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1627156284950849943, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
       propertyPath: m_Sprite
@@ -18091,6 +18319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemigoDistancia (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7959882
@@ -18142,6 +18374,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18754,6 +18994,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemigoDistancia (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7959882
@@ -18805,6 +19049,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18925,6 +19177,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: followPlayer
       value: 0
       objectReference: {fileID: 0}
@@ -18939,6 +19195,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
@@ -18991,6 +19251,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19818,6 +20086,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: followPlayer
       value: 0
       objectReference: {fileID: 0}
@@ -19832,6 +20104,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
@@ -19884,6 +20160,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19978,6 +20262,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1523941632}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: followPlayer
       value: 0
       objectReference: {fileID: 0}
@@ -20004,6 +20292,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
@@ -20056,6 +20348,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21009,6 +21309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemigoDistancia (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7959882
@@ -21060,6 +21364,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21547,6 +21859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemigoMelee 1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1028762434347418982, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1811835447238245385, guid: 842b4097f62d848c8b8747b8e978a60b, type: 3}
       propertyPath: jugador
       value: 
@@ -21819,6 +22135,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: rangoVision
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001994734059241046, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: followPlayer
       value: 0
       objectReference: {fileID: 0}
@@ -21833,6 +22153,10 @@ PrefabInstance:
     - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_Name
       value: EnemigoDistancia (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
@@ -21885,6 +22209,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25317,6 +25649,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 1119512764231296006, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0058115707
+      objectReference: {fileID: 0}
     - target: {fileID: 1205606994915262885, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -25521,6 +25857,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 4619015791258886939, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.24964495
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619015791258886939, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.9683375
+      objectReference: {fileID: 0}
     - target: {fileID: 5290508420260286807, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_SortingLayer
       value: -1
@@ -25536,6 +25880,14 @@ PrefabInstance:
     - target: {fileID: 5379778315947434810, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102106470713832664, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.011599882
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189389861266101540, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00004353374
       objectReference: {fileID: 0}
     - target: {fileID: 6204973340833370022, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_SortingLayer
@@ -25565,6 +25917,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 6858022164490537355, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.07659632
+      objectReference: {fileID: 0}
     - target: {fileID: 7154623533814713068, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_SortingLayer
       value: -1
@@ -25648,6 +26004,10 @@ PrefabInstance:
     - target: {fileID: 8415773922576279137, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176578848003674613, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.052478664
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26501,8 +26861,8 @@ MonoBehaviour:
   - {x: 0.5, y: 0.5, z: 0}
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
-  m_Mesh: {fileID: 573213207}
-  m_InstanceId: 201446
+  m_Mesh: {fileID: 517347028}
+  m_InstanceId: 219542
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -27603,6 +27963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemigoDistancia (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3126269995457116612, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7959882
@@ -27654,6 +28018,14 @@ PrefabInstance:
     - target: {fileID: 6074435222540926498, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825919131489305032, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927941704015798200, guid: b9526686416fe496cbc3f1143f47ea35, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

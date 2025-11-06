@@ -53,14 +53,12 @@ public abstract class Enemigo_IA : MonoBehaviour
     {
         float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
 
-        // Si se alejó demasiado del waypoint actual, forzar retorno a patrulla
         float distanciaAlWP = (wayPoints != null && wayPoints.Length > 0)
             ? Vector2.Distance(transform.position, wayPoints[currentWayPoint].position)
             : 0f;
 
         if (distanciaAlWP > maxRoamDistance)
         {
-            // Encontrar waypoint más cercano y volver a patrullar
             currentWayPoint = FindClosestWaypointIndex();
             estadoActual = estadosEnemigo.patrullaje;
         }
@@ -82,7 +80,6 @@ public abstract class Enemigo_IA : MonoBehaviour
                 break;
 
             case estadosEnemigo.ataque:
-                // En ataque dejamos que el hijo controle el comportamiento de ataque
                 Atacar();
                 break;
 
@@ -92,7 +89,6 @@ public abstract class Enemigo_IA : MonoBehaviour
         }
     }
 
-    // Flip seguro (establece el scale absoluto en vez de multiplicar)
     public void Flip(bool mirarDerecha)
     {
         if (mirarDerecha == isFacingRight) return;
