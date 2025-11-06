@@ -10,9 +10,9 @@ public class EnemigoDisparo : Enemigo_IA
     [SerializeField] private Transform puntoDisparoPiedra;
     [SerializeField] private int nroBalas = 15;
     [SerializeField] private int nroPiedras = 5;
-    [SerializeField] private float distanciaOptima = 5f; // distancia ideal para disparar
+    [SerializeField] private float distanciaOptima = 5f;
     [SerializeField] private float tolerancia = 3f;
-    [SerializeField] bool followPalyer;     // margen para no moverse tanto
+    [SerializeField] private bool followPlayer = true;
 
     [Header("Fusil o Piedra")]
     [SerializeField] private bool fusil; // true = fusil, false = piedra
@@ -24,11 +24,10 @@ public class EnemigoDisparo : Enemigo_IA
 
         float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
 
-        // Girar siempre hacia el jugador
+        // Siempre mirar hacia el jugador
         Flip(jugador.position.x > transform.position.x);
 
-        if (followPalyer)
-        {
+        if (followPlayer)
             Posicionarse(distanciaJugador);
 
         // Si está dentro del rango óptimo, dispara
@@ -39,63 +38,57 @@ public class EnemigoDisparo : Enemigo_IA
             else
                 StartCoroutine(LanzarPiedra());
         }
-        }
-        else
-        {
-            // Si está dentro del rango óptimo, dispara
-            if (Mathf.Abs(distanciaJugador - distanciaOptima) <= tolerancia && puedeDisparar)
-            {
-                if (fusil)
-                    StartCoroutine(DispararFusil());
-                else
-                    StartCoroutine(LanzarPiedra());
-            }
-        }
-        
     }
 
     private IEnumerator DispararFusil()
     {
-        yield return new WaitForSeconds(1f);
         puedeDisparar = false;
-        if (nroBalas > 0)
+
+        if (nroBalas > 0 && jugador != null)
         {
-            SoundEvents.DisparoEnemigo?.Invoke(transform.position.x); // Sonido by Chelo :D
-            Instantiate(balaPrefab, puntoDisparoBala.position, Quaternion.identity);
+            GameObject bala = Instantiate(balaPrefab, puntoDisparoBala.position, Quaternion.identity);
+            BalaEnemigo b = bala.GetComponent<BalaEnemigo>();
+
+            if (b != null)
+                b.Inicializar(jugador);
+
             nroBalas--;
         }
-    puedeDisparar = true;
+
+        yield return new WaitForSeconds(0.8f);
+        puedeDisparar = true;
     }
 
     private IEnumerator LanzarPiedra()
     {
         puedeDisparar = false;
 
-        if (nroPiedras > 0)
+        if (nroPiedras > 0 && jugador != null)
         {
             GameObject piedra = Instantiate(piedraPrefab, puntoDisparoPiedra.position, Quaternion.identity);
             PiedraEnemigo p = piedra.GetComponent<PiedraEnemigo>();
-            if (p != null) p.Inicializar(jugador);
+            if (p != null)
+                p.Inicializar(jugador);
 
             nroPiedras--;
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.2f);
         puedeDisparar = true;
     }
 
     private void Posicionarse(float distanciaJugador)
-{
-    float diferencia = distanciaJugador - distanciaOptima;
+    {
+        float diferencia = distanciaJugador - distanciaOptima;
 
-    if (Mathf.Abs(diferencia) > tolerancia)
-    {
-        float direccion = Mathf.Sign(jugador.position.x - transform.position.x);
-        rbEnemigo.velocity = new Vector2(direccion * speed, rbEnemigo.velocity.y);
+        if (Mathf.Abs(diferencia) > tolerancia)
+        {
+            float direccion = Mathf.Sign(jugador.position.x - transform.position.x);
+            rbEnemigo.velocity = new Vector2(direccion * speed, rbEnemigo.velocity.y);
+        }
+        else
+        {
+            rbEnemigo.velocity = Vector2.zero;
+        }
     }
-    else
-    {
-        rbEnemigo.velocity = Vector2.zero;
-    }
-}
 }

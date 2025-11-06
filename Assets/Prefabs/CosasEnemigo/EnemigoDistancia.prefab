@@ -108,19 +108,20 @@ MonoBehaviour:
   patrullaje: 1
   rangoVision: 6
   vida: 3
-  disWy: 0
-  estadoActual: 0
   speed: 4
+  maxRoamDistance: 6
+  estadoActual: 0
   jugador: {fileID: 0}
   currentWayPoint: 0
-  balaPrefab: {fileID: 0}
-  piedraPrefab: {fileID: 5909298912844603922, guid: b01e3924796414bdbaeb50a790fbd14c, type: 3}
+  balaPrefab: {fileID: 7865537734946505281, guid: 1d34b0816a73640318782a9f51214bd2, type: 3}
+  piedraPrefab: {fileID: 303629369238935030, guid: 75d2a610b87f846ce8a8b6686cb1609e, type: 3}
   puntoDisparoBala: {fileID: 6013079162051924959}
   puntoDisparoPiedra: {fileID: 6310594104619515041}
   nroBalas: 4
   nroPiedras: 5
   distanciaOptima: 3
   tolerancia: 1
+  followPlayer: 1
   fusil: 0
 --- !u!70 &3243494286591589501
 CapsuleCollider2D:
@@ -165,7 +166,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3126269995457116612}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -183,7 +184,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!1 &7825919131489305032
 GameObject:
   m_ObjectHideFlags: 0
