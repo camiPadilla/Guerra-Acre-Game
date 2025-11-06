@@ -223,7 +223,7 @@ public class MasterGameManager : MonoBehaviour
         Destroy(gameObject);
         Destroy(loaderScene);
         Destroy(plape.gameObject);
-        Destroy(loaderScene.gameObject);
+       // Destroy(loaderScene.gameObject);
         Destroy(menuInGame);
     }
     public void AddNota(NotasSO notaNueva)

@@ -11,7 +11,8 @@ public class EnemigoDisparo : Enemigo_IA
     [SerializeField] private int nroBalas = 15;
     [SerializeField] private int nroPiedras = 5;
     [SerializeField] private float distanciaOptima = 5f; // distancia ideal para disparar
-    [SerializeField] private float tolerancia = 3f;     // margen para no moverse tanto
+    [SerializeField] private float tolerancia = 3f;
+    [SerializeField] bool followPalyer;     // margen para no moverse tanto
 
     [Header("Fusil o Piedra")]
     [SerializeField] private bool fusil; // true = fusil, false = piedra
@@ -26,8 +27,9 @@ public class EnemigoDisparo : Enemigo_IA
         // Girar siempre hacia el jugador
         Flip(jugador.position.x > transform.position.x);
 
-        // Posicionarse a la distancia adecuada
-        Posicionarse(distanciaJugador);
+        if (followPalyer)
+        {
+            Posicionarse(distanciaJugador);
 
         // Si está dentro del rango óptimo, dispara
         if (Mathf.Abs(distanciaJugador - distanciaOptima) <= tolerancia && puedeDisparar)
@@ -37,23 +39,32 @@ public class EnemigoDisparo : Enemigo_IA
             else
                 StartCoroutine(LanzarPiedra());
         }
+        }
+        else
+        {
+            // Si está dentro del rango óptimo, dispara
+            if (Mathf.Abs(distanciaJugador - distanciaOptima) <= tolerancia && puedeDisparar)
+            {
+                if (fusil)
+                    StartCoroutine(DispararFusil());
+                else
+                    StartCoroutine(LanzarPiedra());
+            }
+        }
+        
     }
 
     private IEnumerator DispararFusil()
     {
+        yield return new WaitForSeconds(1f);
         puedeDisparar = false;
-
         if (nroBalas > 0)
         {
             SoundEvents.DisparoEnemigo?.Invoke(transform.position.x); // Sonido by Chelo :D
-            GameObject nuevaBala = Instantiate(balaPrefab, puntoDisparoBala.position, puntoDisparoBala.rotation);
-            BalaEnemigo bala = nuevaBala.GetComponent<BalaEnemigo>();
-            if (bala != null) bala.Inicializar(jugador);
+            Instantiate(balaPrefab, puntoDisparoBala.position, Quaternion.identity);
             nroBalas--;
         }
-
-        yield return new WaitForSeconds(1f);
-        puedeDisparar = true;
+    puedeDisparar = true;
     }
 
     private IEnumerator LanzarPiedra()

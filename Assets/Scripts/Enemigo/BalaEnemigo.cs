@@ -5,47 +5,52 @@ using System;
 
 public class BalaEnemigo : MonoBehaviour
 {
+    [Header("Configuración de bala")]
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float velocidadBala;
+    [SerializeField] private float velocidadBala = 5f;
     [SerializeField] public int damage = 2;
+    [SerializeField] private float tiempoVida = 5f;
+
+    [Header("Referencias")]
     private Transform jugador;
-    [SerializeField] private GameObject enemigo;
+    private Vector2 direccion;
 
-    public void Inicializar(Transform jugadorDestino)
+    public void Start()
     {
-        jugador = jugadorDestino;
-        Disparar();
-    }
-
-    private void Awake()
-    {
+        jugador = FindAnyObjectByType<PlayerController>().transform;
         rb = GetComponent<Rigidbody2D>();
     }
 
     public void Disparar()
     {
         Vector2 direccion = (jugador.position - transform.position).normalized;
-        rb.velocity = new Vector2(direccion.x * velocidadBala, direccion.y * velocidadBala);
+        rb.velocity = direccion * velocidadBala;
         StartCoroutine(DestruirBala());
     }
 
     private IEnumerator DestruirBala()
     {
-        yield return new WaitForSeconds(5f);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(tiempoVida);
+        if (gameObject != null)
+            Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<SaludPersonaje>().PerderVida(damage);
-             Destroy(gameObject);
-        }
-        if (collision.transform.CompareTag("Enemigo"))
+        // Ignora colisiones con el enemigo que la disparó
+        if (collision.CompareTag("Enemigo"))
         {
             Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>());
+            return;
         }
-       
+
+        if (collision.CompareTag("Player"))
+        {
+            var salud = collision.GetComponent<SaludPersonaje>();
+            if (salud != null)
+                salud.PerderVida(damage);
+
+            Destroy(gameObject);
+        }
     }
 }
