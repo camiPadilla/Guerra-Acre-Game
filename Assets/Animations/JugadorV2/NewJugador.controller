@@ -41,7 +41,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.568592
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -198,9 +198,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_ExitTime: 0.59641904
+  m_TransitionDuration: 0.20928466
+  m_TransitionOffset: 0.27761805
+  m_ExitTime: 1.0128456
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -300,9 +300,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.5
+  m_TransitionDuration: 0.22306561
+  m_TransitionOffset: 0.25130057
+  m_ExitTime: 1.0026009
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -361,6 +361,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: ataquePiedra
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: tirarPiedra
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -463,7 +469,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: ataquePiedra
+    m_ConditionEvent: tirarPiedra
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5927975226706188817}
@@ -496,9 +502,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.13249688
-  m_TransitionOffset: 0
-  m_ExitTime: 0.5
+  m_TransitionDuration: 0.1324969
+  m_TransitionOffset: 0.29361507
+  m_ExitTime: 1.0033401
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -669,9 +675,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.10765374
-  m_TransitionOffset: 0
-  m_ExitTime: 0.62500006
+  m_TransitionDuration: 0.14139408
+  m_TransitionOffset: 0.012299122
+  m_ExitTime: 1.004423
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

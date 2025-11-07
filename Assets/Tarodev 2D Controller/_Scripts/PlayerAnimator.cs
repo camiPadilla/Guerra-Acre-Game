@@ -227,6 +227,10 @@ namespace TarodevController
         {
             newAnim.SetTrigger("ataquePiedra");
         }
+        public void TiraPiedra()
+        {
+            newAnim.SetTrigger("tirarPiedra");
+        }
         public void FuerzaY(float fuerza, float y)
         {
             newAnim.SetFloat("fuerzaTiro", fuerza);

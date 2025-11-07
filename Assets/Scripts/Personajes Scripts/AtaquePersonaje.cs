@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Schema;
 using TarodevController;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class AtaquePersonaje : MonoBehaviour
@@ -40,9 +38,9 @@ public class AtaquePersonaje : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) { seleccionArma = 0; SoundEvents.CambiarArmaMachete?.Invoke(); }
-            if (Input.GetKeyDown(KeyCode.Alpha2)) { seleccionArma = 1; SoundEvents.CambiarArmaPiedra?.Invoke(); }
-                if (Input.GetKeyDown(KeyCode.Alpha3) && conArma) { seleccionArma = 2; SoundEvents.RecogerArma?.Invoke(); }
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { SetArma(0); }
+            if (Input.GetKeyDown(KeyCode.Alpha2)) { SetArma(1); }
+                if (Input.GetKeyDown(KeyCode.Alpha3) && conArma) { SetArma(2); }
         HUDManager.instancia.ActualizarArma(seleccionArma);
         if (Input.GetAxis("Horizontal") >= 0.1f)
         {
@@ -113,7 +111,7 @@ public class AtaquePersonaje : MonoBehaviour
         piedraActual.Impulso(fuerzatiro, dirX, dirY);
         SoundEvents.LanzarPiedra?.Invoke(); //Sound By Chelo :D
         SoundEvents.DetenerCarga?.Invoke(); //Sound By Chelo :D
-        enAccion = false;
+        //enAccion = false;
     }
     
     void InstanciarProyectiles()
@@ -155,7 +153,7 @@ public class AtaquePersonaje : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             fuerzatiro = 0;
-            enAccion = true;
+            //enAccion = true;
             _player.Detener();
             animator.AtaquePiedra();
             SoundEvents.CargarFuerzaPiedra?.Invoke(); //Sound By Chelo :D
@@ -172,7 +170,7 @@ public class AtaquePersonaje : MonoBehaviour
         
         if (Input.GetButtonUp("Fire1"))
         {
-            animator.AtaquePiedra();
+            animator.TiraPiedra();
             //TirarPiedra();
         }
     }
@@ -263,18 +261,47 @@ public class AtaquePersonaje : MonoBehaviour
         //DesactivarMachete();
         //miAnimator.SetTrigger("atacar");
     }
-    public void ActivarMachete()
-    {
-        machete.Activar();
-        enAccion = true;
-    }
-    public void DesactivarMachete()
-    {
-        machete.Desactivar();
-        enAccion = false;
-    }
+    //public void ActivarMachete()
+    //{
+    //    machete.Activar();
+    //    enAccion = true;
+    //}
+    //public void DesactivarMachete()
+    //{
+    //    machete.Desactivar();
+    //    enAccion = false;
+    //}
     public bool GetAccion()
     {
         return enAccion;
+    }
+    public void SetArma(int nSel)
+    {
+        if (!enAccion)
+        {
+            seleccionArma = nSel;
+            switch (nSel)
+            {
+                case 0:
+                    SoundEvents.CambiarArmaMachete?.Invoke();
+                    break;
+                case 1:
+                    SoundEvents.CambiarArmaPiedra?.Invoke();
+                    break;
+                case 2:
+                    SoundEvents.RecogerArma?.Invoke();
+                    break;
+            }
+        }
+    }
+    public void IniciaAccion()
+    {
+        _player.IniciarDIalogo();
+        enAccion = true;
+    }
+    public void TerminarAccion()
+    {
+        _player.TerminarDialogo();
+        enAccion = false;
     }
 }
