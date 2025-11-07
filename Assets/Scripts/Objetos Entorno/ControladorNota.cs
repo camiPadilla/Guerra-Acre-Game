@@ -9,12 +9,19 @@ public class ControladorNota : ObjetoRecogible
     
     [SerializeField] bool tutorial;
     // Start is called before the first frame update
+    private void Start()
+    {
+        if (nota.obtenida)
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
     public void leer()
     {
         InventarioManager player = FindFirstObjectByType<InventarioManager>();
         if (!tutorial)
         {
-            //player.ActualizarNotas(nota.ID);
+            player.ActualizarNotas(nota.ID);
             ControladorEscena escena = FindFirstObjectByType<ControladorEscena>();
             escena.ObtenerNota(nota);
         }

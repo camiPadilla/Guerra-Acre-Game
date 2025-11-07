@@ -143,7 +143,7 @@ public void VolverMenu()
 
     public void CrearPart()
     {
-        masterGameManager?.NewGame();
+        masterGameManager.NewGame();
     }
     public void ObtenerNota(NotasSO nota)
     {
