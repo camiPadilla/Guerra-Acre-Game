@@ -34,5 +34,5 @@ public class ControladorNota : ObjetoRecogible
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
-    { SoundEvents.RecogerNota?.Invoke(); } //Sonido by Chelo :D
+    { SoundEvents.RecogerNota.Invoke(); } //Sonido by Chelo :D
 }

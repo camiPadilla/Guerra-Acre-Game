@@ -79,6 +79,7 @@ public class MasterGameManager : MonoBehaviour
     {
 
         menuPausa.SetActive(false);
+        GameManager.instancia.CerrarEstado();
     }
 
     private void ReferenciasPlayer()

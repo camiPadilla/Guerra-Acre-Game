@@ -4,6 +4,8 @@ using UnityEngine;
 public class EnemigoDisparo : Enemigo_IA
 {
     [Header("Disparo")]
+
+    [Header("Disparo")]
     [SerializeField] private GameObject balaPrefab;
     [SerializeField] private GameObject piedraPrefab;
     [SerializeField] private Transform puntoDisparoBala;
@@ -15,7 +17,7 @@ public class EnemigoDisparo : Enemigo_IA
     [SerializeField] private bool followPlayer = true;
 
     [Header("Fusil o Piedra")]
-    [SerializeField] private bool fusil; // true = fusil, false = piedra
+    [SerializeField] private bool fusil;
     private bool puedeDisparar = true;
 
     public override void Atacar()
@@ -36,26 +38,6 @@ public class EnemigoDisparo : Enemigo_IA
                 StartCoroutine(LanzarPiedra());
         }
     }
-
-    private IEnumerator DispararFusil()
-    {
-        puedeDisparar = false;
-
-        if (nroBalas > 0 && jugador != null)
-        {
-            GameObject bala = Instantiate(balaPrefab, puntoDisparoBala.position, Quaternion.identity);
-            BalaEnemigo b = bala.GetComponent<BalaEnemigo>();
-
-            if (b != null)
-                b.Inicializar(jugador);
-
-            nroBalas--;
-        }
-
-        yield return new WaitForSeconds(0.8f);
-        puedeDisparar = true;
-    }
-
     private IEnumerator LanzarPiedra()
     {
         puedeDisparar = false;
@@ -73,6 +55,21 @@ public class EnemigoDisparo : Enemigo_IA
         yield return new WaitForSeconds(1.2f);
         puedeDisparar = true;
     }
+    private IEnumerator DispararFusil()
+    {
+        puedeDisparar = false;
+
+        if (nroBalas > 0 && jugador != null)
+        {
+            GameObject bala = Instantiate(balaPrefab, puntoDisparoBala.position, Quaternion.identity);
+            BalaEnemigo b = bala.GetComponent<BalaEnemigo>();
+            if (b != null) b.Inicializar(jugador);
+            nroBalas--;
+        }
+
+        yield return new WaitForSeconds(0.8f);
+        puedeDisparar = true;
+    }
 
     private void Posicionarse(float distanciaJugador)
     {
@@ -80,8 +77,8 @@ public class EnemigoDisparo : Enemigo_IA
 
         if (Mathf.Abs(diferencia) > tolerancia)
         {
-            float direccion = Mathf.Sign(jugador.position.x - transform.position.x);
-            rbEnemigo.velocity = new Vector2(direccion * speed, rbEnemigo.velocity.y);
+            float dir = Mathf.Sign(jugador.position.x - transform.position.x);
+            rbEnemigo.velocity = new Vector2(dir * speed, rbEnemigo.velocity.y);
         }
         else
         {
