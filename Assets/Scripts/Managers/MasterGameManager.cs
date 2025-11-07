@@ -67,9 +67,14 @@ public class MasterGameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && GameManager.instancia != null)
         {
-            GameManager.instancia.CerrarEstado();
+            EsPa();
         }
 
+    }
+    public void EsPa()
+    {
+        Debug.Log("Pausando juego desde MasterGM");
+            GameManager.instancia.CerrarEstado();
     }
     public void PausarOtravez()
     {
@@ -79,7 +84,6 @@ public class MasterGameManager : MonoBehaviour
     {
 
         menuPausa.SetActive(false);
-        GameManager.instancia.CerrarEstado();
     }
 
     private void ReferenciasPlayer()

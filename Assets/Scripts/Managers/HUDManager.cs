@@ -145,12 +145,12 @@ public class HUDManager : MonoBehaviour
 
     public void ActualizarVida(int cantidadVidas)
     {
-        Debug.Log("se acutalizar� la vida");
+        Debug.Log("se acutalizara la vida");
         barraVida.sizeDelta = new Vector2(26.5f * cantidadVidas, barraVida.sizeDelta.y);
     }
     public void ActualizarArmadura(int cantidadArmadura)
     {
-        Debug.Log("se acutalizar� la armadura");
+        Debug.Log("se acutalizara la armadura");
         barraArmadura.sizeDelta = new Vector2(cantidadArmadura * 53, barraArmadura.sizeDelta.y);
     }
     public void ActualizarTotalBalas(int cantidadTotal)

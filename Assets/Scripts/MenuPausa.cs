@@ -141,13 +141,6 @@ public class MenuPausa : MonoBehaviour
             VolSFX.onValueChanged.AddListener(value => PlayerSettings.Instance.SetVolumenEfectos(value));
         }
     }
-    public void IrMenu()
-    {
-        MasterGameManager.instance.IrMenu();
-        Destroy(MenuInGame);
-        Destroy(this.gameObject);
-        
-    }
     public void Salir()
     {
         Application.Quit();

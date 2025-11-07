@@ -48,7 +48,8 @@ public class ControladorColeccionables : MonoBehaviour
                 }
                 else
                 {
-                    StartCoroutine("FadeOut", 1f);
+                  // StartCoroutine("FadeOut", 1f);
+                     Debug.Log("no tienes esta nota chaval");
                 }
             }
         }
