@@ -108,9 +108,9 @@ MonoBehaviour:
   patrullaje: 1
   rangoVision: 6
   vida: 3
-  speed: 4
-  maxRoamDistance: 6
+  disWy: 0
   estadoActual: 0
+  speed: 4
   jugador: {fileID: 0}
   currentWayPoint: 0
   balaPrefab: {fileID: 7865537734946505281, guid: 1d34b0816a73640318782a9f51214bd2, type: 3}
@@ -119,7 +119,7 @@ MonoBehaviour:
   puntoDisparoPiedra: {fileID: 6310594104619515041}
   nroBalas: 4
   nroPiedras: 5
-  distanciaOptima: 3
+  distanciaOptima: 5
   tolerancia: 1
   followPlayer: 1
   fusil: 0
