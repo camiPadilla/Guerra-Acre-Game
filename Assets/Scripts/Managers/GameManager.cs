@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
         switch (estadoActual.stateName)
         {
             case "Paused":
+                Debug.Log("estamos salienod de pausa");
                 CambiarDeEstado(0);
                 HUDManager.instancia.ReanudarPartida(3);
                 
@@ -125,7 +126,7 @@ public class GameManager : MonoBehaviour
                 
                 break;
             case "Playing":
-                
+                Debug.Log("estamos entrando a pasua");
                 HUDManager.instancia.Pausar();
                 CambiarDeEstado(1);
                 break;

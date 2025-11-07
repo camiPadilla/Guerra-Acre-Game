@@ -67,9 +67,14 @@ public class MasterGameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && GameManager.instancia != null)
         {
-            GameManager.instancia.CerrarEstado();
+            EsPa();
         }
 
+    }
+    public void EsPa()
+    {
+        Debug.Log("Pausando juego desde MasterGM");
+            GameManager.instancia.CerrarEstado();
     }
     public void PausarOtravez()
     {
@@ -79,7 +84,6 @@ public class MasterGameManager : MonoBehaviour
     {
 
         menuPausa.SetActive(false);
-        GameManager.instancia.CerrarEstado();
     }
 
     private void ReferenciasPlayer()
@@ -227,7 +231,7 @@ public class MasterGameManager : MonoBehaviour
     }
     public void IrMenu()
     {
-        loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
+        
 
         // Destruye objetos persistentes para limpiar
         Destroy(MenuPausa.instance.gameObject);
@@ -236,13 +240,15 @@ public class MasterGameManager : MonoBehaviour
         Destroy(gameObject);
         Destroy(loaderScene);
         Destroy(plape.gameObject);
-       // Destroy(loaderScene.gameObject);
+        //Destroy(loaderScene.gameObject);
         Destroy(menuInGame);
+        loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
     }
     public void AddNota(NotasSO notaNueva)
     {
         int indice = notaNueva.numeroNota;
         notasObtenidas[indice] = notaNueva;
+        notaNueva.SetObtenida(true);
     }
     public List<NotasSO> ObtenerNotas()
     {
