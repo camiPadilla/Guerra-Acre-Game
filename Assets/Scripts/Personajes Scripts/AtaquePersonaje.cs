@@ -30,7 +30,6 @@ public class AtaquePersonaje : MonoBehaviour
 
     [SerializeField] private PlayerAnimator animator;
     [SerializeField] private PlayerController _player;
-    [SerializeField] private Transform puntoTiro;
     // Start is called before the first frame update
     void Start()
     {
@@ -105,8 +104,7 @@ public class AtaquePersonaje : MonoBehaviour
     private void TirarPiedra()
     {
         Proyectil piedraActual = piedraCola.Dequeue();
-        Vector3 puntoIncial;// = new Vector3(transform.position.x,transform.position.y + 2,transform.position.z);
-        puntoIncial = puntoTiro.position;
+        Vector3 puntoIncial = new Vector3(transform.position.x,transform.position.y + 2,transform.position.z);
         piedraActual.Reposicionar(puntoIncial);
         
         piedraActual.ActivarProyectil();
@@ -144,7 +142,7 @@ public class AtaquePersonaje : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            //StartCoroutine(AtaqueMachete());
+            StartCoroutine(AtaqueMachete());
             _player.Detener();
             animator.AtaqueMacheteAn();
             SoundEvents.AtaqueMachete?.Invoke(); //Sound By Chelo :D
@@ -156,8 +154,6 @@ public class AtaquePersonaje : MonoBehaviour
         {
             fuerzatiro = 0;
             enAccion = true;
-            _player.Detener();
-            animator.AtaquePiedra();
             SoundEvents.CargarFuerzaPiedra?.Invoke(); //Sound By Chelo :D
         }
         if (Input.GetButton("Fire1"))
@@ -165,16 +161,11 @@ public class AtaquePersonaje : MonoBehaviour
             if (fuerzatiro <= fuerzaMaxima)
             {
                 fuerzatiro = fuerzatiro + fuerzaMaxima * Time.deltaTime;
-                animator.FuerzaY(fuerzatiro/ fuerzaMaxima, dirY);
             }
         }
         Vector3 puntoIncial = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         
-        if (Input.GetButtonUp("Fire1"))
-        {
-            animator.AtaquePiedra();
-            //TirarPiedra();
-        }
+        if (Input.GetButtonUp("Fire1")) TirarPiedra();
     }
     private void EntradaDisparo()
     {
