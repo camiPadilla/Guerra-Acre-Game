@@ -9,7 +9,6 @@ public class NotasSO : ScriptableObject
     public int numeroNota;
     public Sprite notaImagen;
     public bool obtenida;
-
     public void SetObtenida(bool estado)
     {
         obtenida = estado;
