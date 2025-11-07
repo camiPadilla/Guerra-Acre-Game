@@ -651,6 +651,10 @@ PrefabInstance:
       value: notas (6)
       objectReference: {fileID: 0}
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
+      propertyPath: nota
+      value: 
+      objectReference: {fileID: 11400000, guid: 407ed4be9d3bf884fa2f60585ded0055, type: 2}
+    - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: tutorial
       value: 0
       objectReference: {fileID: 0}
@@ -2888,11 +2892,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 164931981183998817, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 293202245056243971, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 506776101679286593, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_Name
       value: bone_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 696103115437785149, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 748769924345639038, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1115215175791560528, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2978,8 +2994,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2339717083712977590, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503291388326166756, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2631528179748365332, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2794934350128322938, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794934350128322938, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3233719566250359250, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3355473689126505831, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637773062534234711, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4184934546936084362, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
@@ -2989,6 +3033,10 @@ PrefabInstance:
     - target: {fileID: 4184934546936084362, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_MaskAlphaCutoff
       value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188441124528687147, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4319306849611441245, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3010,6 +3058,18 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.96833754
       objectReference: {fileID: 0}
+    - target: {fileID: 5299800905672100548, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5305210558658972411, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329074402133537651, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5940822216688145202, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3021,6 +3081,10 @@ PrefabInstance:
     - target: {fileID: 6102106470713832664, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.011599531
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136406836014933462, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6189389861266101540, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3041,6 +3105,38 @@ PrefabInstance:
     - target: {fileID: 6858022164490537355, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.07659662
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874135537868659273, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474453114665764332, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584707114987918727, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808440308307766408, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900940446524005687, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200688614269120167, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269935574607650652, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767274227354813061, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9176578848003674613, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4202,7 +4298,7 @@ PrefabInstance:
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: nota
       value: 
-      objectReference: {fileID: 11400000, guid: 182aee5891a2ec3499d55344f73cafce, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f55a9443a9f21645a63712a244474d3, type: 2}
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: mensajeNota
       value: Pulsa W / D para Moverte
@@ -7661,7 +7757,7 @@ PrefabInstance:
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: nota
       value: 
-      objectReference: {fileID: 11400000, guid: 63026fb4a7bed41479bc0a181b1f8ffc, type: 2}
+      objectReference: {fileID: 11400000, guid: 41f3c80f3740f804aabdceadc766c182, type: 2}
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: mensajeNota
       value: "Utiliza los n\xFAmeros para Cambiar de arma            \u201C2\u201D
@@ -9322,6 +9418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: notas (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
+      propertyPath: nota
+      value: 
+      objectReference: {fileID: 11400000, guid: 63026fb4a7bed41479bc0a181b1f8ffc, type: 2}
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: tutorial
       value: 0
@@ -11071,7 +11171,7 @@ PrefabInstance:
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: nota
       value: 
-      objectReference: {fileID: 11400000, guid: 8f55a9443a9f21645a63712a244474d3, type: 2}
+      objectReference: {fileID: 11400000, guid: 6674997bfaa4d2d479841681107dbc6c, type: 2}
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: mensajeNota
       value: Pulsa la barra espaciadora para Saltar
@@ -13535,6 +13635,10 @@ PrefabInstance:
       value: notas (8)
       objectReference: {fileID: 0}
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
+      propertyPath: nota
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: tutorial
       value: 1
       objectReference: {fileID: 0}
@@ -14118,6 +14222,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 407ed4be9d3bf884fa2f60585ded0055, type: 2}
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
+      propertyPath: tutorial
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: mensajeNota
       value: 'Coleccionable 4: Llegada al campamento'
       objectReference: {fileID: 0}
@@ -14476,7 +14584,7 @@ PrefabInstance:
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: nota
       value: 
-      objectReference: {fileID: 11400000, guid: 6674997bfaa4d2d479841681107dbc6c, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: tutorial
       value: 1
@@ -14547,6 +14655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: notas
       objectReference: {fileID: 0}
+    - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
+      propertyPath: nota
+      value: 
+      objectReference: {fileID: 11400000, guid: 182aee5891a2ec3499d55344f73cafce, type: 2}
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: tutorial
       value: 0
@@ -14776,6 +14888,10 @@ PrefabInstance:
       propertyPath: nota
       value: 
       objectReference: {fileID: 11400000, guid: 8f55a9443a9f21645a63712a244474d3, type: 2}
+    - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
+      propertyPath: tutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8900631698792098667, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
       propertyPath: mensajeNota
       value: "Existen objetos movibles, Mant\xE9n el Click derecho y muevete"
