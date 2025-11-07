@@ -114,10 +114,12 @@ namespace TarodevController
         public void IniciarDIalogo()
         {
             detenermiento = 0;
+            Debug.Log(detenermiento);
         }
         public void TerminarDialogo()
         {
             detenermiento = 1;
+            Debug.Log(detenermiento);
         }
 
         #region Collisions

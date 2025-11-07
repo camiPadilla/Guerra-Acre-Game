@@ -221,7 +221,17 @@ namespace TarodevController
         public void AtaqueMacheteAn()
         {
             newAnim.SetTrigger("ataqueMachete");
-            Debug.Log("Atacando");
+            //Debug.Log("Atacando");
+        }
+        public void AtaquePiedra()
+        {
+            newAnim.SetTrigger("ataquePiedra");
+        }
+        public void FuerzaY(float fuerza, float y)
+        {
+            newAnim.SetFloat("fuerzaTiro", fuerza);
+            newAnim.SetFloat("dirY", y);
+
         }
 
         // Hashes est�ticos para los par�metros del Animator (mejor performance)
