@@ -107,13 +107,20 @@ public class SaludPersonaje : MonoBehaviour
 
     IEnumerator Invulnerable()
     {
-        
+
         Debug.Log("el jugador es invulnerable");
         invulnerabilidad = true;
         yield return new WaitForSeconds(tiempoInvulnerable);
-        
+
         invulnerabilidad = false;
         Debug.Log("el jugador ya no es invulnerable");
+    }
+
+    public void DesactivarInvulnerabilidad()
+    {
+        StopCoroutine("Invulnerable");
+        invulnerabilidad = false;
+        
     }
     public void Curarse()
     {
@@ -150,10 +157,10 @@ public class SaludPersonaje : MonoBehaviour
         }
         else
         {
-            // Si no hay checkpoint, usa la posición inicial del personaje
+            // Si no hay checkpoint, usa la posiciï¿½n inicial del personaje
             Debug.LogWarning("No hay checkpoint asignado, regresando al punto inicial.");
 
-            // Puedes guardar la posición inicial al comenzar
+            // Puedes guardar la posiciï¿½n inicial al comenzar
             transform.position = posicionInicial;
         }
     }

@@ -1795,7 +1795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &149045673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7365,8 +7365,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.599968, y: -26.5}
-  m_SizeDelta: {x: 14.3634, y: 22.6187}
+  m_AnchoredPosition: {x: -0.37705, y: -25.9}
+  m_SizeDelta: {x: 39.2856, y: 22.6187}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682967303
 MonoBehaviour:
@@ -17158,9 +17158,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3145790120639206159, guid: b96165a60c36f4c939b61c170825572c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145790120639206159, guid: b96165a60c36f4c939b61c170825572c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145790120639206159, guid: b96165a60c36f4c939b61c170825572c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1902958251}
+    - target: {fileID: 3145790120639206159, guid: b96165a60c36f4c939b61c170825572c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 231857180}
+    - target: {fileID: 3145790120639206159, guid: b96165a60c36f4c939b61c170825572c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145790120639206159, guid: b96165a60c36f4c939b61c170825572c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Respawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145790120639206159, guid: b96165a60c36f4c939b61c170825572c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: SaludPersonaje, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145790120639206159, guid: b96165a60c36f4c939b61c170825572c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3601050119770064730, guid: b96165a60c36f4c939b61c170825572c, type: 3}
       propertyPath: m_SizeDelta.x
       value: 246.2326
