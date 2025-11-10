@@ -248,7 +248,7 @@ public class MasterGameManager : MonoBehaviour
     {
         int indice = notaNueva.numeroNota;
         notasObtenidas[indice] = notaNueva;
-        notaNueva.SetObtenida(true);
+        //notaNueva.SetObtenida(true);
     }
     public List<NotasSO> ObtenerNotas()
     {
