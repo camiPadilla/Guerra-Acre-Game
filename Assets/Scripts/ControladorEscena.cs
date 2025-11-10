@@ -26,11 +26,16 @@ public class ControladorEscena : MonoBehaviour
     [SerializeField] GameObject HUD;
     [SerializeField] HUDManager hudManager;
 
-    [Header("UI Textos")]
+    [Header("UI Textos pantalla fin")]
     public TMP_Text textVidas;
     public TMP_Text textNot;
     public TMP_Text textBalas;
     public TMP_Text textEnemigos;
+
+    [Header("UI Textos pantalla muerte")]
+    public TMP_Text textNotM;
+    public TMP_Text textBalasM;
+    public TMP_Text textEnemigosM;
 
     [Header("Checkpoints")]
     public int ChPoint;
@@ -78,10 +83,26 @@ public void Awake()
     private void ActualizarHUD()
     {
         //if (vidas != null) HUDManager.instancia.ActualizarVida(vidas.vidasJugador);
-        if (vidas != null) textVidas.text = vidas.vidasJugador.ToString();
-        if (cantidadNotas != null) textNot.text = cantidadNotas.cantNotas.ToString();
-        if (balas != null) textBalas.text = balas.GettotalBalas().ToString();
-        if (gameManager != null) textEnemigos.text = gameManager.enemigosMuertos.ToString();
+        if (vidas != null) 
+        { 
+            textVidas.text = vidas.vidasJugador.ToString();
+        }
+        if (cantidadNotas != null)
+        { 
+            textNot.text = cantidadNotas.cantNotas.ToString();
+            textNotM.text = cantidadNotas.cantNotas.ToString();
+        }
+        if (balas != null) 
+        {
+            textBalasM.text = balas.GettotalBalas().ToString();
+            textBalas.text = balas.GettotalBalas().ToString();
+        }
+        if (gameManager != null) 
+        { 
+            textEnemigosM.text = gameManager.enemigosMuertos.ToString();
+            textEnemigos.text = gameManager.enemigosMuertos.ToString();
+        }
+        
     }
 
     public void SiguienteNivel()
