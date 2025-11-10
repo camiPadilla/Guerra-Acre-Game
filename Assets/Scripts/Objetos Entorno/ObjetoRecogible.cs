@@ -31,7 +31,7 @@ public class ObjetoRecogible : MonoBehaviour
                 else if (nombreObjeto == "nota")
                 {
 
-                    SendMessage("leer");
+                    SendMessage("Leer");
                     
                 }
                 else

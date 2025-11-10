@@ -16,7 +16,7 @@ public class ControladorNota : ObjetoRecogible
             this.gameObject.SetActive(false);
         }
     }
-    public void leer()
+    public void Leer()
     {
         InventarioManager player = FindFirstObjectByType<InventarioManager>();
         if (!tutorial)

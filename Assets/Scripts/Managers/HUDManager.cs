@@ -176,6 +176,13 @@ public class HUDManager : MonoBehaviour
         ActualizarTotalBalas(0);
 
     }
+    void LateUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            pantallaBienvenida.SetActive(false);
+        }
+    }
     public void Bienvenido()
     {
         StartCoroutine(DarBienvenida());
