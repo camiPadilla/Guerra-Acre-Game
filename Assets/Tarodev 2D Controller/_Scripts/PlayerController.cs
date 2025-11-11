@@ -13,12 +13,12 @@ namespace TarodevController
         [SerializeField] private ScriptableStats _stats; // Configuración de estadísticas del jugador
         private Rigidbody2D _rb; // Componente Rigidbody2D para física
         private CapsuleCollider2D _col; // Collider para detección de colisiones
-        private FrameInput _frameInput; // Input capturado en el frame actual
+        public FrameInput _frameInput; // Input capturado en el frame actual
         private Vector2 _frameVelocity; // Velocidad calculada para el frame
         private bool _cachedQueryStartInColliders; // Cache para configuración de Physics2D
         [SerializeField] private float reduccion;
         private bool forzarAgachado;
-        private float detenermiento = 1;
+        private float detenenimiento;
 
         //Added by Chelo .D
         private bool caminando;
@@ -42,6 +42,7 @@ namespace TarodevController
             // Obtener referencias a los componentes
             _rb = GetComponent<Rigidbody2D>();
             _col = GetComponent<CapsuleCollider2D>();
+            detenenimiento = 1;
 
             // Cachear configuración de Physics2D para restaurarla después
             _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
@@ -65,14 +66,15 @@ namespace TarodevController
                 JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.C), // Salto presionado en este frame
                 JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.C), // Salto mantenido
                 Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")), // Input de movimiento
-                agachado = Input.GetKey(KeyCode.LeftControl) || forzarAgachado
+                //agachado = Input.GetKey(KeyCode.LeftControl) || forzarAgachado
+                agachado = (Input.GetAxisRaw("Vertical") < -0.3f) || forzarAgachado
             };
 
             // Aplicar deadzone y snapping si está habilitado
             if (_stats.SnapInput)
             {
-                _frameInput.Move.x = Mathf.Abs(_frameInput.Move.x* detenermiento) < _stats.HorizontalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.x);
-                _frameInput.Move.y = Mathf.Abs(_frameInput.Move.y* detenermiento) < _stats.VerticalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.y);
+                _frameInput.Move.x = Mathf.Abs(_frameInput.Move.x* detenenimiento) < _stats.HorizontalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.x);
+                _frameInput.Move.y = Mathf.Abs(_frameInput.Move.y) < _stats.VerticalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.y);
             }
 
             // Manejar input de salto para buffer de salto
@@ -113,13 +115,11 @@ namespace TarodevController
         }
         public void IniciarDIalogo()
         {
-            detenermiento = 0;
-            Debug.Log(detenermiento);
+            detenenimiento = 0;
         }
         public void TerminarDialogo()
         {
-            detenermiento = 1;
-            Debug.Log(detenermiento);
+            detenenimiento = 1;
         }
 
         #region Collisions

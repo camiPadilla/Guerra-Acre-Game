@@ -33,6 +33,7 @@ public class AtaquePersonaje : MonoBehaviour
     void Start()
     {
         InstanciarProyectiles();
+        _player = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -42,18 +43,20 @@ public class AtaquePersonaje : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha2)) { SetArma(1); }
                 if (Input.GetKeyDown(KeyCode.Alpha3) && conArma) { SetArma(2); }
         HUDManager.instancia.ActualizarArma(seleccionArma);
-        if (Input.GetAxis("Horizontal") >= 0.1f)
+        
+        if (_player._frameInput.Move.x >= 0.1f)
         {
             dirX = 1;
         }
-        else if(Input.GetAxis("Horizontal") <= -0.1f)
+        else if(_player._frameInput.Move.x <= -0.1f)
         {
             dirX = -1;
         }
-        if (Input.GetAxis("Vertical") != 0)
+        dirY = _player._frameInput.Move.y;
+        if (dirY!=0)
         {
-            dirY = Input.GetAxis("Vertical");
-        } else dirY = 0;
+            animator.DirY(dirY);
+        }
         if (enAccion)
         {
             miRigid.velocity = Vector2.zero;
@@ -144,6 +147,7 @@ public class AtaquePersonaje : MonoBehaviour
         {
             //StartCoroutine(AtaqueMachete());
             _player.Detener();
+            IniciaAccion();
             animator.AtaqueMacheteAn();
             SoundEvents.AtaqueMachete?.Invoke(); //Sound By Chelo :D
         }
@@ -154,6 +158,7 @@ public class AtaquePersonaje : MonoBehaviour
         {
             fuerzatiro = 0;
             //enAccion = true;
+            IniciaAccion();
             _player.Detener();
             animator.AtaquePiedra();
             SoundEvents.CargarFuerzaPiedra?.Invoke(); //Sound By Chelo :D
@@ -163,7 +168,8 @@ public class AtaquePersonaje : MonoBehaviour
             if (fuerzatiro <= fuerzaMaxima)
             {
                 fuerzatiro = fuerzatiro + fuerzaMaxima * Time.deltaTime;
-                animator.FuerzaY(fuerzatiro/ fuerzaMaxima, dirY);
+                float fuerzaRel = 0;
+                animator.FuerzaY(fuerzatiro/ fuerzaMaxima);
             }
         }
         Vector3 puntoIncial = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
