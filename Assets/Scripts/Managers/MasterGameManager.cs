@@ -48,16 +48,17 @@ public class MasterGameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        if (loaderScene == null)
-        {
-            loaderScene = FindObjectOfType<LoaderScene>();
-        }
-        
+
+
         instance = this;
         DontDestroyOnLoad(gameObject);
 
         ReferenciasPlayer();
         SceneManager.sceneLoaded += OnLoadScene;
+    }
+    void OnsceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ReferenciasPlayer();
     }
     public void AsignarMenuPausa(GameObject menu)
     {
@@ -91,6 +92,7 @@ public class MasterGameManager : MonoBehaviour
         playerSalud = FindObjectOfType<SaludPersonaje>();
         playerAtaque = FindObjectOfType<AtaquePersonaje>();
         playerController = FindObjectOfType<PlayerController>();
+
     }
 
     public void SetSlot(int slot)
@@ -126,7 +128,11 @@ public class MasterGameManager : MonoBehaviour
             menuPausa.SetActive(false);
         }
 
-        LoadGame(); 
+        LoadGame();
+        if (loaderScene == null)
+        {
+            loaderScene = FindObjectOfType<LoaderScene>();
+        } 
     }
 
     public void ActivarCheckPoint(int index)
@@ -232,17 +238,16 @@ public class MasterGameManager : MonoBehaviour
     public void IrMenu()
     {
         
-
+        loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
         // Destruye objetos persistentes para limpiar
         Destroy(MenuPausa.instance.gameObject);
         Destroy(HUDManager.instancia.gameObject);
         //Destroy(MenuInGame);
-        Destroy(gameObject);
-        Destroy(loaderScene);
+        //Destroy(gameObject);
         Destroy(plape.gameObject);
         //Destroy(loaderScene.gameObject);
         Destroy(menuInGame);
-        loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
+        
     }
     public void AddNota(NotasSO notaNueva)
     {
@@ -253,5 +258,9 @@ public class MasterGameManager : MonoBehaviour
     public List<NotasSO> ObtenerNotas()
     {
         return notasObtenidas;
+    }
+    public void OnloadScene()
+    {
+        
     }
 }

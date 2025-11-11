@@ -2,9 +2,7 @@ using PantallaCarga;
 using System.Collections;
 using TarodevController;
 using TMPro;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ControladorEscena : MonoBehaviour
 {
