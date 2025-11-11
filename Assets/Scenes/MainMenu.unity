@@ -5103,6 +5103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 287030857}
   - component: {fileID: 287030858}
+  - component: {fileID: 287030859}
   m_Layer: 0
   m_Name: MasterGameManager
   m_TagString: Untagged
@@ -5165,6 +5166,39 @@ MonoBehaviour:
   menuPausa: {fileID: 504672688}
   plape: {fileID: 1084748936}
   currentSlot: 1
+--- !u!114 &287030859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287030856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f48d0e790afcc14f9eb4f480afafe96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 0}
+  _event: {fileID: 11400000, guid: c01f44c7a3ce4ce4d89b65c1478758be, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 0d6e57ccb75c94fb6895f1f142e4382d, type: 2}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _debugValue: {fileID: 0}
 --- !u!1 &292333976
 GameObject:
   m_ObjectHideFlags: 0

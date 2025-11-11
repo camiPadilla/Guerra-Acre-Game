@@ -8919,9 +8919,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1931699567922482247, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1902958251}
+    - target: {fileID: 1931699567922482247, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Salir
+      objectReference: {fileID: 0}
     - target: {fileID: 2154308438328821010, guid: 546247c2790684210833a6a76ada84f8, type: 3}
       propertyPath: m_Name
       value: HUD Gameplay Padre v10.0 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939289208983744796, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1902958251}
+    - target: {fileID: 2939289208983744796, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: VolverMenu
       objectReference: {fileID: 0}
     - target: {fileID: 4628179695636761866, guid: 546247c2790684210833a6a76ada84f8, type: 3}
       propertyPath: m_Pivot.x
@@ -9002,6 +9018,26 @@ PrefabInstance:
     - target: {fileID: 4628179695636761866, guid: 546247c2790684210833a6a76ada84f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7537180148407002955, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7537180148407002955, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1902958251}
+    - target: {fileID: 7537180148407002955, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1680953895}
+    - target: {fileID: 7537180148407002955, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReiniciarNivel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7537180148407002955, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13119,6 +13155,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+--- !u!1 &1680953895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8118848952440042193, guid: a4eddfe0a462858478d5c2a7a87f87aa, type: 3}
+  m_PrefabInstance: {fileID: 1680953894}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1687070390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 206466102427302471, guid: 8a89918618155ce4499763482f7264a9, type: 3}
