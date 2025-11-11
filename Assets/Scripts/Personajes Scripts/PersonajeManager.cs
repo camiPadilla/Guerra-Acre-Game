@@ -15,7 +15,7 @@ public class PersonajeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scriptAtaque.SetDireccion(scriptMovimiento.GetDireccionX(), scriptMovimiento.GetDireccionY());
+        //scriptAtaque.SetDireccion(scriptMovimiento.GetDireccionX(), scriptMovimiento.GetDireccionY());
         scriptMovimiento.SetAccion(scriptAtaque.GetAccion());
     }
 }

@@ -66,6 +66,7 @@ namespace TarodevController
                 JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.C), // Salto presionado en este frame
                 JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.C), // Salto mantenido
                 Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")), // Input de movimiento
+                
                 //agachado = Input.GetKey(KeyCode.LeftControl) || forzarAgachado
                 agachado = (Input.GetAxisRaw("Vertical") < -0.3f) || forzarAgachado
             };
@@ -74,7 +75,8 @@ namespace TarodevController
             if (_stats.SnapInput)
             {
                 _frameInput.Move.x = Mathf.Abs(_frameInput.Move.x* detenenimiento) < _stats.HorizontalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.x);
-                _frameInput.Move.y = Mathf.Abs(_frameInput.Move.y) < _stats.VerticalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.y);
+                //_frameInput.Move.y = Mathf.Abs(_frameInput.Move.y) < _stats.VerticalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.y);
+                _frameInput.Move.y = Mathf.Abs(_frameInput.Move.y) < _stats.VerticalDeadZoneThreshold ? 0 : _frameInput.Move.y;
             }
 
             // Manejar input de salto para buffer de salto
@@ -120,6 +122,10 @@ namespace TarodevController
         public void TerminarDialogo()
         {
             detenenimiento = 1;
+        }
+        public float GetdirY()
+        {
+            return _frameInput.Move.y;
         }
 
         #region Collisions
@@ -345,4 +351,5 @@ namespace TarodevController
         public Vector2 FrameInput { get; }
         public bool agachado { get; }
     }
+
 }

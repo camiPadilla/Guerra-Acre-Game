@@ -52,7 +52,8 @@ public class AtaquePersonaje : MonoBehaviour
         {
             dirX = -1;
         }
-        dirY = _player._frameInput.Move.y;
+        dirY = _player.GetdirY();
+        Debug.Log(_player.GetdirY());
         if (dirY!=0)
         {
             animator.DirY(dirY);
@@ -97,12 +98,7 @@ public class AtaquePersonaje : MonoBehaviour
 
         return total;
     }
-    public void SetDireccion(int NdirX, float NdirY)
-    {
-        dirX = NdirX;
-        dirY = NdirY;
 
-    }
     private void TirarPiedra()
     {
         Proyectil piedraActual = piedraCola.Dequeue();
@@ -168,11 +164,12 @@ public class AtaquePersonaje : MonoBehaviour
             if (fuerzatiro <= fuerzaMaxima)
             {
                 fuerzatiro = fuerzatiro + fuerzaMaxima * Time.deltaTime;
-                float fuerzaRel = 0;
-                animator.FuerzaY(fuerzatiro/ fuerzaMaxima);
+                float fuerzaRel = ((fuerzatiro / fuerzaMaxima)*2 - 1);
+                //Debug.Log(fuerzaRel);
+                animator.FuerzaY(fuerzaRel);
             }
         }
-        Vector3 puntoIncial = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+        //Vector3 puntoIncial = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         
         if (Input.GetButtonUp("Fire1"))
         {
