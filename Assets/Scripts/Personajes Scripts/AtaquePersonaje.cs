@@ -29,12 +29,10 @@ public class AtaquePersonaje : MonoBehaviour
     [SerializeField] private PlayerAnimator animator;
     [SerializeField] private PlayerController _player;
     [SerializeField] private Transform puntoTiro;
-    private bool recibirAltura;
     // Start is called before the first frame update
     void Start()
     {
         InstanciarProyectiles();
-        _player = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -42,32 +40,25 @@ public class AtaquePersonaje : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) { SetArma(0); }
             if (Input.GetKeyDown(KeyCode.Alpha2)) { SetArma(1); }
-                if (Input.GetKeyDown(KeyCode.Alpha3) && conArma) { SetArma(2); }
-        HUDManager.instancia.ActualizarArma(seleccionArma);
+        if (Input.GetKeyDown(KeyCode.Alpha3) && conArma) { SetArma(2); }
+        if (HUDManager.instancia != null)
+        {
+            HUDManager.instancia.ActualizarArma(seleccionArma);
+        }
         
-        if (_player._frameInput.Move.x >= 0.1f)
+        if (Input.GetAxis("Horizontal") >= 0.1f)
         {
             dirX = 1;
         }
-        else if(_player._frameInput.Move.x <= -0.1f)
+        else if(Input.GetAxis("Horizontal") <= -0.1f)
         {
             dirX = -1;
         }
-        if (recibirAltura)
+        if (Input.GetAxis("Vertical") != 0)
         {
-            dirY = _player.GetdirY();
-            animator.DirY(dirY);
-        }
-        else
-        {
-            if (dirY > 0.4f) dirY = 1;
-            else if (dirY < -0.4f)
-            {
-                dirY = -1;
-                _player.SetAgachado(true);
-            }
-        }
-            if (enAccion)
+            dirY = Input.GetAxis("Vertical");
+        } else dirY = 0;
+        if (enAccion)
         {
             miRigid.velocity = Vector2.zero;
         }
@@ -107,7 +98,12 @@ public class AtaquePersonaje : MonoBehaviour
 
         return total;
     }
+    public void SetDireccion(int NdirX, float NdirY)
+    {
+        dirX = NdirX;
+        dirY = NdirY;
 
+    }
     private void TirarPiedra()
     {
         Proyectil piedraActual = piedraCola.Dequeue();
@@ -152,7 +148,6 @@ public class AtaquePersonaje : MonoBehaviour
         {
             //StartCoroutine(AtaqueMachete());
             _player.Detener();
-            IniciaAccion();
             animator.AtaqueMacheteAn();
             SoundEvents.AtaqueMachete?.Invoke(); //Sound By Chelo :D
         }
@@ -163,7 +158,6 @@ public class AtaquePersonaje : MonoBehaviour
         {
             fuerzatiro = 0;
             //enAccion = true;
-            IniciaAccion();
             _player.Detener();
             animator.AtaquePiedra();
             SoundEvents.CargarFuerzaPiedra?.Invoke(); //Sound By Chelo :D
@@ -173,17 +167,14 @@ public class AtaquePersonaje : MonoBehaviour
             if (fuerzatiro <= fuerzaMaxima)
             {
                 fuerzatiro = fuerzatiro + fuerzaMaxima * Time.deltaTime;
-                float fuerzaRel = ((fuerzatiro / fuerzaMaxima)*2 - 1);
-                //Debug.Log(fuerzaRel);
-                animator.FuerzaY(fuerzaRel);
+                animator.FuerzaY(fuerzatiro/ fuerzaMaxima, dirY);
             }
         }
-        //Vector3 puntoIncial = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+        Vector3 puntoIncial = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         
         if (Input.GetButtonUp("Fire1"))
         {
             animator.TiraPiedra();
-            recibirAltura = false;
             //TirarPiedra();
         }
     }
@@ -315,14 +306,6 @@ public class AtaquePersonaje : MonoBehaviour
     public void TerminarAccion()
     {
         _player.TerminarDialogo();
-        recibirAltura = true;
-        StartCoroutine(Retraso(0.1f));
         enAccion = false;
-    }
-    public IEnumerator Retraso(float sec)
-    {
-        yield return new WaitForSeconds(sec);
-        _player.SetAgachado(false);
-
     }
 }
