@@ -65,7 +65,7 @@ namespace TarodevController
             {
                 JumpDown = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.C), // Salto presionado en este frame
                 JumpHeld = Input.GetButton("Jump") || Input.GetKey(KeyCode.C), // Salto mantenido
-                Move = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")), // Input de movimiento
+                Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxis("Vertical")), // Input de movimiento
                 
                 //agachado = Input.GetKey(KeyCode.LeftControl) || forzarAgachado
                 agachado = (Input.GetAxisRaw("Vertical") < -0.3f) || forzarAgachado
