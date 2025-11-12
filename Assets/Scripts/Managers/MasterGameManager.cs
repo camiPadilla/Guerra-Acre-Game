@@ -74,7 +74,7 @@ public class MasterGameManager : MonoBehaviour
     }
     public void EsPa()
     {
-        Debug.Log("Pausando juego desde MasterGM");
+            Debug.Log("Pausando juego desde MasterGM");
             GameManager.instancia.CerrarEstado();
     }
     public void PausarOtravez()

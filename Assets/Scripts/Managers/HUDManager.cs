@@ -74,7 +74,7 @@ public class HUDManager : MonoBehaviour
     {
         SoundEvents.RecogerArma.Invoke(); //Sonido by Chelo :D
         Debug.Log("hola activando arma");
-        armas[2].GetComponent<UnityEngine.UI.Image>().sprite = imagenArmas[1];
+        //armas[2].GetComponent<UnityEngine.UI.Image>().sprite = imagenArmas[1];
 
     }
     public void AumentarBalas(Vector2 posicion)
@@ -115,8 +115,8 @@ public class HUDManager : MonoBehaviour
     }
     public void ActualizarArma(int armaActiva)
     {
-
-        foreach (GameObject arma in armas)
+        armas[0].GetComponent<UnityEngine.UI.Image>().sprite = imagenArmas[armaActiva];
+       /* foreach (GameObject arma in armas)
         {
             Image imagenArma = arma.GetComponent<Image>();
             RectTransform tranformArma = arma.GetComponent<RectTransform>();
@@ -140,18 +140,18 @@ public class HUDManager : MonoBehaviour
                 tranformArma.anchoredPosition = new Vector2(0, tranformArma.anchoredPosition.y);
                 imagenArma.color = Color.gray;
             }
-        }
+        } */
     }
 
     public void ActualizarVida(int cantidadVidas)
     {
         Debug.Log("se acutalizara la vida");
-        barraVida.sizeDelta = new Vector2(26.5f * cantidadVidas, barraVida.sizeDelta.y);
+        barraVida.sizeDelta = new Vector2(25f * cantidadVidas, barraVida.sizeDelta.y);
     }
     public void ActualizarArmadura(int cantidadArmadura)
     {
         Debug.Log("se acutalizara la armadura");
-        barraArmadura.sizeDelta = new Vector2(cantidadArmadura * 53, barraArmadura.sizeDelta.y);
+        barraArmadura.sizeDelta = new Vector2(cantidadArmadura * 35f, barraArmadura.sizeDelta.y);
     }
     public void ActualizarTotalBalas(int cantidadTotal)
     {
