@@ -107,6 +107,7 @@ public class MasterGameManager : MonoBehaviour
 
         if (scene.name == "MainMenu")
         {
+            loaderScene = FindObjectOfType<LoaderScene>();
             menuInGame.SetActive(false);
             Debug.Log("Estas en el Main Menu");
             return;
@@ -129,10 +130,6 @@ public class MasterGameManager : MonoBehaviour
         }
 
         LoadGame();
-        if (loaderScene == null)
-        {
-            loaderScene = FindObjectOfType<LoaderScene>();
-        } 
     }
 
     public void ActivarCheckPoint(int index)
