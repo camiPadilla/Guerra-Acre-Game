@@ -40,8 +40,12 @@ public class AtaquePersonaje : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) { SetArma(0); }
             if (Input.GetKeyDown(KeyCode.Alpha2)) { SetArma(1); }
-                if (Input.GetKeyDown(KeyCode.Alpha3) && conArma) { SetArma(2); }
-        HUDManager.instancia.ActualizarArma(seleccionArma);
+        if (Input.GetKeyDown(KeyCode.Alpha3) && conArma) { SetArma(2); }
+        if (HUDManager.instancia != null)
+        {
+            HUDManager.instancia.ActualizarArma(seleccionArma);
+        }
+        
         if (Input.GetAxis("Horizontal") >= 0.1f)
         {
             dirX = 1;

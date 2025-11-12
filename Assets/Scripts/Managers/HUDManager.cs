@@ -115,6 +115,7 @@ public class HUDManager : MonoBehaviour
     }
     public void ActualizarArma(int armaActiva)
     {
+        if (this.gameObject != null)
         armas[0].GetComponent<UnityEngine.UI.Image>().sprite = imagenArmas[armaActiva];
        /* foreach (GameObject arma in armas)
         {
