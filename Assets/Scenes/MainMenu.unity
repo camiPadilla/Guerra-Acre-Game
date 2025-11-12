@@ -2932,12 +2932,12 @@ GameObject:
   - component: {fileID: 180011670}
   - component: {fileID: 180011669}
   m_Layer: 0
-  m_Name: CanvasMenu
+  m_Name: CanvasMenuPause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &180011668
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5162,8 +5162,8 @@ MonoBehaviour:
   lastCP: 0
   AcPoint: 0
   currentLevel: 1
-  menuInGame: {fileID: 180011667}
-  menuPausa: {fileID: 504672688}
+  menuInGame: {fileID: 0}
+  menuPausa: {fileID: 0}
   plape: {fileID: 1084748936}
   currentSlot: 1
 --- !u!114 &287030859
@@ -24706,7 +24706,7 @@ GameObject:
   - component: {fileID: 1263738914}
   - component: {fileID: 1263738911}
   m_Layer: 0
-  m_Name: PantallaPausa
+  m_Name: PantallaPausaScript
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
