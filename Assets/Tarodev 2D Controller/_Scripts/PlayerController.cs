@@ -18,7 +18,7 @@ namespace TarodevController
         private bool _cachedQueryStartInColliders; // Cache para configuración de Physics2D
         [SerializeField] private float reduccion;
         private bool forzarAgachado;
-        private float detenenimiento;
+        private float detenimiento;
 
         //Added by Chelo .D
         private bool caminando;
@@ -42,7 +42,7 @@ namespace TarodevController
             // Obtener referencias a los componentes
             _rb = GetComponent<Rigidbody2D>();
             _col = GetComponent<CapsuleCollider2D>();
-            detenenimiento = 1;
+            detenimiento = 1;
 
             // Cachear configuración de Physics2D para restaurarla después
             _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
@@ -74,7 +74,7 @@ namespace TarodevController
             // Aplicar deadzone y snapping si está habilitado
             if (_stats.SnapInput)
             {
-                _frameInput.Move.x = Mathf.Abs(_frameInput.Move.x* detenenimiento) < _stats.HorizontalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.x);
+                _frameInput.Move.x = Mathf.Abs(_frameInput.Move.x* detenimiento) < _stats.HorizontalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.x);
                 //_frameInput.Move.y = Mathf.Abs(_frameInput.Move.y) < _stats.VerticalDeadZoneThreshold ? 0 : Mathf.Sign(_frameInput.Move.y);
                 _frameInput.Move.y = Mathf.Abs(_frameInput.Move.y) < _stats.VerticalDeadZoneThreshold ? 0 : _frameInput.Move.y;
                 //Debug.Log(_frameInput.Move.y);
@@ -112,21 +112,25 @@ namespace TarodevController
         }
         public void Detener()
         {
-            Debug.Log("estoy tieso");
+            //Debug.Log("estoy tieso");
             _rb.velocity = Vector3.zero;
             _frameInput.Move.x = 0;
         }
         public void IniciarDIalogo()
         {
-            detenenimiento = 0;
+            detenimiento = 0;
         }
         public void TerminarDialogo()
         {
-            detenenimiento = 1;
+            detenimiento = 1;
         }
         public float GetdirY()
         {
             return _frameInput.Move.y;
+        }
+        public bool GetForzarAgachado()
+        {
+            return forzarAgachado;
         }
         public void SetAgachado(bool nuevo)
         {
