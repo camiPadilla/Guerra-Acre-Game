@@ -58,6 +58,7 @@ public class AtaquePersonaje : MonoBehaviour
             dirY = _player.GetdirY();
             animator.DirY(dirY);
         }
+        if (_player.GetForzarAgachado()) { dirY = -1; animator.DirY(dirY); }
         else
         {
             if (dirY > 0.4f) dirY = 1;
@@ -316,7 +317,8 @@ public class AtaquePersonaje : MonoBehaviour
     {
         _player.TerminarDialogo();
         recibirAltura = true;
-        StartCoroutine(Retraso(0.1f));
+        _player.SetAgachado(false);
+        //StartCoroutine(Retraso(0.1f));
         enAccion = false;
     }
     public IEnumerator Retraso(float sec)
