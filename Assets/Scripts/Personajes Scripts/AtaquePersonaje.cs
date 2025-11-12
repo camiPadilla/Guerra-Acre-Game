@@ -29,6 +29,7 @@ public class AtaquePersonaje : MonoBehaviour
     [SerializeField] private PlayerAnimator animator;
     [SerializeField] private PlayerController _player;
     [SerializeField] private Transform puntoTiro;
+    private bool recibirAltura;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,13 +53,21 @@ public class AtaquePersonaje : MonoBehaviour
         {
             dirX = -1;
         }
-        dirY = _player.GetdirY();
-        Debug.Log(_player.GetdirY());
-        if (dirY!=0)
+        if (recibirAltura)
         {
+            dirY = _player.GetdirY();
             animator.DirY(dirY);
         }
-        if (enAccion)
+        else
+        {
+            if (dirY > 0.4f) dirY = 1;
+            else if (dirY < -0.4f)
+            {
+                dirY = -1;
+                _player.SetAgachado(true);
+            }
+        }
+            if (enAccion)
         {
             miRigid.velocity = Vector2.zero;
         }
@@ -174,6 +183,7 @@ public class AtaquePersonaje : MonoBehaviour
         if (Input.GetButtonUp("Fire1"))
         {
             animator.TiraPiedra();
+            recibirAltura = false;
             //TirarPiedra();
         }
     }
@@ -305,6 +315,14 @@ public class AtaquePersonaje : MonoBehaviour
     public void TerminarAccion()
     {
         _player.TerminarDialogo();
+        recibirAltura = true;
+        StartCoroutine(Retraso(0.1f));
         enAccion = false;
+    }
+    public IEnumerator Retraso(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        _player.SetAgachado(false);
+
     }
 }
