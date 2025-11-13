@@ -3088,6 +3088,10 @@ PrefabInstance:
       value: -0.0058093066
       objectReference: {fileID: 0}
     - target: {fileID: 1500572859588607906, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: ultimoCheckPoint
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500572859588607906, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: boxColliderHerido
       value: 
       objectReference: {fileID: 382072732}
@@ -8606,9 +8610,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 501004042687234675, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 112.900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 501004042687234675, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25.487976
+      objectReference: {fileID: 0}
+    - target: {fileID: 733121871535210975, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490291118741920238, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 112.900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490291118741920238, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25.488037
+      objectReference: {fileID: 0}
     - target: {fileID: 2154308438328821010, guid: 546247c2790684210833a6a76ada84f8, type: 3}
       propertyPath: m_Name
       value: HUD Gameplay Padre v10.0 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230973861990819329, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -12.402466
       objectReference: {fileID: 0}
     - target: {fileID: 4628179695636761866, guid: 546247c2790684210833a6a76ada84f8, type: 3}
       propertyPath: m_Pivot.x
@@ -8698,6 +8726,14 @@ PrefabInstance:
       propertyPath: padreInteraccion
       value: 
       objectReference: {fileID: 87655308}
+    - target: {fileID: 7537180148407002955, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 231857180}
+    - target: {fileID: 7537180148407002955, guid: 546247c2790684210833a6a76ada84f8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Respawn
+      objectReference: {fileID: 0}
     - target: {fileID: 8187493790934351346, guid: 546247c2790684210833a6a76ada84f8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -11999,6 +12035,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3723244909631379704, guid: 66bc2c7b052c8ae42bde7a41e390a545, type: 3}
   m_PrefabInstance: {fileID: 2024277352}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1519299437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1519299438}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1519299438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519299437}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.37, y: -2.82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1555144854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16611,6 +16678,7 @@ SceneRoots:
   - {fileID: 87655309}
   - {fileID: 152499328}
   - {fileID: 8840294071992588888}
+  - {fileID: 1519299438}
   - {fileID: 1620372085}
   - {fileID: 231857179}
   - {fileID: 1366375184}
