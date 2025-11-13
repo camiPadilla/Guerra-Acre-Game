@@ -36,7 +36,7 @@ public class MasterGameManager : MonoBehaviour
     }
     public void InicializarLista()
     {
-        for(int i= 0;i<7; i++)
+        for(int i= 0;i<14; i++)
         {
             notasObtenidas.Add(notaVacia);
         }
@@ -55,10 +55,6 @@ public class MasterGameManager : MonoBehaviour
 
         ReferenciasPlayer();
         SceneManager.sceneLoaded += OnLoadScene;
-    }
-    void OnsceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        ReferenciasPlayer();
     }
     public void AsignarMenuPausa(GameObject menu)
     {
@@ -108,6 +104,8 @@ public class MasterGameManager : MonoBehaviour
         if (scene.name == "MainMenu")
         {
             loaderScene = FindObjectOfType<LoaderScene>();
+            menuInGame = GameObject.Find("CanvasMenuPause");
+            menuPausa = GameObject.Find("CanvasMenuPause/PantallaPausa");
             menuInGame.SetActive(false);
             Debug.Log("Estas en el Main Menu");
             return;
@@ -234,17 +232,11 @@ public class MasterGameManager : MonoBehaviour
     }
     public void IrMenu()
     {
-        
         loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
-        // Destruye objetos persistentes para limpiar
-        Destroy(MenuPausa.instance.gameObject);
         Destroy(HUDManager.instancia.gameObject);
-        //Destroy(MenuInGame);
-        //Destroy(gameObject);
         Destroy(plape.gameObject);
-        //Destroy(loaderScene.gameObject);
         Destroy(menuInGame);
-        
+        GameManager.instancia.CambiarDeEstado(0);
     }
     public void AddNota(NotasSO notaNueva)
     {
