@@ -30,11 +30,15 @@ public class AtaquePersonaje : MonoBehaviour
     [SerializeField] private PlayerController _player;
     [SerializeField] private Transform puntoTiro;
     private bool recibirAltura;
+    private SpriteManager miSprite;
     // Start is called before the first frame update
     void Start()
     {
         InstanciarProyectiles();
         _player = GetComponent<PlayerController>();
+        miSprite = GetComponent<SpriteManager>();
+        miSprite.CambiarArma(seleccionArma);
+
     }
 
     // Update is called once per frame
@@ -294,6 +298,7 @@ public class AtaquePersonaje : MonoBehaviour
         if (!enAccion)
         {
             seleccionArma = nSel;
+            miSprite.CambiarArma(seleccionArma);
             switch (nSel)
             {
                 case 0:
