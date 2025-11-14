@@ -14,6 +14,25 @@ public class SpriteManager : MonoBehaviour
     {
         CambiarJugador();
     }
+    public void EquiparArmadura(int armadura)
+    {
+        switch (armadura)
+        {
+            case 0:
+                armadura1.SetActive(false);
+                armadura2.SetActive(false);
+                break;
+            case 1:
+                armadura1.SetActive(true);
+                armadura2.SetActive(false);
+                break;
+            case 2:
+                armadura1.SetActive(true);
+                armadura2.SetActive(true);
+                break;
+        }
+    }
+
     public void CambiarArma(int arma)
     {
         switch (arma)
@@ -48,6 +67,11 @@ public class SpriteManager : MonoBehaviour
         }
     }
     
+    public void CaraHerido(bool entrada)
+    {
+        caraHerido[jugador].SetActive(entrada);
+    }
+
     public void CambiarJugador()
     {
         if (jugador == 0)

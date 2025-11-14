@@ -29,6 +29,9 @@ public static class SoundEvents
 
     //Recoger notas
     public static Action RecogerNota;
+    public static Action LeerSimple;
+    public static Action LeerColeccionable;
+    public static Action DetenerColeccionable;
 
     //Recoger Arma
     public static Action RecogerArma;
@@ -39,6 +42,9 @@ public static class SoundEvents
     public static Action SinBalas;
     public static Action RecargarBalas;
 
+    //Objetos curables
+    public static Action RecogerVida;
+    public static Action EquiparArmadura;
 
     //Dano Personaje
     public static Action DanoPersonaje;

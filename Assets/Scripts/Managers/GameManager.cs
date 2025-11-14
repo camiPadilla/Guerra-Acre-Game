@@ -121,6 +121,7 @@ public class GameManager : MonoBehaviour
                 
                 break;
             case "LeerNota":
+                SoundEvents.DetenerColeccionable.Invoke(); //Soiund by Chelo :D
                 CambiarDeEstado(0);
                 HUDManager.instancia.ReanudarPartida(0);
                 

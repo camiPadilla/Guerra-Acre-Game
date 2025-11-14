@@ -14,15 +14,18 @@ public class SaludPersonaje : MonoBehaviour
     [SerializeField] private BoxCollider boxColliderHerido;
     [SerializeField] private Animator animatorVeneno;
     [SerializeField] private Animator animatorHerido;
+    private SpriteManager miSprite;
 
     private Vector3 posicionInicial; //ADDED BY CHELO :D
 
     // Start is called before the first frame update
     void Start()
     {
+        miSprite = GetComponent<SpriteManager>();
         posicionInicial = transform.position; //ADDED BY CHELO :D
         HUDManager.instancia.ActualizarVida(vidasJugador);
         HUDManager.instancia.ActualizarArmadura(vidasEXtras);
+        miSprite.EquiparArmadura(vidasEXtras);
         if (boxColliderHerido != null || boxColliderVeneno!=null){
         animatorVeneno = boxColliderVeneno.gameObject.GetComponent<Animator>();
             animatorHerido = boxColliderVeneno.gameObject.GetComponent<Animator>();
@@ -45,6 +48,7 @@ public class SaludPersonaje : MonoBehaviour
     }
     public void ActivarHerido(bool activado)
     {
+
         if (!activado)
         {
             StartCoroutine(DesactivarHerido());
@@ -63,20 +67,25 @@ public class SaludPersonaje : MonoBehaviour
     {
         if(damage == 0 && !invulnerabilidad){
            StartCoroutine(ActivarColliderVeneno());
-            damage = 1;
+           damage = 1;
         }
         if (vidasEXtras > 0 && !invulnerabilidad)
         {
             vidasEXtras-=damage;
             HUDManager.instancia.ActualizarArmadura(vidasEXtras);
+            miSprite.EquiparArmadura(vidasEXtras);
+
         }
         else if(!invulnerabilidad)
         {            
-            vidasJugador -=damage;
+            vidasJugador -= damage;
+            miSprite.CaraHerido(true);
             if (vidasJugador > 0) SoundEvents.DanoPersonaje?.Invoke();//Sound by Chelo :D
             HUDManager.instancia.ActualizarVida(vidasJugador);
+            miSprite.EquiparArmadura(vidasEXtras);
+
         }
-        
+
         if (vidasJugador <= 0)
         {
             SoundEvents.MorirPersonaje?.Invoke(); //Sound by Chelo :D
@@ -111,7 +120,7 @@ public class SaludPersonaje : MonoBehaviour
         Debug.Log("el jugador es invulnerable");
         invulnerabilidad = true;
         yield return new WaitForSeconds(tiempoInvulnerable);
-
+        miSprite.CaraHerido(false);
         invulnerabilidad = false;
         Debug.Log("el jugador ya no es invulnerable");
     }
@@ -135,6 +144,8 @@ public class SaludPersonaje : MonoBehaviour
         }
         HUDManager.instancia.ActualizarVida(vidasJugador);
 
+        SoundEvents.RecogerVida.Invoke(); //Sonido by Chelo :D
+
     }
     public void ObtenerArmadura()
     {
@@ -146,8 +157,10 @@ public class SaludPersonaje : MonoBehaviour
         {
             vidasEXtras = 1;
         }
+        miSprite.EquiparArmadura(vidasEXtras);
         HUDManager.instancia.ActualizarArmadura(vidasEXtras);
-        
+
+        SoundEvents.EquiparArmadura.Invoke(); //Sonido by Chelo :D
     }
     public void RegresarCheckPoint()
     {
