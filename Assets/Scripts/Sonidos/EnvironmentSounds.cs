@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 
 public class EnvironmentSounds : MonoBehaviour
 {
+    [SerializeField] AudioSnapshots audioSnapshot;
     [SerializeField] AtaquePersonaje ataquePersonaje;
 
     [SerializeField] Proyectil piedra;
@@ -21,12 +22,24 @@ public class EnvironmentSounds : MonoBehaviour
 
     [SerializeField] EventReference recogerArma;
     [SerializeField] EventReference recogerBalas;
+    [SerializeField] EventReference recogerVida;
+    [SerializeField] EventReference recogerArmadura;
 
     [SerializeField] EventReference ativarCheckpoint;
 
     [SerializeField] EventReference aguaSplash;
+    [SerializeField] EventReference leerColeccionable;
+    [SerializeField] EventReference leerSimple;
+
+    private EventInstance instanciaLeerColeccionable;
+    private EventInstance instanciaLeerSimple;
+
+    private void Start()
+    {
+        instanciaLeerColeccionable = RuntimeManager.CreateInstance(leerColeccionable);
+    }
     private void OnEnable()
-    {        
+    {
         SoundEvents.DestruirObjeto += ReproducirDestruirObjeto;
 
         SoundEvents.RecogerNota += RecogerNota;
@@ -34,6 +47,8 @@ public class EnvironmentSounds : MonoBehaviour
 
         SoundEvents.RecogerArma += RecogerArma;
         SoundEvents.RecogerBalas += RecogerBalas;
+        SoundEvents.RecogerVida += RecogerVida;
+        SoundEvents.EquiparArmadura += RecogerArmadura;
 
         SoundEvents.ArrastrarObjeto += ArrastrarObjeto;
         SoundEvents.DetenerArrastrarObjeto += DetenerArrastrarObjeto;
@@ -41,16 +56,19 @@ public class EnvironmentSounds : MonoBehaviour
         SoundEvents.CheckpointActivado += ActivarCheckpoint;
 
         SoundEvents.CaerAgua += ReproducirSplash;
+        SoundEvents.LeerColeccionable += ReproducirLeerColeccionable;
+        SoundEvents.DetenerColeccionable += DetenerLeerNota;
+        SoundEvents.LeerSimple += ReproducirLeerNota;
     }
 
 
     //SONIDO DE DESTRUIR CAJA
     public void ReproducirDestruirObjeto(float posicionObjeto, int tipo)
     {
-        
+
         if (destruirObjetoEmitter != null)
         {
-        destruirObjetoEmitter.Play();
+            destruirObjetoEmitter.Play();
 
             float distancia = ataquePersonaje.transform.position.x - posicionObjeto;
             //Debug.Log("Distancia: " + distancia);
@@ -61,12 +79,12 @@ public class EnvironmentSounds : MonoBehaviour
             destruirObjetoEmitter.EventInstance.setParameterByName("Tipo", tipo);
             //Debug.Log("Valor actual del emiter: " + tipo);
 
-            
+
         }
     }
 
     public void RecogerNota()
-    { 
+    {
         if (notaSoundEmitter != null)
         {
             notaSoundEmitter.Play();
@@ -80,7 +98,7 @@ public class EnvironmentSounds : MonoBehaviour
 
             aliadoEmitter.Play();
 
-            int ultimoValor = -1; 
+            int ultimoValor = -1;
             int NuevoRandom()
             {
                 int nuevo;
@@ -109,6 +127,16 @@ public class EnvironmentSounds : MonoBehaviour
         if (!recogerBalas.IsNull)
             RuntimeManager.PlayOneShot(recogerBalas);
     }
+    public void RecogerVida()
+    {
+        if (!recogerVida.IsNull)
+            RuntimeManager.PlayOneShot(recogerVida);
+    }
+    public void RecogerArmadura()
+    {
+        if (!recogerArmadura.IsNull)
+            RuntimeManager.PlayOneShot(recogerArmadura);
+    }
     public void ActivarCheckpoint()
     {
         if (!ativarCheckpoint.IsNull)
@@ -129,9 +157,33 @@ public class EnvironmentSounds : MonoBehaviour
 
     public void ReproducirSplash()
     {
-        if (!aguaSplash.IsNull) {
+        if (!aguaSplash.IsNull)
+        {
             RuntimeManager.PlayOneShot(aguaSplash);
         }
     }
-
+    public void ReproducirLeerColeccionable()
+    {
+        if (instanciaLeerColeccionable.isValid())
+        {
+            instanciaLeerColeccionable.start();
+            audioSnapshot.ActivarFiltroLectura();
+        }
+    }
+    public void DetenerLeerNota()
+    {
+        if (instanciaLeerColeccionable.isValid())
+        {
+            instanciaLeerColeccionable.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            audioSnapshot.DesactivarFiltroLectura();
+        }
+    }
+    public void ReproducirLeerNota()
+    {
+        if (!leerSimple.IsNull)
+        {
+            instanciaLeerSimple = RuntimeManager.CreateInstance(leerSimple);
+            instanciaLeerSimple.start();
+        }
+    }
 }

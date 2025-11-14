@@ -65,6 +65,7 @@ public class EnemigoDisparo : Enemigo_IA
             BalaEnemigo b = bala.GetComponent<BalaEnemigo>();
             if (b != null) b.Inicializar(jugador);
             nroBalas--;
+            SoundEvents.DisparoEnemigo.Invoke(transform.position.x);
         }
 
         yield return new WaitForSeconds(0.8f);

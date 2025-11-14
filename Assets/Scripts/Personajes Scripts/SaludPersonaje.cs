@@ -144,6 +144,8 @@ public class SaludPersonaje : MonoBehaviour
         }
         HUDManager.instancia.ActualizarVida(vidasJugador);
 
+        SoundEvents.RecogerVida.Invoke(); //Sonido by Chelo :D
+
     }
     public void ObtenerArmadura()
     {
@@ -157,7 +159,8 @@ public class SaludPersonaje : MonoBehaviour
         }
         miSprite.EquiparArmadura(vidasEXtras);
         HUDManager.instancia.ActualizarArmadura(vidasEXtras);
-        
+
+        SoundEvents.EquiparArmadura.Invoke(); //Sonido by Chelo :D
     }
     public void RegresarCheckPoint()
     {

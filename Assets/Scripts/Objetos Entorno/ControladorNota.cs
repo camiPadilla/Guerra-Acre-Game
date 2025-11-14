@@ -17,7 +17,7 @@ public class ControladorNota : ObjetoRecogible
         }
     }
     public void Leer()
-    {
+    {        
         InventarioManager player = FindFirstObjectByType<InventarioManager>();
         if (!tutorial)
         {
@@ -35,11 +35,13 @@ public class ControladorNota : ObjetoRecogible
             HUDManager.instancia.LeerNota(nota.notaImagen);
             this.DestruirObjeto();
         }
-           
-        
-            
-
+        SoundEvents.DetenerPasosPasto.Invoke(); //Sonido by Chelo :D
+        if (nota.name.ToLower().Contains("null")) SoundEvents.LeerSimple.Invoke();
+        else SoundEvents.LeerColeccionable.Invoke(); //Sonido by Chelo :D
     }
     private void OnTriggerEnter2D(Collider2D collision)
-    { SoundEvents.RecogerNota.Invoke(); } //Sonido by Chelo :D
+    {
+        if (!collision.CompareTag("Player")) return;
+        SoundEvents.RecogerNota.Invoke(); //Sonido by Chelo :D
+    }
 }
