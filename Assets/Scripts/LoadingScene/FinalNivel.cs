@@ -19,6 +19,7 @@ public class FinalNivel : MonoBehaviour
             print("holaa");
             pantallaProgreso.SetActive(true);
             //Aparece pantalla de progreso supongo
+            
         }
     }
    
