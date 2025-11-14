@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.U2D;
 
 namespace TarodevController
 {
@@ -144,6 +145,10 @@ namespace TarodevController
         private void OnJumped()
         {
             // Disparar animaci�n de salto y resetear trigger de grounded
+            newAnim.SetTrigger("saltar");
+            newAnim.ResetTrigger("caer");
+
+
             _anim.SetTrigger(JumpKey);
             _anim.ResetTrigger(GroundedKey);
 
@@ -172,6 +177,7 @@ namespace TarodevController
                 SetColor(_landParticles); // Aplicar color a part�culas de aterrizaje
 
                 _anim.SetTrigger(GroundedKey); // Disparar animaci�n de aterrizaje
+                newAnim.SetTrigger("caer");
 
                 // Reproducir sonido de paso aleatorio
                 _source.PlayOneShot(_footsteps[Random.Range(0, _footsteps.Length)]);
@@ -198,14 +204,29 @@ namespace TarodevController
             // Lanzar raycast hacia abajo para detectar el suelo
             var hit = Physics2D.Raycast(transform.position, Vector3.down, 2);
 
-            // Verificar si golpe� un collider v�lido con SpriteRenderer
-            if (!hit || hit.collider.isTrigger || !hit.transform.TryGetComponent(out SpriteRenderer r))
+            // Verificar si golpeó un collider válido
+            if (!hit || hit.collider.isTrigger)
                 return;
 
-            // Crear gradiente de color basado en el color del sprite del suelo
-            var color = r.color;
+            // Intentar obtener color desde SpriteRenderer o, si no existe, desde SpriteShapeRenderer
+            Color color;
+            if (hit.transform.TryGetComponent<SpriteRenderer>(out var sr))
+            {
+                color = sr.color;
+            }
+            else if (hit.transform.TryGetComponent<SpriteShapeRenderer>(out var ssr))
+            {
+                color = ssr.color;
+            }
+            else
+            {
+                // No se encontró ningún renderer conocido; salir
+                return;
+            }
+
+            // Crear gradiente de color basado en el color detectado del suelo
             _currentGradient = new ParticleSystem.MinMaxGradient(color * 0.9f, color * 1.2f);
-            SetColor(_moveParticles); // Aplicar a part�culas de movimiento
+            SetColor(_moveParticles); // Aplicar a partículas de movimiento
         }
 
         /// <summary>
