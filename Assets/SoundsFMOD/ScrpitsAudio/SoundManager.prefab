@@ -58,8 +58,8 @@ MonoBehaviour:
       Data4: -1791259552
     Path: event:/AMBIENCE/Animales/Croac-Sapo
   Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -139,8 +139,8 @@ MonoBehaviour:
       Data4: -1042152879
     Path: event:/AMBIENCE/Animales/Grillos
   Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -379,8 +379,8 @@ MonoBehaviour:
       Data4: -906536679
     Path: event:/AMBIENCE/Animales/Jungle-Sound
   Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -417,6 +417,7 @@ GameObject:
   - component: {fileID: 2547597476191356893}
   - component: {fileID: 149300560514156855}
   - component: {fileID: 6462498274155997310}
+  - component: {fileID: 7297093326133695048}
   m_Layer: 5
   m_Name: SoundManager
   m_TagString: Untagged
@@ -431,7 +432,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8118848952440042193}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
   m_ConstrainProportionsScale: 0
@@ -518,6 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00eff7583c9cf054d943e50086ea6771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSnapshot: {fileID: 7297093326133695048}
   ataquePersonaje: {fileID: 0}
   piedra: {fileID: 4578564418056406226, guid: 70451f7b4b036654198aa62b01befa36, type: 3}
   destruirObjetoEmitter: {fileID: 4921346731422639757}
@@ -538,6 +540,20 @@ MonoBehaviour:
       Data3: 1264394625
       Data4: 1867136884
     Path: event:/ENVIRONMENT/Recolectables/RecogerBalas
+  recogerVida:
+    Guid:
+      Data1: 1139027310
+      Data2: 1249814934
+      Data3: -876387420
+      Data4: 1843960388
+    Path: event:/ENVIRONMENT/Recolectables/Curables/Curarse
+  recogerArmadura:
+    Guid:
+      Data1: -1335243031
+      Data2: 1225647206
+      Data3: 169437112
+      Data4: -119069176
+    Path: event:/ENVIRONMENT/Recolectables/Curables/Armaadura
   ativarCheckpoint:
     Guid:
       Data1: -745809950
@@ -552,6 +568,20 @@ MonoBehaviour:
       Data3: -1199725636
       Data4: -766587748
     Path: event:/ENVIRONMENT/Agua/AguaSplash
+  leerColeccionable:
+    Guid:
+      Data1: 171285613
+      Data2: 1228548190
+      Data3: 895785399
+      Data4: -187897234
+    Path: event:/ENVIRONMENT/Recolectables/Notas/Coleccionable
+  leerSimple:
+    Guid:
+      Data1: 1788492387
+      Data2: 1136231692
+      Data3: -1796097860
+      Data4: 1400005866
+    Path: event:/ENVIRONMENT/Recolectables/Notas/RecogerNota
 --- !u!114 &149300560514156855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,7 +602,7 @@ MonoBehaviour:
       Data3: 1232007553
       Data4: -1278741862
     Path: event:/ENEMIGOS/Mosquito/MorirMosquito
-  vueloMosquito: {fileID: 5221992321499633469, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
+  vueloMosquito: {fileID: 2129748442756443806, guid: 10ad507bd11fe1648bbe0f26aadc9c43, type: 3}
   disparoEnemigo:
     Guid:
       Data1: 1027750505
@@ -620,3 +650,15 @@ MonoBehaviour:
       Data3: 64599946
       Data4: 1224638656
     Path: event:/MUSIC/Levels/Nivel2
+--- !u!114 &7297093326133695048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8118848952440042193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e4c13c7052e2f4daa27560c050ccc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -105,7 +105,7 @@ public class MasterGameManager : MonoBehaviour
         {
             loaderScene = FindObjectOfType<LoaderScene>();
             menuInGame = GameObject.Find("CanvasMenuPause");
-            menuPausa = GameObject.Find("CanvasMenuPause/PantallaPausa");
+            //menuPausa = GameObject.Find("CanvasMenuPause/PantallaPausa");
             menuInGame.SetActive(false);
             Debug.Log("Estas en el Main Menu");
             return;

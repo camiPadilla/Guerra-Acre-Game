@@ -15,6 +15,7 @@ public class ControladorNPC : ObjetoRecogible
     public void MostrarMensaje()
     {
         SoundEvents.HablarAliadoNPC?.Invoke();
+        SoundEvents.DetenerPasosPasto?.Invoke();
         HUDManager.instancia.IniciarDialogo(dialogo);
     }
 }
