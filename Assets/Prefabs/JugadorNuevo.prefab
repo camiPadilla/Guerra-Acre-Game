@@ -5461,21 +5461,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb09df9db553ffc4ab6600e3070de9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _anim: {fileID: 4714305330576500131}
-  _sprite: {fileID: 7009585854573902313}
   personajeObject: {fileID: 1861664797765006976}
   newAnim: {fileID: 2384923428869944636}
-  _maxIdleSpeed: 2
-  _maxTilt: 5
-  _tiltSpeed: 20
   _jumpParticles: {fileID: 6687213563376695393}
   _launchParticles: {fileID: 6898969275882382252}
   _moveParticles: {fileID: 1665819412473532832}
   _landParticles: {fileID: 1145207829693240997}
-  _footsteps:
-  - {fileID: 8300000, guid: 5d94063f45167b04ab62585e436da58c, type: 3}
-  - {fileID: 8300000, guid: b5803c17557c59c40bf3a6d69cb46cb3, type: 3}
-  - {fileID: 8300000, guid: 1876767bf7cbf284394dc3817af9593c, type: 3}
 --- !u!1 &1861664797765006976
 GameObject:
   m_ObjectHideFlags: 0
@@ -5581,7 +5572,7 @@ MonoBehaviour:
   - {fileID: 8220835930413441957}
   - {fileID: 748769924345639038}
   fusil_Rmano:
-  - {fileID: 7190158689155093843}
+  - {fileID: 5505803006944869821}
   - {fileID: 3355473689126505831}
   m_Machete:
   - {fileID: 164931981183998817}
@@ -37357,6 +37348,11 @@ GameObject:
 --- !u!1 &5463749382620327442 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1657625772211087729, guid: b446c137c937c064f8200a9b80ea9019, type: 3}
+  m_PrefabInstance: {fileID: 2534907809977039005}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5505803006944869821 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1205478637421034208, guid: b446c137c937c064f8200a9b80ea9019, type: 3}
   m_PrefabInstance: {fileID: 2534907809977039005}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5522351330745492587 stripped

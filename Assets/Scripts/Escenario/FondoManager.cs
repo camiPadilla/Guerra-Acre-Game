@@ -34,14 +34,14 @@ public class FondoManager : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            StartCoroutine(CambiarTamaño(tamañoInicial,tamaño));
+            StartCoroutine(CambiarTamaño(filtro.transform.localScale.x, tamaño));
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
-            StartCoroutine(CambiarTamaño(tamaño, tamañoInicial));
+            StartCoroutine(CambiarTamaño(filtro.transform.localScale.x, tamañoInicial));
         }
     }
 
