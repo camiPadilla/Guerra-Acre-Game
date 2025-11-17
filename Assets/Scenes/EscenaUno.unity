@@ -18239,6 +18239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1438504336}
   - component: {fileID: 1438504337}
+  - component: {fileID: 1438504338}
   m_Layer: 0
   m_Name: Niv1_Arbol4 (37)
   m_TagString: Untagged
@@ -18255,7 +18256,7 @@ Transform:
   m_GameObject: {fileID: 1438504335}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 62.53, y: 2.28, z: 0}
+  m_LocalPosition: {x: 54.56, y: 2.61, z: 0}
   m_LocalScale: {x: 0.44972357, y: 0.44972357, z: 0.44972357}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18299,8 +18300,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1910513517
-  m_SortingLayer: 1
+  m_SortingLayerID: 1760502181
+  m_SortingLayer: 2
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: af5a7bd28fb68414c8481876c77c93a4, type: 3}
   m_Color: {r: 0.8240477, g: 0.8867924, b: 0.8275993, a: 1}
@@ -18313,6 +18314,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1438504338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438504335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea3c5f1f0906d144b4b00fece65f71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  retraso: 0.1
+  camaraTransform: {fileID: 1990159119}
 --- !u!1 &1443306115
 GameObject:
   m_ObjectHideFlags: 0

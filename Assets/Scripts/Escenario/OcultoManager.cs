@@ -21,12 +21,12 @@ public class OcultoManager : MonoBehaviour
         wait = new WaitForSeconds(tiempoAnim / pasos);
         tamanioInicial = 1.31f;
     }
-    private IEnumerator CambiarTamaño(float tI, float iF)
+    private IEnumerator CambiarTamano(float tI, float iF)
     {
         for (int i = 0; i < pasos; i++)
         {
-            float nuevoTamaño = Mathf.Lerp(tI, iF, (i + 1) / pasos);
-            filtro.transform.localScale = new Vector3(nuevoTamaño, nuevoTamaño, 1);
+            float nuevoTamano = Mathf.Lerp(tI, iF, (i + 1) / pasos);
+            filtro.transform.localScale = new Vector3(nuevoTamano, nuevoTamano, 1);
             yield return wait;
         }
     }
@@ -34,14 +34,14 @@ public class OcultoManager : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            StartCoroutine(CambiarTamaño(filtro.transform.localScale.x, tamanio));
+            StartCoroutine(CambiarTamano(filtro.transform.localScale.x, tamanio));
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
-            StartCoroutine(CambiarTamaño(filtro.transform.localScale.x, tamanioInicial));
+            StartCoroutine(CambiarTamano(filtro.transform.localScale.x, tamanioInicial));
         }
     }
 }
