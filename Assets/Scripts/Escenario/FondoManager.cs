@@ -5,44 +5,23 @@ using UnityEngine;
 public class FondoManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject filtro;
+    private float retraso;
     [SerializeField]
-    private float tamano;
-    private float tamanoInicial;
-    [SerializeField] private float tiempoAnim;
-    [SerializeField] private float pasos;
-    WaitForSeconds wait;
-
-
+    private Transform camaraTransform;
+    private Vector3 anteriorPosicionCamara;
 
     // Start is called before the first frame update
     void Start()
     {
-        wait = new WaitForSeconds(tiempoAnim / pasos); 
-        tamanoInicial = 1.31f;
-    }
-    private IEnumerator CambiarTamano(float tI, float iF)
-    {
-        for (int i = 0; i < pasos; i++)
-        {
-            float nuevoTamano = Mathf.Lerp(tI, iF, (i + 1) / pasos);
-            filtro.transform.localScale = new Vector3(nuevoTamano, nuevoTamano, 1);
-            yield return wait;
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.CompareTag("Player"))
-        {
-            StartCoroutine(CambiarTamano(filtro.transform.localScale.x, tamano));
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.transform.CompareTag("Player"))
-        {
-            StartCoroutine(CambiarTamano(filtro.transform.localScale.x, tamanoInicial));
-        }
+        //camaraTransform = Camera.main.transform;
+        anteriorPosicionCamara = camaraTransform.position;
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        float deltaX = (camaraTransform.position.x - anteriorPosicionCamara.x) * retraso;
+        transform.Translate(new Vector3(deltaX, 0, 0));
+        anteriorPosicionCamara = camaraTransform.position;
+    }
 }
