@@ -155,7 +155,7 @@ namespace TarodevController
             bool ceilingHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance, _stats.PlayerLayer);
             bool angosto = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance + 0.5f, ~0);
 
-
+            Debug.Log(angosto);
             // Si se golpea un techo, limitar velocidad vertical hacia arriba
             if (ceilingHit)
             {
