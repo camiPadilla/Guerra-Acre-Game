@@ -12,15 +12,16 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] List<GameObject> pantallaInGame;
     //[SerializeField] MasterGameManager masterGameManager;
     public LoaderScene loaderScene;
-
     //Para trabajar con el audio
     [SerializeField] private Scrollbar VolGen;
     [SerializeField] private Scrollbar VolMus;
     [SerializeField] private Scrollbar VolSFX;
 
     [SerializeField] PlayerSettings playerSettings;
+    [SerializeField] MasterGameManager masterGm;
     void Awake()
     {
+        
         if (instance != null)
         {
             Destroy(gameObject);
@@ -31,9 +32,9 @@ public class MenuPausa : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             DontDestroyOnLoad(MenuInGame);
         }
-        if (loaderScene == null)
+        if(masterGm == null)
         {
-            loaderScene = FindObjectOfType<LoaderScene>();
+            masterGm = FindObjectOfType<MasterGameManager>();
         }
         GetVolumenes();
     }
@@ -140,6 +141,10 @@ public class MenuPausa : MonoBehaviour
             VolMus.onValueChanged.AddListener(value => PlayerSettings.Instance.SetVolumenMusica(value));
             VolSFX.onValueChanged.AddListener(value => PlayerSettings.Instance.SetVolumenEfectos(value));
         }
+    }
+    public void IrMenuInicio()
+    {
+        masterGm.IrMenu();
     }
     public void Salir()
     {

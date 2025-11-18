@@ -41,11 +41,12 @@ public class ControladorEscena : MonoBehaviour
 public void Awake()
     {
         if (loaderScene == null) loaderScene = FindObjectOfType<LoaderScene>();
+         if (masterGameManager == null) masterGameManager = FindObjectOfType<MasterGameManager>();
     }
     private void Start()
     {
 
-        if (masterGameManager == null) masterGameManager = FindObjectOfType<MasterGameManager>();
+       
        // if (MenuInGame == null) MenuInGame = GameObject.FindWithTag("canvas");
         if (HUD != null) HUD.SetActive(true);
         
