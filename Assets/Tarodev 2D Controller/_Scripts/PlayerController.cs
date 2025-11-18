@@ -153,7 +153,7 @@ namespace TarodevController
             // Realizar raycasts para detectar suelo y techo
             bool groundHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.down, _stats.GrounderDistance, _stats.PlayerLayer);
             bool ceilingHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance, _stats.PlayerLayer);
-            bool angosto = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance + 0.5f, _stats.PlayerLayer);
+            bool angosto = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance + 0.5f, ~0);
 
 
             // Si se golpea un techo, limitar velocidad vertical hacia arriba
