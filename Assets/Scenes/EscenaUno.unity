@@ -1300,6 +1300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 88421096}
   - component: {fileID: 88421097}
+  - component: {fileID: 88421098}
   m_Layer: 0
   m_Name: Niv1_Arbol4 (9)
   m_TagString: Untagged
@@ -1316,7 +1317,7 @@ Transform:
   m_GameObject: {fileID: 88421095}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 105.38, y: -3.88, z: 0}
+  m_LocalPosition: {x: 102.75, y: -3.58, z: 0}
   m_LocalScale: {x: -0.5136939, y: 0.5004118, z: 0.6321523}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1374,6 +1375,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &88421098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88421095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea3c5f1f0906d144b4b00fece65f71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  retraso: 0.1
+  camaraTransform: {fileID: 1990159119}
 --- !u!4 &98387431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5209971703060814443, guid: 1ec9596f37bfc1841804533950cfb55f, type: 3}
@@ -3238,7 +3253,7 @@ Transform:
   m_GameObject: {fileID: 184350543}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.03359918, w: -0.9994354}
-  m_LocalPosition: {x: -13.95, y: -1.16, z: 0}
+  m_LocalPosition: {x: -14.1, y: -0.98, z: 0}
   m_LocalScale: {x: -0.63677496, y: 0.6203104, z: 0.783616}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5894,6 +5909,7 @@ GameObject:
   m_Component:
   - component: {fileID: 291822980}
   - component: {fileID: 291822981}
+  - component: {fileID: 291822982}
   m_Layer: 0
   m_Name: Niv1_Arbol4 (16)
   m_TagString: Untagged
@@ -5968,6 +5984,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &291822982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291822979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea3c5f1f0906d144b4b00fece65f71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  retraso: 0.1
+  camaraTransform: {fileID: 1990159119}
 --- !u!1001 &295457705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10066,6 +10096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 685750151}
   - component: {fileID: 685750152}
+  - component: {fileID: 685750153}
   m_Layer: 0
   m_Name: Niv1_Arbol4 (13)
   m_TagString: Untagged
@@ -10082,7 +10113,7 @@ Transform:
   m_GameObject: {fileID: 685750150}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 59.65, y: 0.84, z: 0}
+  m_LocalPosition: {x: 64.6, y: 1.5, z: 0}
   m_LocalScale: {x: -0.64733064, y: 0.94942755, z: 1.3114673}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10140,6 +10171,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &685750153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685750150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea3c5f1f0906d144b4b00fece65f71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  retraso: 0.1
+  camaraTransform: {fileID: 1990159119}
 --- !u!4 &690227135 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 206466102427302471, guid: 8a89918618155ce4499763482f7264a9, type: 3}
@@ -13417,7 +13462,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1760502181
   m_SortingLayer: 2
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 3600577a0ac064dfb868918669290a74, type: 3}
   m_Color: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
   m_FlipX: 0
@@ -15016,6 +15061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1150138975}
   - component: {fileID: 1150138976}
+  - component: {fileID: 1150138977}
   m_Layer: 0
   m_Name: Niv1_Arbol4 (17)
   m_TagString: Untagged
@@ -15032,7 +15078,7 @@ Transform:
   m_GameObject: {fileID: 1150138974}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 171.54, y: 3.48, z: 0}
+  m_LocalPosition: {x: 165.08, y: 3.58, z: 0}
   m_LocalScale: {x: 0.71653026, y: 0.94942755, z: 1.3114673}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15090,6 +15136,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1150138977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150138974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea3c5f1f0906d144b4b00fece65f71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  retraso: 0.1
+  camaraTransform: {fileID: 1990159119}
 --- !u!4 &1156078588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 206466102427302471, guid: 8a89918618155ce4499763482f7264a9, type: 3}
@@ -15922,6 +15982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1272953911}
   - component: {fileID: 1272953912}
+  - component: {fileID: 1272953913}
   m_Layer: 0
   m_Name: Niv1_Arbol4 (8)
   m_TagString: Untagged
@@ -15982,8 +16043,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1910513517
-  m_SortingLayer: 1
+  m_SortingLayerID: 1760502181
+  m_SortingLayer: 2
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 1ab544a70858f4f0491ee27d0049c215, type: 3}
   m_Color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
@@ -15996,6 +16057,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1272953913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272953910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea3c5f1f0906d144b4b00fece65f71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  retraso: 0.1
+  camaraTransform: {fileID: 1990159119}
 --- !u!1 &1276372023
 GameObject:
   m_ObjectHideFlags: 0

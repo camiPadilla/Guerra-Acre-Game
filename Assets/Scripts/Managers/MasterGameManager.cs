@@ -24,6 +24,7 @@ public class MasterGameManager : MonoBehaviour
     public int lastCP;
     public int AcPoint;
     public int currentLevel = 1;
+    
     [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject menuPausa;
     [SerializeField] PlayerSettings plape;
@@ -34,7 +35,11 @@ public class MasterGameManager : MonoBehaviour
     {
         InicializarLista();
     }
-    public void InicializarLista()
+    IEnumerator IniJuego()
+    {
+        yield return new WaitForSeconds(10f);
+        SceneManager.LoadScene("MainMenu");
+    }    public void InicializarLista()
     {
         for(int i= 0;i<14; i++)
         {
@@ -100,17 +105,19 @@ public class MasterGameManager : MonoBehaviour
     private void OnLoadScene(Scene scene, LoadSceneMode mode)
     {
         ReferenciasPlayer();
-
+        if(scene.name == "PantallaTiny")
+        {
+            StartCoroutine(IniJuego());
+        }
+        
         if (scene.name == "MainMenu")
         {
-            loaderScene = FindObjectOfType<LoaderScene>();
             menuInGame = GameObject.Find("CanvasMenuPause");
             menuPausa = GameObject.Find("/CanvasMenuPause/PantallaPausa");
             menuInGame.SetActive(false);
             Debug.Log("Estas en el Main Menu");
             return;
         }
-
         // Configuración según la escena
         if (scene.name == "EscenaUno")
         {
@@ -234,8 +241,9 @@ public class MasterGameManager : MonoBehaviour
     {
         loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
         Destroy(HUDManager.instancia.gameObject);
-        Destroy(plape.gameObject);
+        //Destroy(plape.gameObject);
         Destroy(menuInGame);
+        Destroy(menuPausa);
         GameManager.instancia.CambiarDeEstado(0);
     }
     public void AddNota(NotasSO notaNueva)
@@ -247,9 +255,5 @@ public class MasterGameManager : MonoBehaviour
     public List<NotasSO> ObtenerNotas()
     {
         return notasObtenidas;
-    }
-    public void OnloadScene()
-    {
-        
     }
 }
