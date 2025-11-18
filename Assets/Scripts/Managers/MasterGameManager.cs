@@ -27,7 +27,8 @@ public class MasterGameManager : MonoBehaviour
     
     [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject menuPausa;
-    [SerializeField] PlayerSettings plape;
+    [SerializeField] GameObject menuScript;
+    [SerializeField] GameObject plape;
     
     //private string IdNotas[];
     [SerializeField] public int currentSlot = 1; // se define desde el menú
@@ -114,6 +115,8 @@ public class MasterGameManager : MonoBehaviour
         {
             menuInGame = GameObject.Find("CanvasMenuPause");
             menuPausa = GameObject.Find("/CanvasMenuPause/PantallaPausa");
+            plape = GameObject.Find("PlayerPref");
+            menuScript = GameObject.Find("PantallaPausaScript");
             menuInGame.SetActive(false);
             Debug.Log("Estas en el Main Menu");
             return;
@@ -240,11 +243,14 @@ public class MasterGameManager : MonoBehaviour
     public void IrMenu()
     {
         loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
+        //quiero creer que tiene que crear un estado del juego para que vaya al main menu, asi que no creo que llegue a afectar a la jugabilidad del juego y tal tal
+        //ya no se que hacer auxiliio
+        //GameManager.instancia.CambiarDeEstado(0);
         Destroy(HUDManager.instancia.gameObject);
-        //Destroy(plape.gameObject);
         Destroy(menuInGame);
         Destroy(menuPausa);
-        GameManager.instancia.CambiarDeEstado(0);
+        Destroy(menuScript);
+        Destroy(plape);
     }
     public void AddNota(NotasSO notaNueva)
     {

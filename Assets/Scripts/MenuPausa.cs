@@ -11,7 +11,6 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private GameObject MenuInGame;
     [SerializeField] List<GameObject> pantallaInGame;
     //[SerializeField] MasterGameManager masterGameManager;
-    public LoaderScene loaderScene;
     //Para trabajar con el audio
     [SerializeField] private Scrollbar VolGen;
     [SerializeField] private Scrollbar VolMus;
