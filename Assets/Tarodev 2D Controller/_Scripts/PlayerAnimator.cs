@@ -53,7 +53,14 @@ namespace TarodevController
             _player.Jumped += OnJumped;
             _player.GroundedChanged += OnGroundedChanged;
 
-            _moveParticles.Play(); // Iniciar part�culas de movimiento
+            // RESETAR TRIGGERS / FORZAR IDLE al inicio para evitar estados colgados
+            //if (newAnim != null)
+            //{
+            //    newAnim.SetTrigger("caer");
+            //    newAnim.ResetTrigger("saltar");
+            //}
+
+            _moveParticles.Play(); // Iniciar partículas de movimiento
         }
 
         private void OnDisable()

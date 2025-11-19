@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class SpriteManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] Jugador1;
-    [SerializeField] private GameObject[] Jugador2;
+    [SerializeField] private GameObject[] jugador1;
+    [SerializeField] private GameObject[] jugador2;
     [SerializeField] private GameObject[] c_Rmano, fusil_Rmano,m_Machete, m_Carrada, m_Abierta, c_Machete, s_Machete,  caraHerido;
     [SerializeField] private GameObject armadura1, armadura2;
     [SerializeField] private int jugador;
 
+    private void Awake()
+    {
+        OcultarTodo();
+
+    }
     void Start()
     {
         CambiarJugador();
@@ -76,24 +81,40 @@ public class SpriteManager : MonoBehaviour
     {
         if (jugador == 0)
         {
-            for (int i = 0; i < Jugador1.Length; i++)
+            for (int i = 0; i < jugador1.Length; i++)
             {
-                Jugador1[i].SetActive(true);
-                Jugador2[i].SetActive(false);
+                jugador1[i].SetActive(true);
+                jugador2[i].SetActive(false);
             }
         }else if (jugador == 1)
         {
-            for (int i = 0; i < Jugador2.Length; i++)
+            for (int i = 0; i < jugador2.Length; i++)
             {
-                Jugador1[i].SetActive(false);
-                Jugador2[i].SetActive(true);
+                jugador1[i].SetActive(false);
+                jugador2[i].SetActive(true);
             }
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OcultarTodo()
     {
-        
+        for (int i = 0; i < jugador1.Length; i++)
+        {
+            jugador1[i].SetActive(false);
+            jugador2[i].SetActive(false);
+        }for (int i = 0; i < c_Rmano.Length; i++)
+        {
+            c_Rmano[i].SetActive(false); 
+            fusil_Rmano[i].SetActive(false); 
+            m_Machete[i].SetActive(false); 
+            m_Carrada[i].SetActive(false); 
+            m_Abierta[i].SetActive(false); 
+            c_Machete[i].SetActive(false); 
+            s_Machete[i].SetActive(false); 
+            caraHerido[i].SetActive(false);
+        }
+        armadura1.SetActive(false); 
+        armadura2.SetActive(false);
+
     }
+
 }

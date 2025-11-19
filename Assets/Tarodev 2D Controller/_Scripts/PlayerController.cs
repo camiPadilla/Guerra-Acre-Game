@@ -83,10 +83,14 @@ namespace TarodevController
             // Manejar input de salto para buffer de salto
             if (_frameInput.JumpDown)
             {
-                _jumpToConsume = true; // Marcar que hay un salto pendiente de procesar
-                _timeJumpWasPressed = _time; // Registrar momento del input de salto
+                // No permitir salto mientras se está agachado
+                if (!_frameInput.agachado)
+                {
+                    _jumpToConsume = true; // Marcar que hay un salto pendiente de procesar
+                    _timeJumpWasPressed = _time; // Registrar momento del input de salto
 
-                SoundEvents.Salto?.Invoke(1); // Sonido by Chelo :D
+                    SoundEvents.Salto?.Invoke(1); // Sonido by Chelo :D
+                }
             }
             if (_frameInput.agachado)
             {
@@ -155,7 +159,7 @@ namespace TarodevController
             bool ceilingHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance, _stats.PlayerLayer);
             bool angosto = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance + 0.5f, ~0);
 
-
+            
             // Si se golpea un techo, limitar velocidad vertical hacia arriba
             if (ceilingHit)
             {
@@ -177,6 +181,7 @@ namespace TarodevController
             // Detectar cuando se aterriza en el suelo
             if (!_grounded && groundHit)
             {
+                Debug.Log("aterrice matemne");
                 _grounded = true;
                 _coyoteUsable = true; // Reactivar coyote time
                 _bufferedJumpUsable = true; // Reactivar buffer de salto
