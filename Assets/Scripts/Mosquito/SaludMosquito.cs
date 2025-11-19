@@ -5,7 +5,13 @@ using UnityEngine;
 public class SaludMosquito : MonoBehaviour
 {
     [SerializeField] int vidas;
-    // Start is called before the first frame update
+    Animator animator;
+    BoxCollider2D micolision;
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        micolision = GetComponent<BoxCollider2D>();
+    }
     public void perderVida()
     {
         vidas--;
@@ -13,7 +19,13 @@ public class SaludMosquito : MonoBehaviour
         if(vidas == 0)
         {
             SoundEvents.MorirMosquito?.Invoke();
-            Destroy(this.gameObject);
+            animator.SetTrigger("muerto");
+            micolision.enabled = false;
+
         }
+    }
+    public void Suicidio()
+    {
+        Destroy(this.gameObject);
     }
 }
