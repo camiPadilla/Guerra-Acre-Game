@@ -190,4 +190,8 @@ public class SaludPersonaje : MonoBehaviour
             ultimoCheckPoint.GetComponent<CheckPoints>().CambiarEstadoBandera();
         }
     }
+    public int GetArmaduraJugador()
+    {
+        return vidasEXtras;
+    }
 }
