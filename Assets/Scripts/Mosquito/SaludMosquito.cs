@@ -18,7 +18,7 @@ public class SaludMosquito : MonoBehaviour
         Debug.Log("Perdi una vida mosquito");
         if(vidas == 0)
         {
-            SoundEvents.MorirMosquito?.Invoke();
+            SoundEvents.MorirMosquito?.Invoke(transform.position.x);
             animator.SetTrigger("muerto");
             micolision.enabled = false;
 
