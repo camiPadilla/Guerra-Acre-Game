@@ -8,7 +8,13 @@ public class ObjetoRecogible : MonoBehaviour
     [SerializeField] string nombreObjeto;
     float imagenSize;
     bool desactivado;
-    // Start is called before the first frame update
+    Animator animator;
+    [SerializeField] GameObject[] variante;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     public void ObtenerTamaño()
     {
         //imagenSize = this.GetComponent<SpriteRenderer>().bounds.extents.y;
@@ -17,8 +23,25 @@ public class ObjetoRecogible : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            
+            if (nombreObjeto == "armadura")
+            {
+                int armadura = collision.gameObject.GetComponent<SaludPersonaje>().GetArmaduraJugador();
+                if (armadura <= 0) 
+                { 
+                    variante[0].SetActive(true); 
+                    variante[1].SetActive(false); 
+                }
+                else if (armadura >= 1) 
+                { 
+                    variante[0].SetActive(false);
+                    variante[1].SetActive(true);
+                }
+            }
             HUDManager.instancia.MostrarInteraccion(transform.position, 0.8f, "recogible");
+            if (animator != null)
+            {
+                animator.SetBool("interactuable", true);
+            }
             if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
             {
                 if (nombreObjeto != "NPC" && nombreObjeto != "nota")
@@ -52,12 +75,14 @@ public class ObjetoRecogible : MonoBehaviour
         if (collision.transform.CompareTag("Player") && gameObject !=null && (HUDManager.instancia != null))
         {
             HUDManager.instancia.Ocultar();
+            if (animator != null)
+            {
+                animator.SetBool("interactuable", false);
+            }
             if (desactivado == true && nombreObjeto == "balas")
             {
                 HUDManager.instancia.AumentarBalas(transform.position);
             }
-
-
         }
     }
 
