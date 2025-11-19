@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -13,9 +14,13 @@ public class MosquitoController : MonoBehaviour
     Vector2 posicionAleatoria;
     Vector2 posicionInicial;
 
+
+    [SerializeField] StudioEventEmitter vueloMosquito;
+
     // Start is called before the first frame update
     void Start()
     {
+        //SoundEvents.VueloMosquito?.Invoke(transform.position.x, gameObject.name); //Sonido by Chelo :D
         posicionInicial = transform.position;
         cambiarPosicion();
         if(PosicionJugador == null)
@@ -28,7 +33,14 @@ public class MosquitoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Actualiza el Panner constantemente mientras el mosquito está vivo y el sonido activo
+        if (vueloMosquito != null && PosicionJugador != null) // ADDED BY CHELO :D
+        {
+            float distancia = PosicionJugador.position.x - transform.position.x;
+            float distNormalizado = Mathf.Clamp(distancia / 8, -1f, 1f);
+            vueloMosquito.EventInstance.setParameterByName("PannerMosquito", -distNormalizado);
+        }
+
         picar();
         if (!patrullando)
         {

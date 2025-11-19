@@ -9442,7 +9442,9 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   NonRigidbodyVelocity: 0
-  Params: []
+  Params:
+  - Name: MenuEnable
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -24901,6 +24903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e6948e7462c4e078a5b274fce32a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enablePauseSound: {fileID: 504672690}
   MenuInGame: {fileID: 180011667}
   pantallaInGame:
   - {fileID: 504672688}

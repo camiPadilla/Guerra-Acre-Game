@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6708150211806795917}
   - component: {fileID: 5402397033043342440}
   - component: {fileID: 7399555499859778606}
-  - component: {fileID: 2129748442756443806}
+  - component: {fileID: 6113884317186997168}
   m_Layer: 0
   m_Name: mosquito
   m_TagString: Untagged
@@ -104,6 +104,7 @@ MonoBehaviour:
   probabilidad: 1000
   velocidad: 2
   damage: 0
+  vueloMosquito: {fileID: 6113884317186997168}
 --- !u!114 &5402397033043342440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +163,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.53}
   m_EdgeRadius: 0
---- !u!114 &2129748442756443806
+--- !u!114 &6113884317186997168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,7 +191,7 @@ MonoBehaviour:
   Preload: 0
   NonRigidbodyVelocity: 0
   Params:
-  - Name: Panner
+  - Name: PannerMosquito
     Value: 0
   OverrideAttenuation: 0
   OverrideMinDistance: 1
