@@ -89,6 +89,7 @@ public class SaludPersonaje : MonoBehaviour
         if (vidasJugador <= 0)
         {
             SoundEvents.MorirPersonaje?.Invoke(); //Sound by Chelo :D
+            SoundEvents.DetenerPasosPasto?.Invoke(); //Sound by Chelo :D
             gameObject.SetActive(false);
             HUDManager.instancia.Muerto();
         }
