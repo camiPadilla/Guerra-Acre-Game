@@ -57,8 +57,8 @@ public static class SoundEvents
     public static Action HablarAliadoNPC;
 
     //Mosquito
-    public static Action VueloMosquito;
-    public static Action MorirMosquito;
+    public static Action<float, string> VueloMosquito;
+    public static Action<float> MorirMosquito;
 
     //Siringuero
     public static Action<float> DisparoEnemigo;
