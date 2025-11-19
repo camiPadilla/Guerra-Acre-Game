@@ -38,7 +38,7 @@ public class MasterGameManager : MonoBehaviour
     }
     IEnumerator IniJuego()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene("MainMenu");
     }    public void InicializarLista()
     {
