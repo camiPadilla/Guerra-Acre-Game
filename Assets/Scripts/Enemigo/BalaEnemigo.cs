@@ -48,6 +48,10 @@ public class BalaEnemigo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.CompareTag("PiedraGrande") && LayerMask.LayerToName(collision.gameObject.layer) == "Piso")
+        {
+            Destroy(gameObject);
+        }
         if (collision.CompareTag("Player"))
         {
             SaludPersonaje salud = collision.GetComponent<SaludPersonaje>();

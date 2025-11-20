@@ -270,6 +270,7 @@ public class HUDManager : MonoBehaviour
     {
         HUDGame.SetActive(false);
         pantallaMuerte.SetActive(true);
+        GameManager.instancia.CambiarDeEstado(5);
     }
     public void OcultarProg()
     {
