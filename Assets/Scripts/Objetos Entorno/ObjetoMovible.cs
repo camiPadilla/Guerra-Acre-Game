@@ -48,8 +48,9 @@ public class ObjetoMovible : MonoBehaviour
     {
         if (collision.transform.CompareTag("cabeza"))
         {
-         
-                collision.gameObject.GetComponentInParent<SaludPersonaje>().PerderVida(6);
+                Debug.Log("te mato una piedra");
+            Debug.Log(collision.transform.name);
+            collision.gameObject.GetComponentInParent<SaludPersonaje>().PerderVida(6);
    
         }
     }
