@@ -91,15 +91,17 @@ public abstract class Enemigo_IA : MonoBehaviour
                 jugadorDerecha = jugador.position.x > transform.position.x;
                 Flip(jugadorDerecha);
 
-                if (disWy > 5.6f)
+                 //SI EL JUGADOR ESTÁ DENTRO DEL RANGO → SEGUIR ATACANDO
+                if (distanciaJugador <= rangoVision)
                 {
-                    if (patrullaje) estadoActual = estadosEnemigo.patrullaje;
-                    else estadoActual = estadosEnemigo.idle;
+                    Atacar();  
                 }
-                else
+                 else
                 {
-                    Atacar();
-                }
+                //Si el jugador se fue del rango → volver a patrulla o idle
+                if (patrullaje) estadoActual = estadosEnemigo.patrullaje;
+                else estadoActual = estadosEnemigo.idle;
+                } 
                 break;
 
             case estadosEnemigo.muerto:
