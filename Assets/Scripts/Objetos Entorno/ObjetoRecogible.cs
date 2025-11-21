@@ -8,7 +8,7 @@ public class ObjetoRecogible : MonoBehaviour
     [SerializeField] string nombreObjeto;
     float imagenSize;
     bool desactivado;
-    Animator animator;
+    [SerializeField] Animator animator;
     [SerializeField] GameObject[] variante;
 
     private void Start()
@@ -41,12 +41,15 @@ public class ObjetoRecogible : MonoBehaviour
             if (animator != null)
             {
                 animator.SetBool("interactuable", true);
+            }else
+            {
+                Debug.Log("No tiene animator");
             }
             if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
             {
                 if (nombreObjeto != "NPC" && nombreObjeto != "nota")
                 {
-                    
+
                     collision.gameObject.SendMessage("RecibirInfo", nombreObjeto);
                     DestruirObjeto();
                     desactivado = true;
@@ -55,14 +58,14 @@ public class ObjetoRecogible : MonoBehaviour
                 {
 
                     SendMessage("Leer");
-                    
+
                 }
                 else
                 {
                     SendMessage("Interactuar");
                     return;
                 }
-                
+
             }
         }
     }
@@ -82,6 +85,11 @@ public class ObjetoRecogible : MonoBehaviour
             if (desactivado == true && nombreObjeto == "balas")
             {
                 HUDManager.instancia.AumentarBalas(transform.position);
+            }
+            if (nombreObjeto == "armadura")
+            {
+                variante[0].SetActive(true);
+                variante[1].SetActive(true);
             }
         }
     }

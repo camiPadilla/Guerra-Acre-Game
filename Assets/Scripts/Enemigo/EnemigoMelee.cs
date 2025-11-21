@@ -17,19 +17,20 @@ public class EnemigoMelee : Enemigo_IA
     }
     //cambiar a fisicas 
     private void FollowPlayer()
+{
+    float distancia = Vector2.Distance(transform.position, jugador.position);
+
+    if (distancia > stoppingDistance)
     {
-        //mueve al enemigo hacia el jugador calculando la distancia
-        if (Vector2.Distance(transform.position, jugador.position) > stoppingDistance)
-        {
-            rbEnemigo.velocity = new Vector2((jugador.position.x - transform.position.x) * speed, rbEnemigo.velocity.y);
-            print("Persiguiendo");
-        }
-        else
-        {
-            print("Detenido");
-        }
-        //manda que el eneimgo esta mirando al jugador para voltear
-        bool isPlayerOnRight = jugador.position.x > transform.position.x;
-        Flip(isPlayerOnRight);
+        Vector2 direccion = (jugador.position - transform.position).normalized;
+        rbEnemigo.velocity = new Vector2(direccion.x * speed, rbEnemigo.velocity.y);
     }
+    else
+    {
+        rbEnemigo.velocity = new Vector2(0, rbEnemigo.velocity.y);
+        //Aquí puedes lanzar la animación real de ataque
+    }
+
+    Flip(jugador.position.x > transform.position.x);
+}
 }

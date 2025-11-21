@@ -185,7 +185,6 @@ namespace TarodevController
         private void OnGroundedChanged(bool grounded, float impact)
         {
             _grounded = grounded;
-
             if (grounded)
             {
                 // Efectos al aterrizar
