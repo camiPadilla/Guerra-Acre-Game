@@ -24,17 +24,15 @@ public class ControladorNota : ObjetoRecogible
             player.ActualizarNotas(nota.ID);
             ControladorEscena escena = FindFirstObjectByType<ControladorEscena>();
             escena.ObtenerNota(nota);
+            HUDManager.instancia.LeerNota(nota.notaImagen);
+            this.DestruirObjeto();
         }
         Debug.Log("leyendo nota");
         if (tutorial)
         {
             HUDManager.instancia.LeerNotaTutorial(mensajeNota);
         }
-        else
-        {
-            HUDManager.instancia.LeerNota(nota.notaImagen);
-            this.DestruirObjeto();
-        }
+        
         SoundEvents.DetenerPasosPasto.Invoke(); //Sonido by Chelo :D
         if (nota.name.ToLower().Contains("null")) SoundEvents.LeerSimple.Invoke();
         else SoundEvents.LeerColeccionable.Invoke(); //Sonido by Chelo :D

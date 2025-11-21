@@ -132,15 +132,15 @@ public class SaludPersonaje : MonoBehaviour
         invulnerabilidad = false;
         
     }
-    public void Curarse()
+    public void Curarse(int cura)
     {
-        if (vidasJugador > 4)
+        if (vidasJugador > 5)
         {
             vidasJugador = 6;
         }
         else
         {
-            vidasJugador++;
+            vidasJugador+=cura;
             ActivarHerido(false);
         }
         HUDManager.instancia.ActualizarVida(vidasJugador);
