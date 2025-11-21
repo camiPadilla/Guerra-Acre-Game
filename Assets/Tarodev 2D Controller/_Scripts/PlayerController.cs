@@ -68,7 +68,7 @@ namespace TarodevController
                 Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxis("Vertical")), // Input de movimiento
                 
                 //agachado = Input.GetKey(KeyCode.LeftControl) || forzarAgachado
-                agachado = (Input.GetAxisRaw("Vertical") < -0.3f) || forzarAgachado
+                agachado = (Input.GetAxisRaw("Vertical") < -0.5f) || forzarAgachado
             };
 
             // Aplicar deadzone y snapping si está habilitado
@@ -157,7 +157,7 @@ namespace TarodevController
             // Realizar raycasts para detectar suelo y techo
             bool groundHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.down, _stats.GrounderDistance, _stats.PlayerLayer);
             bool ceilingHit = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance, _stats.PlayerLayer);
-            bool angosto = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance + 0.5f, ~0);
+            bool angosto = Physics2D.CapsuleCast(_col.bounds.center, _col.size, _col.direction, 0, Vector2.up, _stats.GrounderDistance + 0.5f, _stats.PlayerLayer);
 
             
             // Si se golpea un techo, limitar velocidad vertical hacia arriba

@@ -38,7 +38,10 @@ public class InventarioManager : MonoBehaviour
                 Debug.Log("ahora el jugador tiene en balas " + balas);
                 break;
             case "botiquin":
-                SendMessage("Curarse");
+                SendMessage("Curarse",1);
+                break;
+            case "botiquinG":
+                SendMessage("Curarse",2);
                 break;
             case "armadura":
                 SendMessage("ObtenerArmadura");
