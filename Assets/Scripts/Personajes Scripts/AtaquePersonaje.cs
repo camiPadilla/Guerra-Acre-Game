@@ -299,6 +299,7 @@ public class AtaquePersonaje : MonoBehaviour
         {
             seleccionArma = nSel;
             miSprite.CambiarArma(seleccionArma);
+            animator.CambiarArmaAn(seleccionArma);
             switch (nSel)
             {
                 case 0:

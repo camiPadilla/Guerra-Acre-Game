@@ -277,6 +277,21 @@ namespace TarodevController
             newAnim.SetFloat("dirY", y);
 
         }
+        public void CambiarArmaAn(int arma)
+        {
+            switch (arma)
+            {
+                case 0:
+                    newAnim.SetBool("arma", false);
+                    break;
+                case 1:
+                    newAnim.SetBool("arma", false);
+                    break;
+                case 2:
+                    newAnim.SetBool("arma", true);
+                    break;
+            }
+        }
 
         // Hashes est�ticos para los par�metros del Animator (mejor performance)
         private static readonly int GroundedKey = Animator.StringToHash("Grounded");
