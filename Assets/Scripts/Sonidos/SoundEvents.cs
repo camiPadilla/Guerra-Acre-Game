@@ -77,5 +77,13 @@ public static class SoundEvents
 
     //Detener Musica
     public static Action DetenerMusica;
+
+    //Pause Sound
+    public static Action PauseSound;
+
+    //Cacho Sounds
+    public static Action hoverCacho;
+    public static Action lanzarDado;
+    public static Action anotar;
 }
 

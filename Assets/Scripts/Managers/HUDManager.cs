@@ -16,6 +16,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] UnityEngine.UI.Image imagenNota;
     [SerializeField] GameObject fondoTutorial;
     [SerializeField] GameObject mensajeE;
+
     [Header("Pantallas")]
 
     [SerializeField] List<GameObject> menues;
@@ -248,6 +249,7 @@ public class HUDManager : MonoBehaviour
     }
     public void Pausar()
     {
+        SoundEvents.PauseSound.Invoke(); //Sonido by Chelo :D
         masterGameManager.DetenerTiempo();
         print("hola familia");
         MasterGameManager.instance.PausarOtravez();

@@ -222,6 +222,7 @@ public class JuegoDadoManager : MonoBehaviour
     {
         if ((cantidadTiros < cantidadTirosMax) && botones)
         {
+            SoundEvents.anotar.Invoke(); //Sonido by Chelo :D
             if (i < 6)
             {
                 puntaje = puntaje + puntos[i];
