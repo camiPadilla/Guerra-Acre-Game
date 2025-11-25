@@ -435,37 +435,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &800984504
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 800984505}
-  m_Layer: 0
-  m_Name: Gorra
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &800984505
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800984504}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7963253, w: 0.60486865}
-  m_LocalPosition: {x: 0.22033529, y: -0.000000044961425, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1112192168}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 106.4675}
 --- !u!1001 &802367333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -580,38 +549,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e203ff327cbee1c4dbeb1c7dcfd369ae, type: 3}
---- !u!1 &1112192167
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1112192168}
-  m_Layer: 0
-  m_Name: Cabeza (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1112192168
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112192167}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.065050766, w: 0.99788195}
-  m_LocalPosition: {x: 0.09946208, y: -3.8050416e-10, z: 0}
-  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 800984505}
-  m_Father: {fileID: 1123139846}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.2565}
 --- !u!1001 &1123139845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -864,17 +801,9 @@ PrefabInstance:
     - {fileID: 5029149423698620231, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
     m_RemovedGameObjects:
     - {fileID: 748102432601962515, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 367028052918963670, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1112192168}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
---- !u!4 &1123139846 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 367028052918963670, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
-  m_PrefabInstance: {fileID: 1123139845}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1123139847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2010399998378761295, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
