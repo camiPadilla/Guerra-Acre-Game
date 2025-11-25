@@ -268,6 +268,15 @@ namespace TarodevController
         {
             newAnim.SetTrigger("tirarPiedra");
         }
+        public void DisparoArma()
+        {
+            newAnim.SetTrigger("ataqueFusil");
+        }
+        public void RecargaArma()
+        {
+            newAnim.SetTrigger("recargar");
+        }
+
         public void FuerzaY(float fuerza)
         {
             newAnim.SetFloat("fuerzaTiro", fuerza);
@@ -276,6 +285,21 @@ namespace TarodevController
         {
             newAnim.SetFloat("dirY", y);
 
+        }
+        public void CambiarArmaAn(int arma)
+        {
+            switch (arma)
+            {
+                case 0:
+                    newAnim.SetBool("arma", false);
+                    break;
+                case 1:
+                    newAnim.SetBool("arma", false);
+                    break;
+                case 2:
+                    newAnim.SetBool("arma", true);
+                    break;
+            }
         }
 
         // Hashes est�ticos para los par�metros del Animator (mejor performance)
