@@ -113,10 +113,7 @@ public class MasterGameManager : MonoBehaviour
         
         if (scene.name == "MainMenu")
         {
-            menuInGame = GameObject.Find("CanvasMenuPause");
-            menuPausa = GameObject.Find("/CanvasMenuPause/PantallaPausa");
             plape = GameObject.Find("PlayerPref");
-            menuScript = GameObject.Find("PantallaPausaScript");
             menuInGame.SetActive(false);
             Debug.Log("Estas en el Main Menu");
             return;
@@ -247,10 +244,8 @@ public class MasterGameManager : MonoBehaviour
         //ya no se que hacer auxiliio
         //GameManager.instancia.CambiarDeEstado(0);
         Destroy(HUDManager.instancia.gameObject);
-        Destroy(menuInGame);
-        Destroy(menuPausa);
-        Destroy(menuScript);
         Destroy(plape);
+        Time.timeScale = 1;
     }
     public void AddNota(NotasSO notaNueva)
     {

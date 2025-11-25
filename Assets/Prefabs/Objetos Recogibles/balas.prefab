@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 00d69c987efcc42438a6821d85187e70, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3cfc4faa70abc484e8c0af5fa4b06aa8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreObjeto: balas
+  animator: {fileID: 0}
+  variante: []
 --- !u!61 &4957978587347847320
 BoxCollider2D:
   m_ObjectHideFlags: 0

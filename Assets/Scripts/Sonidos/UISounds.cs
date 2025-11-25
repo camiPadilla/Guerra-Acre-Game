@@ -20,7 +20,6 @@ public class UISounds : MonoBehaviour
     [SerializeField] private Scrollbar musicFader;
     [SerializeField] private Scrollbar SFXFader;
 
-
     /*private void Awake()
     {
         int managers = FindObjectsOfType<UISounds>().Length;

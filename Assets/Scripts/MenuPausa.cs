@@ -13,13 +13,6 @@ public class MenuPausa : MonoBehaviour
     public static MenuPausa instance;
     [SerializeField] private GameObject MenuInGame;
     [SerializeField] List<GameObject> pantallaInGame;
-    //[SerializeField] MasterGameManager masterGameManager;
-    //Para trabajar con el audio
-    [SerializeField] private Scrollbar VolGen;
-    [SerializeField] private Scrollbar VolMus;
-    [SerializeField] private Scrollbar VolSFX;
-
-    [SerializeField] PlayerSettings playerSettings;
     [SerializeField] MasterGameManager masterGm;
     void Awake()
     {
@@ -38,8 +31,6 @@ public class MenuPausa : MonoBehaviour
         {
             masterGm = FindObjectOfType<MasterGameManager>();
         }
-        GetVolumenes();
-
         SceneManager.activeSceneChanged += OnSceneChanged;
     }
     private void OnSceneChanged(Scene previous, Scene next)
@@ -142,24 +133,7 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(true);
     }
-    //Setteamos los valores del volumen etc.
-    public void GetVolumenes()
-    {
-        if (PlayerSettings.Instance != null)
-        {
-            VolGen.onValueChanged.RemoveAllListeners();
-            VolMus.onValueChanged.RemoveAllListeners();
-            VolSFX.onValueChanged.RemoveAllListeners();
-
-            VolGen.value = PlayerSettings.Instance.GetVolumenGeneral();
-            VolMus.value = PlayerSettings.Instance.GetVolumenMusica();
-            VolSFX.value = PlayerSettings.Instance.GetVolumenEfectos();
-
-            VolGen.onValueChanged.AddListener(value => PlayerSettings.Instance.SetVolumenGeneral(value));
-            VolMus.onValueChanged.AddListener(value => PlayerSettings.Instance.SetVolumenMusica(value));
-            VolSFX.onValueChanged.AddListener(value => PlayerSettings.Instance.SetVolumenEfectos(value));
-        }
-    }
+    
     public void IrMenuInicio()
     {
         masterGm.IrMenu();
