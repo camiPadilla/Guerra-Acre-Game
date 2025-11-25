@@ -62,6 +62,7 @@ public class ObjetoRecogible : MonoBehaviour
                 }
                 else
                 {
+                    //Debug.Log("hola quisiste interactuar con migo el npc");
                     SendMessage("Interactuar");
                     return;
                 }
