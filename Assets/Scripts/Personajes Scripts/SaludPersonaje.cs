@@ -59,6 +59,7 @@ public class SaludPersonaje : MonoBehaviour
     }
     IEnumerator DesactivarHerido()
     {
+        Debug.Log("desactivando herido");
         animatorHerido.SetTrigger("Hide");
         yield return new WaitForSeconds(0.5f);
         boxColliderHerido.enabled = false;
@@ -90,6 +91,7 @@ public class SaludPersonaje : MonoBehaviour
         {
             SoundEvents.MorirPersonaje?.Invoke(); //Sound by Chelo :D
             SoundEvents.DetenerPasosPasto?.Invoke(); //Sound by Chelo :D
+            ActivarHerido(false);
             gameObject.SetActive(false);
             HUDManager.instancia.Muerto();
         }
@@ -108,9 +110,11 @@ public class SaludPersonaje : MonoBehaviour
     public void Respawn()
     {
         vidasJugador = 6;
-        ActivarHerido(false);
         gameObject.SetActive(true);
         RegresarCheckPoint();
+        boxColliderHerido.enabled = false;
+        boxColliderVeneno.enabled = false;
+        //ActivarHerido(false);
         HUDManager.instancia.ActualizarVida(vidasJugador);
 
     }

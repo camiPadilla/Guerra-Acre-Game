@@ -9,10 +9,14 @@ public class ControladorBarra : MonoBehaviour
     float velocidad=9.5f * 0.5825f;
     [SerializeField] public Transform posicionInicial;
     [SerializeField] public RhythmSO tiempoBarra;
-    Vector2 corazon = new Vector2(1.5f, 13f);
+    Vector2 corazon;
     
      bool interactuable = true;
 
+    public void setCorazon(Vector2 nuevo)
+    {
+        corazon = nuevo;
+    }
     private void OnEnable()
     {
         GetComponent<SpriteRenderer>().color = Color.white;
@@ -25,7 +29,7 @@ public class ControladorBarra : MonoBehaviour
         transform.position= Vector2.MoveTowards(transform.position, target.position, velocidad * Time.deltaTime);
         if(Vector2.Distance(transform.position, target.position)<0.1f)
             RCPManager.instancia.DevolverBarra(this.gameObject);
-        if (transform.localPosition.x >= corazon.x && interactuable)
+        if (transform.position.x >= corazon.x && interactuable)
         {
             interactuable = false;
             GetComponent<SpriteRenderer>().color = Color.gray;
@@ -33,7 +37,7 @@ public class ControladorBarra : MonoBehaviour
 
         else if (Input.GetKey(KeyCode.E) && interactuable)
         {
-            //Debug.Log("hola estoy detectando inputs");
+            Debug.Log("hola estoy detectando inputs");
             ComprobarPuntos();
         }
         //Debug.Log(Vector2.Distance(transform.position, corazon));
@@ -50,7 +54,8 @@ public class ControladorBarra : MonoBehaviour
     }
     private void ComprobarPuntos()
     {
-        float distancia = Vector2.Distance(transform.localPosition, corazon);
+        float distancia = Vector2.Distance(transform.position, corazon);
+        //Debug.Log(distancia + " distancia del corazón a la barra");
         if (distancia <= 1.7f && distancia >= 1.1f)
         {
             StartCoroutine("FeedBackGrafico", Color.green);
