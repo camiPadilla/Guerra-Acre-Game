@@ -43,6 +43,7 @@ public class SpriteManager : MonoBehaviour
         switch (arma)
         {
             case 0:
+                
                 c_Rmano[jugador].SetActive(true);
                 fusil_Rmano[jugador].SetActive(false);
                 m_Machete[jugador].SetActive(true);
@@ -61,7 +62,7 @@ public class SpriteManager : MonoBehaviour
                 s_Machete[jugador].SetActive(false); 
                 break;
             case 2:
-                c_Rmano[jugador].SetActive(false);
+                c_Rmano[jugador].SetActive(true);
                 fusil_Rmano[jugador].SetActive(true);
                 m_Machete[jugador].SetActive(false);
                 m_Carrada[jugador].SetActive(false);

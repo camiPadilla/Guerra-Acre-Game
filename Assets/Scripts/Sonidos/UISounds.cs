@@ -19,19 +19,10 @@ public class UISounds : MonoBehaviour
     [SerializeField] private Scrollbar masterVolume;
     [SerializeField] private Scrollbar musicFader;
     [SerializeField] private Scrollbar SFXFader;
-
-    /*private void Awake()
+    private void OnEnable()
     {
-        int managers = FindObjectsOfType<UISounds>().Length;
-        if (managers > 1)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        //DontDestroyOnLoad(this.gameObject);
-    }*/
-
+        SoundEvents.PauseSound += PlayClick;
+    }
     void Update()
     {        
         if (masterVolume && musicFader && SFXFader)

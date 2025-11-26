@@ -31,22 +31,8 @@ public class MenuPausa : MonoBehaviour
         {
             masterGm = FindObjectOfType<MasterGameManager>();
         }
-        SceneManager.activeSceneChanged += OnSceneChanged;
     }
-    private void OnSceneChanged(Scene previous, Scene next)
-    {
-        StartCoroutine(enableSound());
-    }
-    IEnumerator enableSound()
-    {
-        enablePauseSound.EventInstance.setParameterByName("MenuEnable", 0);
-        enablePauseSound.EventInstance.getParameterByName("MenuEnable", out float test);
-        Debug.Log("Valor del parametro MenuEnable al abrir el menu de pausa: " + test);
-        yield return new WaitForSeconds(1);
-        enablePauseSound.EventInstance.setParameterByName("MenuEnable", 1);
-        enablePauseSound.EventInstance.getParameterByName("MenuEnable", out float tester);
-        Debug.Log("Valor del parametro MenuEnable despues de abrir el menu de pausa: " + tester);
-    }
+    
     public void OcultarTodo()
     {
         pantallaInGame[0].SetActive(false);

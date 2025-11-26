@@ -13,6 +13,7 @@ public class RCPManager : MonoBehaviour
     [SerializeField] Transform _target;
     [SerializeField] int puntosGanar;
     [SerializeField] public GameObject padre;
+    [SerializeField] public Transform corazon;
     int puntosActual=0;
     int conteoDeBalas=0;
     // Start is called before the first frame update
@@ -49,6 +50,8 @@ public class RCPManager : MonoBehaviour
         {
             CancelInvoke();
             GameManager.instancia.RevivirNPC();
+            this.gameObject.SetActive(false);
+            //return;
         }
     }
     void InstanciarBarras()
@@ -84,12 +87,13 @@ public class RCPManager : MonoBehaviour
     public void ConfigurarBarra()
     {
         conteoDeBalas++;
-        if (conteoDeBalas == 16)
+        if (conteoDeBalas == 15)
         {
             CancelInvoke();
             Debug.Log("murio el boliviano");
 
             GameManager.instancia.VolverJuego();
+            return;
         }
         Debug.Log("pasaron " + conteoDeBalas);
         GameObject nuevaBarra = ObtenerBarra();
@@ -97,6 +101,7 @@ public class RCPManager : MonoBehaviour
         ControladorBarra _micontroladorBarra = nuevaBarra.GetComponent<ControladorBarra>();
         _micontroladorBarra.posicionInicial = this.transform;
         _micontroladorBarra.target = _target;
+        _micontroladorBarra.setCorazon(corazon.position);
         int IndiceRandom = Random.Range(0, ritmos.Count);
         _micontroladorBarra.tiempoBarra = ritmos[IndiceRandom];
         ;

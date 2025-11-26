@@ -26,10 +26,15 @@ public class VasoManager : MonoBehaviour
         Debug.Log("tirado");
         if (usable)
         {
+            SoundEvents.lanzarDado.Invoke(); //Sonido by Chelo :D
             //animacion tirar
             //juegoManager.Tirar();
             animator.SetTrigger("Tirar");
         }
+    }
+    private void OnMouseEnter()
+    {
+        if (usable) SoundEvents.hoverCacho.Invoke(); //Sonido by Chelo :D
     }
     private void OnMouseOver()
     {

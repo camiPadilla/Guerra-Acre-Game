@@ -37,6 +37,10 @@ public class MosquitoController : MonoBehaviour
             float distancia = PosicionJugador.position.x - transform.position.x;
             float distNormalizado = Mathf.Clamp(distancia / 8, -1f, 1f);
             vueloMosquito.EventInstance.setParameterByName("PannerMosquito", -distNormalizado);
+            
+            float distanceY = PosicionJugador.position.y - transform.position.y;
+            float distNormalY = Mathf.Clamp(distanceY / 8, -1f, 1f);
+            vueloMosquito.EventInstance.setParameterByName("DistanceY", -distNormalY);
         }
 
 

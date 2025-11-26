@@ -27,6 +27,7 @@ public class InputPlayer : MonoBehaviour
         {
             
             interactuando = true;
+
         }else{
             interactuando = false;
         }
@@ -51,6 +52,7 @@ public class InputPlayer : MonoBehaviour
 
     public bool getInteractuable()
     {
+        //Debug.Log("quiero interactuar");
         bool aux = interactuando;
         interactuando = false;
         return aux;

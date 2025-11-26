@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2670690930791442396}
   - component: {fileID: 4835891764495449337}
   - component: {fileID: 1031958548593727044}
+  - component: {fileID: -8909314131825470312}
   m_Layer: 3
   m_Name: Rio
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0ee3d52f67036408230d7131bfe9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puntoRespawn: {fileID: 0}
 --- !u!61 &2670690930791442396
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -215,3 +217,36 @@ MonoBehaviour:
   m_Creator: {fileID: 0}
   m_Modifiers: []
   m_ColliderSegment: []
+--- !u!114 &-8909314131825470312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163781873806428431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 575463407
+      Data2: 1201965122
+      Data3: 1807757451
+      Data4: 665481186
+    Path: event:/ENVIRONMENT/Agua/Rio
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: RioPanner
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
