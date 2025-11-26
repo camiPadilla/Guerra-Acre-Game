@@ -121,19 +121,21 @@ public class MasterGameManager : MonoBehaviour
             return;
         }
         // Configuración según la escena
-        if (scene.name == "PuertoAlonso")
+        if (scene.name == "EscenaUno")
         {
             escenaActual = "PuertoAlonso";
             escenaSiguiente = "Riosinho";
             menuInGame.SetActive(true);
             menuPausa.SetActive(false);
+            nEscena = escenaActual;
         }
-        else if (scene.name == "Riosinho")
+        else if (scene.name == "EscenaDos")
         {
-            escenaActual = "Riosinho";
-            escenaSiguiente = "FinalScene";
+            escenaActual = "PuertoAlonso";
+            escenaSiguiente = "Riosinho";
             menuInGame.SetActive(true);
             menuPausa.SetActive(false);
+            nEscena = escenaActual;
         }
 
         LoadGame();
