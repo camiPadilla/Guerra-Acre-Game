@@ -161,6 +161,7 @@ public class MasterGameManager : MonoBehaviour
         GameData data = new GameData(playerSalud, playerAtaque, playerController, currentLevel, SceneManager.GetActiveScene().name, lastCP, currentSlot);
         SaveLoadSystem.SaveGame(data, currentSlot);
         Debug.Log($" Juego guardado en slot {currentSlot}");
+        //nEscena = 
     }
 
     public void LoadGame()

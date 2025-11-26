@@ -7,6 +7,7 @@ public class SlotButton : MonoBehaviour
     public int slotId;
     public Image fondo;
     public TMP_Text texto;
+    public TMP_Text textInfo;
     public Sprite spriteVacio;
     public Sprite spriteOcupado;
     public Button deleteButton;
@@ -29,7 +30,7 @@ public class SlotButton : MonoBehaviour
         if (SaveLoadSystem.HasSave(slotId))
         {
             fondo.sprite = spriteOcupado;
-            texto.text = "Partida ";
+            texto.text = "Partida + (slotId.ToString());";
             deleteButton.gameObject.SetActive(true);
             startButton.gameObject.SetActive(true);
             newButton.gameObject.SetActive(false);
