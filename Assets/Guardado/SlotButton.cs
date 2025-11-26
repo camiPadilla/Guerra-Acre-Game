@@ -31,6 +31,7 @@ public class SlotButton : MonoBehaviour
         {
             fondo.sprite = spriteOcupado;
             texto.text = "Partida + (slotId.ToString());";
+            textInfo.text = MasterGameManager.instance.nEscena;
             deleteButton.gameObject.SetActive(true);
             startButton.gameObject.SetActive(true);
             newButton.gameObject.SetActive(false);

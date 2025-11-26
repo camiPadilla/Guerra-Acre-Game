@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TarodevController;
 using PantallaCarga;
+using System;
 
 public class MasterGameManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class MasterGameManager : MonoBehaviour
     [SerializeField] NotasSO notaVacia;
     public List<bool> checkpointsActivos = new List<bool>();
     public GameData gameData;
+    public String nEscena;
 
     public string escenaActual;
     public string escenaSiguiente;
@@ -119,16 +121,16 @@ public class MasterGameManager : MonoBehaviour
             return;
         }
         // Configuración según la escena
-        if (scene.name == "EscenaUno")
+        if (scene.name == "PuertoAlonso")
         {
-            escenaActual = "EscenaUno";
-            escenaSiguiente = "EscenaDos";
+            escenaActual = "PuertoAlonso";
+            escenaSiguiente = "Riosinho";
             menuInGame.SetActive(true);
             menuPausa.SetActive(false);
         }
-        else if (scene.name == "EscenaDos")
+        else if (scene.name == "Riosinho")
         {
-            escenaActual = "EscenaDos";
+            escenaActual = "Riosinho";
             escenaSiguiente = "FinalScene";
             menuInGame.SetActive(true);
             menuPausa.SetActive(false);
@@ -161,7 +163,7 @@ public class MasterGameManager : MonoBehaviour
         GameData data = new GameData(playerSalud, playerAtaque, playerController, currentLevel, SceneManager.GetActiveScene().name, lastCP, currentSlot);
         SaveLoadSystem.SaveGame(data, currentSlot);
         Debug.Log($" Juego guardado en slot {currentSlot}");
-        //nEscena = 
+        nEscena = escenaActual;        
     }
 
     public void LoadGame()
