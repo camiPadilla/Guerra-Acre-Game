@@ -8,11 +8,8 @@ public class SlotButton : MonoBehaviour
     public Image fondo;
     public TMP_Text texto;
     public TMP_Text textInfo;
-    public Sprite spriteVacio;
-    public Sprite spriteOcupado;
-    public Button deleteButton;
-    public Button startButton;
     public Button newButton;
+    [SerializeField] GameObject botonGuardado;
     public TMP_Text textButton;
 
     [SerializeField] private MasterGameManager manager;
@@ -29,19 +26,16 @@ public class SlotButton : MonoBehaviour
     {
         if (SaveLoadSystem.HasSave(slotId))
         {
-            fondo.sprite = spriteOcupado;
-            texto.text = "Partida + (slotId.ToString());";
+            botonGuardado.SetActive(true);
+            texto.text = "Partida " + slotId.ToString();
             textInfo.text = MasterGameManager.instance.nEscena;
-            deleteButton.gameObject.SetActive(true);
-            startButton.gameObject.SetActive(true);
             newButton.gameObject.SetActive(false);
         }
         else
         {
-            fondo.sprite = spriteVacio;
+            botonGuardado.SetActive(false);
+            textButton.gameObject.SetActive(true);
             textButton.text = "Nueva partida";
-            deleteButton.gameObject.SetActive(false);
-            startButton.gameObject.SetActive(false);
         }
     }
 
