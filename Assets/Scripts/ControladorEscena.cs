@@ -165,6 +165,14 @@ public void VolverMenu()
     {
         masterGameManager.NewGame();
     }
+    public void CargarPart()
+    {
+        masterGameManager.LoadGame();
+    }
+    public void BorrarPart()
+    {
+        masterGameManager.DeleteGame();
+    }
     public void ObtenerNota(NotasSO nota)
     {
         notaNueva = nota;

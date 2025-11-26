@@ -11,6 +11,8 @@ public class SlotButton : MonoBehaviour
     public Sprite spriteOcupado;
     public Button deleteButton;
     public Button startButton;
+    public Button newButton;
+    public TMP_Text textButton;
 
     [SerializeField] private MasterGameManager manager;
 
@@ -27,14 +29,15 @@ public class SlotButton : MonoBehaviour
         if (SaveLoadSystem.HasSave(slotId))
         {
             fondo.sprite = spriteOcupado;
-            texto.text = "Partida guardada";
+            texto.text = "Partida ";
             deleteButton.gameObject.SetActive(true);
             startButton.gameObject.SetActive(true);
+            newButton.gameObject.SetActive(false);
         }
         else
         {
             fondo.sprite = spriteVacio;
-            texto.text = "Vacío";
+            textButton.text = "Nueva partida";
             deleteButton.gameObject.SetActive(false);
             startButton.gameObject.SetActive(false);
         }
