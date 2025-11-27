@@ -188,11 +188,21 @@ public class SaludPersonaje : MonoBehaviour
         {
             if (ultimoCheckPoint != null)
             {
+                if (ultimoCheckPoint.GetComponent<CheckPoints>().Verificar(collision.gameObject.GetComponent<CheckPoints>()))
+                {
+                    ultimoCheckPoint.GetComponent<CheckPoints>().CambiarEstadoBandera();
+                    ultimoCheckPoint = collision.gameObject;
+                    ultimoCheckPoint.GetComponent<CheckPoints>().CambiarEstadoBandera();
+                }
+            }
+            else
+            {
+                ultimoCheckPoint = collision.gameObject;
                 ultimoCheckPoint.GetComponent<CheckPoints>().CambiarEstadoBandera();
             }
-            ultimoCheckPoint = collision.gameObject;
-            ultimoCheckPoint.GetComponent<CheckPoints>().CambiarEstadoBandera();
+
         }
+
     }
     public int GetArmaduraJugador()
     {

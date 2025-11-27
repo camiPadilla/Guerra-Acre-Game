@@ -5,43 +5,42 @@ using UnityEngine;
 public class CheckPoints : MonoBehaviour
 {
     public int indexCP;
-    public bool checkPointActivo;
-    [SerializeField] GameManager gameManager;
-    [SerializeField] private Sprite[] sprites;
+    private bool checkPointActivo;
+    private Animator animator;
 
     private bool checkPointSound = true;
-    // Start is called before the first frame update
+
     void Start()
     {
-
+        animator = GetComponent<Animator>();
+        checkPointActivo = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") && !checkPointActivo)
-        {
-            //gameManager.ActivarCheckPoint(indexCP);
-
-            checkPointActivo = true;
-            Debug.Log("hola acabas de pasar por aqui :D");
-        }
-    }
     public void CambiarEstadoBandera()
     {
         checkPointActivo = !checkPointActivo;
+        animator.SetBool("usado", checkPointActivo);
         if (checkPointActivo) 
         {
-            if (checkPointSound){SoundEvents.CheckpointActivado?.Invoke(); // Sonido by Chelo :D
-                checkPointSound = false;}
-            gameObject.GetComponent<SpriteRenderer>().sprite = sprites[1];
+            if (checkPointSound)
+            {
+                SoundEvents.CheckpointActivado?.Invoke(); // Sonido by Chelo :D
+                checkPointSound = false;
+            }
         }else
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            checkPointSound = true;
+        }
+    }
+    public bool Verificar(CheckPoints anterior)
+    {
+        if (indexCP == anterior.indexCP)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 }
