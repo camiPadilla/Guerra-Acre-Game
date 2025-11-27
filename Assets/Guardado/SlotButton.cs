@@ -35,6 +35,7 @@ public class SlotButton : MonoBehaviour
         {
             botonGuardado.SetActive(false);
             textButton.gameObject.SetActive(true);
+            newButton.gameObject.SetActive(true);
             textButton.text = "Nueva partida";
         }
     }

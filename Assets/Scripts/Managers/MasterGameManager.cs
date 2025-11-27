@@ -123,19 +123,19 @@ public class MasterGameManager : MonoBehaviour
         // Configuración según la escena
         if (scene.name == "EscenaUno")
         {
-            escenaActual = "PuertoAlonso";
-            escenaSiguiente = "Riosinho";
+            escenaActual = "EscenaUno";
+            escenaSiguiente = "EscenaDos";
             menuInGame.SetActive(true);
             menuPausa.SetActive(false);
-            nEscena = escenaActual;
+            nEscena = "Puerto Alonso";
         }
         else if (scene.name == "EscenaDos")
         {
-            escenaActual = "PuertoAlonso";
-            escenaSiguiente = "Riosinho";
+            escenaActual = "EscenaDos";
+            escenaSiguiente = "Creditos";
             menuInGame.SetActive(true);
             menuPausa.SetActive(false);
-            nEscena = escenaActual;
+            nEscena = "Riosinho";
         }
 
         LoadGame();
