@@ -244,6 +244,7 @@ public class MasterGameManager : MonoBehaviour
     }
     public void IrMenu()
     {
+        SoundEvents.DetenerMusica?.Invoke(); //Sonido by Chelo :D
         loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
         //quiero creer que tiene que crear un estado del juego para que vaya al main menu, asi que no creo que llegue a afectar a la jugabilidad del juego y tal tal
         //ya no se que hacer auxiliio
