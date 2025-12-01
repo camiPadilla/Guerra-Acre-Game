@@ -11228,7 +11228,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1249295670}
-  - component: {fileID: 1249295671}
   m_Layer: 5
   m_Name: PantallaPausa
   m_TagString: canvas
@@ -11263,39 +11262,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0009765625, y: -0.00061035156}
   m_SizeDelta: {x: 236.41, y: 133.07}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1249295671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249295669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -405801184
-      Data2: 1329629384
-      Data3: -177178464
-      Data4: -91092934
-    Path: event:/UI/Clic
-  Event: 
-  EventPlayTrigger: 11
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params:
-  - Name: MenuEnable
-    Value: 1
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1268010031
 GameObject:
   m_ObjectHideFlags: 0
@@ -13480,6 +13446,7 @@ MonoBehaviour:
     lastScene: 
     lastCheckPoint: 0
     checkpointsActivos: 
+  nEscena: 
   escenaActual: 
   escenaSiguiente: 
   InGame: 0
@@ -18573,7 +18540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e6948e7462c4e078a5b274fce32a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enablePauseSound: {fileID: 1249295671}
+  enablePauseSound: {fileID: 0}
   MenuInGame: {fileID: 1168924882}
   pantallaInGame:
   - {fileID: 1249295669}

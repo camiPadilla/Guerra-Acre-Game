@@ -4,11 +4,11 @@ using UnityEngine;
 public class ObjetoMovible : MonoBehaviour
 {
     Rigidbody2D miCuerpo;
-    
+    private float velocidadAnteriorX = 0f;
     [SerializeField] LayerMask personaje;
     [SerializeField] float distanciaRaycast;
 
-    private bool arrastrando = false; // ← añade esta variable al inicio de la clase
+    private bool arrastrando = false;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +16,13 @@ public class ObjetoMovible : MonoBehaviour
         miCuerpo = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per fra
-   
+    private void Update()
+    {
+        float velActual = Mathf.Abs(miCuerpo.velocity.x);
+        if (velocidadAnteriorX < 0.1f && velActual > 0.5f) SoundEvents.ArrastrarObjeto?.Invoke(); 
+        velocidadAnteriorX = velActual;
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Player"))
@@ -32,13 +37,6 @@ public class ObjetoMovible : MonoBehaviour
                     HUDManager.instancia.Ocultar();
                     miCuerpo.mass = 10f;
                     Movimiento(controladorMovimiento);
-                }
-                else
-                {
-                    SoundEvents.DetenerArrastrarObjeto?.Invoke(); // Sonido by Chelo :D
-                    DetenerObjeto(controladorMovimiento);
-
-
                 }
             }
         }
@@ -92,7 +90,7 @@ public class ObjetoMovible : MonoBehaviour
             if (arrastrando)
             {
                 arrastrando = false;
-                SoundEvents.DetenerArrastrarObjeto?.Invoke();
+                SoundEvents.ArrastrarObjeto?.Invoke();
             }
         }
         if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
@@ -102,21 +100,7 @@ public class ObjetoMovible : MonoBehaviour
             if (arrastrando)
             {
                 arrastrando = false;
-                SoundEvents.DetenerArrastrarObjeto?.Invoke();
-            }
-        }
-        // ADDED FIX BY CHELO :D
-        if (arrastrando)
-        {
-            bool contactoIzquierda = Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje);
-            bool contactoDerecha = Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje);
-
-            // Si no hay contacto o el jugador no está moviéndose horizontalmente, se detiene el sonido
-            if ((!contactoIzquierda && !contactoDerecha) || direccionX == 0)
-            {
-                arrastrando = false;
-                SoundEvents.DetenerArrastrarObjeto?.Invoke();
-                jugadorMovimiento.enabled = true;
+                SoundEvents.ArrastrarObjeto?.Invoke();
             }
         }
     }
@@ -125,7 +109,6 @@ public class ObjetoMovible : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             HUDManager.instancia.Ocultar();
-            
             DetenerObjeto(collision.gameObject.GetComponent<PlayerController>());
             
         }
@@ -135,6 +118,7 @@ public class ObjetoMovible : MonoBehaviour
         jugadorMovimiento.enabled = true;
         miCuerpo.mass = 100f;
         miCuerpo.velocity = Vector2.zero;
+        SoundEvents.DetenerArrastrarObjeto?.Invoke(); // Sonido by Chelo :D
     }
 
 }

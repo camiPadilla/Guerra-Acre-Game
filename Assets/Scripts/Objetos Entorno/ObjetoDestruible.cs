@@ -42,8 +42,11 @@ public class ObjetoDestruible : MonoBehaviour
             SendMessage("ActivarLoot", SendMessageOptions.DontRequireReceiver);
             StopCoroutine(FeedBackGrafico());
             destruido = true;
-            gameObject.SetActive(false);
-            
+            if (tipo != TipoDestruible.Caja)
+            {
+                Esconder();
+            }
+
         }    
     }
     IEnumerator PerderVida()
@@ -78,9 +81,10 @@ public class ObjetoDestruible : MonoBehaviour
             sprite.color = Color.Lerp(colorInicial, Color.gray, Mathf.PingPong(Time.time * 3, 1));
 
             yield return null;
-            
-            
         }
-        
+    }
+    public void Esconder()
+    {
+        gameObject.SetActive(false);
     }
 }

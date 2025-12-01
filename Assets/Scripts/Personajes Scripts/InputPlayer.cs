@@ -40,6 +40,7 @@ public class InputPlayer : MonoBehaviour
         }
         else
         {
+            SoundEvents.DetenerArrastrarObjeto?.Invoke();
             moviendo = false;
         }
         //interactaundo = false;
