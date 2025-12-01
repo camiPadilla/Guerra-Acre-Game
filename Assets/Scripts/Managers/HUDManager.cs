@@ -117,32 +117,33 @@ public class HUDManager : MonoBehaviour
     public void ActualizarArma(int armaActiva)
     {
         armas[0].GetComponent<UnityEngine.UI.Image>().sprite = imagenArmas[armaActiva];
-        //esto estaba cementado
-       /* foreach (GameObject arma in armas)
+        if (armaActiva == 2)
         {
-            Image imagenArma = arma.GetComponent<Image>();
-            RectTransform tranformArma = arma.GetComponent<RectTransform>();
-            if (armas.IndexOf(arma) == armaActiva)
-            {
-                tranformArma.sizeDelta = new Vector2(65, 50);
-                tranformArma.anchoredPosition = new Vector2(-10, tranformArma.anchoredPosition.y);
-                imagenArma.color = Color.white;
-                if (armaActiva == 2)
-                {
-                    hudBalas.SetActive(true);
-                }
-                else
-                {
-                    hudBalas.SetActive(false);
-                }
-            }
-            else
-            {
-                tranformArma.sizeDelta = new Vector2(55, 45);
-                tranformArma.anchoredPosition = new Vector2(0, tranformArma.anchoredPosition.y);
-                imagenArma.color = Color.gray;
-            }
-        } */
+            hudBalas.SetActive(true);
+        }
+        else
+        {
+            hudBalas.SetActive(false);
+        }
+        //esto estaba cementado
+        /* foreach (GameObject arma in armas)
+         {
+             Image imagenArma = arma.GetComponent<Image>();
+             RectTransform tranformArma = arma.GetComponent<RectTransform>();
+             if (armas.IndexOf(arma) == armaActiva)
+             {
+                 tranformArma.sizeDelta = new Vector2(65, 50);
+                 tranformArma.anchoredPosition = new Vector2(-10, tranformArma.anchoredPosition.y);
+                 imagenArma.color = Color.white;
+
+             }
+             else
+             {
+                 tranformArma.sizeDelta = new Vector2(55, 45);
+                 tranformArma.anchoredPosition = new Vector2(0, tranformArma.anchoredPosition.y);
+                 imagenArma.color = Color.gray;
+             }
+         } */
     }
 
     public void ActualizarVida(int cantidadVidas)

@@ -154,7 +154,7 @@ public class SaludPersonaje : MonoBehaviour
     }
     public void ObtenerArmadura()
     {
-        if (vidasEXtras == 1)
+        if (vidasEXtras >= 1)
         {
             vidasEXtras = 2;
         }
