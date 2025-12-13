@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9219868892188211812}
-  - component: {fileID: 1488897466569288098}
+  - component: {fileID: 5366726196179108451}
   m_Layer: 0
   m_Name: MenuSoundManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1488897466569288098
+--- !u!114 &5366726196179108451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,37 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1286100996077952544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a7ee6d4d6c495f4da8a4ef683a326ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 13646ee7c095d40349c1afa33a0648fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverEvent:
-    Guid:
-      Data1: -547904109
-      Data2: 1116880011
-      Data3: -488020859
-      Data4: -277872320
-    Path: event:/UI/Hover
-  clickEvent:
-    Guid:
-      Data1: -405801184
-      Data2: 1329629384
-      Data3: -177178464
-      Data4: -91092934
-    Path: event:/UI/Clic
-  click2Event:
-    Guid:
-      Data1: -348089291
-      Data2: 1168927517
-      Data3: 1767009713
-      Data4: 239761294
-    Path: event:/UI/Clic2
-  hoverJochi:
-    Guid:
-      Data1: 1656085011
-      Data2: 1128360245
-      Data3: 935637656
-      Data4: 504310757
-    Path: event:/UI/Hover_Jochi
+  masterVolumeREF: {fileID: 0}
+  musicFaderREF: {fileID: 0}
+  SFXFaderREF: {fileID: 0}
   masterVolume: {fileID: 0}
   musicFader: {fileID: 0}
   SFXFader: {fileID: 0}

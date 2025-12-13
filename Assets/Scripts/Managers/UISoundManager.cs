@@ -1,32 +1,29 @@
 using UnityEngine;
+using FMODUnity;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using JetBrains.Annotations;
 
-public class IUSoundsManager : MonoBehaviour
+public class UISoundManager : MonoBehaviour
 {
-    public Scrollbar masterScrollbar;
-    public Scrollbar musicScrollbar;
-    public Scrollbar sfxScrollbar;
-    private void Start()
+    [SerializeField] public Scrollbar masterVolumeREF;
+    [SerializeField] public Scrollbar musicFaderREF;
+    [SerializeField] public Scrollbar SFXFaderREF;
+
+    private void Awake()
     {
-        masterScrollbar.value = PlayerSettings.Instance.masterVolume;
-        musicScrollbar.value  = PlayerSettings.Instance.musicVolume;
-        sfxScrollbar.value    = PlayerSettings.Instance.sfxVolume;
-        masterScrollbar.onValueChanged.AddListener(v =>
-        {
-            PlayerSettings.Instance.masterVolume = v;
-            PlayerSettings.Instance.SaveToPrefs();
-        });
+        CargarDesdePrefs();
+    }
 
-        musicScrollbar.onValueChanged.AddListener(v =>
-        {
-            PlayerSettings.Instance.musicVolume = v;
-            PlayerSettings.Instance.SaveToPrefs();
-        });
+    public void CargarDesdePrefs()
+    {
+        if (masterVolumeREF)
+            masterVolumeREF.value = PlayerPrefs.GetFloat("VolMaster");
 
-        sfxScrollbar.onValueChanged.AddListener(v =>
-        {
-            PlayerSettings.Instance.sfxVolume = v;
-            PlayerSettings.Instance.SaveToPrefs();
-        });
+        if (musicFaderREF)
+            musicFaderREF.value = PlayerPrefs.GetFloat("VolMusic");
+
+        if (SFXFaderREF)
+            SFXFaderREF.value = PlayerPrefs.GetFloat("VolSFX");
     }
 }

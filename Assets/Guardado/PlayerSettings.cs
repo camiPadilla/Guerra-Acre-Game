@@ -24,9 +24,9 @@ public class PlayerSettings : MonoBehaviour
 
     public void LoadFromPrefs()
     {
-        masterVolume = PlayerPrefs.GetFloat("VolMaster", 1f);
-        musicVolume  = PlayerPrefs.GetFloat("VolMusic", 1f);
-        sfxVolume    = PlayerPrefs.GetFloat("VolSFX", 1f);
+        masterVolume = PlayerPrefs.GetFloat("VolMaster");
+        musicVolume  = PlayerPrefs.GetFloat("VolMusic");
+        sfxVolume    = PlayerPrefs.GetFloat("VolSFX");
     }
 
     public void SaveToPrefs()

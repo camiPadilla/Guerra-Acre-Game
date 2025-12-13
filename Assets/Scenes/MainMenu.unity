@@ -369,7 +369,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -436,7 +436,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -462,7 +462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1286100996077952544, guid: e51f84685e5035646b789b0b381ffb37, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1488897466569288098, guid: e51f84685e5035646b789b0b381ffb37, type: 3}
       propertyPath: SFXFader
@@ -500,6 +500,22 @@ PrefabInstance:
       propertyPath: music.Guid.Data4
       value: -1778317473
       objectReference: {fileID: 0}
+    - target: {fileID: 5366726196179108451, guid: e51f84685e5035646b789b0b381ffb37, type: 3}
+      propertyPath: SFXFaderREF
+      value: 
+      objectReference: {fileID: 1603998462}
+    - target: {fileID: 5366726196179108451, guid: e51f84685e5035646b789b0b381ffb37, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366726196179108451, guid: e51f84685e5035646b789b0b381ffb37, type: 3}
+      propertyPath: musicFaderREF
+      value: 
+      objectReference: {fileID: 1759842361}
+    - target: {fileID: 5366726196179108451, guid: e51f84685e5035646b789b0b381ffb37, type: 3}
+      propertyPath: masterVolumeREF
+      value: 
+      objectReference: {fileID: 1421652286}
     - target: {fileID: 9219868892188211812, guid: e51f84685e5035646b789b0b381ffb37, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -559,17 +575,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e51f84685e5035646b789b0b381ffb37, type: 3}
---- !u!114 &65812095 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1488897466569288098, guid: e51f84685e5035646b789b0b381ffb37, type: 3}
-  m_PrefabInstance: {fileID: 65812094}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a7ee6d4d6c495f4da8a4ef683a326ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &90105261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,12 +1494,6 @@ MonoBehaviour:
       Data3: 935637656
       Data4: 504310757
     Path: event:/UI/Hover_Jochi
-  masterVolumeREF: {fileID: 1421652286}
-  musicFaderREF: {fileID: 1759842361}
-  SFXFaderREF: {fileID: 1603998462}
-  masterVolume: {fileID: 1421652286}
-  musicFader: {fileID: 1759842361}
-  SFXFader: {fileID: 1603998462}
 --- !u!1 &203551112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,7 +1931,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -1999,7 +1998,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -2302,7 +2301,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -2381,7 +2380,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -3221,7 +3220,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -3288,7 +3287,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -4939,7 +4938,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClickDos
         m_Mode: 1
@@ -5006,7 +5005,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -5603,7 +5602,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClickDos
         m_Mode: 1
@@ -5682,7 +5681,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -6058,7 +6057,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -6125,7 +6124,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -7390,7 +7389,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -7469,7 +7468,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -7577,7 +7576,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -7644,7 +7643,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -8171,7 +8170,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -8250,7 +8249,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -8319,71 +8318,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21c6974226346b64aafceb38b3b5b961, type: 3}
---- !u!1001 &781720777
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4948443466666871306, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      propertyPath: m_Name
-      value: AudioManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4948443466666871306, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 23.618536
-      objectReference: {fileID: 0}
-    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.5482779
-      objectReference: {fileID: 0}
-    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.3034825
-      objectReference: {fileID: 0}
-    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7713782134440039763, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8772595360620824679, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      propertyPath: EventReference.Path
-      value: event:/MUSIC/Menu/Music_UI
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
 --- !u!1 &788497507 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1414093173670483251, guid: 599c3379ef9c042ff8f44990800cbe10, type: 3}
@@ -9397,7 +9331,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -9464,7 +9398,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -10022,7 +9956,6 @@ GameObject:
   m_Component:
   - component: {fileID: 934808819}
   - component: {fileID: 934808820}
-  - component: {fileID: 934808821}
   m_Layer: 0
   m_Name: "Men\xFA Manager"
   m_TagString: Untagged
@@ -10068,21 +10001,6 @@ MonoBehaviour:
   - {fileID: 237745177}
   - {fileID: 1441869114}
   escenaPartida: EscenaUno
---- !u!114 &934808821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934808818}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13646ee7c095d40349c1afa33a0648fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterScrollbar: {fileID: 1421652286}
-  musicScrollbar: {fileID: 1759842361}
-  sfxScrollbar: {fileID: 1603998462}
 --- !u!1 &938149888
 GameObject:
   m_ObjectHideFlags: 0
@@ -11688,7 +11606,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClickDos
         m_Mode: 1
@@ -11767,7 +11685,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -12294,7 +12212,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -12361,7 +12279,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -12886,7 +12804,7 @@ PrefabInstance:
     - target: {fileID: 6923621548938811018, guid: 821271ea0f0d4bb4ea04c2cdcf478c8c, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 65812095}
+      objectReference: {fileID: 0}
     - target: {fileID: 7874123290555537406, guid: 821271ea0f0d4bb4ea04c2cdcf478c8c, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -13752,7 +13670,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -13819,7 +13737,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -14049,7 +13967,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClickDos
         m_Mode: 1
@@ -14128,7 +14046,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -14578,7 +14496,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClickDos
         m_Mode: 1
@@ -14645,7 +14563,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -15066,7 +14984,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -15133,7 +15051,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -15352,7 +15270,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -15419,7 +15337,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -17542,7 +17460,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClickDos
         m_Mode: 1
@@ -17609,7 +17527,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -18061,7 +17979,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -18128,7 +18046,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -18851,7 +18769,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClickDos
         m_Mode: 1
@@ -18918,7 +18836,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -19019,7 +18937,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -19098,7 +19016,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -19301,7 +19219,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -19369,7 +19287,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClick
         m_Mode: 1
@@ -21433,7 +21351,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClickDos
         m_Mode: 1
@@ -21512,7 +21430,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -21779,7 +21697,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 65812095}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
         m_MethodName: PlayClickDos
         m_Mode: 1
@@ -21846,7 +21764,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 65812095}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UISoundManager, Assembly-CSharp
           m_MethodName: PlayHover
           m_Mode: 1
@@ -22732,7 +22650,6 @@ SceneRoots:
   - {fileID: 1429911999}
   - {fileID: 1902108229}
   - {fileID: 766816962}
-  - {fileID: 781720777}
   - {fileID: 1582285969}
   - {fileID: 1653211101}
   - {fileID: 756656675}
