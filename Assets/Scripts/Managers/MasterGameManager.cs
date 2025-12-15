@@ -89,6 +89,7 @@ public class MasterGameManager : MonoBehaviour
     {
 
         menuPausa.SetActive(false);
+
     }
 
     private void ReferenciasPlayer()

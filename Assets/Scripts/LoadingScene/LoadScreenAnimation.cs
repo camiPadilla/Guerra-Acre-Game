@@ -1,22 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Unity.Burst.Intrinsics.X86;
 
 public class LoadScreenAnimation : MonoBehaviour
 {
 
-    [Header("Sprites de las interacciones")]
-    [SerializeField] private List<Sprite> sprites;
-    [SerializeField] private Image cosa1;
-    [SerializeField] private Image cosa2;
-    [SerializeField] private RectTransform areaCanvas;
+    [SerializeField] private Transform areaSpawn;
+    [SerializeField] private Vector2 areaSize;
+    [SerializeField] private List<GameObject> juego;
+    [SerializeField] private List<Animator> animators;
+    float tiemSin = 0f;
+        //1 tigrillo 2 coca 3 siringuero
 
     public int tipoInteraccion;
     private bool aveCazada = false;
     private void Start()
     {
-        tipoInteraccion = Random.Range(0, 2);
+        tipoInteraccion = UnityEngine.Random.Range(0, 3);
+        MiniJuegos();
     }
 
     public void MiniJuegos()
@@ -25,26 +29,24 @@ public class LoadScreenAnimation : MonoBehaviour
         if (tipoInteraccion == 0)
         {
             // tigrillo y ave
-            cosa1.sprite = sprites[0];
-            cosa2.sprite = sprites[1];
+            juego[0].SetActive(true);
+            juego[1].SetActive(true);
         }
         else if (tipoInteraccion == 1)
         {
             // soldado comiendo coca
-            cosa1.sprite = sprites[2];
-            cosa2.sprite = sprites[3];
+            juego[2].SetActive(true);
+            juego[3].SetActive(true);
         }
         else
         {
-            // soldado bailando
-            cosa1.sprite = sprites[4];
-            cosa2.sprite = sprites[5];
+            juego[4].SetActive(true);
         }
     }
+    
 
     private void Update()
     {
-        MiniJuegos();
         if (tipoInteraccion == 0) Tigrillo();
         else if (tipoInteraccion == 1) SoldadoComiendo();
         else SoldadoBailando();
@@ -57,59 +59,55 @@ public class LoadScreenAnimation : MonoBehaviour
         {
             Debug.Log("¡El tigrillo cazó al ave!");
             aveCazada = true;
-
-            cosa1.rectTransform.position = new UnityEngine.Vector3(cosa2.rectTransform.position.x, cosa2.rectTransform.position.y, 0);
-            if (aveCazada)
-            {
-                cosa1.sprite = sprites[6];
-                StartCoroutine(RespawnAve());
-            }
-            else
-            {
-                cosa1.sprite = sprites[0];
-            }
+            animators[0].SetTrigger("ataque");
+            juego[0].transform.position = juego[1].transform.position;
+            StartCoroutine(RespawnAve());
         }
     }
 
     private IEnumerator RespawnAve()
     {
-        aveCazada = false;
         yield return new WaitForSeconds(0.5f);
-        float ancho = areaCanvas.rect.width / 2f;
-        float alto = areaCanvas.rect.height / 2f;
-        float posX = Random.Range(-ancho, ancho);
-        float posY = Random.Range(-alto, alto);
-        cosa2.rectTransform.localPosition = new Vector3(posX, posY, 0);
-
+        aveCazada = false;
+        float w = areaSize.x / 2f;
+        float h = areaSize.y / 2f;
+        Vector3 localPos = new Vector3(UnityEngine.Random.Range(-w, w), UnityEngine.Random.Range(-h, h), 0);
+        juego[1].transform.position = areaSpawn.TransformPoint(localPos);
     }
 
     private void SoldadoComiendo()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //animacion de comer coca
-            Debug.Log("El soldado mastica coca");
+            animators[1].speed += 0.5f;
             InstanciarCoca();
-            // cambiar animaciona aqui
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            animators[1].speed = 1f;
         }
     }
-    private void InstanciarCoca()
+
+    void InstanciarCoca()
     {
-        //cambiar a setActive
-        Image comida = Instantiate(cosa2, areaCanvas);
-        RectTransform rt = comida.GetComponent<RectTransform>();
-        float x = Random.Range(-200f, 200f);
-        float y = Random.Range(-100f, 100f);
-        rt.anchoredPosition = new Vector2(x, y);
+        float w = areaSize.x / 2f;
+        float h = areaSize.y / 2f;
+        Vector3 localPos = new Vector3(UnityEngine.Random.Range(-w, w), UnityEngine.Random.Range(-h, h), 0);
+        Vector3 pos = areaSpawn.TransformPoint(localPos);
+        Instantiate(juego[3], pos, Quaternion.identity, areaSpawn);
     }
 
     private void SoldadoBailando()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            //solo aumento la velodidad de la animación ya que debe bailar rapido jsjsjss
-            Debug.Log("El soldado se pone a bailar");
-
+            animators[2].speed = 3f;
+        }
+        else
+        {
+            animators[2].speed = 1f;
         }
     }
+
 }
