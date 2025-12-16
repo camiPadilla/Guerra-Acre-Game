@@ -35,7 +35,7 @@ public class AudioManager : MonoBehaviour
     void OnValorCambiado(float valor)
     {
         GuardarEnPrefs();
-        Debug.Log("Valor de volumen cambiado y guardado en PlayerPrefs: " + valor);
+        //Debug.Log("Valor de volumen cambiado y guardado en PlayerPrefs: " + valor);
     }
     public void ActualizarMasterVolume()
     {
