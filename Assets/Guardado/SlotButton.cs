@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SlotButton : MonoBehaviour
@@ -45,16 +46,17 @@ public class SlotButton : MonoBehaviour
         if (manager == null)
             manager = FindObjectOfType<MasterGameManager>();
 
-        if (SaveLoadSystem.HasSave(slotId))
-        {
-            manager.SetSlot(slotId);
-            manager.LoadGame();
-        }
-        else
-        {
-            manager.SetSlot(slotId);
-        }
+        if (!SaveLoadSystem.HasSave(slotId))
+            return;
+
+        manager.SetSlot(slotId);
+
+        GameData data = SaveLoadSystem.LoadGame(slotId);
+        manager.gameData = data;
+
+        SceneManager.LoadScene(data.lastScene);
     }
+
 
     public void Eliminar()
     {
