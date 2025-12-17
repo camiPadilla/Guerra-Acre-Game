@@ -89,6 +89,7 @@ public class MasterGameManager : MonoBehaviour
     {
 
         menuPausa.SetActive(false);
+
     }
 
     private void ReferenciasPlayer()
@@ -112,7 +113,11 @@ public class MasterGameManager : MonoBehaviour
         {
             StartCoroutine(IniJuego());
         }
-        
+        if (scene.name != "MainMenu" && gameData != null)
+        {
+            StartCoroutine(LoadRestore(gameData));
+            gameData = null; 
+        }
         if (scene.name == "MainMenu")
         {
             plape = GameObject.Find("PlayerPref");
@@ -137,8 +142,6 @@ public class MasterGameManager : MonoBehaviour
             menuPausa.SetActive(false);
             nEscena = "Riosinho";
         }
-
-        LoadGame();
     }
 
     public void ActivarCheckPoint(int index)
@@ -244,15 +247,13 @@ public class MasterGameManager : MonoBehaviour
     }
     public void IrMenu()
     {
-        SoundEvents.DetenerMusica?.Invoke(); //Sonido by Chelo :D
+        SoundEvents.DetenerMusica?.Invoke();
         loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
-        //quiero creer que tiene que crear un estado del juego para que vaya al main menu, asi que no creo que llegue a afectar a la jugabilidad del juego y tal tal
-        //ya no se que hacer auxiliio
-        //GameManager.instancia.CambiarDeEstado(0);
+
         Destroy(HUDManager.instancia.gameObject);
-        Destroy(plape);
         Time.timeScale = 1;
     }
+
     public void AddNota(NotasSO notaNueva)
     {
         int indice = notaNueva.numeroNota;

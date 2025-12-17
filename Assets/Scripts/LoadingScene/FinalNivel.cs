@@ -18,6 +18,7 @@ public class FinalNivel : MonoBehaviour
         {
             print("holaa");
             pantallaProgreso.SetActive(true);
+            GameManager.instancia.CambiarDeEstado(5);
             //Aparece pantalla de progreso supongo
             
         }

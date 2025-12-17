@@ -107,6 +107,7 @@ public void Awake()
     public void SiguienteNivel()
     {
         if (HUD != null) HUD.SetActive(false);
+        gameManager.CambiarDeEstado(0);
         SoundEvents.DetenerMusica?.Invoke(); //Sonido by Chelo :D
         switch (sceneIndex)
         {
