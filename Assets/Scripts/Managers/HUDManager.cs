@@ -39,8 +39,6 @@ public class HUDManager : MonoBehaviour
     [SerializeField] MasterGameManager masterGameManager;
     private ControladorNPC npc;
     //texto de bienvenida
-    [SerializeField] Text nomNivel;
-    [SerializeField] Text nivel;
     // Start is called before the first frame update
     private void Awake()
     {
