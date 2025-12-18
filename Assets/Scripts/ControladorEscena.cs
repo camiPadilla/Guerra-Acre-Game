@@ -23,7 +23,7 @@ public class ControladorEscena : MonoBehaviour
     //[SerializeField] GameObject MenuInGame;
     [SerializeField] GameObject HUD;
     [SerializeField] HUDManager hudManager;
-
+    
     [Header("UI Textos pantalla fin")]
     public TMP_Text textVidas;
     public TMP_Text textNot;
@@ -34,6 +34,8 @@ public class ControladorEscena : MonoBehaviour
     public TMP_Text textNotM;
     public TMP_Text textBalasM;
     public TMP_Text textEnemigosM;
+    [SerializeField] TMP_Text nomNivel;
+    [SerializeField] TMP_Text nivel;
 
     [Header("Checkpoints")]
     public int ChPoint;
@@ -60,10 +62,14 @@ public void Awake()
             case 1:
                 nameScene = ConstantsGame.SCENAUNO;
                 hudManager.Bienvenido();
+                nomNivel.text = "Puerto Alonso";
+                nivel.text = "Nivel 1";
                 break;
             case 2:
                 nameScene = ConstantsGame.SCENADOS;
                 hudManager.Bienvenido();
+                nomNivel.text = "Riosinho";
+                nivel.text = "Nivel 2";
                 break;
             case 3:
                 nameScene = ConstantsGame.SCENECREDITS;
