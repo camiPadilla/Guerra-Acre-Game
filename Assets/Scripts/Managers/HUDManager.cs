@@ -38,6 +38,9 @@ public class HUDManager : MonoBehaviour
     [SerializeField] GameObject padreInteraccion;
     [SerializeField] MasterGameManager masterGameManager;
     private ControladorNPC npc;
+    //texto de bienvenida
+    [SerializeField] Text nomNivel;
+    [SerializeField] Text nivel;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -266,7 +269,7 @@ public class HUDManager : MonoBehaviour
     public IEnumerator DarBienvenida()
     {
         pantallaBienvenida.SetActive(true);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
         pantallaBienvenida.SetActive(false);
     }
     public void Muerto()
