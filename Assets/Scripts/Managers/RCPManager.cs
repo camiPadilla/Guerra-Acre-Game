@@ -95,12 +95,12 @@ public class RCPManager : MonoBehaviour
             GameManager.instancia.VolverJuego();
             return;
         }
-        Debug.Log("pasaron " + conteoDeBalas);
+        
         GameObject nuevaBarra = ObtenerBarra();
         nuevaBarra.SetActive(true);
         ControladorBarra _micontroladorBarra = nuevaBarra.GetComponent<ControladorBarra>();
-        _micontroladorBarra.posicionInicial = this.transform;
-        _micontroladorBarra.target = _target;
+        _micontroladorBarra.setTarget(_target);
+        Debug.Log("pasaron " + conteoDeBalas);
         _micontroladorBarra.setCorazon(corazon.position);
         int IndiceRandom = Random.Range(0, ritmos.Count);
         _micontroladorBarra.tiempoBarra = ritmos[IndiceRandom];

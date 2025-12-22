@@ -7,7 +7,7 @@ public class ControladorBarra : MonoBehaviour
 {
     [SerializeField] public Transform target;
     float velocidad=9.5f * 0.5825f;
-    [SerializeField] public Transform posicionInicial;
+    
     [SerializeField] public RhythmSO tiempoBarra;
     Vector2 corazon;
     
@@ -21,6 +21,10 @@ public class ControladorBarra : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().color = Color.white;
         interactuable=true;
+    }
+    public void setTarget(Transform nuevo)
+    {
+        target = nuevo;
     }
     // Update is called once per frame
     void Update()
