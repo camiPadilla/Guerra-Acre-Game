@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class AtaquePersonaje : MonoBehaviour
 {
-    [SerializeField] LineRenderer trayectoria;
+    [SerializeField] GameObject trayectoria;
     [SerializeField] GameObject prefabPiedra;
+    [SerializeField] GameObject prefabPiedraFalsa;
     [SerializeField] GameObject prefabBala;
     [SerializeField] Queue<Proyectil> piedraCola = new Queue<Proyectil>();
     [SerializeField] Queue<Proyectil> balaCola = new Queue<Proyectil>();
@@ -25,6 +26,7 @@ public class AtaquePersonaje : MonoBehaviour
     bool enAccion;
     bool recargando;
     bool conArma=false;
+    bool espera = true;
 
     [SerializeField] private PlayerAnimator animator;
     [SerializeField] private PlayerController _player;
@@ -126,9 +128,19 @@ public class AtaquePersonaje : MonoBehaviour
         SoundEvents.DetenerCarga?.Invoke(); //Sound By Chelo :D
         //enAccion = false;
     }
+    private void TirarPiedraFalsa()
+    {
+        Proyectil piedraActual = trayectoria.GetComponent<Proyectil>();
+        Vector3 puntoIncial;// = new Vector3(transform.position.x,transform.position.y + 2,transform.position.z);
+        puntoIncial = puntoTiro.position;
+        piedraActual.Reposicionar(puntoIncial);
+        piedraActual.Impulso(fuerzatiro, dirX, dirY);
+
+    }
     
     void InstanciarProyectiles()
     {
+        trayectoria = Instantiate(prefabPiedraFalsa, transform.position, Quaternion.identity);
         //piedraCola.Clear();
         while (piedraCola.Count < cantidadPiedras)
         {
@@ -177,11 +189,34 @@ public class AtaquePersonaje : MonoBehaviour
         {
             if (fuerzatiro <= fuerzaMaxima)
             {
+                trayectoria.active = true;
+                TirarPiedraFalsa();
                 fuerzatiro = fuerzatiro + fuerzaMaxima * Time.deltaTime;
                 float fuerzaRel = ((fuerzatiro / fuerzaMaxima)*2 - 1);
+                if (espera)
+                {
+                    espera = false;
+                    StartCoroutine(EsperaTrayectoria());
+                }
+                if(fuerzatiro == fuerzaMaxima)
+                {
+                    if (espera)
+                    {
+                        espera = false;
+                        StartCoroutine(EsperaTrayectoria());
+                    }
+                }
                 //Debug.Log(fuerzaRel);
                 animator.FuerzaY(fuerzaRel);
             }
+        }
+        IEnumerator EsperaTrayectoria()
+        {
+            TirarPiedraFalsa();
+            yield return new WaitForSeconds(0.2f);
+            espera = true;
+
+
         }
         //Vector3 puntoIncial = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         
@@ -189,6 +224,7 @@ public class AtaquePersonaje : MonoBehaviour
         {
             animator.TiraPiedra();
             recibirAltura = false;
+            trayectoria.active = false;
             //TirarPiedra();
         }
     }

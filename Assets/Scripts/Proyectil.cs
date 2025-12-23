@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class Proyectil : Arma
 {
-
+    Vector2 posicionGuardada;
+    float fuerzaGuardada;
+    int dirGuardado;
+    float dirYGuardado;
+    float tiempoEspera = 0;
     AtaquePersonaje personaje;
     [SerializeField] bool enUso;
     [SerializeField] Rigidbody2D piedraRigid;
     [SerializeField] int tipo;
-    
+    bool falso = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +23,7 @@ public class Proyectil : Arma
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
     public void Instanciar(AtaquePersonaje nuevoPersonaje)
     {
         personaje = nuevoPersonaje;
@@ -54,6 +55,7 @@ public class Proyectil : Arma
         //Debug.Log(enUso);
         if (enUso && !collision.transform.CompareTag("Player"))
         {
+            if(!CompareTag("falso"))
             DesactivarProyectil();
             //if (collision.transform.CompareTag("Destruible"))
             //{
@@ -64,8 +66,33 @@ public class Proyectil : Arma
     }
     public void Impulso(float fuerza, int dir, float dirY)
     {
-        
+
+        posicionGuardada = transform.position;
+        fuerzaGuardada = fuerza;
+        dirGuardado = dir;
+        dirYGuardado = dirY;
         piedraRigid.AddForce(Vector2.up * dirY * fuerza + Vector2.right * fuerza * dir);
-       
+        if (transform.CompareTag("falso"))
+        {
+            falso = true;
+        }
+    }
+    void Update()
+    {
+        if (falso)
+        {
+            Debug.Log("hola");
+            tiempoEspera += Time.deltaTime;
+
+            if (falso && tiempoEspera >= 0.5f)
+            {
+                tiempoEspera = 0;
+                piedraRigid.velocity = Vector2.zero;
+                transform.position = posicionGuardada;
+                piedraRigid.AddForce(Vector2.up * dirYGuardado * fuerzaGuardada + Vector2.right * fuerzaGuardada * dirGuardado);
+
+
+            }
+        }
     }
 }
