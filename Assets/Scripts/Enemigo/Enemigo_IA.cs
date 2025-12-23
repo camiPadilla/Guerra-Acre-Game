@@ -4,8 +4,6 @@ using System.Security.Cryptography;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Rendering;
-
-
 public enum estadosEnemigo
 {
     idle,
