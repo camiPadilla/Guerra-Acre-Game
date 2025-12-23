@@ -69,14 +69,14 @@ public class EnemigoDisparo : Enemigo_IA
     {
         puedeDisparar = false;
 
-        if (nroBalas > 0)
-        {
+        //if (nroBalas > 0)
+        //{
             GameObject bala = Instantiate(balaPrefab, puntoDisparoBala.position, puntoDisparoBala.rotation);
             BalaEnemigo b = bala.GetComponent<BalaEnemigo>();
             if (b != null) b.Inicializar(jugador);
             SoundEvents.DisparoEnemigo?.Invoke(transform.position.x); //Sound By Chelo
-            nroBalas--;
-        }
+            //nroBalas--;
+        //}
 
         yield return new WaitForSeconds(2f);
         puedeDisparar = true;
