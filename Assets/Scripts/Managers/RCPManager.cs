@@ -14,6 +14,7 @@ public class RCPManager : MonoBehaviour
     [SerializeField] int puntosGanar;
     [SerializeField] public GameObject padre;
     [SerializeField] public Transform corazon;
+    [SerializeField] private Animator miAnimator;
     int puntosActual=0;
     int conteoDeBalas=0;
     // Start is called before the first frame update
@@ -31,6 +32,14 @@ public class RCPManager : MonoBehaviour
             instancia = this;
         }
         
+    }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.E) )
+        {
+            miAnimator.SetTrigger("RCP");
+            
+        }
     }
     private void OnEnable()
     {

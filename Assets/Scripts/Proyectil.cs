@@ -64,6 +64,10 @@ public class Proyectil : Arma
             //}
         }
     }
+    public void ResetVelocidad()
+    {
+        piedraRigid.velocity = Vector2.zero;
+    }
     public void Impulso(float fuerza, int dir, float dirY)
     {
 
@@ -81,10 +85,10 @@ public class Proyectil : Arma
     {
         if (falso)
         {
-            Debug.Log("hola");
+            //Debug.Log("hola");
             tiempoEspera += Time.deltaTime;
 
-            if (falso && tiempoEspera >= 0.5f)
+            if (falso && tiempoEspera >= 0.01f)
             {
                 tiempoEspera = 0;
                 piedraRigid.velocity = Vector2.zero;

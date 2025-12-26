@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TarodevController;
@@ -128,13 +129,18 @@ public class AtaquePersonaje : MonoBehaviour
         SoundEvents.DetenerCarga?.Invoke(); //Sound By Chelo :D
         //enAccion = false;
     }
+
     private void TirarPiedraFalsa()
     {
-        Proyectil piedraActual = trayectoria.GetComponent<Proyectil>();
+        Debug.Log("trayectoria cambiando a "+fuerzatiro);
+        trayectoria.SetActive(true);
+        Proyectil piedraActuald = trayectoria.GetComponent<Proyectil>();
         Vector3 puntoIncial;// = new Vector3(transform.position.x,transform.position.y + 2,transform.position.z);
         puntoIncial = puntoTiro.position;
-        piedraActual.Reposicionar(puntoIncial);
-        piedraActual.Impulso(fuerzatiro, dirX, dirY);
+        piedraActuald.Reposicionar(puntoIncial);
+        piedraActuald.ResetVelocidad();
+        piedraActuald.Impulso(fuerzatiro, dirX, dirY);
+        
 
     }
     
@@ -142,6 +148,7 @@ public class AtaquePersonaje : MonoBehaviour
     {
         trayectoria = Instantiate(prefabPiedraFalsa, transform.position, Quaternion.identity);
         //piedraCola.Clear();
+        trayectoria.SetActive(false);
         while (piedraCola.Count < cantidadPiedras)
         {
             GameObject objeto = Instantiate(prefabPiedra, transform.position, Quaternion.identity);
@@ -184,49 +191,57 @@ public class AtaquePersonaje : MonoBehaviour
             _player.Detener();
             animator.AtaquePiedra();
             SoundEvents.CargarFuerzaPiedra?.Invoke(); //Sound By Chelo :D
+            
         }
         if (Input.GetButton("Fire1"))
         {
+            float aux = dirY;
+            Debug.Log("Cargando fuerza de tiro "+ aux);
+            if (espera)
+            {
+                espera = false;
+                StartCoroutine(EsperaTrayectoria());
+                TirarPiedraFalsa();
+            }
             if (fuerzatiro <= fuerzaMaxima)
             {
-                trayectoria.active = true;
-                TirarPiedraFalsa();
+                
                 fuerzatiro = fuerzatiro + fuerzaMaxima * Time.deltaTime;
                 float fuerzaRel = ((fuerzatiro / fuerzaMaxima)*2 - 1);
-                if (espera)
+                
+               if(aux != dirY)
                 {
-                    espera = false;
-                    StartCoroutine(EsperaTrayectoria());
-                }
-                if(fuerzatiro == fuerzaMaxima)
-                {
-                    if (espera)
-                    {
-                        espera = false;
-                        StartCoroutine(EsperaTrayectoria());
-                    }
+                    aux = dirY;
+                    TirarPiedraFalsa();
                 }
                 //Debug.Log(fuerzaRel);
                 animator.FuerzaY(fuerzaRel);
             }
         }
-        IEnumerator EsperaTrayectoria()
-        {
-            TirarPiedraFalsa();
-            yield return new WaitForSeconds(0.2f);
-            espera = true;
-
-
-        }
-        //Vector3 puntoIncial = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         
         if (Input.GetButtonUp("Fire1"))
         {
             animator.TiraPiedra();
             recibirAltura = false;
-            trayectoria.active = false;
+            RestaurarTrayectoria();
             //TirarPiedra();
         }
+    }
+    IEnumerator EsperaTrayectoria()
+    {
+
+        yield return new WaitForSeconds(1f);
+        espera = true;
+        Debug.Log("entramos a ver la trayectoria");
+
+
+    }
+    //Vector3 puntoIncial = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+    void RestaurarTrayectoria()
+    {
+        trayectoria.GetComponent<Proyectil>().ResetVelocidad();
+        trayectoria.SetActive(false);
+
     }
     private void EntradaDisparo()
     {

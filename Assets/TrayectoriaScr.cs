@@ -22,6 +22,14 @@ public class TrayectoriaScr : MonoBehaviour
         lineRenderer.positionCount = resolution; // Establecer el número de puntos del LineRenderer a la resolución
                                                  // especificada
     }
+    private void OnDisable()
+    {
+        lineRenderer.enabled = false; // Desactivar el LineRenderer cuando el objeto esté desactivado
+    }
+    private void OnEnable()
+    {
+        lineRenderer.enabled = true; // Activar el LineRenderer cuando el objeto esté activado
+    }
     private void FixedUpdate()
     {
         // Mueve el cuadradito con las teclas W A S D, o las flechas (pueden eliminar esta línea sin problemas,
