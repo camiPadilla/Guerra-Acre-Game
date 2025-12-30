@@ -187,9 +187,18 @@ public class MasterGameManager : MonoBehaviour
 
     private IEnumerator LoadRestore(GameData data)
     {
+        if (string.IsNullOrEmpty(data.lastScene))
+        {
+            yield break; // Detiene la corrutina para evitar el crash
+        }
         // Si la escena guardada no es la actual, se cambia
-        if (SceneManager.GetActiveScene().name != data.lastScene)
+        if(SceneManager.GetActiveScene().name != data.lastScene)    {
             SceneManager.LoadScene(data.lastScene);
+
+            // Importante: Si cargamos una escena nueva, OnLoadScene se disparará de nuevo.
+            // Debemos salir de esta ejecución actual.
+            yield break;
+        }
 
         yield return new WaitForSeconds(0.2f);
 

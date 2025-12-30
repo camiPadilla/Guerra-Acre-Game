@@ -6180,7 +6180,7 @@ PrefabInstance:
     - target: {fileID: 7838270383857213478, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
       propertyPath: uiSoundManager
       value: 
-      objectReference: {fileID: 2004665921}
+      objectReference: {fileID: 0}
     - target: {fileID: 8772595360620824679, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
       propertyPath: EventReference.Path
       value: event:/OPENING/Fade-IN
@@ -6201,7 +6201,8 @@ PrefabInstance:
       propertyPath: EventReference.Guid.Data4
       value: 1812252629
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5067385120025965300, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -18482,7 +18483,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2004665920}
   - component: {fileID: 2004665918}
-  - component: {fileID: 2004665921}
   - component: {fileID: 2004665917}
   - component: {fileID: 2004665919}
   m_Layer: 0
@@ -18615,21 +18615,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2004665921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004665916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13646ee7c095d40349c1afa33a0648fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterVolumeREF: {fileID: 0}
-  musicFaderREF: {fileID: 0}
-  SFXFaderREF: {fileID: 0}
 --- !u!1 &2007170215
 GameObject:
   m_ObjectHideFlags: 0
