@@ -2169,12 +2169,6 @@ MonoBehaviour:
       Data3: 935637656
       Data4: 504310757
     Path: event:/UI/Hover_Jochi
-  masterVolumeREF: {fileID: 0}
-  musicFaderREF: {fileID: 0}
-  SFXFaderREF: {fileID: 0}
-  masterVolume: {fileID: 1136527890}
-  musicFader: {fileID: 1953949443}
-  SFXFader: {fileID: 983884640}
 --- !u!1 &334115667
 GameObject:
   m_ObjectHideFlags: 0
@@ -6171,6 +6165,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7838270383857213478, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: SFXFader
+      value: 
+      objectReference: {fileID: 983884640}
+    - target: {fileID: 7838270383857213478, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: musicFader
+      value: 
+      objectReference: {fileID: 1953949443}
+    - target: {fileID: 7838270383857213478, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: masterVolume
+      value: 
+      objectReference: {fileID: 1136527890}
+    - target: {fileID: 7838270383857213478, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+      propertyPath: uiSoundManager
+      value: 
+      objectReference: {fileID: 2004665921}
     - target: {fileID: 8772595360620824679, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
       propertyPath: EventReference.Path
       value: event:/OPENING/Fade-IN
@@ -18522,12 +18532,6 @@ MonoBehaviour:
       Data3: 935637656
       Data4: 504310757
     Path: event:/UI/Hover_Jochi
-  masterVolumeREF: {fileID: 0}
-  musicFaderREF: {fileID: 0}
-  SFXFaderREF: {fileID: 0}
-  masterVolume: {fileID: 1136527890}
-  musicFader: {fileID: 1953949443}
-  SFXFader: {fileID: 983884640}
 --- !u!114 &2004665918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18623,9 +18627,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13646ee7c095d40349c1afa33a0648fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterScrollbar: {fileID: 1136527890}
-  musicScrollbar: {fileID: 1953949443}
-  sfxScrollbar: {fileID: 983884640}
+  masterVolumeREF: {fileID: 0}
+  musicFaderREF: {fileID: 0}
+  SFXFaderREF: {fileID: 0}
 --- !u!1 &2007170215
 GameObject:
   m_ObjectHideFlags: 0
