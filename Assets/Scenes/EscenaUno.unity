@@ -4716,6 +4716,14 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.9683375
       objectReference: {fileID: 0}
+    - target: {fileID: 4698883952993591493, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: trayectoria
+      value: 
+      objectReference: {fileID: 295414997}
+    - target: {fileID: 4698883952993591493, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: prefabPiedraFalsa
+      value: 
+      objectReference: {fileID: 2164900311158193948, guid: 3c6ceaed2c6eae9458d1dd5f7c7eb25a, type: 3}
     - target: {fileID: 5299800905672100548, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6576,6 +6584,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &295414997 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5572806807571257725, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+  m_PrefabInstance: {fileID: 231857179}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &295457705
 PrefabInstance:
   m_ObjectHideFlags: 0
