@@ -12,6 +12,8 @@ public class SlotButton : MonoBehaviour
     public Button newButton;
     [SerializeField] GameObject botonGuardado;
     public TMP_Text textButton;
+    public TMP_Text textScore;
+    public int score;
 
     [SerializeField] private MasterGameManager manager;
 
@@ -27,19 +29,24 @@ public class SlotButton : MonoBehaviour
     {
         if (SaveLoadSystem.HasSave(slotId))
         {
+            GameData data = SaveLoadSystem.LoadGame(slotId);
+
             botonGuardado.SetActive(true);
-            texto.text = "Partida " + slotId.ToString();
-            textInfo.text = MasterGameManager.instance.nEscena;
+            texto.text = "Partida " + slotId;
+
+            textInfo.text = data.lastSceneName;   
+            textScore.text = data.scoreTotal.ToString(); 
+
             newButton.gameObject.SetActive(false);
         }
         else
         {
             botonGuardado.SetActive(false);
-            textButton.gameObject.SetActive(true);
             newButton.gameObject.SetActive(true);
             textButton.text = "Nueva partida";
         }
     }
+
 
     public void Cargar()
     {
@@ -54,9 +61,14 @@ public class SlotButton : MonoBehaviour
         GameData data = SaveLoadSystem.LoadGame(slotId);
         manager.gameData = data;
 
-        SceneManager.LoadScene(data.lastScene);
+        manager.LoadGame();
     }
 
+    public void NuevaPartida()
+    {
+        manager.SetSlot(slotId);
+        manager.NewGame();
+    }
 
     public void Eliminar()
     {

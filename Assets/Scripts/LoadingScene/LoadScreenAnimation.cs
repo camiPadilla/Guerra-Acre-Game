@@ -12,7 +12,6 @@ public class LoadScreenAnimation : MonoBehaviour
     [SerializeField] private Vector2 areaSize;
     [SerializeField] private List<GameObject> juego;
     [SerializeField] private List<Animator> animators;
-    float tiemSin = 0f;
         //1 tigrillo 2 coca 3 siringuero
 
     public int tipoInteraccion;

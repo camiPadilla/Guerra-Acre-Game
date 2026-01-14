@@ -29,6 +29,7 @@ public class ControladorEscena : MonoBehaviour
     public TMP_Text textNot;
     public TMP_Text textBalas;
     public TMP_Text textEnemigos;
+    public TMP_Text textScoreFinal;
 
     [Header("UI Textos pantalla muerte")]
     public TMP_Text textNotM;
@@ -39,6 +40,12 @@ public class ControladorEscena : MonoBehaviour
 
     [Header("Checkpoints")]
     public int ChPoint;
+
+    [Header("Score")]
+    public int scVidas;
+    public int scNotas;
+    public int scEnem;
+    public int scFinalLvl;
 
 public void Awake()
     {
@@ -145,33 +152,6 @@ public void VolverMenu()
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
-
-
-    public void GuardarPartida()
-    {
-        if (masterGameManager == null)
-        {
-            masterGameManager = FindObjectOfType<MasterGameManager>();
-        }
-
-        GameData data = new GameData(
-            vidas,
-            balas,
-            player,
-            sceneIndex,
-            nameScene,
-            ChPoint,
-            masterGameManager.currentSlot
-        );
-
-        SaveLoadSystem.SaveGame(data, masterGameManager.currentSlot);
-        Debug.Log("Partida guardada en slot " + masterGameManager.currentSlot);
-    }
-
-    public void CrearPart()
-    {
-        masterGameManager.NewGame();
-    }
     public void CargarPart()
     {
         masterGameManager.LoadGame();
@@ -180,9 +160,29 @@ public void VolverMenu()
     {
         masterGameManager.DeleteGame();
     }
+    public void GuardarPartida()
+    {
+        masterGameManager.SaveGame();   
+    }
     public void ObtenerNota(NotasSO nota)
     {
         notaNueva = nota;
         masterGameManager.AddNota(notaNueva);
     }
+    //------Score Finald de Cada Nivel---
+    public void CalcularScoreFinal()
+    {
+        scVidas = vidas.vidasJugador * 150;
+        scNotas = cantidadNotas.cantNotas * 250;
+        scEnem = gameManager.enemigosMuertos * 100;
+
+        scFinalLvl = scVidas + scNotas + scEnem;
+
+        textScoreFinal.text = scFinalLvl.ToString();
+
+        // Mandar al master
+        masterGameManager.RecibirScoreFinal(scFinalLvl);
+        Debug.Log("Score final calculado: " + scFinalLvl);
+    }
+
 }

@@ -19,6 +19,7 @@ public class MasterGameManager : MonoBehaviour
     public List<bool> checkpointsActivos = new List<bool>();
     public GameData gameData;
     public String nEscena;
+    public int scoreFinal;
 
     public string escenaActual;
     public string escenaSiguiente;
@@ -30,10 +31,10 @@ public class MasterGameManager : MonoBehaviour
     [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject menuPausa;
     [SerializeField] GameObject menuScript;
-    [SerializeField] GameObject plape;
+    //[SerializeField] GameObject plape;
     
     //private string IdNotas[];
-    [SerializeField] public int currentSlot = 1; // se define desde el menú
+    [SerializeField] public int currentSlot; 
     private void Start()
     {
         InicializarLista();
@@ -116,11 +117,13 @@ public class MasterGameManager : MonoBehaviour
         if (scene.name != "MainMenu" && gameData != null)
         {
             StartCoroutine(LoadRestore(gameData));
+            scoreFinal = gameData.scoreTotal;
+            nEscena = gameData.lastSceneName;
+
             gameData = null; 
         }
         if (scene.name == "MainMenu")
         {
-            plape = GameObject.Find("PlayerPref");
             menuInGame.SetActive(false);
             Debug.Log("Estas en el Main Menu");
             return;
@@ -147,7 +150,7 @@ public class MasterGameManager : MonoBehaviour
     public void ActivarCheckPoint(int index)
     {
         if (gameData == null)
-            gameData = new GameData(playerSalud, playerAtaque, playerController, currentLevel, SceneManager.GetActiveScene().name, lastCP, currentSlot);
+            gameData = new GameData(playerSalud, playerAtaque, playerController, currentLevel, SceneManager.GetActiveScene().name, lastCP, currentSlot, scoreFinal, nEscena);
 
         // Asegurar que la lista sea suficientemente larga
         if (index >= gameData.checkpointsActivos.Count)
@@ -165,7 +168,7 @@ public class MasterGameManager : MonoBehaviour
 
     public void SaveGame()
     {
-        GameData data = new GameData(playerSalud, playerAtaque, playerController, currentLevel, SceneManager.GetActiveScene().name, lastCP, currentSlot);
+        GameData data = new GameData(playerSalud, playerAtaque, playerController, currentLevel, SceneManager.GetActiveScene().name, lastCP, currentSlot, scoreFinal, nEscena);
         SaveLoadSystem.SaveGame(data, currentSlot);
         Debug.Log($" Juego guardado en slot {currentSlot}");
         nEscena = escenaActual;        
@@ -193,7 +196,7 @@ public class MasterGameManager : MonoBehaviour
         }
         // Si la escena guardada no es la actual, se cambia
         if(SceneManager.GetActiveScene().name != data.lastScene)    {
-            SceneManager.LoadScene(data.lastScene);
+            loaderScene.LoadSceneString(data.lastScene);
 
             // Importante: Si cargamos una escena nueva, OnLoadScene se disparará de nuevo.
             // Debemos salir de esta ejecución actual.
@@ -233,14 +236,21 @@ public class MasterGameManager : MonoBehaviour
         playerSalud.vidasEXtras = data.vidasExtras;
         playerAtaque.cantidadBalas = data.balas;
         playerAtaque.seleccionArma = data.tipoArma;
+
     }
 
 
     public void NewGame()
     {
+        if (currentSlot <= 0)
+        {
+            Debug.LogError("Slot no seleccionado");
+            return;
+        }
+
         SaveLoadSystem.DeleteSlot(currentSlot);
+        scoreFinal = 0;
         loaderScene.LoadSceneString(ConstantsGame.SCENAUNO);
-        Debug.Log($" Nuevo juego iniciado en slot {currentSlot}");
     }
 
 
@@ -272,5 +282,9 @@ public class MasterGameManager : MonoBehaviour
     public List<NotasSO> ObtenerNotas()
     {
         return notasObtenidas;
+    }
+    public void RecibirScoreFinal(int scoreLvl)
+    {
+        scoreFinal += scoreLvl;
     }
 }

@@ -16,10 +16,13 @@ public class GameData
 
     public int currentLevel;
     public string lastScene;
+    public string lastSceneName;
     public int lastCheckPoint;
     public List<bool> checkpointsActivos = new List<bool>();
 
-    public GameData(SaludPersonaje salud, AtaquePersonaje ataque, PlayerController controller, int level, string scene, int cPoint, int slot)
+    public int scoreTotal;
+
+    public GameData(SaludPersonaje salud, AtaquePersonaje ataque, PlayerController controller, int level, string scene, int cPoint, int slot, int score, string lastSName)
     {
         slotNumber = slot;
 
@@ -35,7 +38,10 @@ public class GameData
 
         currentLevel = level;
         lastScene = scene;
+        lastSceneName = lastSName;
         lastCheckPoint = cPoint;
+
+        scoreTotal = score; 
 
         if (checkpointsActivos == null)
             checkpointsActivos = new List<bool>();

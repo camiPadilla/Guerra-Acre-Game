@@ -6,6 +6,8 @@ using UnityEngine;
 public class FinalNivel : MonoBehaviour
 {
     [SerializeField] private GameObject pantallaProgreso;
+    public bool finalizado = false;
+    [SerializeField] ControladorEscena contEs;
     public void Start()
     {
 
@@ -17,6 +19,8 @@ public class FinalNivel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             print("holaa");
+            finalizado = true;
+            contEs.CalcularScoreFinal();
             pantallaProgreso.SetActive(true);
             GameManager.instancia.CambiarDeEstado(5);
             //Aparece pantalla de progreso supongo
