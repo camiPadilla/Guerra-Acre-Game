@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckPoints : MonoBehaviour
+public class CheckPoints : ObjetoRecogible
 {
     public int indexCP;
     private bool checkPointActivo;
     private Animator animator;
+    public GameObject pantallaGuardado;
 
     private bool checkPointSound = true;
 
@@ -42,5 +43,13 @@ public class CheckPoints : MonoBehaviour
         {
             return true;
         }
+    }
+    public void Guardar()
+    {
+        pantallaGuardado.SetActive(true);
+    }
+    public void SalieGuardar()
+    {
+        pantallaGuardado.SetActive(false);
     }
 }

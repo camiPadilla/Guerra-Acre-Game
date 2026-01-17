@@ -24,6 +24,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] GameObject HUDGame;
     [SerializeField] GameObject pantallaMuerte;
     [SerializeField] GameObject hudGamePlay;
+    [SerializeField] GameObject pantGuardao;
     [Header("Imagenes y barras")]
     [SerializeField] Sprite imagenClick;
     [SerializeField] Sprite imagenE;
@@ -280,5 +281,9 @@ public class HUDManager : MonoBehaviour
     {
         pantallaMuerte.SetActive(false);
         HUDGame.SetActive(true);
+    }
+    public void OcultarGuardado()
+    {
+        pantGuardao.SetActive(false);
     }
 }
