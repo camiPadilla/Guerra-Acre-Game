@@ -61,7 +61,7 @@ public class SlotButton : MonoBehaviour
         GameData data = SaveLoadSystem.LoadGame(slotId);
         manager.gameData = data;
 
-        manager.LoadGame();
+        manager.LoadGame(slotId);
     }
 
     public void NuevaPartida()

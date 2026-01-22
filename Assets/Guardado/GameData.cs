@@ -6,9 +6,10 @@ using UnityEngine;
 [Serializable]
 public class GameData
 {
-    public int slotNumber;            
+    public int slotNumber;
 
-    public float[] position;
+    public float[] position = new float[3];
+
     public int vidasJugador;
     public int vidasExtras;
     public int balas;
@@ -17,19 +18,29 @@ public class GameData
     public int currentLevel;
     public string lastScene;
     public string lastSceneName;
-    public int lastCheckPoint;
+
+    public int lastCheckPoint = -1; 
     public List<bool> checkpointsActivos = new List<bool>();
 
     public int scoreTotal;
 
-    public GameData(SaludPersonaje salud, AtaquePersonaje ataque, PlayerController controller, int level, string scene, int cPoint, int slot, int score, string lastSName)
+    public GameData(
+        SaludPersonaje salud,
+        AtaquePersonaje ataque,
+        PlayerController controller,
+        int level,
+        string scene,
+        int cPoint,
+        int slot,
+        int score,
+        string lastSName)
     {
         slotNumber = slot;
 
-        position = new float[3];
-        position[0] = controller.transform.position.x;
-        position[1] = controller.transform.position.y;
-        position[2] = controller.transform.position.z;
+        Vector3 pos = controller.transform.position;
+        position[0] = pos.x;
+        position[1] = pos.y;
+        position[2] = pos.z;
 
         vidasJugador = salud.vidasJugador;
         vidasExtras = salud.vidasEXtras;
@@ -39,11 +50,8 @@ public class GameData
         currentLevel = level;
         lastScene = scene;
         lastSceneName = lastSName;
-        lastCheckPoint = cPoint;
 
-        scoreTotal = score; 
-
-        if (checkpointsActivos == null)
-            checkpointsActivos = new List<bool>();
+        lastCheckPoint = cPoint >= 0 ? cPoint : -1;
+        scoreTotal = score;
     }
 }

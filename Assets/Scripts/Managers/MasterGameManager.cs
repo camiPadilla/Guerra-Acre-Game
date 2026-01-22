@@ -168,38 +168,35 @@ public class MasterGameManager : MonoBehaviour
 
     public void SaveGame()
     {
-        GameData data = new GameData(playerSalud, playerAtaque, playerController, currentLevel, SceneManager.GetActiveScene().name, lastCP, currentSlot, scoreFinal, nEscena);
-        SaveLoadSystem.SaveGame(data, currentSlot);
-        Debug.Log($" Juego guardado en slot {currentSlot}");
-        nEscena = escenaActual;        
+        if (gameData == null)
+        {
+            gameData = new GameData(playerSalud, playerAtaque, playerController,
+                currentLevel, SceneManager.GetActiveScene().name, lastCP,
+                currentSlot, scoreFinal, nEscena);
+        }
+
+        SaveLoadSystem.SaveGame(gameData, currentSlot);
+        Debug.Log($"Juego guardado en slot {currentSlot}");
     }
 
-    public void LoadGame()
+
+    public void LoadGame(int slot)
     {
-        GameData data = SaveLoadSystem.LoadGame(currentSlot);
-        if (data != null)
-        {
-            StartCoroutine(LoadRestore(data));
-            Debug.Log($" Partida cargada desde slot {currentSlot}");
-        }
-        else
-        {
-            Debug.LogWarning(" No hay partida guardada en este slot.");
-        }
+        GameData data = SaveLoadSystem.LoadGame(slot);
+        if (data == null) return;
+
+        StartCoroutine(RestoreAfterLoad(data));
     }
 
     private IEnumerator LoadRestore(GameData data)
     {
         if (string.IsNullOrEmpty(data.lastScene))
         {
-            yield break; // Detiene la corrutina para evitar el crash
+            yield break;
         }
-        // Si la escena guardada no es la actual, se cambia
         if(SceneManager.GetActiveScene().name != data.lastScene)    {
             loaderScene.LoadSceneString(data.lastScene);
 
-            // Importante: Si cargamos una escena nueva, OnLoadScene se disparará de nuevo.
-            // Debemos salir de esta ejecución actual.
             yield break;
         }
 
@@ -211,34 +208,37 @@ public class MasterGameManager : MonoBehaviour
 
     private IEnumerator RestoreAfterLoad(GameData data)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForFixedUpdate();
+        ReferenciasPlayer();
+        playerController.enabled = false;
 
-        // Restaurar posición desde el último checkpoint o posición guardada
-        int lastCheckPoint = data.lastCheckPoint;
-        if (lastCheckPoint != -1)
+        Rigidbody2D rb = playerController.GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.zero;
+        rb.simulated = false;
+
+        if (data.lastCheckPoint >= 0)
         {
-            CheckPoints[] checkPoints = FindObjectsOfType<CheckPoints>();
-            foreach (var cp in checkPoints)
+            CheckPoints[] cps = FindObjectsOfType<CheckPoints>();
+
+            foreach (CheckPoints cp in cps)
             {
-                if (cp.indexCP == lastCheckPoint)
+                if (cp.indexCP == data.lastCheckPoint)
                 {
-                    playerController.transform.position = cp.transform.position;
+                    rb.position = cp.transform.position;
                     break;
                 }
             }
         }
-        else
-        {
-            playerController.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
-        }
-
         playerSalud.vidasJugador = data.vidasJugador;
         playerSalud.vidasEXtras = data.vidasExtras;
         playerAtaque.cantidadBalas = data.balas;
         playerAtaque.seleccionArma = data.tipoArma;
 
+        rb.simulated = true;
+        yield return new WaitForFixedUpdate();
+        playerController.enabled = true;
     }
-
 
     public void NewGame()
     {

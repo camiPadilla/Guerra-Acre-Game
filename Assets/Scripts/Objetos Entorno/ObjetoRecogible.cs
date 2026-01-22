@@ -8,7 +8,7 @@ public class ObjetoRecogible : MonoBehaviour
     [SerializeField] string nombreObjeto;
     float imagenSize;
     bool desactivado;
-    [SerializeField] Animator animator;
+    public  Animator animator;
     [SerializeField] GameObject[] variante;
 
     private void Start()
@@ -69,7 +69,6 @@ public class ObjetoRecogible : MonoBehaviour
                     SendMessage("Interactuar");
                     return;
                 }
-
             }
         }
     }

@@ -152,14 +152,8 @@ public void VolverMenu()
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
-    public void CargarPart()
-    {
-        masterGameManager.LoadGame();
-    }
-    public void BorrarPart()
-    {
-        masterGameManager.DeleteGame();
-    }
+ 
+  
     public void GuardarPartida()
     {
         masterGameManager.SaveGame();   
@@ -169,7 +163,6 @@ public void VolverMenu()
         notaNueva = nota;
         masterGameManager.AddNota(notaNueva);
     }
-    //------Score Finald de Cada Nivel---
     public void CalcularScoreFinal()
     {
         scVidas = vidas.vidasJugador * 150;
@@ -180,7 +173,6 @@ public void VolverMenu()
 
         textScoreFinal.text = scFinalLvl.ToString();
 
-        // Mandar al master
         masterGameManager.RecibirScoreFinal(scFinalLvl);
         Debug.Log("Score final calculado: " + scFinalLvl);
     }
