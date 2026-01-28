@@ -229,12 +229,12 @@ public class HUDManager : MonoBehaviour
         menues[0].SetActive(true);
 
     }
-    public void LeerNotaTutorial(string mensajeNuevo)
+    public void LeerNotaTutorial(Sprite imagenTutorial)
     {
         masterGameManager.DetenerTiempo();
         imagenNota.gameObject.SetActive(false);
         fondoTutorial.gameObject.SetActive(true);
-        text.text = mensajeNuevo;
+        imagenNota.sprite = imagenTutorial;
         GameManager.instancia.CambiarDeEstado(3);
         HUDGame.SetActive(false);
         menues[0].SetActive(true);

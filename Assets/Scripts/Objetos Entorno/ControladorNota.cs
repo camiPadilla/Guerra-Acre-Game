@@ -30,7 +30,7 @@ public class ControladorNota : ObjetoRecogible
         Debug.Log("leyendo nota");
         if (tutorial)
         {
-            HUDManager.instancia.LeerNotaTutorial(mensajeNota);
+            HUDManager.instancia.LeerNotaTutorial(nota.notaImagen);
         }
         
         SoundEvents.DetenerPasosPasto.Invoke(); //Sonido by Chelo :D
