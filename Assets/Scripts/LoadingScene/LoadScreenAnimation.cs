@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static Unity.Burst.Intrinsics.X86;
+
 
 public class LoadScreenAnimation : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class LoadScreenAnimation : MonoBehaviour
     [SerializeField] private Vector2 areaSize;
     [SerializeField] private List<GameObject> juego;
     [SerializeField] private List<Animator> animators;
+    [SerializeField] private TMP_Text textLoad;
+    [SerializeField] private TMP_Text textTip;
+    public string[] tips;
+
         //1 tigrillo 2 coca 3 siringuero
 
     public int tipoInteraccion;
@@ -20,6 +25,7 @@ public class LoadScreenAnimation : MonoBehaviour
     {
         tipoInteraccion = UnityEngine.Random.Range(0, 3);
         MiniJuegos();
+        StartCoroutine(Consejos());
     }
 
     public void MiniJuegos()
@@ -42,7 +48,10 @@ public class LoadScreenAnimation : MonoBehaviour
             juego[4].SetActive(true);
         }
     }
-    
+    private void OnEnable()
+    {
+        StartCoroutine (Cargando());
+    }
 
     private void Update()
     {
@@ -73,7 +82,35 @@ public class LoadScreenAnimation : MonoBehaviour
         Vector3 localPos = new Vector3(UnityEngine.Random.Range(-w, w), UnityEngine.Random.Range(-h, h), 0);
         juego[1].transform.position = areaSpawn.TransformPoint(localPos);
     }
+    private IEnumerator Cargando()
+    {
+        textLoad.text = "Cargando";
+        yield return new WaitForSeconds(0.5f);
+        textLoad.text = "Cargando .";
+        yield return new WaitForSeconds(0.5f);
+        textLoad.text = "Cargando ..";
+        yield return new WaitForSeconds(0.5f);
+        textLoad.text = "Cargando ...";
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine (Cargando());
+    }
 
+    private IEnumerator Consejos()
+    {
+        CambiarTip();
+        yield return new WaitForSeconds(3.3f);
+        CambiarTip();
+        yield return new WaitForSeconds(3.3f);
+        CambiarTip();
+        yield return new WaitForSeconds(3.3f);
+    }
+    void CambiarTip()
+    {
+        int i;
+        i = UnityEngine.Random.Range(0, tips.Length);
+        textTip.text = tips[i];
+
+    }
     private void SoldadoComiendo()
     {
         if (Input.GetKeyDown(KeyCode.Space))
