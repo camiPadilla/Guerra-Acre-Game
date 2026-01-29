@@ -16,6 +16,7 @@ public class GameStateListener : MonoBehaviour
     public UnityEvent onPausedState;
     public UnityEvent onRCP;
     public UnityEvent OnDialogo;
+    public UnityEvent onLeerNota;
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -67,6 +68,10 @@ public class GameStateListener : MonoBehaviour
         if (NuevoEstadoJuego.stateName == "Dialogo" && OnDialogo != null)
         {
             OnDialogo.Invoke();
+        }
+        if(NuevoEstadoJuego.stateName == "LeerNota" && onLeerNota != null)
+        {
+            onLeerNota.Invoke();
         }
     }
 }

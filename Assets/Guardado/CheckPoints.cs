@@ -40,7 +40,7 @@ public class CheckPoints : ObjetoRecogible
     public void Guardar()
     {
         pantallaGuardado.SetActive(true);
-        GameManager.instancia.CambiarDeEstado(2);
+        GameManager.instancia.CambiarDeEstado(1);
     }
 
     public void SalieGuardar()

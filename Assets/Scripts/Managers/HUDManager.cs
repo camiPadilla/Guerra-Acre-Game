@@ -231,13 +231,15 @@ public class HUDManager : MonoBehaviour
     }
     public void LeerNotaTutorial(Sprite imagenTutorial)
     {
-        masterGameManager.DetenerTiempo();
-        imagenNota.gameObject.SetActive(false);
-        fondoTutorial.gameObject.SetActive(true);
+        menues[0].SetActive(true);
         imagenNota.sprite = imagenTutorial;
+        //masterGameManager.DetenerTiempo();
+        imagenNota.gameObject.SetActive(true);
+        fondoTutorial.gameObject.SetActive(false);
+
         GameManager.instancia.CambiarDeEstado(3);
         HUDGame.SetActive(false);
-        menues[0].SetActive(true);
+        
     }
     public void IniciarDialogo(DialogosSO dialogo)
     {
