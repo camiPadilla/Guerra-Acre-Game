@@ -41,6 +41,7 @@ public class AtaquePersonaje : MonoBehaviour
         _player = GetComponent<PlayerController>();
         miSprite = GetComponent<SpriteManager>();
         miSprite.CambiarArma(seleccionArma);
+        miRigid.simulated = true;
 
     }
 
