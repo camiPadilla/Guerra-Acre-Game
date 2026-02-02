@@ -220,7 +220,7 @@ public class HUDManager : MonoBehaviour
     public void LeerNota(Sprite nuevaImagen)
     {
         masterGameManager.DetenerTiempo();
-        text.text = "";
+        //text.text = "";
         imagenNota.gameObject.SetActive(true);
         fondoTutorial.gameObject.SetActive(false);
         imagenNota.sprite = nuevaImagen;

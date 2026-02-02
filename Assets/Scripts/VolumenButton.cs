@@ -39,11 +39,12 @@ public class VolumeButton : MonoBehaviour
             print("Cargando siguiente nivel: " + master.escenaSiguiente);
         }
     }
+    /*
     public void Guardar(){
         if (master != null)
         {
             master.SaveGame();
         }
     }
-
+    */
 }

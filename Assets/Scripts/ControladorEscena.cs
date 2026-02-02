@@ -39,7 +39,7 @@ public class ControladorEscena : MonoBehaviour
     [SerializeField] TMP_Text nivel;
 
     [Header("Checkpoints")]
-    public int ChPoint;
+    public Vector2 ChPoint;
 
     [Header("Score")]
     public int scVidas;
@@ -152,12 +152,7 @@ public void VolverMenu()
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
- 
-  
-    public void GuardarPartida()
-    {
-        masterGameManager.SaveGame();   
-    }
+
     public void ObtenerNota(NotasSO nota)
     {
         notaNueva = nota;
@@ -175,6 +170,10 @@ public void VolverMenu()
 
         masterGameManager.RecibirScoreFinal(scFinalLvl);
         Debug.Log("Score final calculado: " + scFinalLvl);
+    }
+    public void Guardar()
+    {
+        MasterGameManager.instance.GuardarDesdeCheckpoint(ChPoint);
     }
 
 }

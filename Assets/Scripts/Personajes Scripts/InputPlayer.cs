@@ -62,5 +62,5 @@ public class InputPlayer : MonoBehaviour
     {
         return moviendo;
     }
-
+   
 }

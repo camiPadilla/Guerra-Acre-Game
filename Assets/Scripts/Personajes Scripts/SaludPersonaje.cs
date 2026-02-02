@@ -33,7 +33,7 @@ public class SaludPersonaje : MonoBehaviour
         boxColliderVeneno.enabled = false;
 
         
-        RegresarCheckPoint();
+        //RegresarCheckPoint();
 
         
     }

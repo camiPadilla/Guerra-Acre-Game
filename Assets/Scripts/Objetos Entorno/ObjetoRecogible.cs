@@ -47,7 +47,7 @@ public class ObjetoRecogible : MonoBehaviour
             }
             if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
             {
-                if (nombreObjeto != "NPC" && nombreObjeto != "nota" && nombreObjeto != "Bandera")
+                if (nombreObjeto != "NPC" && nombreObjeto != "nota" )
                 {
 
                     collision.gameObject.SendMessage("RecibirInfo", nombreObjeto);
@@ -60,10 +60,7 @@ public class ObjetoRecogible : MonoBehaviour
                     SendMessage("Leer");
 
                 }
-                else if(nombreObjeto == "Bandera")
-                {
-                    SendMessage("Guardar");
-                }else
+                else
                 {
                     //Debug.Log("hola quisiste interactuar con migo el npc");
                     SendMessage("Interactuar");

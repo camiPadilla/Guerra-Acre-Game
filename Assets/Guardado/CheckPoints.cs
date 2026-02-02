@@ -1,10 +1,14 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class CheckPoints : ObjetoRecogible
+public class CheckPoints : MonoBehaviour
 {
     public int indexCP;
     private bool checkPointActivo;
     public GameObject pantallaGuardado;
+    [SerializeField]private Animator animator;
+    public ControladorEscena controladorEscena;
+    public GameObject ImE;
 
     private bool checkPointSound = true;
 
@@ -17,7 +21,6 @@ public class CheckPoints : ObjetoRecogible
     {
         checkPointActivo = !checkPointActivo;
         animator.SetBool("usado", checkPointActivo);
-
         if (checkPointActivo)
         {
             if (checkPointSound)
@@ -37,7 +40,7 @@ public class CheckPoints : ObjetoRecogible
         return indexCP != anterior.indexCP;
     }
 
-    public void Guardar()
+    public void GuardarUI()
     {
         pantallaGuardado.SetActive(true);
         GameManager.instancia.CambiarDeEstado(1);
@@ -47,5 +50,24 @@ public class CheckPoints : ObjetoRecogible
     {
         pantallaGuardado.SetActive(false);
         GameManager.instancia.CerrarEstado();
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player")) return;
+
+        controladorEscena.ChPoint = transform.position;
+        ImE.SetActive(true);
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        ImE.SetActive(false);
+    }
+    public void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Player")&&other.gameObject.GetComponent<InputPlayer>().getInteractuable())
+        {
+            GuardarUI();
+        }
     }
 }

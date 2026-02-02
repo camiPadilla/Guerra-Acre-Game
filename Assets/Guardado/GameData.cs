@@ -1,28 +1,25 @@
 using System;
-using System.Collections.Generic;
 using TarodevController;
 using UnityEngine;
 
 [Serializable]
 public class GameData
 {
-    public int slotNumber;
-
-    public float[] position = new float[3];
-
+    // Player stats
     public int vidasJugador;
     public int vidasExtras;
     public int balas;
     public int tipoArma;
 
+    // Progreso
     public int currentLevel;
     public string lastScene;
+    public int slot;
+    public int scoreTotal;
     public string lastSceneName;
 
-    public int lastCheckPoint = -1; 
-    public List<bool> checkpointsActivos = new List<bool>();
-
-    public int scoreTotal;
+    // Posición
+    public float[] position;
 
     public GameData(
         SaludPersonaje salud,
@@ -30,18 +27,11 @@ public class GameData
         PlayerController controller,
         int level,
         string scene,
-        int cPoint,
         int slot,
         int score,
-        string lastSName)
+        string sceneName
+    )
     {
-        slotNumber = slot;
-
-        Vector3 pos = controller.transform.position;
-        position[0] = pos.x;
-        position[1] = pos.y;
-        position[2] = pos.z;
-
         vidasJugador = salud.vidasJugador;
         vidasExtras = salud.vidasEXtras;
         balas = ataque.cantidadBalas;
@@ -49,9 +39,12 @@ public class GameData
 
         currentLevel = level;
         lastScene = scene;
-        lastSceneName = lastSName;
-
-        lastCheckPoint = cPoint >= 0 ? cPoint : -1;
+        this.slot = slot;
         scoreTotal = score;
+        lastSceneName = sceneName;
+
+        position = new float[2];
+        position[0] = controller.transform.position.x;
+        position[1] = controller.transform.position.y;
     }
 }

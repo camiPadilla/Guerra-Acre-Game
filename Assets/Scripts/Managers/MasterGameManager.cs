@@ -43,7 +43,8 @@ public class MasterGameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene("MainMenu");
-    }    public void InicializarLista()
+    }
+    public void InicializarLista()
     {
         for(int i= 0;i<14; i++)
         {
@@ -116,11 +117,8 @@ public class MasterGameManager : MonoBehaviour
         }
         if (scene.name != "MainMenu" && gameData != null)
         {
-            StartCoroutine(LoadRestore(gameData));
             scoreFinal = gameData.scoreTotal;
             nEscena = gameData.lastSceneName;
-
-            gameData = null; 
         }
         if (scene.name == "MainMenu")
         {
@@ -131,6 +129,14 @@ public class MasterGameManager : MonoBehaviour
         // Configuración según la escena
         if (scene.name == "EscenaUno")
         {
+            if(gameData == null)
+            {
+                return;
+            }
+            else
+            {
+                StartCoroutine(RestoreAfterLoad(gameData));
+            }
             escenaActual = "EscenaUno";
             escenaSiguiente = "EscenaDos";
             menuInGame.SetActive(true);
@@ -139,6 +145,14 @@ public class MasterGameManager : MonoBehaviour
         }
         else if (scene.name == "EscenaDos")
         {
+            if (gameData == null)
+            {
+                return;
+            }
+            else
+            {
+                StartCoroutine(RestoreAfterLoad(gameData));
+            }
             escenaActual = "EscenaDos";
             escenaSiguiente = "Creditos";
             menuInGame.SetActive(true);
@@ -147,31 +161,13 @@ public class MasterGameManager : MonoBehaviour
         }
     }
 
-    public void ActivarCheckPoint(int index)
-    {
-        if (gameData == null)
-            gameData = new GameData(playerSalud, playerAtaque, playerController, currentLevel, SceneManager.GetActiveScene().name, lastCP, currentSlot, scoreFinal, nEscena);
-
-        // Asegurar que la lista sea suficientemente larga
-        if (index >= gameData.checkpointsActivos.Count)
-        {
-            for (int i = gameData.checkpointsActivos.Count; i <= index; i++)
-                gameData.checkpointsActivos.Add(false);
-        }
-
-        gameData.checkpointsActivos[index] = true;
-        gameData.lastCheckPoint = index;
-
-        SaveGame();
-        Debug.Log(" Checkpoint activado y guardado: " + index);
-    }
-
+    
     public void SaveGame()
     {
         if (gameData == null)
         {
             gameData = new GameData(playerSalud, playerAtaque, playerController,
-                currentLevel, SceneManager.GetActiveScene().name, lastCP,
+                currentLevel, SceneManager.GetActiveScene().name,
                 currentSlot, scoreFinal, nEscena);
         }
 
@@ -183,62 +179,57 @@ public class MasterGameManager : MonoBehaviour
     public void LoadGame(int slot)
     {
         GameData data = SaveLoadSystem.LoadGame(slot);
-        if (data == null) return;
-
-        StartCoroutine(RestoreAfterLoad(data));
-    }
-
-    private IEnumerator LoadRestore(GameData data)
-    {
-        if (string.IsNullOrEmpty(data.lastScene))
+        if (data == null)
         {
-            yield break;
-        }
-        if(SceneManager.GetActiveScene().name != data.lastScene)    {
-            loaderScene.LoadSceneString(data.lastScene);
-
-            yield break;
+            Debug.LogError("No hay datos en el slot");
+            return;
         }
 
-        yield return new WaitForSeconds(0.2f);
+        currentSlot = slot;
+        gameData = data;
 
-        ReferenciasPlayer();
-        yield return RestoreAfterLoad(data);
+        loaderScene.LoadSceneString(data.lastScene);
     }
 
     private IEnumerator RestoreAfterLoad(GameData data)
+
     {
-        yield return new WaitForSeconds(0.2f);
-        yield return new WaitForFixedUpdate();
-        ReferenciasPlayer();
-        playerController.enabled = false;
+        Debug.Log("RESTORE AFTER LOAD EJECUTADO");
+
+        while (playerController == null || playerSalud == null || playerAtaque == null)
+        {
+            ReferenciasPlayer();
+            yield return null;
+        }
 
         Rigidbody2D rb = playerController.GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.zero;
+
+        playerController.enabled = false;
         rb.simulated = false;
+        rb.velocity = Vector2.zero;
 
-        if (data.lastCheckPoint >= 0)
-        {
-            CheckPoints[] cps = FindObjectsOfType<CheckPoints>();
+ 
+        yield return new WaitForFixedUpdate();
+        Debug.Log($"Moviendo jugador a: {data.position[0]}, {data.position[1]}");
 
-            foreach (CheckPoints cp in cps)
-            {
-                if (cp.indexCP == data.lastCheckPoint)
-                {
-                    rb.position = cp.transform.position;
-                    break;
-                }
-            }
-        }
+
+        Vector2 cpPos = new Vector2(data.position[0], data.position[1]);
+        rb.position = cpPos;
+
+
         playerSalud.vidasJugador = data.vidasJugador;
         playerSalud.vidasEXtras = data.vidasExtras;
         playerAtaque.cantidadBalas = data.balas;
         playerAtaque.seleccionArma = data.tipoArma;
 
-        rb.simulated = true;
         yield return new WaitForFixedUpdate();
+
+        rb.simulated = true;
         playerController.enabled = true;
+
+        Debug.Log("SPAWN CORRECTO EN CHECKPOINT: " + cpPos);
     }
+
 
     public void NewGame()
     {
@@ -287,4 +278,27 @@ public class MasterGameManager : MonoBehaviour
     {
         scoreFinal += scoreLvl;
     }
+    public void GuardarDesdeCheckpoint(Vector2 posicion)
+    {
+        if (playerController == null)
+            ReferenciasPlayer();
+
+        gameData = new GameData(
+            playerSalud,
+            playerAtaque,
+            playerController,
+            currentLevel,
+            SceneManager.GetActiveScene().name,
+            currentSlot,
+            scoreFinal,
+            nEscena
+        );
+        gameData.position[0] = posicion.x;
+        gameData.position[1] = posicion.y;
+
+        SaveLoadSystem.SaveGame(gameData, currentSlot);
+        Debug.Log("Checkpoint guardado en: " + posicion);
+    }
+
+
 }
