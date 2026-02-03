@@ -37,7 +37,7 @@ public class MasterGameManager : MonoBehaviour
     
     [SerializeField] List<int> enemigosMuertos = new List<int>();
     [SerializeField] List<int> cajasDestruidas = new List<int>();
-    [SerializeField] List<int> notasRecogidas = new List<int>();
+
     [SerializeField] List<int> objetosRecodigos = new List<int>();
 
     [SerializeField] public int currentSlot; 
@@ -331,7 +331,8 @@ public class MasterGameManager : MonoBehaviour
         gameData.position[1] = posicion.y;
         gameData.cajasDestruidas = cajasDestruidas;
         gameData.enemigosMuertos = enemigosMuertos;
-        gameData.objetosRecogidos = notasRecogidas;
+        gameData.objetosRecogidos = objetosRecodigos;
+   
 
         SaveLoadSystem.SaveGame(gameData, currentSlot);
         Debug.Log("Checkpoint guardado en: " + posicion);
@@ -346,11 +347,7 @@ public class MasterGameManager : MonoBehaviour
         Debug.Log("Registrando enemigo: " + id);
         enemigosMuertos.Add(id);
     }
-    public void NotasRecogidas(int id)
-    {
-        if(!notasRecogidas.Contains(id))
-            notasRecogidas.Add(id);
-    }
+
     public void ObjetosRecogidos(int id)
     {
         if(!objetosRecodigos.Contains(id))
@@ -370,11 +367,6 @@ public class MasterGameManager : MonoBehaviour
                 Destroy(enemigo.gameObject);
         }
 
-        foreach (ControladorNota notas in FindObjectsOfType<ControladorNota>())
-        {
-            if (gameData.notasRecogidas.Contains(notas.idNot))
-                Destroy(notas.gameObject);
-        }
         foreach(ObjetoRecogible obj in FindObjectsOfType<ObjetoRecogible>())
         {
             if (gameData.objetosRecogidos.Contains(obj.objId))

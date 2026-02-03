@@ -8,7 +8,7 @@ public class ControladorNota : ObjetoRecogible
     [SerializeField] string mensajeNota;
     
     [SerializeField] bool tutorial;
-    public int idNot;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -26,7 +26,7 @@ public class ControladorNota : ObjetoRecogible
             ControladorEscena escena = FindFirstObjectByType<ControladorEscena>();
             escena.ObtenerNota(nota);
             HUDManager.instancia.LeerNota(nota.notaImagen);
-            MasterGameManager.instance.NotasRecogidas(idNot);
+            
             this.DestruirObjeto();
         }
         Debug.Log("leyendo nota");

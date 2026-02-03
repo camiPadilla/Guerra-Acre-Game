@@ -7,7 +7,7 @@ public class AguaRespawn : MonoBehaviour
 {
     [SerializeField]
     Transform puntoRespawn;
-
+    public SaludPersonaje perso;
     StudioEventEmitter rioSound;
     [SerializeField] Transform PosicionJugador;
     // Start is called before the first frame update
@@ -31,10 +31,9 @@ public class AguaRespawn : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             SoundEvents.CaerAgua?.Invoke(); //Sonido by Chelo :D
-            SaludPersonaje personaje = collision.gameObject.GetComponent<SaludPersonaje>();
-            personaje.PerderVida(1);
-            personaje.DesactivarInvulnerabilidad();
-            personaje.RegresarCheckPoint();
+            perso.PerderVida(1);
+            perso.DesactivarInvulnerabilidad();
+            perso.RegresarCheckPoint();
             //personaje.transform.position = puntoRespawn.position;
             Debug.Log("checkpoint");
         }

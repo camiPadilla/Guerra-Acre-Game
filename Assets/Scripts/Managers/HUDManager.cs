@@ -265,6 +265,7 @@ public class HUDManager : MonoBehaviour
     public void Reanudar()
     {
         Time.timeScale = 1;
+        pantGuardao.SetActive(false);
         //menuInGame.SetActive(false);
         
     }
