@@ -27,7 +27,8 @@ public class MasterGameManager : MonoBehaviour
     public int lastCP;
     public int AcPoint;
     public int currentLevel = 1;
-    
+    public bool loadingFromSave = false;
+
     [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject menuPausa;
     [SerializeField] GameObject menuScript;
@@ -110,6 +111,9 @@ public class MasterGameManager : MonoBehaviour
 
     private void OnLoadScene(Scene scene, LoadSceneMode mode)
     {
+        if (scene.name == ConstantsGame.SCENELOADINGSCREEN)
+            return;
+
         ReferenciasPlayer();
         if(scene.name == "PantallaTiny")
         {
@@ -126,6 +130,10 @@ public class MasterGameManager : MonoBehaviour
             Debug.Log("Estas en el Main Menu");
             return;
         }
+
+        if (!loadingFromSave)
+            return;
+
         // Configuración según la escena
         if (scene.name == "EscenaUno")
         {
@@ -137,6 +145,7 @@ public class MasterGameManager : MonoBehaviour
             {
                 StartCoroutine(RestoreAfterLoad(gameData));
             }
+            loadingFromSave = false;
             escenaActual = "EscenaUno";
             escenaSiguiente = "EscenaDos";
             menuInGame.SetActive(true);
@@ -153,6 +162,7 @@ public class MasterGameManager : MonoBehaviour
             {
                 StartCoroutine(RestoreAfterLoad(gameData));
             }
+            loadingFromSave = false;
             escenaActual = "EscenaDos";
             escenaSiguiente = "Creditos";
             menuInGame.SetActive(true);
@@ -188,6 +198,7 @@ public class MasterGameManager : MonoBehaviour
         currentSlot = slot;
         gameData = data;
 
+        loadingFromSave = true;
         loaderScene.LoadSceneString(data.lastScene);
     }
 
@@ -207,15 +218,16 @@ public class MasterGameManager : MonoBehaviour
         playerController.enabled = false;
         rb.simulated = false;
         rb.velocity = Vector2.zero;
+        rb.simulated = true;
 
- 
-        yield return new WaitForFixedUpdate();
+
+        //yield return new WaitForFixedUpdate();
         Debug.Log($"Moviendo jugador a: {data.position[0]}, {data.position[1]}");
 
 
         Vector2 cpPos = new Vector2(data.position[0], data.position[1]);
         rb.position = cpPos;
-
+        rb.MovePosition(cpPos);
 
         playerSalud.vidasJugador = data.vidasJugador;
         playerSalud.vidasEXtras = data.vidasExtras;
@@ -224,7 +236,6 @@ public class MasterGameManager : MonoBehaviour
 
         yield return new WaitForFixedUpdate();
 
-        rb.simulated = true;
         playerController.enabled = true;
 
         Debug.Log("SPAWN CORRECTO EN CHECKPOINT: " + cpPos);
