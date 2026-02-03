@@ -862,10 +862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7703f83612009cc48b6a3215db923d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pantCompleta: {fileID: 1586520148}
-  dropCalidad: {fileID: 1558105454}
-  dropResoluciones: {fileID: 817931102}
-  calidad: 0
 --- !u!1 &161451644
 GameObject:
   m_ObjectHideFlags: 0
@@ -14111,6 +14107,10 @@ MonoBehaviour:
     scoreTotal: 0
     lastSceneName: 
     position: []
+    cajasDestruidas: 
+    enemigosMuertos: 
+    objetosRecogidos: 
+    notasRecogidas: 
   nEscena: 
   scoreFinal: 0
   escenaActual: 
@@ -14124,6 +14124,10 @@ MonoBehaviour:
   menuPausa: {fileID: 1249295669}
   menuScript: {fileID: 2004665916}
   menuSc: {fileID: 2004665918}
+  enemigosMuertos: 
+  cajasDestruidas: 
+  notasRecogidas: 
+  objetosRecodigos: 
   currentSlot: 1
 --- !u!4 &1443118210
 Transform:
@@ -20652,6 +20656,9 @@ MonoBehaviour:
   - {fileID: 1488306964}
   - {fileID: 2084375656}
   masterGm: {fileID: 0}
+  dropCalidad: {fileID: 1558105454}
+  dropResoluciones: {fileID: 817931102}
+  pantCompleta: {fileID: 1586520148}
 --- !u!61 &2004665919
 BoxCollider2D:
   m_ObjectHideFlags: 0

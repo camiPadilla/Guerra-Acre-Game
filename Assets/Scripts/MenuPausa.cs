@@ -3,9 +3,10 @@ using JetBrains.Annotations;
 using PantallaCarga;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuPausa : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private GameObject MenuInGame;
     [SerializeField] List<GameObject> pantallaInGame;
     [SerializeField] MasterGameManager masterGm;
+    //para los aujstes de video
+    public TMP_Dropdown dropCalidad;
+    public TMP_Dropdown dropResoluciones;
+    public Toggle pantCompleta;
     void Awake()
     {
         
@@ -31,6 +36,7 @@ public class MenuPausa : MonoBehaviour
         {
             masterGm = FindObjectOfType<MasterGameManager>();
         }
+        CargarUI();
     }
     
     public void OcultarTodo()
@@ -53,6 +59,7 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[4].SetActive(false);
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(false);
+     
 
     }
     public void MostarAjustesGame()
@@ -120,6 +127,7 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[4].SetActive(false);
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(true);
+        
     }
     
     
@@ -133,6 +141,36 @@ public class MenuPausa : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+    void CargarUI()
+    {
+        dropCalidad.value = PlayerPrefs.GetInt("numeroDeCalidad", 3);
+        pantCompleta.isOn = PlayerPrefs.GetInt("pantallaCompleta", 1) == 1;
+
+        Resolution[] res = ControladorVideo.Instance.GetResoluciones();
+        dropResoluciones.ClearOptions();
+
+        List<string> opciones = new List<string>();
+        for (int i = 0; i < res.Length; i++)
+            opciones.Add(res[i].width + " x " + res[i].height);
+
+        dropResoluciones.AddOptions(opciones);
+        dropResoluciones.value = PlayerPrefs.GetInt("numeroResolucion", res.Length - 1);
+    }
+
+    public void OnCambiarCalidad(int v)
+    {
+        ControladorVideo.Instance.SetCalidad(v);
+    }
+
+    public void OnCambiarResolucion(int v)
+    {
+        ControladorVideo.Instance.SetResolucion(v);
+    }
+
+    public void OnPantallaCompleta(bool v)
+    {
+        ControladorVideo.Instance.SetPantallaCompleta(v);
     }
 }
 

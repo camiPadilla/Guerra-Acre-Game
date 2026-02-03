@@ -1,21 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
-using TMPro;
 
 public class ControladorVideo : MonoBehaviour
 {
-    public Toggle pantCompleta;
-    public TMP_Dropdown dropCalidad;
-    public TMP_Dropdown dropResoluciones;
-    public int calidad;
+    public static ControladorVideo Instance;
+
     Resolution[] resoluciones;
 
-    public static ControladorVideo Instance;
-    //[SerializeField] TMP_Text scoreTxt;
-    // Start is called before the first frame update
     private void Awake()
     {
         if (Instance != null)
@@ -23,69 +13,50 @@ public class ControladorVideo : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
     void Start()
     {
-        calidad = PlayerPrefs.GetInt("numeroDeCalidad", 3);
-        dropCalidad.value = calidad;
-        AjustarCalidad();
-
-        pantCompleta.isOn = PlayerPrefs.GetInt("pantallaCompleta", 1) == 1;
-        Screen.fullScreen = pantCompleta.isOn;
-
-        RevisarResoluciones();
+        AplicarDesdePrefs();
     }
 
-    // Update is called once per frame
-    void Update()
+    void AplicarDesdePrefs()
     {
-        
-    }
-    public void ActivarPantallaCompleta(bool pantallaCompleta)
-    {
-        Screen.fullScreen = pantallaCompleta;
-        PlayerPrefs.SetInt("pantallaCompleta", pantallaCompleta ? 1 : 0);
-    }
+        int calidad = PlayerPrefs.GetInt("numeroDeCalidad", 3);
+        QualitySettings.SetQualityLevel(calidad);
 
-    public void AjustarCalidad() {
-        QualitySettings.SetQualityLevel(dropCalidad.value);
-        PlayerPrefs.SetInt("numeroDeCalidad", dropCalidad.value);
-        calidad = dropCalidad.value;
-    }
-    public void RevisarResoluciones()
-    {
+        bool full = PlayerPrefs.GetInt("pantallaCompleta", 1) == 1;
+        Screen.fullScreen = full;
+
         resoluciones = Screen.resolutions;
-        dropResoluciones.ClearOptions();
-
-        List<string> opciones = new List<string>();
-        int resolucionActual = 0;
-
-        for (int i = 0; i < resoluciones.Length; i++)
-        {
-            string opcion = resoluciones[i].width + " x " + resoluciones[i].height;
-            opciones.Add(opcion);
-
-            if (resoluciones[i].width == Screen.currentResolution.width &&
-                resoluciones[i].height == Screen.currentResolution.height)
-            {
-                resolucionActual = i;
-            }
-        }
-
-        dropResoluciones.AddOptions(opciones);
-
-        int guardada = PlayerPrefs.GetInt("numeroResolucion", resolucionActual);
-        dropResoluciones.value = guardada;
-        dropResoluciones.RefreshShownValue();
+        int res = PlayerPrefs.GetInt("numeroResolucion", resoluciones.Length - 1);
+        Resolution r = resoluciones[res];
+        Screen.SetResolution(r.width, r.height, full);
     }
 
-    public void CambiarResolucion(int indiceResolucion)
+    public Resolution[] GetResoluciones()
     {
-        PlayerPrefs.SetInt("numeroResolucion", indiceResolucion);
-        Resolution r = resoluciones[indiceResolucion];
+        return Screen.resolutions;
+    }
+
+    public void SetCalidad(int valor)
+    {
+        QualitySettings.SetQualityLevel(valor);
+        PlayerPrefs.SetInt("numeroDeCalidad", valor);
+    }
+
+    public void SetPantallaCompleta(bool valor)
+    {
+        Screen.fullScreen = valor;
+        PlayerPrefs.SetInt("pantallaCompleta", valor ? 1 : 0);
+    }
+
+    public void SetResolucion(int indice)
+    {
+        Resolution r = Screen.resolutions[indice];
         Screen.SetResolution(r.width, r.height, Screen.fullScreen);
+        PlayerPrefs.SetInt("numeroResolucion", indice);
     }
 }
