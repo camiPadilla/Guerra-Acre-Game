@@ -29,6 +29,8 @@ public abstract class Enemigo_IA : MonoBehaviour
     private bool isFacingRight = false;
     public int currentWayPoint = 0;
     private bool enEspera;
+    //para el guardado
+    public int idEn;
 
     //funcion atacar que sera sobreecrita por sus hijos
     public abstract void Atacar();
@@ -187,6 +189,7 @@ public abstract class Enemigo_IA : MonoBehaviour
             SoundEvents.MorirSiringuero?.Invoke(transform.position.x); //Sound by Chelo :D
             //Animacion de muerte
             GameManager.instancia.ActualizarEnemigosMuertos();
+            MasterGameManager.instance.RegistrarEnemigoMuerto(idEn);
             Destroy(gameObject);
         }
     }

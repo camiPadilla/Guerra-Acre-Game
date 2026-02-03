@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TarodevController;
 using UnityEngine;
 
@@ -20,6 +21,11 @@ public class GameData
 
     // Posición
     public float[] position;
+
+    // Escena
+    public List<int> cajasDestruidas;
+    public List<int> enemigosMuertos;
+    public List<int> objetosRecogidos;
 
     public GameData(
         SaludPersonaje salud,
@@ -46,5 +52,9 @@ public class GameData
         position = new float[2];
         position[0] = controller.transform.position.x;
         position[1] = controller.transform.position.y;
+
+        cajasDestruidas = new List<int>();
+        enemigosMuertos = new List<int>();
+        objetosRecogidos = new List<int>();
     }
 }

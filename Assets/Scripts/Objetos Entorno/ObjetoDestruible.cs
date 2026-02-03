@@ -18,9 +18,9 @@ public class ObjetoDestruible : MonoBehaviour
     SpriteRenderer sprite;
     Color colorInicial;
     private bool destruido = false;
-    
-    
 
+
+    public int idObj;
     bool enContacto = false;
 
     private void Start()
@@ -85,6 +85,8 @@ public class ObjetoDestruible : MonoBehaviour
     }
     public void Esconder()
     {
+        MasterGameManager.instance.RegistrarCajaDestruida(idObj);
         gameObject.SetActive(false);
     }
+    
 }

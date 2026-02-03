@@ -35,7 +35,10 @@ public class MasterGameManager : MonoBehaviour
     [SerializeField] MenuPausa menuSc;
     //[SerializeField] GameObject plape;
     
-    //private string IdNotas[];
+    [SerializeField] List<int> enemigosMuertos = new List<int>();
+    [SerializeField] List<int> cajasDestruidas = new List<int>();
+    [SerializeField] List<int> notasRecogidas = new List<int>();
+
     [SerializeField] public int currentSlot; 
     private void Start()
     {
@@ -241,7 +244,7 @@ public class MasterGameManager : MonoBehaviour
         yield return new WaitForFixedUpdate();
 
         playerController.enabled = true;
-
+        AplicarEstadoNivel(data); //estado de nivel 
         Debug.Log("SPAWN CORRECTO EN CHECKPOINT: " + cpPos);
     }
 
@@ -314,6 +317,40 @@ public class MasterGameManager : MonoBehaviour
         SaveLoadSystem.SaveGame(gameData, currentSlot);
         Debug.Log("Checkpoint guardado en: " + posicion);
     }
+    public void RegistrarCajaDestruida(int id)
+    {
+        if (!cajasDestruidas.Contains(id))
+            cajasDestruidas.Add(id);
+    }
+    public void RegistrarEnemigoMuerto(int id)
+    {
+        Debug.Log("Registrando enemigo: " + id);
+        enemigosMuertos.Add(id);
+    }
+    public void NotasRecogidas(int id)
+    {
+        if(!notasRecogidas.Contains(id))
+            notasRecogidas.Add(id);
+    }
+    public void AplicarEstadoNivel(GameData gameData)
+    {
+        foreach (ObjetoDestruible obj in FindObjectsOfType<ObjetoDestruible>())
+        {
+            if (gameData.cajasDestruidas.Contains(obj.idObj))
+                Destroy(obj.gameObject);
+        }
 
+        foreach (Enemigo_IA enemigo in FindObjectsOfType<Enemigo_IA>())
+        {
+            if (gameData.enemigosMuertos.Contains(enemigo.idEn))
+                Destroy(enemigo.gameObject);
+        }
+
+        foreach (ControladorNota notas in FindObjectsOfType<ControladorNota>())
+        {
+            if (gameData.objetosRecogidos.Contains(notas.idNot))
+                Destroy(notas.gameObject);
+        }
+    }
 
 }

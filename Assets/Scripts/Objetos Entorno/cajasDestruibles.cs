@@ -7,6 +7,7 @@ public class cajasDestruibles : ObjetoDestruible
 
     [SerializeField] bool conLoot;
     private Animator animator;
+    
     private void Start()
     {
         animator = GetComponent<Animator>();
