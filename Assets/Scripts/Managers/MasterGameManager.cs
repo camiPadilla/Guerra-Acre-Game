@@ -38,6 +38,7 @@ public class MasterGameManager : MonoBehaviour
     [SerializeField] List<int> enemigosMuertos = new List<int>();
     [SerializeField] List<int> cajasDestruidas = new List<int>();
     [SerializeField] List<int> notasRecogidas = new List<int>();
+    [SerializeField] List<int> objetosRecodigos = new List<int>();
 
     [SerializeField] public int currentSlot; 
     private void Start()
@@ -141,7 +142,9 @@ public class MasterGameManager : MonoBehaviour
         // Configuración según la escena
         if (scene.name == "EscenaUno")
         {
+            nEscena = "Puerto Alonso";
             menuInGame.SetActive(true);
+
             if (gameData == null)
             {
                 return;
@@ -156,11 +159,12 @@ public class MasterGameManager : MonoBehaviour
             escenaSiguiente = "EscenaDos";
             menuInGame.SetActive(true);
             menuPausa.SetActive(false);
-            nEscena = "Puerto Alonso";
+            
         }
         else if (scene.name == "EscenaDos")
         {
             menuInGame.SetActive(true);
+            nEscena = "Riosinho";
             if (gameData == null)
             {
                 return;
@@ -174,7 +178,7 @@ public class MasterGameManager : MonoBehaviour
             escenaSiguiente = "Creditos";
             menuInGame.SetActive(true);
             menuPausa.SetActive(false);
-            nEscena = "Riosinho";
+           
         }
     }
 
@@ -347,6 +351,11 @@ public class MasterGameManager : MonoBehaviour
         if(!notasRecogidas.Contains(id))
             notasRecogidas.Add(id);
     }
+    public void ObjetosRecogidos(int id)
+    {
+        if(!objetosRecodigos.Contains(id))
+            objetosRecodigos.Add(id);
+    }
     public void AplicarEstadoNivel(GameData gameData)
     {
         foreach (ObjetoDestruible obj in FindObjectsOfType<ObjetoDestruible>())
@@ -363,9 +372,15 @@ public class MasterGameManager : MonoBehaviour
 
         foreach (ControladorNota notas in FindObjectsOfType<ControladorNota>())
         {
-            if (gameData.objetosRecogidos.Contains(notas.idNot))
+            if (gameData.notasRecogidas.Contains(notas.idNot))
                 Destroy(notas.gameObject);
         }
+        foreach(ObjetoRecogible obj in FindObjectsOfType<ObjetoRecogible>())
+        {
+            if (gameData.objetosRecogidos.Contains(obj.objId))
+                Destroy(obj.gameObject);
+        }
+
     }
 
 }

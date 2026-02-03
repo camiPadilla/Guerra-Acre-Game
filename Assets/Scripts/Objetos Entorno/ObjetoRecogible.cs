@@ -10,7 +10,7 @@ public class ObjetoRecogible : MonoBehaviour
     bool desactivado;
     public  Animator animator;
     [SerializeField] GameObject[] variante;
-
+    public int objId;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -71,6 +71,7 @@ public class ObjetoRecogible : MonoBehaviour
     }
     public void DestruirObjeto()
         {
+        MasterGameManager.instance.ObjetosRecogidos(objId);
         gameObject.SetActive(false);
         }
     private void OnTriggerExit2D(Collider2D collision)

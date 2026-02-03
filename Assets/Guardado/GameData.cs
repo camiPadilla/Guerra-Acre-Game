@@ -26,6 +26,7 @@ public class GameData
     public List<int> cajasDestruidas;
     public List<int> enemigosMuertos;
     public List<int> objetosRecogidos;
+    public List<int> notasRecogidas;
 
     public GameData(
         SaludPersonaje salud,
@@ -56,5 +57,6 @@ public class GameData
         cajasDestruidas = new List<int>();
         enemigosMuertos = new List<int>();
         objetosRecogidos = new List<int>();
+        notasRecogidas = new List<int>();
     }
 }

@@ -174,6 +174,7 @@ public void VolverMenu()
     }
     public void Guardar()
     {
+        CalcularScoreFinal();
         MasterGameManager.instance.GuardarDesdeCheckpoint(ChPoint);
         StartCoroutine(GuarEx());
     }
