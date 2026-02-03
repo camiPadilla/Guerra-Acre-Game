@@ -6,57 +6,83 @@ public class ControladorVideo : MonoBehaviour
 
     Resolution[] resoluciones;
 
-    private void Awake()
+    void Awake()
     {
         if (Instance != null)
         {
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
+        resoluciones = Screen.resolutions;
         AplicarDesdePrefs();
     }
 
     void AplicarDesdePrefs()
     {
-        int calidad = PlayerPrefs.GetInt("numeroDeCalidad", 3);
-        QualitySettings.SetQualityLevel(calidad);
+        // ===== CALIDAD =====
+        int calidad = PlayerPrefs.GetInt("numeroDeCalidad", QualitySettings.GetQualityLevel());
+        QualitySettings.SetQualityLevel(calidad, true);
 
+        // ===== PANTALLA COMPLETA =====
         bool full = PlayerPrefs.GetInt("pantallaCompleta", 1) == 1;
-        Screen.fullScreen = full;
+        Screen.fullScreenMode = full
+            ? FullScreenMode.FullScreenWindow
+            : FullScreenMode.Windowed;
 
-        resoluciones = Screen.resolutions;
-        int res = PlayerPrefs.GetInt("numeroResolucion", resoluciones.Length - 1);
-        Resolution r = resoluciones[res];
-        Screen.SetResolution(r.width, r.height, full);
+        // ===== RESOLUCIÓN =====
+        int resIndex = PlayerPrefs.GetInt("numeroResolucion", resoluciones.Length - 1);
+        Resolution r = resoluciones[resIndex];
+
+        Screen.SetResolution(r.width, r.height, Screen.fullScreenMode);
     }
 
-    public Resolution[] GetResoluciones()
-    {
-        return Screen.resolutions;
-    }
+    // ================== UI ==================
 
     public void SetCalidad(int valor)
     {
-        QualitySettings.SetQualityLevel(valor);
         PlayerPrefs.SetInt("numeroDeCalidad", valor);
+        PlayerPrefs.Save();
+
+        QualitySettings.SetQualityLevel(valor, true);
     }
 
     public void SetPantallaCompleta(bool valor)
     {
-        Screen.fullScreen = valor;
         PlayerPrefs.SetInt("pantallaCompleta", valor ? 1 : 0);
+        PlayerPrefs.Save();
+
+        Screen.fullScreen = valor;
     }
 
     public void SetResolucion(int indice)
     {
-        Resolution r = Screen.resolutions[indice];
-        Screen.SetResolution(r.width, r.height, Screen.fullScreen);
         PlayerPrefs.SetInt("numeroResolucion", indice);
+        PlayerPrefs.Save();
+
+        AplicarResolucionActual();
+    }
+
+    void AplicarResolucionActual()
+    {
+        int indice = PlayerPrefs.GetInt("numeroResolucion", resoluciones.Length - 1);
+        Resolution r = resoluciones[indice];
+
+        Screen.SetResolution(
+            r.width,
+            r.height,
+            Screen.fullScreenMode
+        );
+    }
+
+    public Resolution[] GetResoluciones()
+    {
+        return resoluciones;
     }
 }

@@ -19,6 +19,10 @@ public class MenuPausa : MonoBehaviour
     public TMP_Dropdown dropCalidad;
     public TMP_Dropdown dropResoluciones;
     public Toggle pantCompleta;
+    void OnEnable()
+    {
+        StartCoroutine(InitVideoSeguro());
+    }
     void Awake()
     {
         
@@ -36,7 +40,7 @@ public class MenuPausa : MonoBehaviour
         {
             masterGm = FindObjectOfType<MasterGameManager>();
         }
-        CargarUI();
+        
     }
     
     public void OcultarTodo()
@@ -129,8 +133,21 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[6].SetActive(true);
         
     }
-    
-    
+
+    IEnumerator InitVideoSeguro()
+    {
+        yield return null;
+
+        if (ControladorVideo.Instance == null)
+        {
+            Debug.LogError("ControladorVideo no existe");
+            yield break;
+        }
+
+        InicializarVideoUI();
+        ConectarEventosVideo();
+    }
+
     public void IrMenuInicio()
     {
         masterGm.IrMenu();
@@ -142,21 +159,45 @@ public class MenuPausa : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
-    void CargarUI()
+    void InicializarVideoUI()
     {
-        dropCalidad.value = PlayerPrefs.GetInt("numeroDeCalidad", 3);
-        pantCompleta.isOn = PlayerPrefs.GetInt("pantallaCompleta", 1) == 1;
+        // CALIDAD
+        dropCalidad.SetValueWithoutNotify(
+            PlayerPrefs.GetInt("numeroDeCalidad", QualitySettings.GetQualityLevel())
+        );
 
+        // PANTALLA COMPLETA
+        pantCompleta.SetIsOnWithoutNotify(
+            PlayerPrefs.GetInt("pantallaCompleta", 1) == 1
+        );
+
+        // RESOLUCIONES
         Resolution[] res = ControladorVideo.Instance.GetResoluciones();
         dropResoluciones.ClearOptions();
 
         List<string> opciones = new List<string>();
         for (int i = 0; i < res.Length; i++)
-            opciones.Add(res[i].width + " x " + res[i].height);
+            opciones.Add($"{res[i].width} x {res[i].height}");
 
         dropResoluciones.AddOptions(opciones);
-        dropResoluciones.value = PlayerPrefs.GetInt("numeroResolucion", res.Length - 1);
+
+        int resActual = PlayerPrefs.GetInt("numeroResolucion", res.Length - 1);
+        dropResoluciones.SetValueWithoutNotify(resActual);
+
+        dropResoluciones.RefreshShownValue();
+        dropCalidad.RefreshShownValue();
     }
+    void ConectarEventosVideo()
+    {
+        dropCalidad.onValueChanged.RemoveAllListeners();
+        dropResoluciones.onValueChanged.RemoveAllListeners();
+        pantCompleta.onValueChanged.RemoveAllListeners();
+
+        dropCalidad.onValueChanged.AddListener(OnCambiarCalidad);
+        dropResoluciones.onValueChanged.AddListener(OnCambiarResolucion);
+        pantCompleta.onValueChanged.AddListener(OnPantallaCompleta);
+    }
+
 
     public void OnCambiarCalidad(int v)
     {
