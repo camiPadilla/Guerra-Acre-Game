@@ -41,6 +41,7 @@ public class AtaquePersonaje : MonoBehaviour
         _player = GetComponent<PlayerController>();
         miSprite = GetComponent<SpriteManager>();
         miSprite.CambiarArma(seleccionArma);
+        miRigid.simulated = true;
 
     }
 
@@ -147,7 +148,7 @@ public class AtaquePersonaje : MonoBehaviour
     void InstanciarProyectiles()
     {
         trayectoria = Instantiate(prefabPiedraFalsa, transform.position, Quaternion.identity);
-        //piedraCola.Clear();
+        piedraCola.Clear();
         trayectoria.SetActive(false);
         while (piedraCola.Count < cantidadPiedras)
         {
@@ -200,7 +201,7 @@ public class AtaquePersonaje : MonoBehaviour
             if (espera)
             {
                 espera = false;
-                StartCoroutine(EsperaTrayectoria());
+                //StartCoroutine(EsperaTrayectoria());
                 TirarPiedraFalsa();
             }
             if (fuerzatiro <= fuerzaMaxima)

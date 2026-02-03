@@ -1,6 +1,7 @@
+using PantallaCarga;
 using System.Collections;
 using System.Collections.Generic;
-using PantallaCarga;
+using TarodevController;
 using UnityEngine;
 
 public class FinalNivel : MonoBehaviour
@@ -8,9 +9,12 @@ public class FinalNivel : MonoBehaviour
     [SerializeField] private GameObject pantallaProgreso;
     public bool finalizado = false;
     [SerializeField] ControladorEscena contEs;
+    [SerializeField] PlayerController player;
     public void Start()
     {
-
+        if (player == null) { 
+            player = FindAnyObjectByType<PlayerController>();
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -20,6 +24,7 @@ public class FinalNivel : MonoBehaviour
         {
             print("holaa");
             finalizado = true;
+            player.Detener();
             contEs.CalcularScoreFinal();
             pantallaProgreso.SetActive(true);
             GameManager.instancia.CambiarDeEstado(5);
