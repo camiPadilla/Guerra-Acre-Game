@@ -220,31 +220,43 @@ public class MasterGameManager : MonoBehaviour
             yield return null;
         }
 
+
+        yield return new WaitForEndOfFrame();
+
         Rigidbody2D rb = playerController.GetComponent<Rigidbody2D>();
 
         playerController.enabled = false;
-        rb.simulated = false;
-        rb.velocity = Vector2.zero;
-        rb.simulated = true;
 
-
+        Vector2 cpPos = new Vector2(data.position[0], data.position[1]);
         //yield return new WaitForFixedUpdate();
         Debug.Log($"Moviendo jugador a: {data.position[0]}, {data.position[1]}");
 
+        rb.simulated = false;
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        //rb.simulated = true;
+        rb.transform.position = cpPos;
+        rb.simulated = true;
 
-        Vector2 cpPos = new Vector2(data.position[0], data.position[1]);
-        rb.position = cpPos;
-        rb.MovePosition(cpPos);
 
         playerSalud.vidasJugador = data.vidasJugador;
         playerSalud.vidasEXtras = data.vidasExtras;
         playerAtaque.cantidadBalas = data.balas;
         playerAtaque.seleccionArma = data.tipoArma;
 
+        if (HUDManager.instancia != null)
+        {
+            HUDManager.instancia.ActualizarVida(playerSalud.vidasJugador);
+            HUDManager.instancia.ActualizarArmadura(playerSalud.vidasEXtras);
+
+            HUDManager.instancia.ActualizarBalasActual(playerAtaque.cantidadBalas);
+            HUDManager.instancia.ActualizarArma(playerAtaque.seleccionArma);
+        }
+
         yield return new WaitForFixedUpdate();
 
         playerController.enabled = true;
-        AplicarEstadoNivel(data); //estado de nivel 
+        AplicarEstadoNivel(data);
         Debug.Log("SPAWN CORRECTO EN CHECKPOINT: " + cpPos);
     }
 
@@ -313,6 +325,9 @@ public class MasterGameManager : MonoBehaviour
         );
         gameData.position[0] = posicion.x;
         gameData.position[1] = posicion.y;
+        gameData.cajasDestruidas = cajasDestruidas;
+        gameData.enemigosMuertos = enemigosMuertos;
+        gameData.objetosRecogidos = notasRecogidas;
 
         SaveLoadSystem.SaveGame(gameData, currentSlot);
         Debug.Log("Checkpoint guardado en: " + posicion);
