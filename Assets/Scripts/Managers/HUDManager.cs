@@ -13,6 +13,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] GameObject interactuable;
     [SerializeField] DialogosManager dialogosManager;
     [SerializeField] TMP_Text text;
+    [SerializeField] TextMeshProUGUI text2;
     [SerializeField] UnityEngine.UI.Image imagenNota;
     [SerializeField] GameObject fondoTutorial;
     [SerializeField] GameObject mensajeE;
@@ -288,4 +289,5 @@ public class HUDManager : MonoBehaviour
     {
         pantGuardao.SetActive(false);
     }
+    
 }

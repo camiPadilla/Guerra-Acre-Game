@@ -32,6 +32,7 @@ public class MasterGameManager : MonoBehaviour
     [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject menuPausa;
     [SerializeField] GameObject menuScript;
+    [SerializeField] MenuPausa menuSc;
     //[SerializeField] GameObject plape;
     
     //private string IdNotas[];
@@ -91,7 +92,7 @@ public class MasterGameManager : MonoBehaviour
     public void Despausar()
     {
 
-        menuPausa.SetActive(false);
+        menuSc.OcultarTodo();
 
     }
 
@@ -126,7 +127,7 @@ public class MasterGameManager : MonoBehaviour
         }
         if (scene.name == "MainMenu")
         {
-            menuInGame.SetActive(false);
+            menuInGame.SetActive(true);
             Debug.Log("Estas en el Main Menu");
             return;
         }
@@ -137,7 +138,8 @@ public class MasterGameManager : MonoBehaviour
         // Configuración según la escena
         if (scene.name == "EscenaUno")
         {
-            if(gameData == null)
+            menuInGame.SetActive(true);
+            if (gameData == null)
             {
                 return;
             }
@@ -145,6 +147,7 @@ public class MasterGameManager : MonoBehaviour
             {
                 StartCoroutine(RestoreAfterLoad(gameData));
             }
+
             loadingFromSave = false;
             escenaActual = "EscenaUno";
             escenaSiguiente = "EscenaDos";
@@ -154,6 +157,7 @@ public class MasterGameManager : MonoBehaviour
         }
         else if (scene.name == "EscenaDos")
         {
+            menuInGame.SetActive(true);
             if (gameData == null)
             {
                 return;

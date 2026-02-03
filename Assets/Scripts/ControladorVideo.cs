@@ -13,8 +13,20 @@ public class ControladorVideo : MonoBehaviour
     public int calidad;
     Resolution[] resoluciones;
 
-    [SerializeField] TMP_Text scoreTxt;
+    public static ControladorVideo Instance;
+    //[SerializeField] TMP_Text scoreTxt;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         calidad = PlayerPrefs.GetInt("numeroDeCalidad", 3);

@@ -311,9 +311,13 @@ public class AtaquePersonaje : MonoBehaviour
         enAccion = true;
         Proyectil balaActual = balaCola.Dequeue();
         Vector3 puntoIncial = new Vector3(transform.position.x+dirX, transform.position.y + dirY+1, transform.position.z);
+        float angulo = Mathf.Atan2(dirY, dirX) * Mathf.Rad2Deg;
         balaActual.Reposicionar(puntoIncial);
         balaActual.ActivarProyectil();
+        balaActual.transform.rotation = Quaternion.Euler(0, 0, angulo);
         balaActual.Impulso(fuerzaDisparo, dirX, dirY);
+        
+        
         enAccion = false;
     }
     public void EndDiapro()

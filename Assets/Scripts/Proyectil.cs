@@ -18,12 +18,12 @@ public class Proyectil : Arma
     // Start is called before the first frame update
     void Start()
     {
-        
+
         piedraRigid = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    
+
     public void Instanciar(AtaquePersonaje nuevoPersonaje)
     {
         personaje = nuevoPersonaje;
@@ -55,8 +55,8 @@ public class Proyectil : Arma
         //Debug.Log(enUso);
         if (enUso && !collision.transform.CompareTag("Player"))
         {
-            if(!CompareTag("falso"))
-            DesactivarProyectil();
+            if (!CompareTag("falso"))
+                DesactivarProyectil();
             //if (collision.transform.CompareTag("Destruible"))
             //{
             //    collision.gameObject.GetComponent<ObjetoDestruible>().Daño();

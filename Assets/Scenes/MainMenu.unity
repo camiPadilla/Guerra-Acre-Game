@@ -6783,7 +6783,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 934808821}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ControladorVideo, Assembly-CSharp
         m_MethodName: AjustarCalidad
         m_Mode: 1
@@ -10497,7 +10497,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 934808821}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ControladorVideo, Assembly-CSharp
         m_MethodName: CambiarResolucion
         m_Mode: 3
@@ -10613,14 +10613,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 934808818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7703f83612009cc48b6a3215db923d83, type: 3}
+  m_Script: {fileID: 11500000, guid: 1271c4934f5644b43a4fcfc32f1f5cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pantCompleta: {fileID: 1674237066}
   dropCalidad: {fileID: 639804341}
   dropResoluciones: {fileID: 912848598}
-  calidad: 0
-  scoreTxt: {fileID: 0}
+  pantCompleta: {fileID: 1674237066}
 --- !u!1 &938149888
 GameObject:
   m_ObjectHideFlags: 0
@@ -15813,7 +15811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1390015267
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17020,7 +17018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1447711989
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19218,7 +19216,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 934808821}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ControladorVideo, Assembly-CSharp
         m_MethodName: ActivarPantallaCompleta
         m_Mode: 0

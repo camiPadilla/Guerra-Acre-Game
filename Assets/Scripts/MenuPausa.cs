@@ -42,6 +42,7 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[4].SetActive(false);
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(false);
+        pantallaInGame[7].SetActive(false);
     }
     public void PausarGame()
     {
@@ -73,6 +74,7 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[4].SetActive(false);
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(false);
+        pantallaInGame[7].SetActive(false);
     }
     public void MostrarControlesGame()
     {
@@ -119,6 +121,7 @@ public class MenuPausa : MonoBehaviour
         pantallaInGame[5].SetActive(false);
         pantallaInGame[6].SetActive(true);
     }
+    
     
     public void IrMenuInicio()
     {

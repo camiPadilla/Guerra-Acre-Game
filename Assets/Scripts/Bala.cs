@@ -7,6 +7,7 @@ public class Bala : Arma
     int direccion; 
     [SerializeField] float fuerzaBala;
     [SerializeField] bool enUso;
+    [SerializeField] GameObject dire;
     bool Personaje;
     [SerializeField] Rigidbody2D balaRigid;
     // Start is called before the first frame update
@@ -22,7 +23,10 @@ public class Bala : Arma
     }
     public void Impulso()
     {
-        balaRigid.AddForce(new Vector3());
+        
+        //balaRigid.velocity = dir * fuerzaBala* Time.deltaTime;
+        float angulo = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angulo);
     }
 
 
