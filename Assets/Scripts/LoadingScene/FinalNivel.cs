@@ -29,7 +29,9 @@ public class FinalNivel : MonoBehaviour
             pantallaProgreso.SetActive(true);
             GameManager.instancia.CambiarDeEstado(5);
             //Aparece pantalla de progreso supongo
-            
+            SoundEvents.DetenerPasosPasto.Invoke(); //Sonido by Chelo :D
+            SoundEvents.DetenerMusica.Invoke(); //By Chelo
+            SoundEvents.PlayVictory.Invoke(); //Sound by Chelo
         }
     }
    

@@ -61,7 +61,28 @@ public class EnvironmentSounds : MonoBehaviour
         SoundEvents.LeerSimple += ReproducirLeerNota;
     }
 
+    private void OnDisable()
+    {
+        SoundEvents.DestruirObjeto -= ReproducirDestruirObjeto;
 
+        SoundEvents.RecogerNota -= RecogerNota;
+        SoundEvents.HablarAliadoNPC -= ReproducirAliadoNPC;
+
+        SoundEvents.RecogerArma -= RecogerArma;
+        SoundEvents.RecogerBalas -= RecogerBalas;
+        SoundEvents.RecogerVida -= RecogerVida;
+        SoundEvents.EquiparArmadura -= RecogerArmadura;
+
+        SoundEvents.ArrastrarObjeto -= ArrastrarObjeto;
+        SoundEvents.DetenerArrastrarObjeto -= DetenerArrastrarObjeto;
+
+        SoundEvents.CheckpointActivado -= ActivarCheckpoint;
+
+        SoundEvents.CaerAgua -= ReproducirSplash;
+        SoundEvents.LeerColeccionable -= ReproducirLeerColeccionable;
+        SoundEvents.DetenerColeccionable -= DetenerLeerNota;
+        SoundEvents.LeerSimple -= ReproducirLeerNota;
+    }
     //SONIDO DE DESTRUIR CAJA
     public void ReproducirDestruirObjeto(float posicionObjeto, int tipo)
     {

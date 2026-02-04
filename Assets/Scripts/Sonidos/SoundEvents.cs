@@ -77,6 +77,7 @@ public static class SoundEvents
 
     //Detener Musica
     public static Action DetenerMusica;
+    public static Action PlayVictory;
 
     //Pause Sound
     public static Action PauseSound;

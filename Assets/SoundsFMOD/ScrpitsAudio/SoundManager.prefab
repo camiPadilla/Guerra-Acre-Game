@@ -595,6 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  mosquito: {fileID: 0}
   morirMosquitoEmitter:
     Guid:
       Data1: 815772303
@@ -602,13 +603,6 @@ MonoBehaviour:
       Data3: 1232007553
       Data4: -1278741862
     Path: event:/ENEMIGOS/Mosquito/MorirMosquito
-  vueloMosquito:
-    Guid:
-      Data1: 1661787082
-      Data2: 1122142370
-      Data3: 1082946690
-      Data4: 204297627
-    Path: event:/ENEMIGOS/Mosquito/VueloMosquito
   disparoEnemigo:
     Guid:
       Data1: 1027750505
@@ -656,6 +650,13 @@ MonoBehaviour:
       Data3: 64599946
       Data4: 1224638656
     Path: event:/MUSIC/Levels/Nivel2
+  musicVictory:
+    Guid:
+      Data1: -2040637729
+      Data2: 1245306834
+      Data3: 545955477
+      Data4: 249052089
+    Path: event:/MUSIC/Victory
 --- !u!114 &7297093326133695048
 MonoBehaviour:
   m_ObjectHideFlags: 0

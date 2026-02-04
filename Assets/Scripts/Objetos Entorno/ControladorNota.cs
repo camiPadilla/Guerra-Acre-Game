@@ -8,6 +8,7 @@ public class ControladorNota : ObjetoRecogible
     [SerializeField] string mensajeNota;
     
     [SerializeField] bool tutorial;
+    bool yaLeyendo = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -36,9 +37,18 @@ public class ControladorNota : ObjetoRecogible
         }
         
         SoundEvents.DetenerPasosPasto.Invoke(); //Sonido by Chelo :D
-        if (nota.name.ToLower().Contains("null")) SoundEvents.LeerSimple.Invoke();
-        else SoundEvents.LeerColeccionable.Invoke(); //Sonido by Chelo :D
+
+        if (yaLeyendo) return;
+        yaLeyendo = true;
+        Invoke(nameof(ResetLeer), 1f);
+        if (gameObject.CompareTag("Coleccionable"))
+            SoundEvents.LeerColeccionable.Invoke();
+        else
+        {
+            SoundEvents.LeerSimple.Invoke(); //Sonido by Chelo :D
+        }
     }
+    void ResetLeer() => yaLeyendo = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
