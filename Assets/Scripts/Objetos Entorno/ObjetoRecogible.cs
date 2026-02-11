@@ -11,6 +11,8 @@ public class ObjetoRecogible : MonoBehaviour
     public  Animator animator;
     [SerializeField] GameObject[] variante;
     public int objId;
+    public TutorialObjeto tuto;
+    public bool tutOb;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -47,13 +49,23 @@ public class ObjetoRecogible : MonoBehaviour
             }
             if (collision.gameObject.GetComponent<InputPlayer>().getInteractuable())
             {
+                if(nombreObjeto == "botiquin" || nombreObjeto == "arma")
+                {
+                    if(tutOb == true)
+                    {
+                        Debug.Log("Soy un tutorial");
+                        tuto.TutorialObjUI();
+                    }
+                }
                 if (nombreObjeto != "NPC" && nombreObjeto != "nota" )
                 {
-
+                    Debug.Log("hola");
+                    
                     collision.gameObject.SendMessage("RecibirInfo", nombreObjeto);
                     DestruirObjeto();
                     desactivado = true;
                 }
+                
                 else if (nombreObjeto == "nota")
                 {
 
