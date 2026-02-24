@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class SlotButton : MonoBehaviour
 {
@@ -25,11 +26,20 @@ public class SlotButton : MonoBehaviour
         ActualizarVisual();
     }
 
+    private void SetTriggerEnabled(bool state)
+    {
+        if (TryGetComponent<EventTrigger>(out EventTrigger trigger))
+        {
+            trigger.enabled = state;
+        }
+    }
     public void ActualizarVisual()
     {
         if (SaveLoadSystem.HasSave(slotId))
         {
             GameData data = SaveLoadSystem.LoadGame(slotId);
+
+            SetTriggerEnabled(false);
 
             botonGuardado.SetActive(true);
             texto.text = "Partida " + slotId;
@@ -41,6 +51,7 @@ public class SlotButton : MonoBehaviour
         }
         else
         {
+            SetTriggerEnabled(true);
             botonGuardado.SetActive(false);
             newButton.gameObject.SetActive(true);
             textButton.text = "Nueva partida";
