@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7713782134440039763}
   - component: {fileID: 1880997171796389439}
   - component: {fileID: 7838270383857213478}
-  - component: {fileID: 5067385120025965300}
+  - component: {fileID: 9102586064461024765}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -61,13 +61,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8174f6438a5c4cd5952c423e83c827a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolumeREF: {fileID: 0}
-  musicFaderREF: {fileID: 0}
-  SFXFaderREF: {fileID: 0}
+  uiSoundManager: {fileID: 0}
   masterVolume: {fileID: 0}
   musicFader: {fileID: 0}
   SFXFader: {fileID: 0}
---- !u!114 &5067385120025965300
+--- !u!114 &9102586064461024765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,12 +74,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 4948443466666871306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13646ee7c095d40349c1afa33a0648fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a7ee6d4d6c495f4da8a4ef683a326ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolumeREF: {fileID: 0}
-  musicFaderREF: {fileID: 0}
-  SFXFaderREF: {fileID: 0}
-  masterVolume: {fileID: 0}
-  musicFader: {fileID: 0}
-  SFXFader: {fileID: 0}
+  hoverEvent:
+    Guid:
+      Data1: -547904109
+      Data2: 1116880011
+      Data3: -488020859
+      Data4: -277872320
+    Path: event:/UI/Hover
+  clickEvent:
+    Guid:
+      Data1: -405801184
+      Data2: 1329629384
+      Data3: -177178464
+      Data4: -91092934
+    Path: event:/UI/Clic
+  click2Event:
+    Guid:
+      Data1: -547904109
+      Data2: 1116880011
+      Data3: -488020859
+      Data4: -277872320
+    Path: event:/UI/Hover
+  hoverJochi:
+    Guid:
+      Data1: 1656085011
+      Data2: 1128360245
+      Data3: 935637656
+      Data4: 504310757
+    Path: event:/UI/Hover_Jochi
+  borrar:
+    Guid:
+      Data1: 1365709598
+      Data2: 1264023430
+      Data3: 1388242826
+      Data4: 1455954215
+    Path: event:/UI/Borrar
+  iniciar:
+    Guid:
+      Data1: 1240685736
+      Data2: 1119531845
+      Data3: 659943334
+      Data4: 474965992
+    Path: event:/UI/Iniciar

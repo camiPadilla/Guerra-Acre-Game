@@ -28,7 +28,7 @@ public class TrayectoriaScr : MonoBehaviour
     }
     private void OnEnable()
     {
-        lineRenderer.enabled = true; // Activar el LineRenderer cuando el objeto esté activado
+        //lineRenderer.enabled = true; // Activar el LineRenderer cuando el objeto esté activado
     }
     private void FixedUpdate()
     {
