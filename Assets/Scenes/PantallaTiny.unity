@@ -2408,51 +2408,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322880673}
   m_CullTransparentMesh: 1
---- !u!1 &333725351 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4948443466666871306, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-  m_PrefabInstance: {fileID: 721047777}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &333725354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333725351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a7ee6d4d6c495f4da8a4ef683a326ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverEvent:
-    Guid:
-      Data1: -547904109
-      Data2: 1116880011
-      Data3: -488020859
-      Data4: -277872320
-    Path: event:/UI/Hover
-  clickEvent:
-    Guid:
-      Data1: -405801184
-      Data2: 1329629384
-      Data3: -177178464
-      Data4: -91092934
-    Path: event:/UI/Clic
-  click2Event:
-    Guid:
-      Data1: -547904109
-      Data2: 1116880011
-      Data3: -488020859
-      Data4: -277872320
-    Path: event:/UI/Hover
-  hoverJochi:
-    Guid:
-      Data1: 1656085011
-      Data2: 1128360245
-      Data3: 935637656
-      Data4: 504310757
-    Path: event:/UI/Hover_Jochi
 --- !u!1 &334115667
 GameObject:
   m_ObjectHideFlags: 0
@@ -6873,14 +6828,10 @@ PrefabInstance:
       propertyPath: EventReference.Guid.Data4
       value: 1812252629
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5067385120025965300, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4948443466666871306, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 333725354}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46eb506a46feff6449b9c418e5057751, type: 3}
 --- !u!1 &741263140
 GameObject:
@@ -14126,7 +14077,6 @@ MonoBehaviour:
   menuSc: {fileID: 2004665918}
   enemigosMuertos: 
   cajasDestruidas: 
-  notasRecogidas: 
   objetosRecodigos: 
   currentSlot: 1
 --- !u!4 &1443118210
@@ -20632,6 +20582,20 @@ MonoBehaviour:
       Data3: 935637656
       Data4: 504310757
     Path: event:/UI/Hover_Jochi
+  borrar:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  iniciar:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &2004665918
 MonoBehaviour:
   m_ObjectHideFlags: 0

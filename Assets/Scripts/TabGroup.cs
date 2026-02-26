@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 public class TabGroup : MonoBehaviour
 {
     public List<TabButtom> tabButtons;
@@ -32,8 +33,16 @@ public class TabGroup : MonoBehaviour
     }
     public void OnTabSelected(TabButtom button)
     {
+
         selectButtom = button;
         ResetTabs();
+
+        // Desactivar el Event Trigger del botón seleccionado by Chelo
+        if (button.TryGetComponent<EventTrigger>(out EventTrigger trigger))
+        {
+            trigger.enabled = false;
+        }
+
         button.background.color = tabActive;
         
         int index = button.transform.GetSiblingIndex();
@@ -53,6 +62,13 @@ public class TabGroup : MonoBehaviour
     {
         foreach (TabButtom button in tabButtons)
         {
+            // Reactivar el Event Trigger en todos los que NO sean el seleccionado by Chelo
+            if (button.TryGetComponent<EventTrigger>(out EventTrigger trigger))
+            {
+                // Si es el seleccionado, queda apagado. Si no, se enciende.
+                trigger.enabled = (selectButtom == null || button != selectButtom);
+            }
+
             if (selectButtom != null && button == selectButtom) { continue; }
             button.background.color = Color.black;
         }

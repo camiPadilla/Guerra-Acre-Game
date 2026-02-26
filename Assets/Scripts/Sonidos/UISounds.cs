@@ -10,6 +10,8 @@ public class UISounds : MonoBehaviour
     [SerializeField] EventReference clickEvent;
     [SerializeField] EventReference click2Event;
     [SerializeField] EventReference hoverJochi;
+    [SerializeField] EventReference borrar;
+    [SerializeField] EventReference iniciar;
     private void OnEnable()
     {
         SoundEvents.PauseSound += PlayClick;
@@ -41,5 +43,15 @@ public class UISounds : MonoBehaviour
     {
         if (!hoverJochi.IsNull)
             RuntimeManager.PlayOneShot(hoverJochi);
+    }
+    public void PlayBorrar()
+    {
+        if (!borrar.IsNull)
+            RuntimeManager.PlayOneShot(borrar);
+    }
+    public void PlayIniciar()
+    {
+        if (!iniciar.IsNull)
+            RuntimeManager.PlayOneShot(iniciar);
     }
 }

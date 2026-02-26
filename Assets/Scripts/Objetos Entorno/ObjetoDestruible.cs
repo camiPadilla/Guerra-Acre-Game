@@ -33,7 +33,11 @@ public class ObjetoDestruible : MonoBehaviour
         
         vidas = vidas - cantidad;
         StartCoroutine("PerderVida");
-        if (vidas <= 0)
+
+        if (vidas > 0)
+            SoundEvents.GolpearObjeto?.Invoke(transform.position.x, (int)tipo);
+
+        else if (vidas <= 0)
         {
 
             SoundEvents.DestruirObjeto?.Invoke(transform.position.x, (int)tipo);

@@ -14,6 +14,7 @@ public class EnvironmentSounds : MonoBehaviour
     [SerializeField] Proyectil piedra;
 
     [SerializeField] StudioEventEmitter destruirObjetoEmitter;
+    [SerializeField] StudioEventEmitter golpearObjetoEmitter;
 
     [SerializeField] StudioEventEmitter notaSoundEmitter;
     [SerializeField] StudioEventEmitter aliadoEmitter;
@@ -41,6 +42,7 @@ public class EnvironmentSounds : MonoBehaviour
     private void OnEnable()
     {
         SoundEvents.DestruirObjeto += ReproducirDestruirObjeto;
+        SoundEvents.GolpearObjeto += ReproducirGolpearObjeto;
 
         SoundEvents.RecogerNota += RecogerNota;
         SoundEvents.HablarAliadoNPC += ReproducirAliadoNPC;
@@ -64,6 +66,7 @@ public class EnvironmentSounds : MonoBehaviour
     private void OnDisable()
     {
         SoundEvents.DestruirObjeto -= ReproducirDestruirObjeto;
+        SoundEvents.GolpearObjeto -= ReproducirGolpearObjeto;
 
         SoundEvents.RecogerNota -= RecogerNota;
         SoundEvents.HablarAliadoNPC -= ReproducirAliadoNPC;
@@ -99,11 +102,24 @@ public class EnvironmentSounds : MonoBehaviour
             destruirObjetoEmitter.EventInstance.setParameterByName("Panner", -(distNormalizado));
             destruirObjetoEmitter.EventInstance.setParameterByName("Tipo", tipo);
             //Debug.Log("Valor actual del emiter: " + tipo);
-
-
         }
     }
+    public void ReproducirGolpearObjeto(float posicionObjeto, int tipo)
+    {
+        if (golpearObjetoEmitter != null)
+        {
+            golpearObjetoEmitter.Play();
 
+            float distancia = ataquePersonaje.transform.position.x - posicionObjeto;
+            Debug.Log("Distancia: " + distancia);
+
+            float distNormalizado = distancia / 8;
+            //Debug.Log("Distancia Normalizada: " + distNormalizado);
+            golpearObjetoEmitter.EventInstance.setParameterByName("Panner", -(distNormalizado));
+            golpearObjetoEmitter.EventInstance.setParameterByName("Tipo", tipo);
+            //Debug.Log("Valor actual del emiter: " + tipo);
+        }
+    }
     public void RecogerNota()
     {
         if (notaSoundEmitter != null)
