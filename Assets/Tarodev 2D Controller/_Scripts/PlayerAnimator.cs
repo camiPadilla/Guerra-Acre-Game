@@ -255,6 +255,10 @@ namespace TarodevController
             main.startColor = _currentGradient;
         }
 
+        public void Arrastrar()
+        {
+            newAnim.SetBool("arrastrando", true);
+        }
         public void AtaqueMacheteAn()
         {
             newAnim.SetTrigger("ataqueMachete");

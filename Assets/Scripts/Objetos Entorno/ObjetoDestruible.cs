@@ -18,8 +18,7 @@ public class ObjetoDestruible : MonoBehaviour
     SpriteRenderer sprite;
     Color colorInicial;
     private bool destruido = false;
-
-
+    private bool cooldownDano = false;
     public int idObj;
     bool enContacto = false;
 
@@ -30,9 +29,12 @@ public class ObjetoDestruible : MonoBehaviour
     }
     public void Damage(int cantidad)
     {
-        
+        if (cooldownDano)
+            return;
+
         vidas = vidas - cantidad;
         StartCoroutine("PerderVida");
+        StartCoroutine(Cooldown());
 
         if (vidas > 0)
             SoundEvents.GolpearObjeto?.Invoke(transform.position.x, (int)tipo);
@@ -52,6 +54,12 @@ public class ObjetoDestruible : MonoBehaviour
             }
 
         }    
+    }
+    IEnumerator Cooldown()
+    {
+        cooldownDano = true;
+        yield return new WaitForSeconds(0.5f);
+        cooldownDano = false;
     }
     IEnumerator PerderVida()
     {

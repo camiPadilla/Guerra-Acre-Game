@@ -32,11 +32,22 @@ public class ObjetoMovible : MonoBehaviour
                 HUDManager.instancia.MostrarInteraccion(transform.position, GetComponent<SpriteRenderer>().bounds.extents.y, "movible");
                 PlayerController controladorMovimiento = collision.gameObject.GetComponent<PlayerController>();
                 if (collision.gameObject.GetComponent<InputPlayer>().GetMoviendo())
-                {
+                {                   
                     tag = "movible";
                     HUDManager.instancia.Ocultar();
                     miCuerpo.mass = 10f;
+                    controladorMovimiento.Detener();
                     Movimiento(controladorMovimiento);
+
+                    if (!arrastrando)
+                    {
+                        arrastrando = true;
+                        SoundEvents.ArrastrarObjeto?.Invoke();
+                    } 
+                }
+                else if (!collision.gameObject.GetComponent<InputPlayer>().GetMoviendo())
+                {
+                    DetenerObjeto(controladorMovimiento);
                 }
             }
         }
@@ -64,11 +75,7 @@ public class ObjetoMovible : MonoBehaviour
             jugadorMovimiento.enabled = false;
 
             //ADDED BY CHELO :D
-            if (!arrastrando)
-            {
-                arrastrando = true;
-                SoundEvents.ArrastrarObjeto?.Invoke();
-            }
+          
 
         }
         if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
@@ -76,32 +83,19 @@ public class ObjetoMovible : MonoBehaviour
             miCuerpo.velocity = new Vector2(3, miCuerpo.velocity.y);
             
             jugadorMovimiento.enabled = false;
-            //ADDED BY CHELO :D
-            if (!arrastrando)
-            {
-                arrastrando = true;
-                SoundEvents.ArrastrarObjeto?.Invoke();
-            }
+           
         }
         if (direccionX > 0 && Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje))
         {
             //ADDED BY CHELO :D
             jugadorMovimiento.enabled = true;
-            if (arrastrando)
-            {
-                arrastrando = false;
-                SoundEvents.ArrastrarObjeto?.Invoke();
-            }
+          
         }
         if (direccionX < 0 && Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
         {
             //ADDED BY CHELO :D
             jugadorMovimiento.enabled = true;
-            if (arrastrando)
-            {
-                arrastrando = false;
-                SoundEvents.ArrastrarObjeto?.Invoke();
-            }
+           
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -115,6 +109,7 @@ public class ObjetoMovible : MonoBehaviour
     }
     private void DetenerObjeto(PlayerController jugadorMovimiento)
     {
+        arrastrando = false;
         jugadorMovimiento.enabled = true;
         miCuerpo.mass = 100f;
         miCuerpo.velocity = Vector2.zero;
