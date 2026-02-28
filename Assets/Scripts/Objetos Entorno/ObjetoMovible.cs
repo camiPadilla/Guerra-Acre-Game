@@ -25,6 +25,8 @@ public class ObjetoMovible : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        PlayerAnimator anim = collision.gameObject.GetComponentInChildren<PlayerAnimator>();
+
         if (collision.transform.CompareTag("Player"))
         {
             if (Physics2D.Raycast(transform.position, Vector2.left, distanciaRaycast, personaje) || Physics2D.Raycast(transform.position, Vector2.right, distanciaRaycast, personaje))
@@ -35,13 +37,14 @@ public class ObjetoMovible : MonoBehaviour
                 {                   
                     tag = "movible";
                     HUDManager.instancia.Ocultar();
-                    miCuerpo.mass = 10f;
+                    miCuerpo.mass = 20f;
                     controladorMovimiento.Detener();
                     Movimiento(controladorMovimiento);
 
                     if (!arrastrando)
                     {
                         arrastrando = true;
+                        anim.Arrastrar();
                         SoundEvents.ArrastrarObjeto?.Invoke();
                     } 
                 }
@@ -109,6 +112,9 @@ public class ObjetoMovible : MonoBehaviour
     }
     private void DetenerObjeto(PlayerController jugadorMovimiento)
     {
+        var anim = jugadorMovimiento.GetComponentInChildren<PlayerAnimator>();
+        if (anim != null) anim.DetenerArrastre();
+
         arrastrando = false;
         jugadorMovimiento.enabled = true;
         miCuerpo.mass = 100f;

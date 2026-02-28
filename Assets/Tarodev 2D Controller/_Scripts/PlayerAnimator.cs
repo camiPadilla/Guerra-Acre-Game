@@ -259,6 +259,11 @@ namespace TarodevController
         {
             newAnim.SetBool("arrastrando", true);
         }
+        public void DetenerArrastre()
+        {
+            newAnim.SetBool("arrastrando", false);
+        }
+
         public void AtaqueMacheteAn()
         {
             newAnim.SetTrigger("ataqueMachete");
