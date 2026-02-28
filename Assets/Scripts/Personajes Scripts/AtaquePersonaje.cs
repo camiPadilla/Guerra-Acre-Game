@@ -251,6 +251,7 @@ public class AtaquePersonaje : MonoBehaviour
             
             if (balasActual > 0)
             {
+                animator.DisparoArma();
                 SoundEvents.DisparoEnemigo?.Invoke(transform.position.x); //Sound By Chelo :D
                 Disparar();
                 balasActual--;
@@ -271,6 +272,7 @@ public class AtaquePersonaje : MonoBehaviour
         int totalBalas = GetComponent<InventarioManager>().GetBalas();
         if (totalBalas > 0)
         {
+            animator.RecargaArma();
             SoundEvents.RecargarBalas.Invoke(); //Sound By Chelo :D
             StartCoroutine(nameof(TiempoRecarga), 2);
             totalBalas -= (5 - balasActual);

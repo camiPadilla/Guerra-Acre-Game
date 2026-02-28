@@ -37,7 +37,7 @@ public class ObjetoMovible : MonoBehaviour
                 {                   
                     tag = "movible";
                     HUDManager.instancia.Ocultar();
-                    miCuerpo.mass = 20f;
+                    miCuerpo.mass = 15f;
                     controladorMovimiento.Detener();
                     Movimiento(controladorMovimiento);
 
