@@ -121,19 +121,24 @@ public void Awake()
     public void SiguienteNivel()
     {
         if (HUD != null) HUD.SetActive(false);
+
         gameManager.CambiarDeEstado(0);
-        SoundEvents.DetenerMusica?.Invoke(); //Sonido by Chelo :D
+        SoundEvents.DetenerMusica?.Invoke();
+
         switch (sceneIndex)
         {
             case 1:
-                loaderScene.LoadSceneString(ConstantsGame.SCENADOS);
+
+                MasterGameManager.instance.IrACinematica(2, ConstantsGame.SCENADOS);
                 break;
+
             case 2:
-                loaderScene.LoadSceneString(ConstantsGame.SCENECREDITS);
+  
+                MasterGameManager.instance.IrACinematica(4, ConstantsGame.SCENECREDITS);
                 break;
         }
     }
-public void VolverMenu()
+    public void VolverMenu()
     {
         masterGameManager.IrMenu();
     }

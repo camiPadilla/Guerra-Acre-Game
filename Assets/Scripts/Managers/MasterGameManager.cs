@@ -28,31 +28,37 @@ public class MasterGameManager : MonoBehaviour
     public int AcPoint;
     public int currentLevel = 1;
     public bool loadingFromSave = false;
+    public int idCinematicaActual;
+    public string escenaDestinoDespuesDeCinematica;
+    private Coroutine currentCoroutine;
 
     [SerializeField] GameObject menuInGame;
     [SerializeField] GameObject menuPausa;
     [SerializeField] GameObject menuScript;
     [SerializeField] MenuPausa menuSc;
     //[SerializeField] GameObject plape;
-    
+
     [SerializeField] List<int> enemigosMuertos = new List<int>();
     [SerializeField] List<int> cajasDestruidas = new List<int>();
 
     [SerializeField] List<int> objetosRecodigos = new List<int>();
 
-    [SerializeField] public int currentSlot; 
+    [SerializeField] public int currentSlot;
     private void Start()
     {
+
         InicializarLista();
     }
-    IEnumerator IniJuego()
+    public IEnumerator IniJuego()
     {
+
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene("MainMenu");
+        idCinematicaActual = 0;
+        loaderScene.LoadSceneString(ConstantsGame.CINEMATICA);
     }
     public void InicializarLista()
     {
-        for(int i= 0;i<14; i++)
+        for (int i = 0; i < 14; i++)
         {
             notasObtenidas.Add(notaVacia);
         }
@@ -71,6 +77,27 @@ public class MasterGameManager : MonoBehaviour
 
         ReferenciasPlayer();
         SceneManager.sceneLoaded += OnLoadScene;
+    }
+    public void IrACinematica(int idCinematica, string escenaDestino)
+    {
+        idCinematicaActual = idCinematica;
+        escenaDestinoDespuesDeCinematica = escenaDestino;
+        loaderScene.LoadSceneString(ConstantsGame.CINEMATICA);
+    }
+    public void StartManagedCoroutine(IEnumerator coroutine)
+    {
+        if (currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
+        currentCoroutine = StartCoroutine(coroutine);
+    }
+    public void CancelarTransiciones()
+    {
+        if(currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+            currentCoroutine = null;
+        }
+        StopAllCoroutines();
     }
     public void AsignarMenuPausa(GameObject menu)
     {
@@ -123,6 +150,7 @@ public class MasterGameManager : MonoBehaviour
         if(scene.name == "PantallaTiny")
         {
             StartCoroutine(IniJuego());
+            return;
         }
         if (scene.name != "MainMenu" && gameData != null)
         {
@@ -275,7 +303,7 @@ public class MasterGameManager : MonoBehaviour
 
         SaveLoadSystem.DeleteSlot(currentSlot);
         scoreFinal = 0;
-        loaderScene.LoadSceneString(ConstantsGame.SCENAUNO);
+        IrACinematica(1, "EscenaUno");
     }
 
 
@@ -291,10 +319,14 @@ public class MasterGameManager : MonoBehaviour
     }
     public void IrMenu()
     {
+        CancelarTransiciones();
+
         SoundEvents.DetenerMusica?.Invoke();
         loaderScene.LoadSceneString(ConstantsGame.SCENEMAINMENU);
 
-        Destroy(HUDManager.instancia.gameObject);
+        if (HUDManager.instancia != null)
+            Destroy(HUDManager.instancia.gameObject);
+
         Time.timeScale = 1;
     }
 
