@@ -15,5 +15,6 @@ namespace PantallaCarga
         public const string SCENECREDITS = "Creditos"; 
         public const string SCENESAVELOAD = "SaveLoadSettings";
         //----------------------- 
+        public const string CINEMATICA = "Cinematicas";
     }
 }
