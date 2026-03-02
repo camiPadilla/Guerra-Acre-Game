@@ -51,10 +51,8 @@ public class MasterGameManager : MonoBehaviour
     }
     public IEnumerator IniJuego()
     {
-
         yield return new WaitForSeconds(5f);
-        idCinematicaActual = 0;
-        loaderScene.LoadSceneString(ConstantsGame.CINEMATICA);
+        IrACinematica(0, ConstantsGame.SCENEMAINMENU);
     }
     public void InicializarLista()
     {
