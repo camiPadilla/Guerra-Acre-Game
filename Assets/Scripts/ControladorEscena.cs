@@ -24,6 +24,7 @@ public class ControladorEscena : MonoBehaviour
     [SerializeField] GameObject HUD;
     [SerializeField] HUDManager hudManager;
     [SerializeField] TextMeshProUGUI text2;
+    [SerializeField] TextMeshProUGUI textObj;
 
     [Header("UI Textos pantalla fin")]
     public TMP_Text textVidas;
@@ -69,12 +70,14 @@ public void Awake()
                 break;
             case 1:
                 nameScene = ConstantsGame.SCENAUNO;
+                textObj.text = "Objetivo: Ve al campamento y recoge las notas";
                 hudManager.Bienvenido();
                 nomNivel.text = "Puerto Alonso";
                 nivel.text = "Nivel 1";
                 break;
             case 2:
                 nameScene = ConstantsGame.SCENADOS;
+                textObj.text = "Abrete paso y reunete con tus compañeros";
                 hudManager.Bienvenido();
                 nomNivel.text = "Riosinho";
                 nivel.text = "Nivel 2";

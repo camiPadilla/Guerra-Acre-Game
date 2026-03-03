@@ -4743,6 +4743,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 65fdac76e6db1f547be9a563a2500d65, type: 3}
     - target: {fileID: 4184934546936084362, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4184934546936084362, guid: c5270cd37becc47468ebedc98a16ef73, type: 3}
       propertyPath: m_MaskAlphaCutoff
       value: 0.04
       objectReference: {fileID: 0}
@@ -15171,6 +15175,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a89918618155ce4499763482f7264a9, type: 3}
+--- !u!114 &939473262 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8320997919114011428, guid: 23b9b686994cc24499546145001e8582, type: 3}
+  m_PrefabInstance: {fileID: 9119972749497904106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &945943876
 GameObject:
   m_ObjectHideFlags: 0
@@ -30018,6 +30033,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 327883079}
     - target: {fileID: 5744782137003336282, guid: c4043dcf48b0dc74db6711afd895c291, type: 3}
+      propertyPath: textObj
+      value: 
+      objectReference: {fileID: 939473262}
+    - target: {fileID: 5744782137003336282, guid: c4043dcf48b0dc74db6711afd895c291, type: 3}
       propertyPath: nomNivel
       value: 
       objectReference: {fileID: 9119972749497904108}
@@ -30708,6 +30727,22 @@ PrefabInstance:
     - target: {fileID: 1576619053952493428, guid: 8dd034819dc8a0e4388037b585c9afe0, type: 3}
       propertyPath: m_Name
       value: tutorial1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622390953848813971, guid: 8dd034819dc8a0e4388037b585c9afe0, type: 3}
+      propertyPath: m_Size.x
+      value: 4.668047
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622390953848813971, guid: 8dd034819dc8a0e4388037b585c9afe0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4446781
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622390953848813971, guid: 8dd034819dc8a0e4388037b585c9afe0, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.68581843
+      objectReference: {fileID: 0}
+    - target: {fileID: 4622390953848813971, guid: 8dd034819dc8a0e4388037b585c9afe0, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.22233903
       objectReference: {fileID: 0}
     - target: {fileID: 5453528855448351670, guid: 8dd034819dc8a0e4388037b585c9afe0, type: 3}
       propertyPath: m_LocalPosition.x

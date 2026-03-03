@@ -138,7 +138,7 @@ public class SaludPersonaje : MonoBehaviour
     }
     public void Curarse(int cura)
     {
-        if (vidasJugador > 5)
+        if (vidasJugador + cura >= 6)
         {
             vidasJugador = 6;
         }
