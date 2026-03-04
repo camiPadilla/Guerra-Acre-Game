@@ -9,7 +9,7 @@ public class ObjetoMovible : MonoBehaviour
     [SerializeField] float distanciaRaycast;
 
     private bool arrastrando = false;
-
+    [SerializeField] private bool caja = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +62,7 @@ public class ObjetoMovible : MonoBehaviour
         {
                 Debug.Log("te mato una piedra");
             Debug.Log(collision.transform.name);
+            if(!caja)
             collision.gameObject.GetComponentInParent<SaludPersonaje>().PerderVida(6);
    
         }
