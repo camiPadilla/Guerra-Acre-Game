@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TarodevController;
-using UnityEngine;
+
 
 [Serializable]
 public class GameData
@@ -11,6 +11,7 @@ public class GameData
     public int vidasExtras;
     public int balas;
     public int tipoArma;
+
 
     // Progreso
     public int currentLevel;
@@ -43,6 +44,7 @@ public class GameData
         vidasExtras = salud.vidasEXtras;
         balas = ataque.cantidadBalas;
         tipoArma = ataque.seleccionArma;
+ 
 
         currentLevel = level;
         lastScene = scene;

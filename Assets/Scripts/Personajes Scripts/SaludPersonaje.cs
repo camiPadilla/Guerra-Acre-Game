@@ -9,7 +9,7 @@ public class SaludPersonaje : MonoBehaviour
     public int vidasEXtras = 0;
     bool invulnerabilidad;
     [SerializeField] float tiempoInvulnerable;
-    [SerializeField] private GameObject ultimoCheckPoint;
+    [SerializeField] public GameObject ultimoCheckPoint;
     [SerializeField] private BoxCollider boxColliderVeneno;
     [SerializeField] private BoxCollider boxColliderHerido;
     [SerializeField] private Animator animatorVeneno;

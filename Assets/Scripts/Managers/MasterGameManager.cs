@@ -10,7 +10,7 @@ public class MasterGameManager : MonoBehaviour
 {
     public static MasterGameManager instance;
 
-    public SaludPersonaje playerSalud;
+    public SaludPersonaje playerSalud, check;
     public AtaquePersonaje playerAtaque;
     public PlayerController playerController;
     public LoaderScene loaderScene;
