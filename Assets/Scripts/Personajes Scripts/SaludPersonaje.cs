@@ -116,6 +116,7 @@ public class SaludPersonaje : MonoBehaviour
         boxColliderVeneno.enabled = false;
         //ActivarHerido(false);
         HUDManager.instancia.ActualizarVida(vidasJugador);
+        GameManager.instancia.CambiarDeEstado(0);
 
     }
 

@@ -82,10 +82,13 @@ public class ObjetoRecogible : MonoBehaviour
         }
     }
     public void DestruirObjeto()
+    {
+        if(nombreObjeto != "NPC")
         {
-        MasterGameManager.instance.ObjetosRecogidos(objId);
-        gameObject.SetActive(false);
-        }
+            MasterGameManager.instance.ObjetosRecogidos(objId);
+            gameObject.SetActive(false);
+        }    
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player") && gameObject !=null && (HUDManager.instancia != null))
