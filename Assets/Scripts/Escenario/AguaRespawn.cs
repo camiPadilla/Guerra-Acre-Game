@@ -26,7 +26,7 @@ public class AguaRespawn : MonoBehaviour
             rioSound.EventInstance.setParameterByName("RioPanner", -distNormalizado);
         }
     }
-    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
+    private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
