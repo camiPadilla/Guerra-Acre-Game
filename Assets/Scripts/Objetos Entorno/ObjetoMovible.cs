@@ -118,7 +118,7 @@ public class ObjetoMovible : MonoBehaviour
 
         arrastrando = false;
         jugadorMovimiento.enabled = true;
-        miCuerpo.mass = 100f;
+        miCuerpo.mass = 50f;
         miCuerpo.velocity = Vector2.zero;
         SoundEvents.DetenerArrastrarObjeto?.Invoke(); // Sonido by Chelo :D
     }

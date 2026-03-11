@@ -221,7 +221,14 @@ public class MasterGameManager : MonoBehaviour
         SaveLoadSystem.SaveGame(gameData, currentSlot);
         Debug.Log($"Juego guardado en slot {currentSlot}");
     }
-
+    public void MandarScoreFinal()
+    {
+        ControladorEscena ct = ControladorEscena.FindFirstObjectByType<ControladorEscena>();
+        if(gameData != null)
+        {
+            ct.scFinalLvl = gameData.scoreTotal;
+        }
+    }
 
     public void LoadGame(int slot)
     {
@@ -288,6 +295,7 @@ public class MasterGameManager : MonoBehaviour
         playerController.enabled = true;
         AplicarEstadoNivel(data);
         Debug.Log("SPAWN CORRECTO EN CHECKPOINT: " + cpPos);
+        MandarScoreFinal();
     }
 
 
@@ -399,7 +407,7 @@ public class MasterGameManager : MonoBehaviour
 
         foreach(ObjetoRecogible obj in FindObjectsOfType<ObjetoRecogible>())
         {
-            if (gameData.objetosRecogidos.Contains(obj.objId))
+            if (gameData.objetosRecogidos.Contains(obj.objId) && obj.objId!=0)
                 Destroy(obj.gameObject);
         }
 

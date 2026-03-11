@@ -83,7 +83,7 @@ public class ObjetoRecogible : MonoBehaviour
     }
     public void DestruirObjeto()
     {
-        if(nombreObjeto != "NPC")
+        if(!gameObject.CompareTag("NPC") && nombreObjeto != "NPC")
         {
             MasterGameManager.instance.ObjetosRecogidos(objId);
             gameObject.SetActive(false);

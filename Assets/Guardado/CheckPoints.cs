@@ -50,6 +50,7 @@ public class CheckPoints : MonoBehaviour
     {
         pantallaGuardado.SetActive(false);
         GameManager.instancia.CerrarEstado();
+        Time.timeScale = 1;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -67,6 +68,7 @@ public class CheckPoints : MonoBehaviour
     {
         if (other.CompareTag("Player")&&other.gameObject.GetComponent<InputPlayer>().getInteractuable())
         {
+            Time.timeScale = 0;
             GuardarUI();
         }
     }

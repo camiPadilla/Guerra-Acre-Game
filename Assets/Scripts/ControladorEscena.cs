@@ -137,7 +137,7 @@ public void Awake()
 
             case 2:
   
-                MasterGameManager.instance.IrACinematica(4, ConstantsGame.SCENECREDITS);
+                MasterGameManager.instance.IrACinematica(3, ConstantsGame.SCENECREDITS);
                 break;
         }
     }
