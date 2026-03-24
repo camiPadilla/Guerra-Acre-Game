@@ -4357,7 +4357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &503238171
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14041,6 +14041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSalud: {fileID: 0}
+  check: {fileID: 0}
   playerAtaque: {fileID: 0}
   playerController: {fileID: 0}
   loaderScene: {fileID: 1088460306}
@@ -14071,6 +14072,8 @@ MonoBehaviour:
   AcPoint: 0
   currentLevel: 1
   loadingFromSave: 0
+  idCinematicaActual: 0
+  escenaDestinoDespuesDeCinematica: 
   menuInGame: {fileID: 1168924882}
   menuPausa: {fileID: 1249295669}
   menuScript: {fileID: 2004665916}
