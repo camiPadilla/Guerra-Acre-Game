@@ -186,34 +186,21 @@ public void Awake()
         MasterGameManager.instance.GuardarDesdeCheckpoint(ChPoint);
         StartCoroutine(GuarEx());
     }
-    public IEnumerator GuarEx()
-    {
-        float duration = 0.5f;
-        float t = 0f;
-
-     
-        while (t < duration)
-        {
-            text2.alpha = Mathf.Lerp(0f, 1f, t / duration);
-            t += Time.deltaTime;
-            yield return null;
-        }
-
+    public IEnumerator GuarEx() {
+        float duration = 0.5f; 
+        float t = 0f; 
+        while (t < duration) { 
+            text2.alpha = Mathf.Lerp(0f, 1f, t / duration); 
+            t += Time.deltaTime; yield return null; 
+        } 
         text2.alpha = 1f;
-
         yield return new WaitForSeconds(2f);
-
-      
         t = 0f;
-        while (t < duration)
-        {
+        while (t < duration) { 
             text2.alpha = Mathf.Lerp(1f, 0f, t / duration);
             t += Time.deltaTime;
-            yield return null;
-        }
-
-        text2.alpha = 0f;
+            yield return null; 
+        } 
+        text2.alpha = 0f; 
     }
-
-
 }
